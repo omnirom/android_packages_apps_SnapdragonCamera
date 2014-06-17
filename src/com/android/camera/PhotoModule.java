@@ -909,6 +909,8 @@ public class PhotoModule
                     return;
                 }
 
+                mUI.doShutterAnimation();
+
                 if (mLongshotSave) {
                     mCameraDevice.takePicture(mHandler,
                             new LongshotShutterCallback(),
@@ -1786,6 +1788,7 @@ public class PhotoModule
         // need to re-initialize mGraphView to show histogram on rotate
         mGraphView = (GraphView)mRootView.findViewById(R.id.graph_view);
         if(mGraphView != null){
+            mGraphView.setAlpha(0.75f);
             mGraphView.setPhotoModuleObject(this);
             mGraphView.PreviewChanged();
         }
@@ -3733,6 +3736,7 @@ public class PhotoModule
         }
         skinToneSeekBar.setProgress(progress);
         mActivity.findViewById(R.id.linear).bringToFront();
+        mActivity.findViewById(R.id.progress).setVisibility(View.GONE);
         skinToneSeekBar.bringToFront();
         Title.setText("Skin Tone Enhancement");
         Title.setVisibility(View.VISIBLE);
