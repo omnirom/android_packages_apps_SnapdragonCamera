@@ -2451,6 +2451,10 @@ public class PhotoModule
         }
     }
 
+    public void updatePreviewThumbnail() {
+        mUI.updatePreviewThumbnail();
+    }
+
     private void setDisplayOrientation() {
         mDisplayRotation = CameraUtil.getDisplayRotation(mActivity);
         mDisplayOrientation = CameraUtil.getDisplayOrientation(mDisplayRotation, mCameraId);
