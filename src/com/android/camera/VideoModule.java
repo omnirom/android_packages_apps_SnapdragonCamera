@@ -686,8 +686,10 @@ public class VideoModule implements CameraModule,
 
         if (stop) {
             onStopVideoRecording();
+            mUI.showUIafterRecording();
         } else {
             startVideoRecording();
+            mUI.hideUIwhileRecording();
         }
 
         // Keep the shutter button disabled when in video capture intent
@@ -1022,6 +1024,7 @@ public class VideoModule implements CameraModule,
     private void setDisplayOrientation() {
         mDisplayRotation = CameraUtil.getDisplayRotation(mActivity);
         mCameraDisplayOrientation = CameraUtil.getDisplayOrientation(mDisplayRotation, mCameraId);
+        mUI.setDisplayOrientation(mCameraDisplayOrientation);
         // Change the camera display orientation
         if (mCameraDevice != null) {
             mCameraDevice.setDisplayOrientation(mCameraDisplayOrientation);
@@ -1176,10 +1179,10 @@ public class VideoModule implements CameraModule,
         if (mMediaRecorderRecording) {
             onStopVideoRecording();
             return true;
-        } else if (mUI.hidePieRenderer()) {
+        } else if (mUI.hideSwitcherPopup()) {
             return true;
         } else {
-            return mUI.removeTopLevelPopup();
+            return mUI.onBackPressed();
         }
     }
 
