@@ -22,7 +22,6 @@ package com.android.camera;
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.preference.PreferenceManager;
@@ -105,6 +104,7 @@ public class CustomVideoMenu extends MenuController
                 CameraSettings.KEY_VIDEO_DURATION,
                 CameraSettings.KEY_RECORD_LOCATION,
                 CameraSettings.KEY_CAMERA_SAVEPATH,
+                CameraSettings.KEY_COLOR_EFFECT,
                 CameraSettings.KEY_WHITE_BALANCE,
                 CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
                 CameraSettings.KEY_VIDEOCAMERA_FLASH_MODE
@@ -114,6 +114,7 @@ public class CustomVideoMenu extends MenuController
                 CameraSettings.KEY_VIDEO_DURATION,
                 CameraSettings.KEY_RECORD_LOCATION,
                 CameraSettings.KEY_CAMERA_SAVEPATH,
+                CameraSettings.KEY_COLOR_EFFECT,
                 CameraSettings.KEY_WHITE_BALANCE,
                 CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
                 CameraSettings.KEY_VIDEOCAMERA_FLASH_MODE,
@@ -467,19 +468,12 @@ public class CustomVideoMenu extends MenuController
         WindowManager wm = (WindowManager) mActivity.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         CharSequence[] entries = pref.getEntries();
-
-        Resources r = mActivity.getResources();
-        int height = (int) (r.getDimension(R.dimen.filter_mode_height) + 2
-                * r.getDimension(R.dimen.filter_mode_padding) + 1);
-        int width = (int) (r.getDimension(R.dimen.filter_mode_width) + 2
-                * r.getDimension(R.dimen.filter_mode_padding) + 1);
-
         int gridRes = 0;
         boolean portrait = (rotation == 0) || (rotation == 180);
-        int size = height;
+        int size = Math.min(display.getWidth(), display.getHeight()) * 35 / 100;
         if (portrait) {
             gridRes = R.layout.vertical_grid;
-            size = width;
+            size = Math.min(display.getWidth(), display.getHeight()) * 30 / 100;
         } else {
             gridRes = R.layout.horiz_grid;
         }
