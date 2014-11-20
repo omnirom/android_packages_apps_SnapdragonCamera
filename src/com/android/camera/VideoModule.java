@@ -28,6 +28,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.SurfaceTexture;
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
@@ -51,7 +52,6 @@ import android.provider.MediaStore.Video;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.OrientationEventListener;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -1057,11 +1057,9 @@ public class VideoModule implements CameraModule,
         Log.v(TAG, "startPreview");
         mStartPrevPending = true;
 
-        SurfaceHolder sh = null;
-        Log.v(TAG, "startPreview: SurfaceHolder (MDP path)");
-        sh = mUI.getSurfaceHolder();
-
-        if (!mPreferenceRead || mPaused == true || mCameraDevice == null) {
+        SurfaceTexture surfaceTexture = mUI.getSurfaceTexture();
+        if (!mPreferenceRead || surfaceTexture == null || mPaused == true ||
+                mCameraDevice == null) {
             mStartPrevPending = false;
             return;
         }
@@ -1076,7 +1074,7 @@ public class VideoModule implements CameraModule,
         setCameraParameters();
 
         try {
-            mCameraDevice.setPreviewDisplay(sh);
+            mCameraDevice.setPreviewTexture(surfaceTexture);
             mCameraDevice.startPreview();
             mPreviewing = true;
             onPreviewStarted();

@@ -22,6 +22,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.SurfaceTexture;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera.Parameters;
 import android.os.Handler;
@@ -29,15 +30,15 @@ import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.SurfaceHolder;
-import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
+import android.view.TextureView;
+import android.view.TextureView.SurfaceTextureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
-import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,14 +61,14 @@ import org.codeaurora.snapcam.R;
 public class VideoUI implements PieRenderer.PieListener,
         PreviewGestures.SingleTapListener,
         CameraRootView.MyDisplayListener,
-        SurfaceHolder.Callback,
+        SurfaceTextureListener, SurfaceHolder.Callback,
         PauseButton.OnPauseButtonListener {
     private static final String TAG = "CAM_VideoUI";
     private static final int UPDATE_TRANSFORM_MATRIX = 1;
     // module fields
     private CameraActivity mActivity;
     private View mRootView;
-    private SurfaceHolder mSurfaceHolder;
+    private TextureView mTextureView;
     // An review image having same size as preview. It is displayed when
     // recording is stopped in capture intent.
     private ImageView mReviewImage;
@@ -91,6 +92,7 @@ public class VideoUI implements PieRenderer.PieListener,
     private OnScreenIndicators mOnScreenIndicators;
     private RotateLayout mRecordingTimeRect;
     private boolean mRecordingStarted = false;
+    private SurfaceTexture mSurfaceTexture;
     private VideoController mController;
     private int mZoomMax;
     private List<Integer> mZoomRatios;
@@ -108,16 +110,14 @@ public class VideoUI implements PieRenderer.PieListener,
     private SurfaceView mSurfaceView = null;
     private int mPreviewWidth = 0;
     private int mPreviewHeight = 0;
+    private float mSurfaceTextureUncroppedWidth;
+    private float mSurfaceTextureUncroppedHeight;
     private float mAspectRatio = 4f / 3f;
     private boolean mAspectRatioResize;
     private Matrix mMatrix = null;
     private final AnimationManager mAnimationManager;
     private boolean mUIhidden = false;
     private int mPreviewOrientation = -1;
-
-    // temporary variables for updating SurfaceView
-    private int mTempWidth;
-    private int mTempHeight;
 
     private final Handler mHandler = new Handler() {
         @Override
@@ -131,45 +131,25 @@ public class VideoUI implements PieRenderer.PieListener,
             }
         }
     };
-
-    private final Handler mSurfaceViewUpdateHandler = new Handler();
-
-    private Runnable updateSurfaceView = new Runnable() {
-
-        @Override
-        public void run() {
-            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mSurfaceView
-                    .getLayoutParams();
-            params.width = mTempWidth;
-            params.height = mTempHeight;
-            mSurfaceView.setLayoutParams(params);
-        }
-    };
-
     private OnLayoutChangeListener mLayoutListener = new OnLayoutChangeListener() {
         @Override
         public void onLayoutChange(View v, int left, int top, int right,
                 int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
             int width = right - left;
             int height = bottom - top;
-
-            int orientation = mActivity.getResources().getConfiguration().orientation;
-            if ((orientation == Configuration.ORIENTATION_PORTRAIT && width > height)
-                    || (orientation == Configuration.ORIENTATION_LANDSCAPE && width < height)) {
-                // The screen has rotated; swap SurfaceView width & height
-                // to ensure correct preview
-                int oldWidth = width;
-                width = height;
-                height = oldWidth;
-                Log.d(TAG, "Swapping SurfaceView width & height dimensions");
+            // Full-screen screennail
+            int w = width;
+            int h = height;
+            if (CameraUtil.getDisplayRotation(mActivity) % 180 != 0) {
+                w = height;
+                h = width;
             }
-
             if (mPreviewWidth != width || mPreviewHeight != height
                     || (mOrientationResize != mPrevOrientationResize)
-                    || mAspectRatioResize) {
+                    || (mAspectRatioResize)) {
                 mPreviewWidth = width;
                 mPreviewHeight = height;
-                setTransformMatrix(width, height);
+                onScreenSizeChanged(width, height, w, h);
                 mAspectRatioResize = false;
             }
             mCustomVideoMenu.tryToCloseSubList();
@@ -213,24 +193,16 @@ public class VideoUI implements PieRenderer.PieListener,
         mActivity = activity;
         mController = controller;
         mRootView = parent;
-        mActivity.getLayoutInflater().inflate(R.layout.video_module,
-                (ViewGroup) mRootView, true);
+        mActivity.getLayoutInflater().inflate(R.layout.video_module, (ViewGroup) mRootView, true);
         mPreviewCover = mRootView.findViewById(R.id.preview_cover);
-        // display the view
-        mSurfaceView = (SurfaceView) mRootView.findViewById(R.id.mdp_preview_content);
-            mSurfaceView.setVisibility(View.VISIBLE);
-            mSurfaceHolder = mSurfaceView.getHolder();
-            mSurfaceHolder.addCallback(this);
-            mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-            mSurfaceView.addOnLayoutChangeListener(mLayoutListener);
-            Log.v(TAG, "Using mdp_preview_content (MDP path)");
-
+        mTextureView = (TextureView) mRootView.findViewById(R.id.preview_content);
+        mTextureView.setSurfaceTextureListener(this);
+        mTextureView.addOnLayoutChangeListener(mLayoutListener);
         mFlashOverlay = mRootView.findViewById(R.id.flash_overlay);
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
         mSwitcher = (ModuleSwitcher) mRootView.findViewById(R.id.camera_switcher);
         mSwitcher.setCurrentIndex(ModuleSwitcher.VIDEO_MODULE_INDEX);
         mSwitcher.setSwitchListener(mActivity);
-
         initializeMiscControls();
         initializeControlByIntent();
         initializeOverlay();
@@ -246,12 +218,9 @@ public class VideoUI implements PieRenderer.PieListener,
     }
 
     public void initializeSurfaceView() {
-        if (mSurfaceView == null) {
-            mSurfaceView = new SurfaceView(mActivity);
-            ((ViewGroup) mRootView).addView(mSurfaceView, 0);
-            mSurfaceHolder = mSurfaceView.getHolder();
-            mSurfaceHolder.addCallback(this);
-        }
+        mSurfaceView = new SurfaceView(mActivity);
+        ((ViewGroup) mRootView).addView(mSurfaceView, 0);
+        mSurfaceView.getHolder().addCallback(this);
     }
 
     private void initializeControlByIntent() {
@@ -320,10 +289,7 @@ public class VideoUI implements PieRenderer.PieListener,
             mAspectRatioResize = true;
             mAspectRatio = ratio;
         }
-
-        if (mPreviewWidth > 0 && mPreviewHeight > 0) {
-            mHandler.sendEmptyMessage(UPDATE_TRANSFORM_MATRIX);
-        }
+        mHandler.sendEmptyMessage(UPDATE_TRANSFORM_MATRIX);
     }
 
     public int getPreviewWidth() {
@@ -334,17 +300,22 @@ public class VideoUI implements PieRenderer.PieListener,
         return mPreviewHeight;
     }
 
-    private void setTransformMatrix(int width, int height) {
-            mMatrix = mSurfaceView.getMatrix();
+    public void onScreenSizeChanged(int width, int height, int previewWidth, int previewHeight) {
+        setTransformMatrix(width, height);
+    }
 
+    private void setTransformMatrix(int width, int height) {
+        mMatrix = mTextureView.getTransform(mMatrix);
+        int orientation = CameraUtil.getDisplayRotation(mActivity);
+        float scaleX = 1f, scaleY = 1f;
         float scaledTextureWidth, scaledTextureHeight;
-        if (mOrientationResize) {
-            scaledTextureWidth = height * mAspectRatio;
-            if (scaledTextureWidth > width) {
-                scaledTextureWidth = width;
-                scaledTextureHeight = scaledTextureWidth / mAspectRatio;
-            } else {
+        if (mOrientationResize){
+            if (width/mAspectRatio > height){
                 scaledTextureHeight = height;
+                scaledTextureWidth = (int)(height * mAspectRatio + 0.5f);
+            } else {
+                scaledTextureWidth = width;
+                scaledTextureHeight = (int)(width / mAspectRatio + 0.5f);
             }
         } else {
             if (width > height) {
@@ -356,12 +327,23 @@ public class VideoUI implements PieRenderer.PieListener,
             }
         }
 
-        Log.v(TAG, "setTransformMatrix: scaledTextureWidth = " + scaledTextureWidth
-                + ", scaledTextureHeight = " + scaledTextureHeight);
-        mTempWidth = (int) scaledTextureWidth;
-        mTempHeight = (int) scaledTextureHeight;
-        mSurfaceView.requestLayout();
-        mHandler.post(updateSurfaceView);
+        if (mSurfaceTextureUncroppedWidth != scaledTextureWidth ||
+                mSurfaceTextureUncroppedHeight != scaledTextureHeight) {
+            mSurfaceTextureUncroppedWidth = scaledTextureWidth;
+            mSurfaceTextureUncroppedHeight = scaledTextureHeight;
+        }
+        scaleX = scaledTextureWidth / width;
+        scaleY = scaledTextureHeight / height;
+        mMatrix.setScale(scaleX, scaleY, (float) width / 2, (float) height / 2);
+        mTextureView.setTransform(mMatrix);
+
+        if (mSurfaceView != null && mSurfaceView.getVisibility() == View.VISIBLE) {
+            LayoutParams lp = (LayoutParams) mSurfaceView.getLayoutParams();
+            lp.width = (int) mSurfaceTextureUncroppedWidth;
+            lp.height = (int) mSurfaceTextureUncroppedHeight;
+            lp.gravity = Gravity.CENTER;
+            mSurfaceView.requestLayout();
+        }
     }
 
     /**
@@ -376,6 +358,10 @@ public class VideoUI implements PieRenderer.PieListener,
      */
     public void animateCapture() {
         Bitmap bitmap = null;
+        if (mTextureView != null) {
+            bitmap = mTextureView.getBitmap((int) mSurfaceTextureUncroppedWidth / 2,
+                    (int) mSurfaceTextureUncroppedHeight / 2);
+        }
         animateCapture(bitmap);
     }
 
@@ -494,18 +480,18 @@ public class VideoUI implements PieRenderer.PieListener,
     }
 
     public SurfaceHolder getSurfaceHolder() {
-        return mSurfaceHolder;
+        return mSurfaceView.getHolder();
     }
 
     public void hideSurfaceView() {
         mSurfaceView.setVisibility(View.GONE);
-
+        mTextureView.setVisibility(View.VISIBLE);
         setTransformMatrix(mPreviewWidth, mPreviewHeight);
     }
 
     public void showSurfaceView() {
         mSurfaceView.setVisibility(View.VISIBLE);
-
+        mTextureView.setVisibility(View.GONE);
         setTransformMatrix(mPreviewWidth, mPreviewHeight);
     }
 
@@ -586,16 +572,12 @@ public class VideoUI implements PieRenderer.PieListener,
             ratio = 1 / ratio;
         }
 
-        if (ratio != mAspectRatio) {
+        if (ratio != mAspectRatio){
             mAspectRatioResize = true;
             mAspectRatio = (float)ratio;
         }
+        mHandler.sendEmptyMessage(UPDATE_TRANSFORM_MATRIX);
 
-            mSurfaceView.requestLayout();
-
-        if (mPreviewWidth > 0 && mPreviewHeight > 0) {
-            mHandler.sendEmptyMessage(UPDATE_TRANSFORM_MATRIX);
-        }
     }
 
     public void showTimeLapseUI(boolean enable) {
@@ -950,32 +932,52 @@ public class VideoUI implements PieRenderer.PieListener,
         }
     }
 
-    // SurfaceHolder callbacks
+    public SurfaceTexture getSurfaceTexture() {
+        return mSurfaceTexture;
+    }
+
+    // SurfaceTexture callbacks
     @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        Log.v(TAG, "surfaceChanged: width = " + width + ", height = " + height);
+    public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+        mSurfaceTexture = surface;
+        mController.onPreviewUIReady();
+    }
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+        mSurfaceTexture = null;
+        mController.onPreviewUIDestroyed();
+        Log.d(TAG, "surfaceTexture is destroyed");
+        return true;
+    }
+
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
         // Make sure preview cover is hidden if preview data is available.
         if (mPreviewCover.getVisibility() != View.GONE) {
             mPreviewCover.setVisibility(View.GONE);
         }
     }
 
+    // SurfaceHolder callbacks
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+        Log.v(TAG, "Surface changed. width=" + width + ". height=" + height);
+    }
+
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        Log.v(TAG, "surfaceCreated");
-        mSurfaceHolder = holder;
-        mController.onPreviewUIReady();
-        if (mPreviewWidth != 0 && mPreviewHeight != 0) {
-            // Re-apply transform matrix for new surface texture
-            setTransformMatrix(mPreviewWidth, mPreviewHeight);
-        }
+        Log.v(TAG, "Surface created");
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-        Log.v(TAG, "surfaceDestroyed");
-        mSurfaceHolder = null;
-        mController.onPreviewUIDestroyed();
+        Log.v(TAG, "Surface destroyed");
+        mController.stopPreview();
     }
 
     public View getRootView() {
@@ -985,14 +987,14 @@ public class VideoUI implements PieRenderer.PieListener,
      @Override
     public void onButtonPause() {
         mRecordingTimeView.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_pausing_indicator, 0, 0, 0);
-        mController.onButtonPause();
+            R.drawable.ic_pausing_indicator, 0, 0, 0);
+                mController.onButtonPause();
     }
 
     @Override
     public void onButtonContinue() {
         mRecordingTimeView.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_recording_indicator, 0, 0, 0);
+            R.drawable.ic_recording_indicator, 0, 0, 0);
         mController.onButtonContinue();
     }
 

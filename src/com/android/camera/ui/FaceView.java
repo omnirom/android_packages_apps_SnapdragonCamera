@@ -127,10 +127,7 @@ public class FaceView extends View
             mHandler.removeMessages(MSG_SWITCH_FACES);
         }
         mFaces = faces;
-        if (!mBlocked && (mFaces != null) && (mFaces.length > 0)) {
-            invalidate();
-        }
-
+        invalidate();
     }
 
     public void setDisplayOrientation(int orientation) {
