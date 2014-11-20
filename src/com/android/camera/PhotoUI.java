@@ -53,7 +53,6 @@ import android.widget.PopupWindow;
 import android.widget.Toast;
 import android.graphics.drawable.AnimationDrawable;
 
-import com.android.camera.CameraActivity.UpdatePreviewThumbnail;
 import com.android.camera.CameraPreference.OnPreferenceChangedListener;
 import com.android.camera.FocusOverlayManager.FocusUI;
 import com.android.camera.ui.AbstractSettingPopup;
@@ -230,7 +229,7 @@ public class PhotoUI implements PieListener,
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             mPreviewThumb.setImageBitmap(bitmap);
-            updatePreviewThumbnail(bitmap);
+            mAnimationManager.startCaptureAnimation(mPreviewThumb);
         }
     }
 
@@ -285,24 +284,6 @@ public class PhotoUI implements PieListener,
         mAnimationManager = new AnimationManager();
         mOrientationResize = false;
         mPrevOrientationResize = false;
-    }
-
-    public void updatePreviewThumbnail() {
-        mPreviewThumb.setVisibility(View.VISIBLE);
-        Bitmap bitmap = mActivity.getPreviewThumbBitmap();
-        if (bitmap != null) {
-            mPreviewThumb.setImageBitmap(bitmap);
-        }
-        else {
-            UpdatePreviewThumbnail task = mActivity.new UpdatePreviewThumbnail(mPreviewThumb);
-            task.execute();
-        }
-    }
-
-    public void updatePreviewThumbnail(Bitmap bitmap) {
-        mPreviewThumb.setVisibility(View.VISIBLE);
-        mPreviewThumb.setImageBitmap(bitmap);
-        mActivity.setPreviewThumbnailBitmap(bitmap);
     }
 
     public void setDownFactor(int factor) {
@@ -401,7 +382,6 @@ public class PhotoUI implements PieListener,
             // Re-apply transform matrix for new surface texture
             setTransformMatrix(mPreviewWidth, mPreviewHeight);
         }
-        updatePreviewThumbnail();
     }
 
     @Override
@@ -557,7 +537,7 @@ public class PhotoUI implements PieListener,
         mSwitcher.setVisibility(View.VISIBLE);
     }
     // called from onResume but only the first time
-    public void initializeFirstTime() {
+    public  void initializeFirstTime() {
         // Initialize shutter button.
         mShutterButton.setImageBitmap(null);
         mShutterButton.setBackgroundResource(R.drawable.shutter_button_anim);

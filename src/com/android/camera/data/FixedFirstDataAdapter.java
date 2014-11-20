@@ -158,7 +158,6 @@ public class FixedFirstDataAdapter extends AbstractLocalDataAdapterWrapper
                 return (dataID != 0);
             }
         });
-        mListener.onDataLoaded();
     }
 
     @Override

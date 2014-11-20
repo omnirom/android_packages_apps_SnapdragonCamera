@@ -106,8 +106,6 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
     private boolean mSendToPreviewMenu;
     private boolean mSendToMenu;
     private boolean mReset;
-    private boolean mIsLoaded = false;
-
     /**
      * Common interface for all images in the filmstrip.
      */
@@ -1735,10 +1733,7 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         mDataAdapter.setListener(new DataAdapter.Listener() {
             @Override
             public void onDataLoaded() {
-                mActivity.updatePreviewThumbnail();
-                if (!mIsLoaded)
-                    reload();
-                mIsLoaded = true;
+                reload();
             }
 
             @Override
@@ -1754,7 +1749,6 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
                     return;
                 }
                 updateInsertion(dataID);
-                mActivity.updatePreviewThumbnailForVideo();
             }
 
             @Override
@@ -1813,7 +1807,9 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
                     && deltaX < mSlop * (-1)) {
                 // intercept left swipe
                 if (Math.abs(deltaX) >= Math.abs(deltaY) * 2) {
-                    return false;
+                    UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
+                            UsageStatistics.ACTION_FILMSTRIP, null);
+                    return true;
                 }
             }
         }

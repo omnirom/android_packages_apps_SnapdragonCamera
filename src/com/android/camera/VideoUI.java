@@ -45,7 +45,6 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.android.camera.CameraActivity.UpdatePreviewThumbnail;
 import com.android.camera.CameraPreference.OnPreferenceChangedListener;
 import com.android.camera.ui.AbstractSettingPopup;
 import com.android.camera.ui.CameraControls;
@@ -95,7 +94,7 @@ public class VideoUI implements PieRenderer.PieListener,
     private VideoController mController;
     private int mZoomMax;
     private List<Integer> mZoomRatios;
-    private ImageView mPreviewThumb;
+    private View mPreviewThumb;
     private View mFlashOverlay;
     private boolean mOrientationResize;
     private boolean mPrevOrientationResize;
@@ -239,23 +238,6 @@ public class VideoUI implements PieRenderer.PieListener,
         mAnimationManager = new AnimationManager();
         mOrientationResize = false;
         mPrevOrientationResize = false;
-    }
-
-    public void updatePreviewThumbnail() {
-        mPreviewThumb.setVisibility(View.VISIBLE);
-        Bitmap bitmap = mActivity.getPreviewThumbBitmap();
-        if (bitmap != null)
-            mPreviewThumb.setImageBitmap(bitmap);
-        else {
-            UpdatePreviewThumbnail task = mActivity.new UpdatePreviewThumbnail(mPreviewThumb);
-            task.execute();
-        }
-    }
-
-    public void updateWithNewPreviewThumbnail() {
-        mPreviewThumb.setVisibility(View.VISIBLE);
-        UpdatePreviewThumbnail task = mActivity.new UpdatePreviewThumbnail(mPreviewThumb);
-        task.execute();
     }
 
     public void cameraOrientationPreviewResize(boolean orientation){
@@ -406,7 +388,7 @@ public class VideoUI implements PieRenderer.PieListener,
             Log.e(TAG, "No valid bitmap for capture animation.");
             return;
         }
-        mPreviewThumb.setImageBitmap(bitmap);
+        ((ImageView) mPreviewThumb).setImageBitmap(bitmap);
         mAnimationManager.startCaptureAnimation(mPreviewThumb);
     }
 
@@ -550,7 +532,7 @@ public class VideoUI implements PieRenderer.PieListener,
 
         mGestures.setRenderOverlay(mRenderOverlay);
 
-        mPreviewThumb = (ImageView) mRootView.findViewById(R.id.preview_thumb);
+        mPreviewThumb = mRootView.findViewById(R.id.preview_thumb);
         mPreviewThumb.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -987,7 +969,6 @@ public class VideoUI implements PieRenderer.PieListener,
             // Re-apply transform matrix for new surface texture
             setTransformMatrix(mPreviewWidth, mPreviewHeight);
         }
-        updatePreviewThumbnail();
     }
 
     @Override
