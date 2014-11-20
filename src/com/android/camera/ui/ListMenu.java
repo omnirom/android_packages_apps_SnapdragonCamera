@@ -168,12 +168,8 @@ public class ListMenu extends ListView
                     // If the preference is overridden, disable the preference
                     boolean enable = value == null;
                     mEnabled[j] = enable;
-                    int offset = getFirstVisiblePosition();
-                    if (offset >= 0) {
-                        int indexInView = j - offset;
-                        if (getChildCount() > indexInView && indexInView >= 0) {
-                            getChildAt(indexInView).setEnabled(enable);
-                        }
+                    if (getChildCount() > j) {
+                        getChildAt(j).setEnabled(enable);
                     }
                 }
             }

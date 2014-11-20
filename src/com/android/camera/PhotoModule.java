@@ -539,7 +539,6 @@ public class PhotoModule
                  CameraSettings.KEY_BRIGHTNESS,
                  DEFAULT_BRIGHTNESS);
         brightnessProgressBar.setProgress(mbrightness);
-        brightnessProgressBar.setVisibility(View.INVISIBLE);
         skinToneSeekBar = (SeekBar) mRootView.findViewById(R.id.skintoneseek);
         skinToneSeekBar.setOnSeekBarChangeListener(mskinToneSeekListener);
         skinToneSeekBar.setVisibility(View.INVISIBLE);
@@ -2476,7 +2475,7 @@ public class PhotoModule
                 Editor editor = mPreferences.edit();
                 editor.putInt(CameraSettings.KEY_BRIGHTNESS, mbrightness);
                 editor.apply();
-                brightnessProgressBar.setVisibility(View.INVISIBLE);
+                brightnessProgressBar.setVisibility(View.VISIBLE);
                 mBrightnessVisible = true;
             }
             break;
@@ -2497,7 +2496,7 @@ public class PhotoModule
                 Editor editor = mPreferences.edit();
                 editor.putInt(CameraSettings.KEY_BRIGHTNESS, mbrightness);
                 editor.apply();
-                brightnessProgressBar.setVisibility(View.INVISIBLE);
+                brightnessProgressBar.setVisibility(View.VISIBLE);
                 mBrightnessVisible = true;
             }
             break;
@@ -4324,7 +4323,7 @@ public class PhotoModule
             Integer.toString(mskinToneValue - MIN_SCE_FACTOR));
         editor.apply();
         if ((brightnessProgressBar != null) && mBrightnessVisible)
-             brightnessProgressBar.setVisibility(View.INVISIBLE);
+             brightnessProgressBar.setVisibility(View.VISIBLE);
 }
 
 /*
