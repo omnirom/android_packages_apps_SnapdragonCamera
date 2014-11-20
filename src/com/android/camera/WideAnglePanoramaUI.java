@@ -108,7 +108,7 @@ public class WideAnglePanoramaUI implements
 
     public void onStartCapture() {
         hideSwitcher();
-        mShutterButton.setImageResource(R.drawable.shutter_button_stop);
+        mShutterButton.setImageResource(R.drawable.btn_shutter_recording);
         mCaptureIndicator.setVisibility(View.VISIBLE);
         showDirectionIndicators(PanoProgressBar.DIRECTION_NONE);
     }
@@ -535,12 +535,4 @@ public class WideAnglePanoramaUI implements
             canvas.restore();
         }
     }
-
-    public boolean hideSwitcherPopup() {
-        if (mSwitcher != null && mSwitcher.showsPopup()) {
-            mSwitcher.closePopup();
-            return true;
-        }
-        return false;
-   }
 }
