@@ -103,6 +103,7 @@ public class PhotoUI implements PieListener,
 
     private View mMenuButton;
     private PhotoMenu mMenu;
+    private CustomPhotoMenu mCustomPhotoMenu;
     private ModuleSwitcher mSwitcher;
     private CameraControls mCameraControls;
     private AlertDialog mLocationDialog;
@@ -120,6 +121,7 @@ public class PhotoUI implements PieListener,
     private int mPreviewWidth = 0;
     private int mPreviewHeight = 0;
     public boolean mMenuInitialized = false;
+    public boolean mCustomPhotoMenuInitialized = false;
     private float mSurfaceTextureUncroppedWidth;
     private float mSurfaceTextureUncroppedHeight;
 
@@ -192,8 +194,8 @@ public class PhotoUI implements PieListener,
                 mAspectRatioResize = false;
             }
 
-            if (mMenu != null)
-                mMenu.tryToCloseSubList();
+            if (mCustomPhotoMenu != null)
+                mCustomPhotoMenu.tryToCloseSubList();
         }
     };
 
@@ -427,11 +429,18 @@ public class PhotoUI implements PieListener,
         }
 
         if (mMenu == null) {
-            mMenu = new PhotoMenu(mActivity, this);
+            mMenu = new PhotoMenu(mActivity, this, mPieRenderer);
             mMenu.setListener(listener);
         }
         mMenu.initialize(prefGroup);
         mMenuInitialized = true;
+
+        if (mCustomPhotoMenu == null) {
+            mCustomPhotoMenu = new CustomPhotoMenu(mActivity, this);
+            mCustomPhotoMenu.setListener(listener);
+        }
+        mCustomPhotoMenu.initialize(prefGroup);
+        mCustomPhotoMenuInitialized = true;
 
         if (mZoomRenderer == null) {
             mZoomRenderer = new ZoomRenderer(mActivity);
@@ -443,7 +452,7 @@ public class PhotoUI implements PieListener,
             mGestures = new PreviewGestures(mActivity, this, mZoomRenderer, mPieRenderer);
             mRenderOverlay.setGestures(mGestures);
         }
-        mGestures.setPhotoMenu(mMenu);
+        mGestures.setCustomPhotoMenu(mCustomPhotoMenu);
 
         mGestures.setZoomEnabled(params.isZoomSupported());
         mGestures.setRenderOverlay(mRenderOverlay);
@@ -484,7 +493,7 @@ public class PhotoUI implements PieListener,
         mMenuButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mMenu.openFirstLevel();
+                mCustomPhotoMenu.openFirstLevel();
             }
         });
         if (mController.isImageCaptureIntent()) {
@@ -529,7 +538,7 @@ public class PhotoUI implements PieListener,
     }
 
     public void showUI() {
-        if (!mUIhidden || (mMenu != null && mMenu.isMenuBeingShown()))
+        if (!mUIhidden || (mCustomPhotoMenu != null && mCustomPhotoMenu.isMenuBeingShown()))
             return;
         mUIhidden = false;
         mCameraControls.showUI();
@@ -579,6 +588,9 @@ public class PhotoUI implements PieListener,
         }
         if (mMenu != null) {
             mMenu.reloadPreferences();
+        }
+        if (mCustomPhotoMenu != null) {
+            mCustomPhotoMenu.reloadPreferences();
         }
     }
 
@@ -633,6 +645,8 @@ public class PhotoUI implements PieListener,
     public void hideGpsOnScreenIndicator() { }
 
     public void overrideSettings(final String ... keyvalues) {
+        if (mCustomPhotoMenu != null)
+            mCustomPhotoMenu.overrideSettings(keyvalues);
         if (mMenu == null)
             return;
         mMenu.overrideSettings(keyvalues);
@@ -682,7 +696,7 @@ public class PhotoUI implements PieListener,
     }
 
     public boolean onBackPressed() {
-        if (mMenu != null && mMenu.handleBackKey()) {
+        if (mCustomPhotoMenu != null && mCustomPhotoMenu.handleBackKey()) {
             return true;
         }
 
@@ -769,9 +783,9 @@ public class PhotoUI implements PieListener,
         }
         if (animate) {
             if (level == 1)
-                mMenu.animateSlideIn(popup, CameraActivity.SETTING_LIST_WIDTH_1, true);
+                mCustomPhotoMenu.animateSlideIn(popup, CameraActivity.SETTING_LIST_WIDTH_1, true);
             if (level == 2)
-                mMenu.animateFadeIn(popup);
+                mCustomPhotoMenu.animateFadeIn(popup);
         } else
             popup.setAlpha(0.85f);
     }
@@ -795,7 +809,7 @@ public class PhotoUI implements PieListener,
                 @Override
                 public void onDismiss() {
                     mPopup = null;
-                    // mMenu.popupDismissed(mDismissAll);
+                    mMenu.popupDismissed(mDismissAll);
                     mDismissAll = false;
                     showUI();
 
@@ -885,8 +899,8 @@ public class PhotoUI implements PieListener,
         mSwitcher.closePopup();
         // Remove all the popups/dialog boxes
         boolean ret = false;
-        if (mMenu != null) {
-            mMenu.closeAllView();
+        if (mCustomPhotoMenu != null) {
+            mCustomPhotoMenu.closeAllView();
         }
         if (mPopup != null) {
             dismissAllPopup();
@@ -925,9 +939,9 @@ public class PhotoUI implements PieListener,
             mFaceView.setDisplayOrientation(orientation);
         }
         if ((mPreviewOrientation == -1 || mPreviewOrientation != orientation)
-                && mMenu != null && mMenu.isPreviewMenuBeingShown()) {
+                && mCustomPhotoMenu != null && mCustomPhotoMenu.isPreviewMenuBeingShown()) {
             dismissSceneModeMenu();
-            mMenu.addModeBack();
+            mCustomPhotoMenu.addModeBack();
         }
         mPreviewOrientation = orientation;
     }

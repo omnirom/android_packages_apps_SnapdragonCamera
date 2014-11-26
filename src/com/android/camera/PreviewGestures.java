@@ -21,8 +21,8 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 
-import com.android.camera.PhotoMenu;
-import com.android.camera.VideoMenu;
+import com.android.camera.CustomPhotoMenu;
+import com.android.camera.CustomVideoMenu;
 import com.android.camera.ui.PieRenderer;
 import com.android.camera.ui.RenderOverlay;
 import com.android.camera.ui.ZoomRenderer;
@@ -56,8 +56,8 @@ public class PreviewGestures
     private boolean mEnabled;
     private boolean mZoomOnly;
     private GestureDetector mGestureDetector;
-    private PhotoMenu mPhotoMenu;
-    private VideoMenu mVideoMenu;
+    private CustomPhotoMenu mCustomPhotoMenu;
+    private CustomVideoMenu mCustomVideoMenu;
     private boolean waitUntilNextDown;
     private boolean setToFalse;
 
@@ -100,15 +100,15 @@ public class PreviewGestures
             if (deltaX < 0 && Math.abs(deltaX) > 2 * Math.abs(deltaY)) {
                 // Open menu on swipe left
                 waitUntilNextDown = true;
-                if (mPhotoMenu != null) {
-                    if (!mPhotoMenu.isMenuBeingShown()) {
-                        mPhotoMenu.openFirstLevel();
+                if (mCustomPhotoMenu != null) {
+                    if (!mCustomPhotoMenu.isMenuBeingShown()) {
+                        mCustomPhotoMenu.openFirstLevel();
                     }
                 }
 
-                if (mVideoMenu != null) {
-                    if (!mVideoMenu.isMenuBeingShown()) {
-                        mVideoMenu.openFirstLevel();
+                if (mCustomVideoMenu != null) {
+                    if (!mCustomVideoMenu.isMenuBeingShown()) {
+                        mCustomVideoMenu.openFirstLevel();
                     }
                 }
                 return true;
@@ -152,20 +152,20 @@ public class PreviewGestures
         return mEnabled;
     }
 
-    public void setPhotoMenu(PhotoMenu menu) {
-        mPhotoMenu = menu;
+    public void setCustomPhotoMenu(CustomPhotoMenu menu) {
+        mCustomPhotoMenu = menu;
     }
 
-    public void setVideoMenu(VideoMenu menu) {
-        mVideoMenu = menu;
+    public void setCustomVideoMenu(CustomVideoMenu menu) {
+        mCustomVideoMenu = menu;
     }
 
-    public PhotoMenu getPhotoMenu() {
-        return mPhotoMenu;
+    public CustomPhotoMenu getCustomPhotoMenu() {
+        return mCustomPhotoMenu;
     }
 
-    public VideoMenu getVideoMenu() {
-        return mVideoMenu;
+    public CustomVideoMenu getCustomVideoMenu() {
+        return mCustomVideoMenu;
     }
 
     public boolean dispatchTouch(MotionEvent m) {
@@ -196,33 +196,33 @@ public class PreviewGestures
             return sendToPie(m);
         }
 
-        if (mPhotoMenu != null) {
-            if (mPhotoMenu.isMenuBeingShown()) {
-                if (!mPhotoMenu.isMenuBeingAnimated()) {
+        if (mCustomPhotoMenu != null) {
+            if (mCustomPhotoMenu.isMenuBeingShown()) {
+                if (!mCustomPhotoMenu.isMenuBeingAnimated()) {
                     waitUntilNextDown = true;
-                    mPhotoMenu.closeView();
+                    mCustomPhotoMenu.closeView();
                 }
                 return true;
             }
-            if (mPhotoMenu.isPreviewMenuBeingShown()) {
+            if (mCustomPhotoMenu.isPreviewMenuBeingShown()) {
                 waitUntilNextDown = true;
-                mPhotoMenu.animateSlideOutPreviewMenu();
+                mCustomPhotoMenu.animateSlideOutPreviewMenu();
                 return true;
             }
         }
 
-        if (mVideoMenu != null) {
-            if (mVideoMenu.isMenuBeingShown()) {
-                if (!mVideoMenu.isMenuBeingAnimated()) {
+        if (mCustomVideoMenu != null) {
+            if (mCustomVideoMenu.isMenuBeingShown()) {
+                if (!mCustomVideoMenu.isMenuBeingAnimated()) {
                     waitUntilNextDown = true;
-                    mVideoMenu.closeView();
+                    mCustomVideoMenu.closeView();
                 }
                 return true;
             }
 
-            if (mVideoMenu.isPreviewMenuBeingShown()) {
+            if (mCustomVideoMenu.isPreviewMenuBeingShown()) {
                 waitUntilNextDown = true;
-                mVideoMenu.animateSlideOutPreviewMenu();
+                mCustomVideoMenu.animateSlideOutPreviewMenu();
                 return true;
             }
         }
