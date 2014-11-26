@@ -26,17 +26,14 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.RectF;
+import android.graphics.SurfaceTexture;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
 import android.hardware.Camera.Face;
 import android.os.AsyncTask;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Surface;
-import android.view.SurfaceView;
-import android.view.SurfaceHolder;
-import android.view.SurfaceHolder.Callback;
+import android.view.TextureView;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,7 +41,6 @@ import android.view.View.OnLayoutChangeListener;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.view.ViewStub;
-import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -71,12 +67,10 @@ import com.android.camera.util.CameraUtil;
 import org.codeaurora.snapcam.R;
 
 public class PhotoUI implements PieListener,
-        PreviewGestures.SingleTapListener,
-        FocusUI,
-        SurfaceHolder.Callback,
-        LocationManager.Listener,
-        CameraRootView.MyDisplayListener,
-        CameraManager.CameraFaceDetectionCallback {
+    PreviewGestures.SingleTapListener,
+    FocusUI, TextureView.SurfaceTextureListener,
+    LocationManager.Listener, CameraRootView.MyDisplayListener,
+    CameraManager.CameraFaceDetectionCallback {
 
     private static final String TAG = "CAM_UI";
     private int mDownSampleFactor = 4;
@@ -86,7 +80,7 @@ public class PhotoUI implements PieListener,
     private PreviewGestures mGestures;
 
     private View mRootView;
-    private SurfaceHolder mSurfaceHolder;
+    private SurfaceTexture mSurfaceTexture;
 
     private PopupWindow mPopup;
     private ShutterButton mShutterButton;
@@ -128,7 +122,7 @@ public class PhotoUI implements PieListener,
     private View mFlashOverlay;
 
     private SurfaceTextureSizeChangedListener mSurfaceTextureSizeListener;
-    private SurfaceView mSurfaceView = null;
+    private TextureView mTextureView;
     private Matrix mMatrix = null;
     private float mAspectRatio = 4f / 3f;
     private boolean mAspectRatioResize;
@@ -136,29 +130,12 @@ public class PhotoUI implements PieListener,
     private boolean mOrientationResize;
     private boolean mPrevOrientationResize;
     private View mPreviewCover;
+    private final Object mSurfaceTextureLock = new Object();
     private LinearLayout mMenuLayout;
     private LinearLayout mSubMenuLayout;
     private LinearLayout mPreviewMenuLayout;
     private boolean mUIhidden = false;
     private int mPreviewOrientation = -1;
-
-    // temporary variables for updating SurfaceView
-    private int mTempWidth;
-    private int mTempHeight;
-
-    private final Handler mSurfaceViewUpdateHandler = new Handler();
-
-    private Runnable updateSurfaceView = new Runnable() {
-
-        @Override
-        public void run() {
-            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mSurfaceView
-                    .getLayoutParams();
-            params.width = mTempWidth;
-            params.height = mTempHeight;
-            mSurfaceView.setLayoutParams(params);
-        }
-    };
 
     public interface SurfaceTextureSizeChangedListener {
         public void onSurfaceTextureSizeChanged(int uncroppedWidth, int uncroppedHeight);
@@ -170,18 +147,6 @@ public class PhotoUI implements PieListener,
                 int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
             int width = right - left;
             int height = bottom - top;
-
-            int orientation = mActivity.getResources().getConfiguration().orientation;
-            if ((orientation == Configuration.ORIENTATION_PORTRAIT && width > height)
-                    || (orientation == Configuration.ORIENTATION_LANDSCAPE && width < height)) {
-                // The screen has rotated; swap SurfaceView width & height
-                // to ensure correct preview
-                int oldWidth = width;
-                width = height;
-                height = oldWidth;
-                Log.d(TAG, "Swapping SurfaceView width & height dimensions");
-            }
-
             if (mPreviewWidth != width || mPreviewHeight != height
                     || (mOrientationResize != mPrevOrientationResize)
                     || mAspectRatioResize) {
@@ -253,26 +218,23 @@ public class PhotoUI implements PieListener,
         mActivity = activity;
         mController = controller;
         mRootView = parent;
+
         mActivity.getLayoutInflater().inflate(R.layout.photo_module,
                 (ViewGroup) mRootView, true);
-        mPreviewCover = mRootView.findViewById(R.id.preview_cover);
-        // display the view
-        mSurfaceView = (SurfaceView) mRootView.findViewById(R.id.mdp_preview_content);
-        mSurfaceView.setVisibility(View.VISIBLE);
-        mSurfaceHolder = mSurfaceView.getHolder();
-        mSurfaceHolder.addCallback(this);
-        mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        mSurfaceView.addOnLayoutChangeListener(mLayoutListener);
-        Log.v(TAG, "Using mdp_preview_content (MDP path)");
-
         mRenderOverlay = (RenderOverlay) mRootView.findViewById(R.id.render_overlay);
         mFlashOverlay = mRootView.findViewById(R.id.flash_overlay);
+        mPreviewCover = mRootView.findViewById(R.id.preview_cover);
+        // display the view
+        mTextureView = (TextureView) mRootView.findViewById(R.id.preview_content);
+        mTextureView.setSurfaceTextureListener(this);
+        mTextureView.addOnLayoutChangeListener(mLayoutListener);
+        initIndicators();
+
         mShutterButton = (ShutterButton) mRootView.findViewById(R.id.shutter_button);
         mSwitcher = (ModuleSwitcher) mRootView.findViewById(R.id.camera_switcher);
         mSwitcher.setCurrentIndex(ModuleSwitcher.PHOTO_MODULE_INDEX);
         mSwitcher.setSwitchListener(mActivity);
         mMenuButton = mRootView.findViewById(R.id.menu);
-        mCameraControls = (CameraControls) mRootView.findViewById(R.id.camera_controls);
         ViewStub faceViewStub = (ViewStub) mRootView
                 .findViewById(R.id.face_view_stub);
         if (faceViewStub != null) {
@@ -280,8 +242,9 @@ public class PhotoUI implements PieListener,
             mFaceView = (FaceView) mRootView.findViewById(R.id.face_view);
             setSurfaceTextureSizeChangedListener(mFaceView);
         }
-        initIndicators();
+        mCameraControls = (CameraControls) mRootView.findViewById(R.id.camera_controls);
         mAnimationManager = new AnimationManager();
+
         mOrientationResize = false;
         mPrevOrientationResize = false;
     }
@@ -304,13 +267,12 @@ public class PhotoUI implements PieListener,
             ratio = 1 / ratio;
         }
 
-        Log.d(TAG, "setAspectRatio() ratio[" + ratio + "] mAspectRatio[" + mAspectRatio + "]");
-        if (ratio != mAspectRatio) {
-            mAspectRatioResize = true;
+        if (mAspectRatio != ratio) {
+            Log.d(TAG,"setAspectRatio() ratio["+ratio+"] mAspectRatio["+mAspectRatio+"]");
             mAspectRatio = ratio;
+            mAspectRatioResize = true;
+            mTextureView.requestLayout();
         }
-
-        mSurfaceView.requestLayout();
     }
 
     public void setSurfaceTextureSizeChangedListener(SurfaceTextureSizeChangedListener listener) {
@@ -318,12 +280,12 @@ public class PhotoUI implements PieListener,
     }
 
     private void setTransformMatrix(int width, int height) {
-        mMatrix = mSurfaceView.getMatrix();
-
+        mMatrix = mTextureView.getTransform(mMatrix);
+        float scaleX = 1f, scaleY = 1f;
         float scaledTextureWidth, scaledTextureHeight;
-        if (mOrientationResize) {
+        if (mOrientationResize){
             scaledTextureWidth = height * mAspectRatio;
-            if (scaledTextureWidth > width) {
+            if(scaledTextureWidth > width){
                 scaledTextureWidth = width;
                 scaledTextureHeight = scaledTextureWidth / mAspectRatio;
             } else {
@@ -345,17 +307,13 @@ public class PhotoUI implements PieListener,
             mSurfaceTextureUncroppedHeight = scaledTextureHeight;
             if (mSurfaceTextureSizeListener != null) {
                 mSurfaceTextureSizeListener.onSurfaceTextureSizeChanged(
-                        (int) mSurfaceTextureUncroppedWidth,
-                        (int) mSurfaceTextureUncroppedHeight);
+                        (int) mSurfaceTextureUncroppedWidth, (int) mSurfaceTextureUncroppedHeight);
             }
         }
-
-        Log.v(TAG, "setTransformMatrix: scaledTextureWidth = " + scaledTextureWidth
-                + ", scaledTextureHeight = " + scaledTextureHeight);
-        mTempWidth = (int) scaledTextureWidth;
-        mTempHeight = (int) scaledTextureHeight;
-        mSurfaceView.requestLayout();
-        mSurfaceViewUpdateHandler.post(updateSurfaceView);
+        scaleX = scaledTextureWidth / width;
+        scaleY = scaledTextureHeight / height;
+        mMatrix.setScale(scaleX, scaleY, (float) width / 2, (float) height / 2);
+        mTextureView.setTransform(mMatrix);
 
         // Calculate the new preview rectangle.
         RectF previewRect = new RectF(0, 0, width, height);
@@ -363,32 +321,45 @@ public class PhotoUI implements PieListener,
         mController.onPreviewRectChanged(CameraUtil.rectFToRect(previewRect));
     }
 
-    // SurfaceHolder callbacks
+    protected Object getSurfaceTextureLock() {
+        return mSurfaceTextureLock;
+    }
+
     @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        Log.v(TAG, "surfaceChanged: width =" + width + ", height = " + height);
+    public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+        synchronized (mSurfaceTextureLock) {
+            Log.v(TAG, "SurfaceTexture ready.");
+            mSurfaceTexture = surface;
+            mController.onPreviewUIReady();
+            // Workaround for b/11168275, see b/10981460 for more details
+            if (mPreviewWidth != 0 && mPreviewHeight != 0) {
+                // Re-apply transform matrix for new surface texture
+                setTransformMatrix(mPreviewWidth, mPreviewHeight);
+            }
+        }
+    }
+
+    @Override
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+        // Ignored, Camera does all the work for us
+    }
+
+    @Override
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+        synchronized (mSurfaceTextureLock) {
+            mSurfaceTexture = null;
+            mController.onPreviewUIDestroyed();
+            Log.w(TAG, "SurfaceTexture destroyed");
+            return true;
+        }
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
         // Make sure preview cover is hidden if preview data is available.
         if (mPreviewCover.getVisibility() != View.GONE) {
             mPreviewCover.setVisibility(View.GONE);
         }
-    }
-
-    @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-        Log.v(TAG, "surfaceCreated");
-        mSurfaceHolder = holder;
-        mController.onPreviewUIReady();
-        if (mPreviewWidth != 0 && mPreviewHeight != 0) {
-            // Re-apply transform matrix for new surface texture
-            setTransformMatrix(mPreviewWidth, mPreviewHeight);
-        }
-    }
-
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-        Log.v(TAG, "surfaceDestroyed");
-        mSurfaceHolder = null;
-        mController.stopPreview();
     }
 
     public View getRootView() {
@@ -997,8 +968,8 @@ public class PhotoUI implements PieListener,
         mActivity.setSwipingEnabled(enable);
     }
 
-    public SurfaceHolder getSurfaceHolder() {
-        return mSurfaceHolder;
+    public SurfaceTexture getSurfaceTexture() {
+        return mSurfaceTexture;
     }
 
     // Countdown timer
