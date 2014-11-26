@@ -63,12 +63,6 @@ public class OnScreenIndicators {
                 R.id.menu_timer_indicator);
         mWBIndicator = (ImageView) onScreenIndicatorsView.findViewById(
                 R.id.menu_wb_indicator);
-        mExposureIndicator.setVisibility(View.GONE);
-        mFlashIndicator.setVisibility(View.GONE);
-        mSceneIndicator.setVisibility(View.GONE);
-        mLocationIndicator.setVisibility(View.GONE);
-        mTimerIndicator.setVisibility(View.GONE);
-        mWBIndicator.setVisibility(View.GONE);
     }
 
     /**
@@ -126,7 +120,7 @@ public class OnScreenIndicators {
             id = R.drawable.ic_indicator_ev_p3;
             break;
         }
-        mExposureIndicator.setImageResource(R.drawable.ic_settings);
+        mExposureIndicator.setImageResource(id);
     }
 
     public void updateWBIndicator(int wbIndex) {

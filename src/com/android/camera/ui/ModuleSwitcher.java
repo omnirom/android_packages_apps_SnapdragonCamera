@@ -52,7 +52,6 @@ public class ModuleSwitcher extends RotateImageView
     public static final int WIDE_ANGLE_PANO_MODULE_INDEX = 2;
     public static final int LIGHTCYCLE_MODULE_INDEX = 3;
     public static final int GCAM_MODULE_INDEX = 4;
-    private boolean mTouchEnabled = true;
 
     private static final int[] DRAW_IDS = {
             R.drawable.ic_switch_camera,
@@ -144,20 +143,6 @@ public class ModuleSwitcher extends RotateImageView
 
     public void setSwitchListener(ModuleSwitchListener l) {
         mListener = l;
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent m) {
-        if (mTouchEnabled) {
-            return super.dispatchTouchEvent(m);
-        } else {
-            setBackground(null);
-            return false;
-        }
-    }
-
-    public void enableTouch(boolean enable) {
-        mTouchEnabled = enable;
     }
 
     @Override
@@ -267,16 +252,6 @@ public class ModuleSwitcher extends RotateImageView
             mPopup.setVisibility(View.INVISIBLE);
         }
         mParent.setOnTouchListener(null);
-    }
-
-    public void removePopup() {
-        mShowingPopup = false;
-        setVisibility(View.VISIBLE);
-        if (mPopup != null) {
-            ((ViewGroup) mParent).removeView(mPopup);
-            mPopup = null;
-        }
-        setAlpha(1f);
     }
 
     @Override
