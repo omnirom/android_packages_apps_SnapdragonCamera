@@ -561,6 +561,9 @@ public class PhotoModule
     }
 
     private void onPreviewStarted() {
+        if (mCameraState == SNAPSHOT_IN_PROGRESS) {
+            return;
+        }
         setCameraState(IDLE);
         mFocusManager.onPreviewStarted();
         startFaceDetection();
