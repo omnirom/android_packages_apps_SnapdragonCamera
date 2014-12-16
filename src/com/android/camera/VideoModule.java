@@ -177,6 +177,7 @@ public class VideoModule implements CameraModule,
     private CameraProxy mCameraDevice;
     private static final String KEY_PREVIEW_FORMAT = "preview-format";
     private static final String FORMAT_NV12_VENUS = "nv12-venus";
+    private static final String FORMAT_NV21 = "yuv420sp";
 
     // The degrees of the device rotated clockwise from its natural orientation.
     private int mOrientation = OrientationEventListener.ORIENTATION_UNKNOWN;
@@ -2072,6 +2073,9 @@ public class VideoModule implements CameraModule,
         if (is1080pEnabled() || is720pEnabled()) {
            Log.v(TAG, "1080p or 720p enabled, preview format set to NV12_VENUS");
            mParameters.set(KEY_PREVIEW_FORMAT, FORMAT_NV12_VENUS);
+        } else {
+           Log.v(TAG, "preview format set to yuv420sp");
+           mParameters.set(KEY_PREVIEW_FORMAT, FORMAT_NV21);
         }
 
         // Set High Frame Rate.
