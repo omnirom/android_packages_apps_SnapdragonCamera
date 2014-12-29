@@ -2082,10 +2082,13 @@ public class VideoModule implements CameraModule,
             mParameters.setPreviewFormat (ImageFormat.YV12);
         }
 
-        if (is1080pEnabled() || is720pEnabled()) {
+        if ( (is1080pEnabled() || is720pEnabled())
+                && CameraUtil.isSupported(FORMAT_NV12_VENUS,
+                        CameraSettings.getSupportedPreviewFormats(mParameters)) ) {
            Log.v(TAG, "1080p or 720p enabled, preview format set to NV12_VENUS");
            mParameters.set(KEY_PREVIEW_FORMAT, FORMAT_NV12_VENUS);
-        } else {
+        } else if (CameraUtil.isSupported(FORMAT_NV21,
+                CameraSettings.getSupportedPreviewFormats(mParameters))){
            Log.v(TAG, "preview format set to yuv420sp");
            mParameters.set(KEY_PREVIEW_FORMAT, FORMAT_NV21);
         }
