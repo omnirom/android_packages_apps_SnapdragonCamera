@@ -768,11 +768,11 @@ public class VideoModule implements CameraModule,
         String videoQuality = mPreferences.getString(CameraSettings.KEY_VIDEO_QUALITY,
                         null);
         if (videoQuality == null) {
-             mParameters = mCameraDevice.getParameters();
+            mParameters = mCameraDevice.getParameters();
             String defaultQuality = mActivity.getResources().getString(
                     R.string.pref_video_quality_default);
             boolean hasProfile = CamcorderProfile.hasProfile(
-                     Integer.parseInt(defaultQuality));
+                     CameraSettings.VIDEO_QUALITY_TABLE.get(defaultQuality));
             if (hasProfile == true){
                 videoQuality = defaultQuality;
             } else {
@@ -782,7 +782,7 @@ public class VideoModule implements CameraModule,
             }
             mPreferences.edit().putString(CameraSettings.KEY_VIDEO_QUALITY, videoQuality);
         }
-        int quality = Integer.valueOf(videoQuality);
+        int quality = CameraSettings.VIDEO_QUALITY_TABLE.get(videoQuality);
 
         // Set video quality.
         Intent intent = mActivity.getIntent();
