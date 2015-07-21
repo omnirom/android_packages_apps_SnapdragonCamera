@@ -51,9 +51,6 @@ class AndroidCameraManagerImpl implements CameraManager {
     private static final String TAG = "CAM_" +
             AndroidCameraManagerImpl.class.getSimpleName();
 
-    // Thread progress signals
-    private ConditionVariable mSig = new ConditionVariable();
-
     private Parameters mParameters;
     private boolean mParametersIsDirty;
     private IOException mReconnectIOException;
@@ -309,8 +306,8 @@ class AndroidCameraManagerImpl implements CameraManager {
 
                     case SET_PARAMETERS:
                         mParametersIsDirty = true;
-                        mCamera.setParameters((Parameters) msg.obj);
-                        mSig.open();
+                        mParamsToSet.unflatten((String) msg.obj);
+                        mCamera.setParameters(mParamsToSet);
                         break;
 
                     case GET_PARAMETERS:
@@ -561,10 +558,10 @@ class AndroidCameraManagerImpl implements CameraManager {
                 Log.v(TAG, "null parameters in setParameters()");
                 return;
             }
-            mSig.close();
-            mCameraHandler.obtainMessage(SET_PARAMETERS, params)
-                    .sendToTarget();
-            mSig.block();
+            synchronized (params) {
+                mCameraHandler.obtainMessage(SET_PARAMETERS, params.flatten())
+                        .sendToTarget();
+            }
         }
 
         @Override
