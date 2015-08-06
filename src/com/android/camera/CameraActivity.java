@@ -1411,6 +1411,42 @@ public class CameraActivity extends Activity
         GcamHelper.init(getContentResolver());
 
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+
+        LayoutInflater inflater = getLayoutInflater();
+        View rootLayout = inflater.inflate(R.layout.camera, null, false);
+        mCameraModuleRootView = rootLayout.findViewById(R.id.camera_app_root);
+
+        int moduleIndex = -1;
+        if (MediaStore.INTENT_ACTION_VIDEO_CAMERA.equals(getIntent().getAction())
+                || MediaStore.ACTION_VIDEO_CAPTURE.equals(getIntent().getAction())) {
+            moduleIndex = ModuleSwitcher.VIDEO_MODULE_INDEX;
+        } else if (MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA.equals(getIntent().getAction())
+                || MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE.equals(getIntent()
+                        .getAction())) {
+            moduleIndex = ModuleSwitcher.PHOTO_MODULE_INDEX;
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            if (prefs.getInt(CameraSettings.KEY_STARTUP_MODULE_INDEX, -1)
+                        == ModuleSwitcher.GCAM_MODULE_INDEX && GcamHelper.hasGcamCapture()) {
+                moduleIndex = ModuleSwitcher.GCAM_MODULE_INDEX;
+            }
+        } else if (MediaStore.ACTION_IMAGE_CAPTURE.equals(getIntent().getAction())
+                || MediaStore.ACTION_IMAGE_CAPTURE_SECURE.equals(getIntent().getAction())) {
+            moduleIndex = ModuleSwitcher.PHOTO_MODULE_INDEX;
+        } else {
+            // If the activity has not been started using an explicit intent,
+            // read the module index from the last time the user changed modes
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            moduleIndex = prefs.getInt(CameraSettings.KEY_STARTUP_MODULE_INDEX, -1);
+            if ((moduleIndex == ModuleSwitcher.GCAM_MODULE_INDEX &&
+                    !GcamHelper.hasGcamCapture()) || moduleIndex < 0) {
+                moduleIndex = ModuleSwitcher.PHOTO_MODULE_INDEX;
+            }
+        }
+
+        mOrientationListener = new MyOrientationEventListener(this);
+        setModuleFromIndex(moduleIndex);
+        mCurrentModule.init(this, mCameraModuleRootView);
+
         setContentView(R.layout.camera_filmstrip);
 
         mActionBar = getActionBar();
@@ -1458,36 +1494,6 @@ public class CameraActivity extends Activity
         mFilmStripView.setPanoramaViewHelper(mPanoramaViewHelper);
         // Set up the camera preview first so the preview shows up ASAP.
         mFilmStripView.setListener(mFilmStripListener);
-
-        int moduleIndex = -1;
-        if (MediaStore.INTENT_ACTION_VIDEO_CAMERA.equals(getIntent().getAction())
-                || MediaStore.ACTION_VIDEO_CAPTURE.equals(getIntent().getAction())) {
-            moduleIndex = ModuleSwitcher.VIDEO_MODULE_INDEX;
-        } else if (MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA.equals(getIntent().getAction())
-                || MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE.equals(getIntent()
-                        .getAction())) {
-            moduleIndex = ModuleSwitcher.PHOTO_MODULE_INDEX;
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            if (prefs.getInt(CameraSettings.KEY_STARTUP_MODULE_INDEX, -1)
-                        == ModuleSwitcher.GCAM_MODULE_INDEX && GcamHelper.hasGcamCapture()) {
-                moduleIndex = ModuleSwitcher.GCAM_MODULE_INDEX;
-            }
-        } else if (MediaStore.ACTION_IMAGE_CAPTURE.equals(getIntent().getAction())
-                || MediaStore.ACTION_IMAGE_CAPTURE_SECURE.equals(getIntent().getAction())) {
-            moduleIndex = ModuleSwitcher.PHOTO_MODULE_INDEX;
-        } else {
-            // If the activity has not been started using an explicit intent,
-            // read the module index from the last time the user changed modes
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            moduleIndex = prefs.getInt(CameraSettings.KEY_STARTUP_MODULE_INDEX, -1);
-            if ((moduleIndex == ModuleSwitcher.GCAM_MODULE_INDEX &&
-                    !GcamHelper.hasGcamCapture()) || moduleIndex < 0) {
-                moduleIndex = ModuleSwitcher.PHOTO_MODULE_INDEX;
-            }
-        }
-
-        mOrientationListener = new MyOrientationEventListener(this);
-        setModuleFromIndex(moduleIndex);
 
         if (!mSecureCamera) {
             mDataAdapter = mWrappedDataAdapter;
