@@ -602,6 +602,9 @@ public class VideoUI implements PieRenderer.PieListener,
             }
         });
 
+    }
+
+    public void setPreviewGesturesVideoUI() {
         mActivity.setPreviewGestures(mGestures);
     }
 
