@@ -132,6 +132,7 @@ public class PhotoMenu extends PieController
                 CameraSettings.KEY_ISO,
                 CameraSettings.KEY_DENOISE,
                 CameraSettings.KEY_ADVANCED_FEATURES,
+                CameraSettings.KEY_SHUTTER_SPEED,
                 CameraSettings.KEY_EXPOSURE,
                 CameraSettings.KEY_WHITE_BALANCE,
                 CameraSettings.KEY_FLASH_MODE,
