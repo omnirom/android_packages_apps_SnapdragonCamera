@@ -398,6 +398,11 @@ public class PhotoModule
         }
     }
 
+    public Parameters getParameters()
+    {
+        return mParameters;
+    }
+
     /**
      * This Handler is used to post message back onto the main thread of the
      * application
