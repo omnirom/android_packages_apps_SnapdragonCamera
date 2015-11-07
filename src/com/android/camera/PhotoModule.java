@@ -2009,25 +2009,19 @@ public class PhotoModule
 
     @Override
     public void onShutterButtonFocus(boolean pressed) {
-        if (mPaused || mUI.collapseCameraControls()
+        if (mCameraDevice == null
+                || mPaused || mUI.collapseCameraControls()
                 || (mCameraState == SNAPSHOT_IN_PROGRESS)
-                || (mCameraState == PREVIEW_STOPPED)) return;
+                || (mCameraState == PREVIEW_STOPPED)) {
+            Log.v(TAG, "onShutterButtonFocus error case mCameraState = " + mCameraState
+                + "mCameraDevice = " + mCameraDevice + "mPaused =" + mPaused);
+            return;
+        }
 
         synchronized(mCameraDevice) {
            if (mCameraState == LONGSHOT) {
                mLongshotActive = false;
-               mCameraDevice.setLongshot(false);
-               if (!mFocusManager.isZslEnabled()) {
-                   setupPreview();
-               } else {
-                   setCameraState(IDLE);
-                   mFocusManager.resetTouchFocus();
-                   if (CameraUtil.FOCUS_MODE_CONTINUOUS_PICTURE.equals(
-                           mFocusManager.getFocusMode())) {
-                       mCameraDevice.cancelAutoFocus();
-                   }
-                   mUI.resumeFaceDetection();
-               }
+               mUI.enableShutter(false);
            }
         }
 
