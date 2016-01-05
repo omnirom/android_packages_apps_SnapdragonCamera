@@ -33,11 +33,15 @@
          Example: lge-camera=1;cam-mode=0 -->
     <string name="manufacturer_key_values"></string>
 
-    <!-- Opens back camera using openLegacy() -->
-    <bool name="back_camera_open_legacy">true</bool>
+    <!-- Use following iso parameter.
+         Example: lg-iso
+                  lg-iso-values -->
+    <string name="key_iso">iso</string>
+    <string name="key_iso_values">iso-values</string>
 
-    <!-- Opens front camera using openLegacy() -->
-    <bool name="front_camera_open_legacy">true</bool>
+    <!-- ISO values use numbers.
+         Example: 50 instead of ISO50 -->
+    <bool name="iso_values_use_numbers">false</bool>
 
     <!-- This value may be changed to true to hide navigation bar. -->
     <bool name="hide_navigation_bar">true</bool>
