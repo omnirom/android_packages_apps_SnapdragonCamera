@@ -39,6 +39,12 @@
     <string name="key_iso">iso</string>
     <string name="key_iso_values">iso-values</string>
 
+    <!-- Opens back camera using openLegacy() -->
+    <bool name="back_camera_open_legacy">true</bool>
+
+    <!-- Opens front camera using openLegacy() -->
+    <bool name="front_camera_open_legacy">true</bool>
+
     <!-- ISO values use numbers.
          Example: 50 instead of ISO50 -->
     <bool name="iso_values_use_numbers">false</bool>
