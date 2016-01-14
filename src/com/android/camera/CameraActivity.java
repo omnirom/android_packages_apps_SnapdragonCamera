@@ -628,19 +628,11 @@ public class CameraActivity extends Activity
 
         View decorView = getWindow().getDecorView();
         int currentSystemUIVisibility = decorView.getSystemUiVisibility();
-        boolean hidePreview = getResources().getBoolean(R.bool.hide_navigation_bar);
-
-        int systemUIVisibility = DEFAULT_SYSTEM_UI_VISIBILITY;
-        if (hidePreview)
-            systemUIVisibility |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-
-        int systemUINotVisible = View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN;
-        if (hidePreview)
-            systemUINotVisible |= (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
-        int newSystemUIVisibility = systemUIVisibility
-                | (visible ? View.SYSTEM_UI_FLAG_VISIBLE : systemUINotVisible);
+        int newSystemUIVisibility = DEFAULT_SYSTEM_UI_VISIBILITY
+                | (visible ? View.SYSTEM_UI_FLAG_VISIBLE :
+                    View.SYSTEM_UI_FLAG_LOW_PROFILE
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         if (newSystemUIVisibility != currentSystemUIVisibility) {
             decorView.setSystemUiVisibility(newSystemUIVisibility);
         }
@@ -1476,12 +1468,6 @@ public class CameraActivity extends Activity
                 .getGcamProcessingManager();
         mPanoramaManager.addTaskListener(mStitchingListener);
         mPlaceholderManager.addTaskListener(mPlaceholderListener);
-        LayoutInflater inflater = getLayoutInflater();
-        View rootLayout = inflater.inflate(R.layout.camera, null, false);
-        mCameraRootFrame = (FrameLayout)rootLayout.findViewById(R.id.camera_root_frame);
-        mCameraPhotoModuleRootView = rootLayout.findViewById(R.id.camera_photo_root);
-        mCameraVideoModuleRootView = rootLayout.findViewById(R.id.camera_video_root);
-        mCameraPanoModuleRootView = rootLayout.findViewById(R.id.camera_pano_root);
         mPanoStitchingPanel = findViewById(R.id.pano_stitching_progress_panel);
         mBottomProgress = (ProgressBar) findViewById(R.id.pano_stitching_progress_bar);
         mCameraPreviewData = new CameraPreviewData(rootLayout,
