@@ -524,12 +524,16 @@ public class PhotoUI implements PieListener,
         }
     }
 
+    public boolean isCameraControlsAnimating() {
+        return mCameraControls.isAnimating();
+    }
+
     public void initializeControlByIntent() {
         mThumbnail = (ImageView) mRootView.findViewById(R.id.preview_thumb);
         mThumbnail.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!CameraControls.isAnimating()
+                if (!isCameraControlsAnimating()
                         && mController.getCameraState() != PhotoController.SNAPSHOT_IN_PROGRESS)
                     mActivity.gotoGallery();
             }
@@ -617,7 +621,7 @@ public class PhotoUI implements PieListener,
         {
             @Override
             public void onClick(View v) {
-                if (!CameraControls.isAnimating())
+                if (!isCameraControlsAnimating())
                     doShutterAnimation();
             }
         });
