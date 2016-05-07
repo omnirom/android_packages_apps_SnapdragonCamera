@@ -145,6 +145,7 @@ public class CustomPhotoMenu extends MenuController
                 CameraSettings.KEY_FACE_DETECTION,
                 CameraSettings.KEY_ISO,
                 CameraSettings.KEY_EXPOSURE,
+                CameraSettings.KEY_SHUTTER_SPEED,
                 CameraSettings.KEY_WHITE_BALANCE,
                 CameraSettings.KEY_FLASH_MODE,
                 CameraSettings.KEY_FOCUS_MODE,
@@ -163,6 +164,7 @@ public class CustomPhotoMenu extends MenuController
                 CameraSettings.KEY_FACE_DETECTION,
                 CameraSettings.KEY_ISO,
                 CameraSettings.KEY_EXPOSURE,
+                CameraSettings.KEY_SHUTTER_SPEED,
                 CameraSettings.KEY_WHITE_BALANCE,
                 CameraSettings.KEY_FLASH_MODE,
                 CameraSettings.KEY_FOCUS_MODE,
@@ -171,9 +173,9 @@ public class CustomPhotoMenu extends MenuController
                 CameraSettings.KEY_ZSL,
                 CameraSettings.KEY_TIMER_SOUND_EFFECTS,
                 CameraSettings.KEY_FACE_RECOGNITION,
-                CameraSettings.KEY_TOUCH_AF_AEC,
+                //CameraSettings.KEY_TOUCH_AF_AEC,
                 CameraSettings.KEY_SELECTABLE_ZONE_AF,
-                CameraSettings.KEY_PICTURE_FORMAT,
+                //CameraSettings.KEY_PICTURE_FORMAT,
                 CameraSettings.KEY_SATURATION,
                 CameraSettings.KEY_CONTRAST,
                 CameraSettings.KEY_SHARPNESS,
@@ -181,7 +183,7 @@ public class CustomPhotoMenu extends MenuController
                 CameraSettings.KEY_ANTIBANDING,
                 CameraSettings.KEY_DENOISE,
                 CameraSettings.KEY_ADVANCED_FEATURES,
-                CameraSettings.KEY_AE_BRACKET_HDR
+                //CameraSettings.KEY_AE_BRACKET_HDR
         };
 
         initSwitchItem(CameraSettings.KEY_CAMERA_ID, mFrontBackSwitcher);

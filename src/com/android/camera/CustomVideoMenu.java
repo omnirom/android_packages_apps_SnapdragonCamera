@@ -121,8 +121,8 @@ public class CustomVideoMenu extends MenuController
                 CameraSettings.KEY_DIS,
                 CameraSettings.KEY_VIDEO_EFFECT,
                 CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL,
-                CameraSettings.KEY_VIDEO_ENCODER,
-                CameraSettings.KEY_AUDIO_ENCODER,
+                //CameraSettings.KEY_VIDEO_ENCODER,
+                //CameraSettings.KEY_AUDIO_ENCODER,
                 CameraSettings.KEY_VIDEO_HDR,
                 CameraSettings.KEY_POWER_MODE
         };
