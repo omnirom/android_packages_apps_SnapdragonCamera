@@ -1846,9 +1846,9 @@ public class PhotoModule
                     focusMode,
                     exposureCompensation, touchAfAec,
                     mParameters.getAutoExposure(),
-                    mPreferences.getString(CameraSettings.KEY_SATURATION, "5"),
-                    mPreferences.getString(CameraSettings.KEY_CONTRAST, "5"),
-                    mPreferences.getString(CameraSettings.KEY_SHARPNESS, "2"),
+                    getSaturationSafe(),
+                    getContrastSafe(),
+                    getSharpnessSafe(),
                     colorEffect,
                     sceneMode, redeyeReduction, aeBracketing);
         } else if (mFocusManager.isZslEnabled()) {
