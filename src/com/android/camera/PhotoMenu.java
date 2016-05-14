@@ -1308,6 +1308,10 @@ public class PhotoMenu extends MenuController
 
     @Override
     public void onSettingChanged(ListPreference pref) {
+        // Avoid possible NPE
+        if (pref == null) {
+            return;
+        }
         // Reset the scene mode if HDR is set to on. Reset HDR if scene mode is
         // set to non-auto.
         if (same(pref, CameraSettings.KEY_SCENE_MODE, Parameters.SCENE_MODE_HDR)) {
