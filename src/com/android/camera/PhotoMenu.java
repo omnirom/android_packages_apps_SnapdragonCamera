@@ -1310,6 +1310,9 @@ public class PhotoMenu extends MenuController
     public void onSettingChanged(ListPreference pref) {
         // Reset the scene mode if HDR is set to on. Reset HDR if scene mode is
         // set to non-auto.
+        ListPreference aePref =
+                  mPreferenceGroup.findPreference(CameraSettings.KEY_AE_BRACKET_HDR);
+
         if (same(pref, CameraSettings.KEY_SCENE_MODE, Parameters.SCENE_MODE_HDR)) {
             ListPreference hdrPref =
                     mPreferenceGroup.findPreference(CameraSettings.KEY_CAMERA_HDR);
@@ -1336,13 +1339,13 @@ public class PhotoMenu extends MenuController
                 setPreference(CameraSettings.KEY_SCENE_MODE, Parameters.SCENE_MODE_HDR);
             }
             updateSceneModeIcon((IconListPreference) scenePref);
-        } else if (notSame(pref,CameraSettings.KEY_AE_BRACKET_HDR,"Off")) {
-            RotateTextToast.makeText(mActivity,
+        } else if (aePref != null) {
+            if (notSame(pref,CameraSettings.KEY_AE_BRACKET_HDR,"Off")) {
+                    RotateTextToast.makeText(mActivity,
                            R.string.flash_aebracket_message,Toast.LENGTH_SHORT).show();
-            setPreference(CameraSettings.KEY_FLASH_MODE,Parameters.FLASH_MODE_OFF);
+                    setPreference(CameraSettings.KEY_FLASH_MODE,Parameters.FLASH_MODE_OFF);
+            }
         } else if (notSame(pref,CameraSettings.KEY_FLASH_MODE,"Off")) {
-            ListPreference aePref =
-                      mPreferenceGroup.findPreference(CameraSettings.KEY_AE_BRACKET_HDR);
             if (aePref != null) {
                 if (notSame(aePref,CameraSettings.KEY_AE_BRACKET_HDR,"Off")) {
                    RotateTextToast.makeText(mActivity,
