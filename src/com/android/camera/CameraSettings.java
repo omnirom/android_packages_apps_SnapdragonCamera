@@ -797,6 +797,13 @@ public class CameraSettings {
             filterUnsupportedOptions(group,
                     manualExposure, getSupportedManualExposureModes(mParameters));
         }
+
+        if (zsl != null) {
+            final boolean hideZsl = mContext.getResources().getBoolean(R.bool.pref_camera_zsl_disabled);
+            if (hideZsl) {
+                removePreference(group, zsl.getKey());
+            }
+        }
     }
 
     private void initPreference(PreferenceGroup group) {
