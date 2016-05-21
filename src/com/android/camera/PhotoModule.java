@@ -3258,7 +3258,6 @@ public class PhotoModule
 
         // Disable ZSL for HDR
         if (CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
-            mParameters.set("zsl", "off");
             zsl = "off";
         }
 
@@ -3269,12 +3268,7 @@ public class PhotoModule
             mParameters.set(CameraSettings.KEY_EXPOSURE_TIME, shutterSpeed);
 
             // Disable ZSL for manual exposure
-            if (shutterSpeed.equals("0")) {
-                if (zsl.equals("on")) {
-                    mParameters.set("zsl", "on");
-                }
-            } else {
-                mParameters.set("zsl", "off");
+            if (!shutterSpeed.equals("0")) {
                 zsl = "off";
             }
         }
