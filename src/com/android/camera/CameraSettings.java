@@ -918,11 +918,12 @@ public class CameraSettings {
             removePreference(group, cameraHdrPlus.getKey());
         }
 
+        ListPreference savePath = group.findPreference(KEY_CAMERA_SAVEPATH);
         if (SystemProperties.getBoolean("persist.env.camera.saveinsd", false)) {
             final String CAMERA_SAVEPATH_SDCARD = "1";
             final int CAMERA_SAVEPATH_SDCARD_IDX = 1;
             final int CAMERA_SAVEPATH_PHONE_IDX = 0;
-            ListPreference savePath = group.findPreference(KEY_CAMERA_SAVEPATH);
+
             SharedPreferences pref = group.getSharedPreferences();
             String savePathValue = null;
             if (pref != null) {
@@ -938,7 +939,10 @@ public class CameraSettings {
                     Log.d(TAG, "set Phone as save path when sdCard is unavailable.");
                     savePath.setValueIndex(CAMERA_SAVEPATH_PHONE_IDX);
                 }
-           }
+            }
+        }
+        if (savePath != null && !SDCard.instance().isWriteable()) {
+            removePreference(group, savePath.getKey());
         }
 
         qcomInitPreferences(group);
