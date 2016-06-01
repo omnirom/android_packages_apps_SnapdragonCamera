@@ -276,7 +276,6 @@ public class CameraSettings {
         //video qualities
         VIDEO_QUALITY_TABLE.put("4096x2160", CamcorderProfile.QUALITY_4KDCI);
         VIDEO_QUALITY_TABLE.put("3840x2160", CamcorderProfile.QUALITY_2160P);
-        VIDEO_QUALITY_TABLE.put("2560x1440", CamcorderProfile.QUALITY_1440P);
         VIDEO_QUALITY_TABLE.put("1920x1080", CamcorderProfile.QUALITY_1080P);
         VIDEO_QUALITY_TABLE.put("1280x720",  CamcorderProfile.QUALITY_720P);
         VIDEO_QUALITY_TABLE.put("720x480",   CamcorderProfile.QUALITY_480P);
@@ -304,7 +303,6 @@ public class CameraSettings {
         VIDEO_QUALITY_TO_TIMELAPSE.put(CamcorderProfile.QUALITY_2160P, CamcorderProfile.QUALITY_TIME_LAPSE_2160P);
         VIDEO_QUALITY_TO_TIMELAPSE.put(CamcorderProfile.QUALITY_VGA  , CamcorderProfile.QUALITY_TIME_LAPSE_VGA  );
         VIDEO_QUALITY_TO_TIMELAPSE.put(CamcorderProfile.QUALITY_4KDCI, CamcorderProfile.QUALITY_TIME_LAPSE_4KDCI);
-        VIDEO_QUALITY_TO_TIMELAPSE.put(CamcorderProfile.QUALITY_1440P, CamcorderProfile.QUALITY_TIME_LAPSE_1440P);
    }
 
    public static int getTimeLapseQualityFor(int quality) {
@@ -328,11 +326,6 @@ public class CameraSettings {
    }
 
    public static int getHighSpeedQualityFor(int quality) {
-       // High-speed 1440p is unsupported, so just choose
-       // another unsupported resolution to avoid crashing
-       if (quality == CamcorderProfile.QUALITY_1440P) {
-           quality = CamcorderProfile.QUALITY_2160P;
-       }
        return VIDEO_QUALITY_TO_HIGHSPEED.get(quality);
    }
 
@@ -1260,11 +1253,6 @@ public class CameraSettings {
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_2160P)) {
            if (checkSupportedVideoQuality(parameters,3840,2160)) {
               supported.add(Integer.toString(CamcorderProfile.QUALITY_2160P));
-           }
-        }
-        if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_1440P)) {
-           if (checkSupportedVideoQuality(parameters,2560,1440)){
-              supported.add(Integer.toString(CamcorderProfile.QUALITY_1440P));
            }
         }
         if (CamcorderProfile.hasProfile(cameraId, CamcorderProfile.QUALITY_1080P)) {
