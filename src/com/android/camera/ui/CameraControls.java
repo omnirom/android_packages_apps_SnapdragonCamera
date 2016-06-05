@@ -877,6 +877,7 @@ public class CameraControls extends RotatableLayout {
                 mRemainingPhotos.getChildAt(i).setVisibility(View.VISIBLE);
             }
             mRemainingPhotosText.setText(remaining + " ");
+            mRemainingPhotos.setVisibility(View.VISIBLE);
         }
     }
 
