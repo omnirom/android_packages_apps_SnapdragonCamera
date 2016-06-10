@@ -1553,7 +1553,8 @@ public class VideoModule implements CameraModule,
         if (isHFR || mCaptureTimeLapse) {
             mMediaRecorder.setOutputFormat(mProfile.fileFormat);
             mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
-            mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
+            mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate *
+                                                ((isHSR ? captureRate : 30) / 30));
             mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
         } else {
             if (isHSR) {
@@ -1568,6 +1569,20 @@ public class VideoModule implements CameraModule,
         if (mCaptureTimeLapse) {
             double fps = 1000 / (double) mTimeBetweenTimeLapseFrameCaptureMs;
             setCaptureRate(mMediaRecorder, fps);
+        } else if (captureRate > 0) {
+             Log.i(TAG, "Setting capture-rate = " + captureRate);
+             mMediaRecorder.setCaptureRate(captureRate);
+            // for HFR, encoder's target-framerate = capture-rate
+            if (isHSR) {
+                Log.i(TAG, "Setting fps = " + captureRate + " for HSR");
+                mMediaRecorder.setVideoFrameRate(captureRate);
+            }
+            // for HFR, encoder's taget-framerate = 30fps (from profile)
+            if (isHFR) {
+                Log.i(TAG, "Setting fps = 30 for HFR");
+                mMediaRecorder.setVideoFrameRate(30);
+            }
+            // TODO : bitrate correction..check with google
         }
 
         setRecordLocation();
