@@ -49,9 +49,6 @@
          Example: 50 instead of ISO50 -->
     <bool name="iso_values_use_numbers">false</bool>
 
-    <!-- This value may be changed to true to hide navigation bar. -->
-    <bool name="hide_navigation_bar">true</bool>
-
     <!-- hide zsl preference and use whatever devices wants -->
     <bool name="pref_camera_zsl_disabled">false</bool>
 </resources>
