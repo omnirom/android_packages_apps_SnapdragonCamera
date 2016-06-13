@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5804b501_9cba45b3",
+        "filename": "res/values/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2016-06-13T19:05:58Z",
+      "side": 1,
+      "message": "have you noticed that those strings are not used anywhere? :)",
+      "revId": "8d2a0851e9ef6840be0d4f092cb5c571ab5ac985",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
