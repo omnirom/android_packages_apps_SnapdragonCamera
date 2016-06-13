@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5804b501_5c84bdda",
+        "filename": "src/com/android/camera/CameraActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2016-06-13T20:37:33Z",
+      "side": 0,
+      "message": "since hide_navigation_bar is no longer used noew it should be removed from config.xml too",
+      "range": {
+        "startLine": 631,
+        "startChar": 68,
+        "endLine": 631,
+        "endChar": 69
+      },
+      "revId": "347ddee8828360ccdf2bbd04133b564b3a806668",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
