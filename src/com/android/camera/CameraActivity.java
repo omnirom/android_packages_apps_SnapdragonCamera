@@ -1442,10 +1442,18 @@ public class CameraActivity extends Activity
             }
         }
 
+        setContentView(R.layout.camera_filmstrip);
+
+        mAboveFilmstripControlLayout =
+                (FrameLayout) findViewById(R.id.camera_above_filmstrip_layout);
+        mAboveFilmstripControlLayout.setFitsSystemWindows(true);
+
+        mFilmStripView = (FilmStripView) findViewById(R.id.filmstrip_view);
+        mFilmStripView.setViewGap(
+                getResources().getDimensionPixelSize(R.dimen.camera_film_strip_gap));
+
         mOrientationListener = new MyOrientationEventListener(this);
         setModuleFromIndex(moduleIndex);
-
-        setContentView(R.layout.camera_filmstrip);
 
         mActionBar = getActionBar();
         mActionBar.addOnMenuVisibilityListener(this);
@@ -1456,9 +1464,6 @@ public class CameraActivity extends Activity
 
         mMainHandler = new MainHandler(getMainLooper());
 
-        mAboveFilmstripControlLayout =
-                (FrameLayout) findViewById(R.id.camera_above_filmstrip_layout);
-        mAboveFilmstripControlLayout.setFitsSystemWindows(true);
         // Hide action bar first since we are in full screen mode first, and
         // switch the system UI to lights-out mode.
         this.setSystemBarsVisibility(false);
@@ -1473,20 +1478,18 @@ public class CameraActivity extends Activity
         mCameraPreviewData = new CameraPreviewData(rootLayout,
                 FilmStripView.ImageData.SIZE_FULL,
                 FilmStripView.ImageData.SIZE_FULL);
+
         // Put a CameraPreviewData at the first position.
         mWrappedDataAdapter = new FixedFirstDataAdapter(
                 new CameraDataAdapter(new ColorDrawable(
                         getResources().getColor(R.color.photo_placeholder))),
                 mCameraPreviewData);
-        mFilmStripView = (FilmStripView) findViewById(R.id.filmstrip_view);
-        mFilmStripView.setViewGap(
-                getResources().getDimensionPixelSize(R.dimen.camera_film_strip_gap));
         mPanoramaViewHelper = new PanoramaViewHelper(this);
         mPanoramaViewHelper.onCreate();
         mFilmStripView.setPanoramaViewHelper(mPanoramaViewHelper);
+
         // Set up the camera preview first so the preview shows up ASAP.
         mFilmStripView.setListener(mFilmStripListener);
-
         if (!mSecureCamera) {
             mDataAdapter = mWrappedDataAdapter;
             mFilmStripView.setDataAdapter(mDataAdapter);
