@@ -26,35 +26,11 @@
      OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
      IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<com.android.camera.ui.RotateLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/filter_mode_padding">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval" >
+    <size
+        android:width="48dp"
+        android:height="48dp" />
 
-    <LinearLayout
-        android:layout_width="@dimen/filter_mode_width"
-        android:layout_height="@dimen/filter_mode_height"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:padding="2dp" />
-
-        <TextView
-            android:id="@+id/label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:shadowColor="@android:color/black"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:singleLine="true"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
-    </LinearLayout>
-</com.android.camera.ui.RotateLayout>
+    <solid android:color="@color/material_accent_icon" />
+</shape>

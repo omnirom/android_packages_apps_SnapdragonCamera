@@ -55,8 +55,6 @@
     <color name="icon_disabled_color">#DD777777</color>
     <color name="time_lapse_arc">#FFC5C5C5</color>
     <color name="indicator_background">#40000000</color>
-    <color name="popup_title_color">#ff33b5e5</color>
-    <color name="popup_background">#ff282828</color>
     <color name="pano_progress_empty">#FF2E2E2E</color>
     <color name="pano_progress_done">#FF33525E</color>
     <color name="pano_progress_indication">#FF0099CC</color>
@@ -70,10 +68,31 @@
     <color name="face_detect_fail">#80d05060</color>
     <color name="gray">#FFAAAAAA</color>
 
-    <color name="setting_color">#ff10aadc</color>
-    <color name="setting_color_light">#ffade9fd</color>
-    <color name="list_divider_color">#d8ababab</color>
+    <!-- Scene and filter settings -->
+    <color name="scene_item_selected">@color/material_accent_icon</color>
+    <color name="list_divider_color">@color/material_accent_icon_disabled</color>
+    <color name="popup_title_color">@color/material_accent_icon</color>
 
-    <color name="camera_control_bg_opaque">#ff191919</color>
-    <color name="camera_control_bg_transparent">#4d191919</color>
+    <!-- Settings/Menu  -->
+    <color name="popup_background">@color/material_bg_opaque_settings</color> <!-- Settings background -->
+    <color name="camera_switcher_background">@color/material_bg_opaque_settings</color> <!-- camera switcher background -->
+    <color name="setting_color">@color/material_dark</color> <!-- 1st level selected item -->
+    <color name="setting_color_light">@color/material_primary</color> <!-- 2nd level selected item -->
+
+    <!-- Top and bottom camera controls. opaque is for 4:3 and transparent is for 16:9 previews -->
+    <color name="camera_control_bg_opaque">@color/material_bg</color>
+    <color name="camera_control_bg_transparent">@color/material_bg_opaque</color> 
+
+    <!-- Change colours here -->
+    <color name="black">#212121</color>
+    <color name="material_accent_icon">#ffffc107</color> <!-- all icons + scene mode selected -->
+    <color name="material_accent_icon_disabled">#44ffc107</color> <!-- disabled icon -->
+    <color name="material_dark">#ff00796b</color>
+    <color name="material_primary">#ff009688</color>
+    <color name="material_light">#ffb2dfdb</color> <!-- not used, but part of pallete just in case-->
+    <color name="material_bg">#ff00302a</color>
+    <color name="material_bg_opaque">#4400302a</color>
+    <color name="material_bg_opaque_settings">#8000302a</color>
+    <color name="material_text">#ffc107</color> <!-- text color in settings/menu -->
+    <color name="transparent">@android:color/transparent</color>
 </resources>

@@ -48,7 +48,8 @@
         android:contentDescription="@string/accessibility_shutter_button"
         android:focusable="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/btn_new_shutter" />
+        android:src="@drawable/btn_new_shutter"
+        android:background="@drawable/btn_new_shutter_bg" />
 
     <com.android.camera.ui.RotateImageView
         android:id="@+id/preview_thumb"
