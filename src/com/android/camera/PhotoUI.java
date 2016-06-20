@@ -366,6 +366,13 @@ public class PhotoUI implements PieListener,
         } else {
             float width = mMaxPreviewWidth, height = mMaxPreviewHeight;
             if (width == 0 || height == 0) return;
+            if (mScreenRatio == CameraUtil.RATIO_4_3) {
+                if (height > width) {
+                    height -= (mTopMargin + mBottomMargin);
+                } else {
+                    width -= (mTopMargin + mBottomMargin);
+                }
+            }
 
             if (mOrientationResize) {
                 scaledTextureWidth = height * mAspectRatio;
@@ -406,6 +413,10 @@ public class PhotoUI implements PieListener,
             } else {
                 lp = new FrameLayout.LayoutParams((int) scaledTextureWidth,
                         (int) scaledTextureHeight, Gravity.CENTER);
+            }
+            if (mScreenRatio == CameraUtil.RATIO_4_3) {
+                lp.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;
+                lp.setMargins(0, mTopMargin, 0, mBottomMargin);
             }
         }
 
@@ -840,7 +851,7 @@ public class PhotoUI implements PieListener,
             if (level == 2)
                 mMenu.animateFadeIn(popup);
         } else
-            popup.setAlpha(0.85f);
+            popup.setAlpha(1f);
     }
 
     public void removeLevel2() {
