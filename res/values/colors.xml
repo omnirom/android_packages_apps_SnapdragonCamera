@@ -70,10 +70,13 @@
     <color name="face_detect_fail">#80d05060</color>
     <color name="gray">#FFAAAAAA</color>
 
-    <color name="setting_color">#ff10aadc</color>
-    <color name="setting_color_light">#ffade9fd</color>
-    <color name="list_divider_color">#d8ababab</color>
+    <color name="setting_color">#ff388E3C</color>
+    <color name="setting_color_light">#ff4CAF50</color>
+    <color name="scene_item_selected">@color/setting_color_light</color>
+    <color name="list_divider_color">#80B6B6B6</color>
 
     <color name="camera_control_bg_opaque">#ff191919</color>
     <color name="camera_control_bg_transparent">#4d191919</color>
+    
+    <color name="green">#ff00ff00</color>
 </resources>
