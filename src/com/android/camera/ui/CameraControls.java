@@ -48,7 +48,7 @@ public class CameraControls extends RotatableLayout {
     private static final String TAG = "CAM_Controls";
 
     private View mBackgroundView;
-    private View mShutter;
+    private ShutterButton mShutter;
     private View mSwitcher;
     private View mMenu;
     private View mFrontBackSwitcher;
@@ -167,7 +167,7 @@ public class CameraControls extends RotatableLayout {
         } else {
             mFilterModeEnabled = mFilterModeSwitcher.isEnabled();
         }
-        ((ShutterButton) mShutter).enableTouch(enable);
+        mShutter.enableTouch(enable);
         ((ModuleSwitcher) mSwitcher).enableTouch(enable);
         mMenu.setEnabled(enable);
         mFrontBackSwitcher.setEnabled(enable);
@@ -195,7 +195,7 @@ public class CameraControls extends RotatableLayout {
         super.onFinishInflate();
         mBackgroundView = findViewById(R.id.blocker);
         mSwitcher = findViewById(R.id.camera_switcher);
-        mShutter = findViewById(R.id.shutter_button);
+        mShutter = (ShutterButton) findViewById(R.id.shutter_button);
         mFrontBackSwitcher = findViewById(R.id.front_back_switcher);
         if(TsMakeupManager.HAS_TS_MAKEUP) {
             mTsMakeupSwitcher = findViewById(R.id.ts_makeup_switcher);
@@ -268,9 +268,13 @@ public class CameraControls extends RotatableLayout {
 
         int w = r - l;
         int h = b - t;
-        asRow(true, w, h, rotation, mSceneModeSwitcher, mFilterModeSwitcher,
-                mFrontBackSwitcher, mHdrSwitcher, mMenu);
-
+        if(TsMakeupManager.HAS_TS_MAKEUP) {
+            asRow(true, w, h, rotation, mSceneModeSwitcher, mFilterModeSwitcher,
+                    mFrontBackSwitcher, mTsMakeupSwitcher, mMenu);
+        } else {
+            asRow(true, w, h, rotation, mSceneModeSwitcher, mFilterModeSwitcher,
+                    mFrontBackSwitcher, mHdrSwitcher, mMenu);
+        }
         Rect expandedShutter = new Rect(shutter);
         switch (rotation) {
             case 90:
@@ -464,9 +468,11 @@ public class CameraControls extends RotatableLayout {
                 v.setVisibility(View.VISIBLE);
             }
         ((ModuleSwitcher) mSwitcher).removePopup();
-        AnimationDrawable shutterAnim = (AnimationDrawable) mShutter.getBackground();
-        if (shutterAnim != null)
-            shutterAnim.stop();
+        if (mShutter.getDrawable() instanceof AnimationDrawable) { 
+            AnimationDrawable shutterAnim = (AnimationDrawable) mShutter.getDrawable();
+            if (shutterAnim != null)
+                shutterAnim.stop();
+        }
 
         mMenu.setVisibility(View.VISIBLE);
         mPreview.setVisibility(View.VISIBLE);
