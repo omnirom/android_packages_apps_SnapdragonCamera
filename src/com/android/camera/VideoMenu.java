@@ -614,7 +614,7 @@ public class VideoMenu extends MenuController
                                 v1.setBackground(null);
                             }
                             ImageView image = (ImageView) v.findViewById(R.id.image);
-                            image.setBackgroundColor(0xff33b5e5);
+                            image.setBackgroundColor(0xff00ff00);
                             onSettingChanged(pref);
                         }
 
@@ -625,7 +625,7 @@ public class VideoMenu extends MenuController
 
             views[j] = imageView;
             if (i == init)
-                imageView.setBackgroundColor(0xff33b5e5);
+                imageView.setBackgroundColor(0xff00ff00);
             TextView label = (TextView) layout2.findViewById(R.id.label);
             imageView.setImageResource(thumbnails[i]);
             label.setText(entries[i]);
