@@ -49,7 +49,6 @@ public class ListMenuItem extends RelativeLayout {
     protected String mOverrideValue;
     protected TextView mTitle;
     private TextView mEntry;
-    private ImageView mIcon;
 
     static public interface Listener {
         public void onSettingChanged(ListPreference pref);
@@ -63,7 +62,6 @@ public class ListMenuItem extends RelativeLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         mEntry = (TextView) findViewById(R.id.current_setting);
-        mIcon = (ImageView) findViewById(R.id.list_image);
     }
 
     protected void setTitle(ListPreference preference) {
@@ -74,7 +72,6 @@ public class ListMenuItem extends RelativeLayout {
     protected void setIcon(ListPreference preference) {
         if (preference instanceof IconListPreference) {
             int resId = ((IconListPreference) preference).getSingleIcon();
-            mIcon.setImageResource(resId);
         }
 
     }
