@@ -382,6 +382,7 @@ public class PhotoUI implements PieListener,
                     width -= (mTopMargin + mBottomMargin);
                 }
             }
+
             if (mOrientationResize) {
                 scaledTextureWidth = height * mAspectRatio;
                 if (scaledTextureWidth > width) {
@@ -858,7 +859,7 @@ public class PhotoUI implements PieListener,
             if (level == 2)
                 mMenu.animateFadeIn(popup);
         } else
-            popup.setAlpha(0.85f);
+            popup.setAlpha(1f);
     }
 
     public void removeLevel2() {
