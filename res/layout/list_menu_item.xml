@@ -32,20 +32,18 @@
     android:orientation="horizontal"
     android:padding="5dip" >
 
-    <ImageView
+<!--    <ImageView
         android:id="@+id/list_image"
         android:layout_width="@dimen/setting_item_icon_width"
         android:layout_height="@dimen/setting_item_icon_width"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="20dp"
         android:gravity="center" />
-
+-->
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/list_image"
-        android:layout_toRightOf="@+id/list_image"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
@@ -55,14 +53,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_marginTop="1dip"
-        android:layout_toRightOf="@+id/list_image"
         android:shadowColor="@android:color/black"
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="2"
         android:text="@string/crop_save"
-        android:textColor="#33b5e5"
-        android:textSize="10dip"
-        android:textStyle="bold" />
+        android:textColor="@color/material_text"
+        android:textSize="10dip" />
 
 </com.android.camera.ui.ListMenuItem>
