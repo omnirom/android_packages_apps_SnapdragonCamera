@@ -55,7 +55,6 @@
             android:shadowRadius="2"
             android:singleLine="true"
             android:textColor="@android:color/white"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:textSize="13sp" />
     </LinearLayout>
 </com.android.camera.ui.RotateLayout>
