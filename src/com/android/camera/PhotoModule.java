@@ -1935,7 +1935,7 @@ public class PhotoModule
                     (IconListPreference)mPreferenceGroup.findPreference(
                     CameraSettings.KEY_CAMERA_ID);
 
-            int[] iconIds = {R.drawable.ic_switch_front, R.drawable.ic_switch_back};
+            int[] iconIds = {R.drawable.ic_switch_front_tint, R.drawable.ic_switch_back_tint};
             switchIconPref.setIconIds(iconIds);
 
             String[] entries = {mActivity.getResources().getString(
@@ -1948,7 +1948,7 @@ public class PhotoModule
                     getString(R.string.pref_camera_id_label_back)};
             switchIconPref.setLabels(labels);
 
-            int[] largeIconIds = {R.drawable.ic_switch_front, R.drawable.ic_switch_back};
+            int[] largeIconIds = {R.drawable.ic_switch_front_tint, R.drawable.ic_switch_back_tint};
             switchIconPref.setLargeIconIds(largeIconIds);
         }
     }

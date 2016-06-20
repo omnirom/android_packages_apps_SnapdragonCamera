@@ -388,41 +388,25 @@
     </string-array>
 
     <array name="scenemode_thumbnails" translatable="false">
-        <item>@drawable/ic_scene_mode_auto</item>
-        <item>@drawable/ic_scene_mode_hdr</item>
-        <item>@drawable/ic_scene_mode_refocus</item>
-        <item>@drawable/ic_scene_mode_portrait</item>
-        <item>@drawable/ic_scene_mode_landscape</item>
-        <item>@drawable/ic_scene_mode_sports</item>
-        <item>@drawable/ic_scene_mode_flower</item>
-        <item>@drawable/ic_scene_mode_backlight</item>
-        <item>@drawable/ic_scene_mode_candlelight</item>
-        <item>@drawable/ic_scene_mode_sunset</item>
-        <item>@drawable/ic_scene_mode_night</item>
-        <item>@drawable/ic_scene_mode_beach</item>
-        <item>@drawable/ic_scene_mode_snow</item>
-    </array>
-
-    <string-array name="pref_camera_scenemode_labels">
-        <item>@string/pref_camera_scenemode_label_action</item>
-        <item>@string/pref_camera_scenemode_label_night</item>
-        <item>@string/pref_camera_scenemode_label_auto</item>
-        <item>@string/pref_camera_scenemode_label_sunset</item>
-        <item>@string/pref_camera_scenemode_label_party</item>
-    </string-array>
-
-    <array name="pref_camera_scenemode_icons">
-        <item>@drawable/ic_sce_action</item>
-        <item>@drawable/ic_sce_night</item>
-        <item>@drawable/ic_sce_off</item>
-        <item>@drawable/ic_sce_sunset</item>
-        <item>@drawable/ic_sce_party</item>
+        <item>@drawable/ic_scene_mode_auto_tint</item>
+        <item>@drawable/ic_scene_mode_hdr_tint</item>
+        <item>@drawable/ic_scene_mode_refocus_tint</item>
+        <item>@drawable/ic_scene_mode_portrait_tint</item>
+        <item>@drawable/ic_scene_mode_landscape_tint</item>
+        <item>@drawable/ic_scene_mode_sports_tint</item>
+        <item>@drawable/ic_scene_mode_flower_tint</item>
+        <item>@drawable/ic_scene_mode_backlight_tint</item>
+        <item>@drawable/ic_scene_mode_candlelight_tint</item>
+        <item>@drawable/ic_scene_mode_sunset_tint</item>
+        <item>@drawable/ic_scene_mode_night_tint</item>
+        <item>@drawable/ic_scene_mode_beach_tint</item>
+        <item>@drawable/ic_scene_mode_snow_tint</item>
     </array>
 
     <string-array name="pref_camera_scenemode_entryvalues" translatable="false">
         <item>auto</item>
         <item>hdr</item>
-        <item>@string/pref_camera_advanced_feature_value_refocus_on</item>
+        <item>refocus</item>
         <item>portrait</item>
         <item>landscape</item>
         <item>sports</item>
@@ -446,13 +430,13 @@
     </array>
 
     <array name="camera_id_icons" translatable="false">
-        <item>@drawable/ic_switch_back</item>
-        <item>@drawable/ic_switch_front</item>
+        <item>@drawable/ic_switch_back_tint</item>
+        <item>@drawable/ic_switch_front_tint</item>
     </array>
 
     <array name="camera_id_largeicons" translatable="false">
-        <item>@drawable/ic_switch_back</item>
-        <item>@drawable/ic_switch_front</item>
+        <item>@drawable/ic_switch_back_tint</item>
+        <item>@drawable/ic_switch_front_tint</item>
     </array>
 
     <string-array name="pref_video_effect_entries" translatable="false">
