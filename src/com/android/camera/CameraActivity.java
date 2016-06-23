@@ -1368,6 +1368,12 @@ public class CameraActivity extends Activity
         // Check if this is in the secure camera mode.
         Intent intent = getIntent();
         String action = intent.getAction();
+
+        if (CameraUtil.isLandscapeDevice(this)) {
+            this.setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+
         if (INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE.equals(action)
                 || ACTION_IMAGE_CAPTURE_SECURE.equals(action)
                 || intent.getComponent().getClassName().equals(GESTURE_CAMERA_NAME)) {

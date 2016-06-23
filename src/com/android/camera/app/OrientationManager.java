@@ -27,6 +27,7 @@ import android.view.OrientationEventListener;
 import android.view.Surface;
 
 import com.android.camera.util.ApiHelper;
+import com.android.camera.util.CameraUtil;
 
 public class OrientationManager {
     private static final String TAG = "CAM_OrientationManager";
@@ -54,9 +55,14 @@ public class OrientationManager {
     private int calculateCurrentScreenOrientation() {
         int displayRotation = getDisplayRotation();
         // Display rotation >= 180 means we need to use the REVERSE landscape/portrait
+
+        int orientation = 
+            CameraUtil.isLandscapeDevice(mActivity) ?
+            Configuration.ORIENTATION_LANDSCAPE :
+            mActivity.getResources().getConfiguration().orientation;
+
         boolean standard = displayRotation < 180;
-        if (mActivity.getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_LANDSCAPE) {
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             return standard
                     ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
                     : ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
