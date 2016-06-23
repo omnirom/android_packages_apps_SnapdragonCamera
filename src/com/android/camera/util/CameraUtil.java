@@ -23,6 +23,7 @@ import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -438,6 +439,15 @@ public class CameraUtil {
         return rotation != Surface.ROTATION_0 && rotation != Surface.ROTATION_180;
     }
 
+    public static boolean isLandscapeDevice(Activity activity) {
+        return (
+            (activity.getResources().getConfiguration().screenLayout &
+             Configuration.SCREENLAYOUT_SIZE_MASK)
+            >=
+            Configuration.SCREENLAYOUT_SIZE_LARGE
+        );
+    }
+
     /**
      * Calculate the default orientation of the device based on the width and
      * height of the display when rotation = 0 (i.e. natural width and height)
@@ -446,6 +456,7 @@ public class CameraUtil {
      */
     public static boolean isDefaultToPortrait(Activity activity) {
         Display currentDisplay = activity.getWindowManager().getDefaultDisplay();
+        boolean mIsLandscapeDevice = isLandscapeDevice(activity);
         Point displaySize = new Point();
         currentDisplay.getSize(displaySize);
         int orientation = currentDisplay.getRotation();
@@ -457,7 +468,7 @@ public class CameraUtil {
             naturalWidth = displaySize.y;
             naturalHeight = displaySize.x;
         }
-        return naturalWidth < naturalHeight;
+        return (naturalWidth < naturalHeight) && !mIsLandscapeDevice;
     }
 
     public static int getDisplayOrientation(int degrees, int cameraId) {

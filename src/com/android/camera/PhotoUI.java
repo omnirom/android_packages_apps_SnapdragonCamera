@@ -147,6 +147,7 @@ public class PhotoUI implements PieListener,
     private int mBottomMargin = 0;
 
     private int mOrientation;
+    private boolean mIsLandscapeDevice = false;
 
     public interface SurfaceTextureSizeChangedListener {
         public void onSurfaceTextureSizeChanged(int uncroppedWidth, int uncroppedHeight);
@@ -214,6 +215,7 @@ public class PhotoUI implements PieListener,
         mActivity = activity;
         mController = controller;
         mRootView = parent;
+        mIsLandscapeDevice = CameraUtil.isLandscapeDevice(mActivity);
         mActivity.getLayoutInflater().inflate(R.layout.photo_module,
                 (ViewGroup) mRootView, true);
         mPreviewCover = mRootView.findViewById(R.id.preview_cover);
@@ -240,7 +242,10 @@ public class PhotoUI implements PieListener,
                     mMaxPreviewHeight = height;
                 }
 
-                int orientation = mActivity.getResources().getConfiguration().orientation;
+                int orientation = mIsLandscapeDevice ?
+                    Configuration.ORIENTATION_LANDSCAPE :
+                    mActivity.getResources().getConfiguration().orientation;
+
                 if ((orientation == Configuration.ORIENTATION_PORTRAIT && width > height)
                         || (orientation == Configuration.ORIENTATION_LANDSCAPE && width < height)) {
                     // The screen has rotated; swap SurfaceView width & height
