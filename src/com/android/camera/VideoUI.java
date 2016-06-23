@@ -115,6 +115,7 @@ public class VideoUI implements PieRenderer.PieListener,
     private boolean mUIhidden = false;
     private int mPreviewOrientation = -1;
     private int mOrientation;
+    private boolean mIsLandscapeDevice = false;
 
     private int mScreenRatio = CameraUtil.RATIO_UNKNOWN;
     private int mTopMargin = 0;
@@ -167,6 +168,7 @@ public class VideoUI implements PieRenderer.PieListener,
         mActivity = activity;
         mController = controller;
         mRootView = parent;
+        mIsLandscapeDevice = CameraUtil.isLandscapeDevice(mActivity);
         mActivity.getLayoutInflater().inflate(R.layout.video_module,
                 (ViewGroup) mRootView, true);
         mPreviewCover = mRootView.findViewById(R.id.preview_cover);
@@ -193,7 +195,10 @@ public class VideoUI implements PieRenderer.PieListener,
                     mMaxPreviewHeight = height;
                 }
 
-                int orientation = mActivity.getResources().getConfiguration().orientation;
+                int orientation = mIsLandscapeDevice ?
+                    Configuration.ORIENTATION_LANDSCAPE :
+                    mActivity.getResources().getConfiguration().orientation;
+
                 if ((orientation == Configuration.ORIENTATION_PORTRAIT && width > height)
                         || (orientation == Configuration.ORIENTATION_LANDSCAPE && width < height)) {
                     // The screen has rotated; swap SurfaceView width & height
