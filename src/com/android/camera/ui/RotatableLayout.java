@@ -60,7 +60,10 @@ public class RotatableLayout extends FrameLayout {
     }
 
     private void init() {
-        mInitialOrientation = getResources().getConfiguration().orientation;
+        mInitialOrientation = 
+            CameraUtil.isLandscapeDevice((Activity) getContext()) ?
+            Configuration.ORIENTATION_LANDSCAPE :
+            getResources().getConfiguration().orientation;
     }
 
     @Override
