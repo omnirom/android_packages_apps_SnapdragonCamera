@@ -1362,6 +1362,13 @@ public class CameraActivity extends Activity
         }
     }
 
+    public static boolean isTablet(Context context) {
+        return (context.getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK)
+                >=
+                Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
+
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -1374,6 +1381,11 @@ public class CameraActivity extends Activity
             mSecureCamera = true;
         } else {
             mSecureCamera = intent.getBooleanExtra(SECURE_CAMERA_EXTRA, false);
+        }
+
+        if (isTablet(this)) {
+            setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
 
         if (mSecureCamera) {
