@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5804b501_85bc28d8",
+        "filename": "src/com/android/camera/CameraActivity.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2016-06-27T20:33:12Z",
+      "side": 1,
+      "message": "Android formatting rule - indentation is 2x if the statement continues in the next line",
+      "revId": "31bd52763515a10f4b7fa88d1da31c10feafa605",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5804b501_a5ef24e6",
+        "filename": "src/com/android/camera/VideoUI.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2016-06-27T20:33:12Z",
+      "side": 1,
+      "message": "Just general notice - in Java boolean member variables are always initialized with false so you can just save time.",
+      "revId": "31bd52763515a10f4b7fa88d1da31c10feafa605",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5804b501_c5f230cc",
+        "filename": "src/com/android/camera/util/CameraUtil.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2016-06-27T20:33:12Z",
+      "side": 1,
+      "message": "formatting looks a little bit weired here",
+      "revId": "31bd52763515a10f4b7fa88d1da31c10feafa605",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
