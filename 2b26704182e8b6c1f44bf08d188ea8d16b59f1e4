@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5804b501_25af947c",
+        "filename": "res/values/qcomstrings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1001560
+      },
+      "writtenOn": "2016-06-28T19:00:53Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "2b26704182e8b6c1f44bf08d188ea8d16b59f1e4",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
