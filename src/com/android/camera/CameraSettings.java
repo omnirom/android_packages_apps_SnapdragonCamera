@@ -872,6 +872,9 @@ public class CameraSettings {
                 group.findPreference(KEY_VIDEO_HIGH_FRAME_RATE);
         ListPreference seeMoreMode = group.findPreference(KEY_SEE_MORE);
         ListPreference savePath = group.findPreference(KEY_CAMERA_SAVEPATH);
+        ListPreference photoTouchFocusDuration = group.findPreference(KEY_TOUCH_FOCUS_DURATION);
+        ListPreference videoTouchFocusDuration = group.findPreference(KEY_VIDEO_TOUCH_FOCUS_DURATION);
+
         //ListPreference videoEncoder = group.findPreference(KEY_VIDEO_ENCODER);
 
         // Since the screen could be loaded from different resources, we need
@@ -991,6 +994,13 @@ public class CameraSettings {
             }
         }
 
+        final boolean focusAreaSupported = CameraUtil.isFocusAreaSupported(mParameters);
+        if (photoTouchFocusDuration != null && !focusAreaSupported) {
+            removePreference(group, photoTouchFocusDuration.getKey());
+        }
+        if (videoTouchFocusDuration != null && !focusAreaSupported) {
+            removePreference(group, videoTouchFocusDuration.getKey());
+        }
         qcomInitPreferences(group);
     }
 
