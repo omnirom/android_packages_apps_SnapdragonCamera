@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5804b501_3198f26a",
+        "filename": "res/drawable/scene_mode_view_border.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2016-07-15T15:37:53Z",
+      "side": 1,
+      "message": "dont hardcode color - add all to colors.xml",
+      "range": {
+        "startLine": 34,
+        "startChar": 24,
+        "endLine": 34,
+        "endChar": 32
+      },
+      "revId": "999c610fcbb4e216d50b2f68e810ae66bb73e2c4",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
