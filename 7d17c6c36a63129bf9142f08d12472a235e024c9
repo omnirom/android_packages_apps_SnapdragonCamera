@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5804b501_236669ed",
+        "filename": "src/com/android/camera/PhotoMenu.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2016-07-18T12:59:18Z",
+      "side": 1,
+      "message": "@maxwen: is it possible to untangle this to use something from color.xml ?",
+      "revId": "7d17c6c36a63129bf9142f08d12472a235e024c9",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
