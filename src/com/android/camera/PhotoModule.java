@@ -2807,7 +2807,12 @@ public class PhotoModule
         String shutterSpeed = mPreferences.getString(
                                   CameraSettings.KEY_SHUTTER_SPEED,
                                   mActivity.getString(R.string.pref_camera_shutter_speed_default));
-        if (!shutterSpeed.equals("0") || CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
+        String aeBracketing = mPreferences.getString(
+                            CameraSettings.KEY_AE_BRACKET_HDR,
+                            mActivity.getString(R.string.pref_camera_ae_bracket_hdr_default));
+        if (!shutterSpeed.equals("0") ||
+            aeBracketing.equals("AE-Bracket") ||
+            CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
             zsl = "off";
         }
         if(zsl.equals("on") && mSnapshotMode != CameraInfo.CAMERA_SUPPORT_MODE_ZSL
@@ -3009,6 +3014,16 @@ public class PhotoModule
                 CameraSettings.setISOValue(mParameters, iso);
             }
         }
+
+        // Set shutter speed parameter
+        String shutterSpeed = mPreferences.getString(
+                CameraSettings.KEY_SHUTTER_SPEED,
+                mActivity.getString(R.string.pref_camera_shutter_speed_default));
+        if (CameraUtil.isSupported(shutterSpeed,
+            CameraSettings.getSupportedShutterSpeedValues(mParameters))) {
+            mParameters.set(CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED, shutterSpeed);
+        }
+
         // Set color effect parameter.
         String colorEffect = mPreferences.getString(
                 CameraSettings.KEY_COLOR_EFFECT,
@@ -3270,16 +3285,11 @@ public class PhotoModule
             zsl = "off";
         }
 
-        // Set manual shutter speed
-        String shutterSpeed = mPreferences.getString(
-                CameraSettings.KEY_SHUTTER_SPEED, null);
-        if (shutterSpeed != null) {
-            mParameters.set(CameraSettings.KEY_EXPOSURE_TIME, shutterSpeed);
-
-            // Disable ZSL for manual exposure
-            if (!shutterSpeed.equals("0")) {
-                zsl = "off";
-            }
+        // Disable ZSL for manual shutter speed and HDR
+        if (!shutterSpeed.equals("0") ||
+            aeBracketing.equals("AE-Bracket") ||
+            CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
+            zsl = "off";
         }
 
         mParameters.setZSLMode(zsl);
@@ -3663,6 +3673,19 @@ public class PhotoModule
             }
         }
 
+        // When shutter speed gets disabled preview needs to be restarted
+        if (CameraUtil.isSupported(mParameters, CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED)) {
+            String shutterSpeed = mPreferences.getString(CameraSettings.KEY_SHUTTER_SPEED, null);
+            if (shutterSpeed != null) {
+                String oldShutterSpeed = mParameters.get(CameraSettings.KEY_SNAPCAM_SHUTTER_SPEED);
+                if(!shutterSpeed.equals(oldShutterSpeed) && shutterSpeed.equals("0")
+                        && mCameraState != PREVIEW_STOPPED) {
+                    Log.v(TAG, "Shutter speed disabled. Restart Preview.");
+                    mRestartPreview = true;
+                }
+            }
+        }
+
         // Set JPEG quality.
         int jpegQuality = CameraProfile.getJpegEncodingQualityParameter(mCameraId,
                 CameraProfile.QUALITY_HIGH);
@@ -3686,14 +3709,6 @@ public class PhotoModule
                 CameraSettings.KEY_FLASH_MODE,
                 mActivity.getString(R.string.pref_camera_flashmode_default));
         List<String> supportedFlash = mParameters.getSupportedFlashModes();
-
-        String shutterSpeed = mPreferences.getString(
-                CameraSettings.KEY_SHUTTER_SPEED,
-                mActivity.getString(R.string.pref_camera_shutter_speed_default));
-        if (!shutterSpeed.equals("0")) {
-            // Disable flash for manual exposure
-            flashMode = "off";
-        }
 
         if (CameraUtil.isSupported(flashMode, supportedFlash)) {
             mParameters.setFlashMode(flashMode);
