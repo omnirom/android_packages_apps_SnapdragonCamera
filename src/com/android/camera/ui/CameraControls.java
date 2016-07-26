@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import org.codeaurora.snapcam.R;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateImageView;
+import com.android.camera.ui.RotateVectorView;
 import com.android.camera.ShutterButton;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.TsMakeupManager;
@@ -703,6 +704,9 @@ public class CameraControls extends RotatableLayout {
         for (View v : mAllViews) {
             if (v instanceof RotateImageView) {
                 ((RotateImageView) v).setOrientation(orientation, animation);
+            }
+            if (v instanceof RotateVectorView) {
+                ((RotateVectorView) v).setOrientation(orientation, animation);
             }
         }
         layoutRemaingPhotos();
