@@ -158,8 +158,15 @@ public class PhotoUI implements PieListener,
         @Override
         public void onLayoutChange(View v, int left, int top, int right,
                 int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-            if (mMenu != null)
-                mMenu.tryToCloseSubList();
+            tryToCloseSubList();
+
+            Camera.Parameters parameters = ((PhotoModule)mController).getParameters();
+            if(parameters != null) {
+                Camera.Size size = parameters.getPreviewSize();
+                if (size != null) {
+                    setAspectRatio((float) size.width / size.height);
+                }
+            }
         }
     };
 
@@ -241,21 +248,6 @@ public class PhotoUI implements PieListener,
                     mMaxPreviewHeight = height;
                 }
 
-                int orientation = mActivity.getResources().getConfiguration().orientation;
-                if ((orientation == Configuration.ORIENTATION_PORTRAIT && width > height)
-                        || (orientation == Configuration.ORIENTATION_LANDSCAPE && width < height)) {
-                    // The screen has rotated; swap SurfaceView width & height
-                    // to ensure correct preview
-                    int oldWidth = width;
-                    width = height;
-                    height = oldWidth;
-                    Log.d(TAG, "Swapping SurfaceView width & height dimensions");
-                    if (mMaxPreviewWidth != 0 && mMaxPreviewHeight != 0) {
-                        int temp = mMaxPreviewWidth;
-                        mMaxPreviewWidth = mMaxPreviewHeight;
-                        mMaxPreviewHeight = temp;
-                    }
-                }
                 if (mOrientationResize != mPrevOrientationResize
                         || mAspectRatioResize) {
                     layoutPreview(mAspectRatio);
@@ -1077,6 +1069,13 @@ public class PhotoUI implements PieListener,
         return mSurfaceHolder;
     }
 
+    public void hideSurfaceView() {
+        mSurfaceView.setVisibility(View.INVISIBLE);
+    }
+
+    public void showSurfaceView() {
+        mSurfaceView.setVisibility(View.VISIBLE);
+    }
     // Countdown timer
 
     private void initializeCountDown() {
@@ -1277,6 +1276,11 @@ public class PhotoUI implements PieListener,
         if (mZoomRenderer != null) {
             mZoomRenderer.setOrientation(orientation);
         }
+    }
+
+    public void tryToCloseSubList() {
+        if (mMenu != null)
+            mMenu.tryToCloseSubList();
     }
 
     public int getOrientation() {

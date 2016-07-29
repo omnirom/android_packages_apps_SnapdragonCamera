@@ -312,7 +312,7 @@ public class WideAnglePanoramaModule
                 switch (msg.what) {
                     case MSG_LOW_RES_FINAL_MOSAIC_READY:
                         onBackgroundThreadFinished();
-                        showFinalMosaic((Bitmap) msg.obj);
+                        saveFinalMosaic((Bitmap) msg.obj);
                         saveHighResMosaic();
                         break;
                     case MSG_GENERATE_FINAL_MOSAIC_ERROR:
@@ -507,9 +507,6 @@ public class WideAnglePanoramaModule
             mMosaicPreviewRenderer = renderer;
             mCameraTexture = mMosaicPreviewRenderer.getInputSurfaceTexture();
 
-            if (!mPaused && !mThreadRunning && mWaitProcessorTask == null) {
-                mMainHandler.sendEmptyMessage(MSG_RESET_TO_PREVIEW);
-            }
             mRendererLock.notifyAll();
         }
         mMosaicPreviewConfigured = true;
@@ -527,9 +524,14 @@ public class WideAnglePanoramaModule
         if (mCaptureState == CAPTURE_STATE_MOSAIC){
             capturePending = true;
         }
-        mPreviewUIWidth = r - l;
-        mPreviewUIHeight = b - t;
-        configMosaicPreview();
+        int width = r -l;
+        int height = b - t;
+        if (mPreviewUIWidth != width || mPreviewUIHeight != height
+                || mCameraState != PREVIEW_ACTIVE) {
+            mPreviewUIWidth = r - l;
+            mPreviewUIHeight = b - t;
+            configMosaicPreview();
+        }
         if (capturePending == true){
             mMainHandler.post(new Runnable() {
                 @Override
@@ -748,6 +750,7 @@ public class WideAnglePanoramaModule
                         mActivity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                mUI.showFinalMosaic();
                                 mActivity.notifyNewMedia(uri);
                             }
                         });
@@ -806,8 +809,8 @@ public class WideAnglePanoramaModule
         }
     }
 
-    private void showFinalMosaic(Bitmap bitmap) {
-        mUI.showFinalMosaic(bitmap, getCaptureOrientation());
+    private void saveFinalMosaic(Bitmap bitmap) {
+        mUI.saveFinalMosaic(bitmap, getCaptureOrientation());
     }
 
     private Uri savePanorama(byte[] jpegData, int width, int height, int orientation) {
@@ -825,6 +828,7 @@ public class WideAnglePanoramaModule
             ExifInterface exif = new ExifInterface();
             try {
                 exif.readExif(jpegData);
+                exif.addMakeAndModelTag();
                 exif.addGpsDateTimeStampTag(mTimeTaken);
                 exif.addDateTimeStampTag(ExifInterface.TAG_DATE_TIME, mTimeTaken,
                         TimeZone.getDefault());
@@ -939,7 +943,7 @@ public class WideAnglePanoramaModule
 
     @Override
     public void onSwitchSavePath() {
-        mPreferences.edit().putString(CameraSettings.KEY_CAMERA_SAVEPATH, "1").apply();
+        mPreferences.getGlobal().edit().putString(CameraSettings.KEY_CAMERA_SAVEPATH, "1").apply();
         RotateTextToast.makeText(mActivity, R.string.on_switch_save_path_to_sdcard,
                 Toast.LENGTH_SHORT).show();
     }
@@ -960,6 +964,7 @@ public class WideAnglePanoramaModule
         mCaptureState = CAPTURE_STATE_VIEWFINDER;
 
         if (!setupCamera()) {
+            CameraUtil.showErrorAndFinish(mActivity, R.string.cannot_connect_camera);
             Log.e(TAG, "Failed to open camera, aborting");
             return;
         }

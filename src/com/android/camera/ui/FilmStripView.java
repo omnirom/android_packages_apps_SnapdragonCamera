@@ -553,8 +553,12 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         }
 
         private void layoutAt(int left, int top) {
-            mView.layout(left, top, left + mView.getMeasuredWidth(),
-                    top + mView.getMeasuredHeight());
+            try {
+                mView.layout(left, top, left + mView.getMeasuredWidth(),
+                        top + mView.getMeasuredHeight());
+            } catch (NullPointerException e) {
+                Log.e(TAG, "One of the view children is removed");
+            }
         }
 
         /**
@@ -1819,7 +1823,6 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        mGestureRecognizer.onTouchEvent(ev);
         return true;
     }
 
@@ -2036,17 +2039,18 @@ public class FilmStripView extends ViewGroup implements BottomControlsListener {
         }
 
         // Remove all views from the mViewItem buffer, except the camera view.
-        for (int i = 0; i < mViewItem.length; i++) {
-            if (mViewItem[i] == null) {
-                continue;
-            }
-            View v = mViewItem[i].getView();
-            if (v != mCameraView) {
-                removeView(v);
-            }
-            ImageData imageData = mDataAdapter.getImageData(mViewItem[i].getId());
-            if (imageData != null) {
-                imageData.recycle();
+        for (final ViewItem item : mViewItem) {
+            if (item != null) {
+                ImageData imageData = mDataAdapter.getImageData(item.getId());
+                if (imageData != null) {
+                    imageData.recycle();
+                    View v = item.getView();
+                    if (imageData.getViewType() != ImageData.VIEW_TYPE_STICKY) {
+                        removeView(v);
+                    } else {
+                        mCameraView = v;
+                    }
+                }
             }
         }
 

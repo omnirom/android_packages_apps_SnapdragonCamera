@@ -18,7 +18,6 @@ package com.android.camera;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.ContentProviderClient;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -208,7 +207,6 @@ public class PhotoModule
 
     private static final String sTempCropFilename = "crop-temp";
 
-    private ContentProviderClient mMediaProviderClient;
     private boolean mFaceDetectionStarted = false;
 
     private static final String PERSIST_LONG_ENABLE = "persist.camera.longshot.enable";
@@ -369,12 +367,53 @@ public class PhotoModule
     private int mJpegFileSizeEstimation = 0;
     private int mRemainingPhotos = -1;
 
+    private class MediaSaveNotifyThread extends Thread
+    {
+        private Uri uri;
+        public MediaSaveNotifyThread(Uri uri)
+        {
+            this.uri = uri;
+        }
+        public void setUri(Uri uri)
+        {
+            this.uri = uri;
+        }
+        public void run()
+        {
+            while(mLongshotActive) {
+                try {
+                    Thread.sleep(10);
+                } catch(InterruptedException e) {
+                }
+            }
+            mActivity.runOnUiThread(new Runnable() {
+                public void run() {
+                    if (uri != null)
+                        mActivity.notifyNewMedia(uri);
+                    mActivity.updateStorageSpaceAndHint();
+                    updateRemainingPhotos();
+                }
+            });
+            mediaSaveNotifyThread = null;
+        }
+    }
+
+    private MediaSaveNotifyThread mediaSaveNotifyThread;
     private MediaSaveService.OnMediaSavedListener mOnMediaSavedListener =
             new MediaSaveService.OnMediaSavedListener() {
                 @Override
                 public void onMediaSaved(Uri uri) {
-                    if (uri != null) {
-                        mActivity.notifyNewMedia(uri);
+                    if(mLongshotActive) {
+                        if(mediaSaveNotifyThread == null) {
+                            mediaSaveNotifyThread = new MediaSaveNotifyThread(uri);
+                            mediaSaveNotifyThread.start();
+                        }
+                        else
+                            mediaSaveNotifyThread.setUri(uri);
+                    } else {
+                        if (uri != null) {
+                            mActivity.notifyNewMedia(uri);
+                        }
                     }
                 }
             };
@@ -396,6 +435,11 @@ public class PhotoModule
                 }
             }, 100);
         }
+    }
+
+    public Parameters getParameters()
+    {
+        return mParameters;
     }
 
     /**
@@ -546,7 +590,7 @@ public class PhotoModule
         if (mCameraState == SNAPSHOT_IN_PROGRESS) {
             return;
         }
-        mUI.hidePreviewCover();
+        setCameraState(IDLE);
         mFocusManager.onPreviewStarted();
         startFaceDetection();
         locationFirstRun();
@@ -810,19 +854,15 @@ public class PhotoModule
 
     @Override
     public void onSwitchSavePath() {
-        mUI.setPreference(CameraSettings.KEY_CAMERA_SAVEPATH, "1");
+        if (mUI.mMenuInitialized) {
+            mUI.setPreference(CameraSettings.KEY_CAMERA_SAVEPATH, "1");
+        } else {
+            mPreferences.edit()
+                    .putString(CameraSettings.KEY_CAMERA_SAVEPATH, "1")
+                    .apply();
+        }
         RotateTextToast.makeText(mActivity, R.string.on_switch_save_path_to_sdcard,
                 Toast.LENGTH_SHORT).show();
-    }
-
-    private void keepMediaProviderInstance() {
-        // We want to keep a reference to MediaProvider in camera's lifecycle.
-        // TODO: Utilize mMediaProviderClient instance to replace
-        // ContentResolver calls.
-        if (mMediaProviderClient == null) {
-            mMediaProviderClient = mContentResolver
-                    .acquireContentProviderClient(MediaStore.AUTHORITY);
-        }
     }
 
     // Snapshots can only be taken after this is called. It should be called
@@ -839,8 +879,6 @@ public class PhotoModule
         boolean recordLocation = RecordLocationPreference.get(
                 mPreferences, mContentResolver);
         mLocationManager.recordLocation(recordLocation);
-
-        keepMediaProviderInstance();
 
         mUI.initializeFirstTime();
         MediaSaveService s = mActivity.getMediaSaveService();
@@ -882,7 +920,6 @@ public class PhotoModule
             mUI.showSwitcher();
         }
         mUI.initializeSecondTime(mParameters);
-        keepMediaProviderInstance();
     }
 
     private void showTapToFocusToastIfNeeded() {
@@ -1398,11 +1435,8 @@ public class PhotoModule
                             onCaptureDone();
                         }
                     }
-                    // Check this in advance of each shot so we don't add to shutter
-                    // latency. It's true that someone else could write to the SD card in
-                    // the mean time and fill it, but that could have happened between the
-                    // shutter press and saving the JPEG too.
-                    mActivity.updateStorageSpaceAndHint();
+                    if(!mLongshotActive)
+                        mActivity.updateStorageSpaceAndHint();
                     mUI.updateRemainingPhotos(--mRemainingPhotos);
                     long now = System.currentTimeMillis();
                     mJpegCallbackFinishTime = now - mJpegPictureCallbackTime;
@@ -1844,6 +1878,18 @@ public class PhotoModule
             flashMode = null;
             focusMode = mFocusManager.getFocusMode(false);
             colorEffect = mParameters.getColorEffect();
+            String defaultEffect = mActivity.getString(R.string.pref_camera_coloreffect_default);
+            if (CameraUtil.SCENE_MODE_HDR.equals(mSceneMode)) {
+                disableLongShot = true;
+                if (colorEffect != null & !colorEffect.equals(defaultEffect)) {
+                    // Change the colorEffect to default(None effect) when HDR ON.
+                    colorEffect = defaultEffect;
+                    mUI.setPreference(CameraSettings.KEY_COLOR_EFFECT, colorEffect);
+                    mParameters.setColorEffect(colorEffect);
+                    mCameraDevice.setParameters(mParameters);
+                    mParameters = mCameraDevice.getParameters();
+                }
+            }
             exposureCompensation =
                 Integer.toString(mParameters.getExposureCompensation());
             touchAfAec = mCurrTouchAfAec;
@@ -1967,6 +2013,7 @@ public class PhotoModule
                 setFlipValue();
                 mCameraDevice.setParameters(mParameters);
             }
+            mUI.tryToCloseSubList();
             mUI.setOrientation(mOrientation, true);
             if (mGraphView != null) {
                 mGraphView.setRotation(-mOrientation);
@@ -1989,12 +2036,7 @@ public class PhotoModule
     }
 
     @Override
-    public void onStop() {
-        if (mMediaProviderClient != null) {
-            mMediaProviderClient.release();
-            mMediaProviderClient = null;
-        }
-    }
+    public void onStop() {}
 
     @Override
     public void onCaptureCancelled() {
@@ -2214,6 +2256,10 @@ public class PhotoModule
                 boolean enable = SystemProperties.getBoolean(PERSIST_LONG_SAVE, false);
                 mLongshotSave = enable;
 
+                //Cancel the previous countdown when long press shutter button for longshot.
+                if (mUI.isCountingDown()) {
+                    mUI.cancelCountDown();
+                }
                 //check whether current memory is enough for longshot.
                 if(isLongshotNeedCancel()) {
                     return;
@@ -2263,7 +2309,11 @@ public class PhotoModule
         mParameters = mCameraDevice.getParameters();
         mCameraPreviewParamsReady = true;
         mInitialParams = mParameters;
-        if (mFocusManager == null) initializeFocusManager();
+        if (mFocusManager == null) {
+            initializeFocusManager();
+        } else {
+            mFocusManager.setParameters(mInitialParams);
+        }
         initializeCapabilities();
         mHandler.sendEmptyMessageDelayed(CAMERA_OPEN_DONE,100);
         return;
@@ -2271,6 +2321,8 @@ public class PhotoModule
 
     @Override
     public void onResumeAfterSuper() {
+        mLastPhotoTakenWithRefocus = false;
+        mUI.showSurfaceView();
         // Add delay on resume from lock screen only, in order to to speed up
         // the onResume --> onPause --> onResume cycle from lock screen.
         // Don't do always because letting go of thread can cause delay.
@@ -2373,6 +2425,7 @@ public class PhotoModule
     public void onPauseAfterSuper() {
         Log.v(TAG, "On pause.");
         mUI.showPreviewCover();
+        mUI.hideSurfaceView();
 
         try {
             if (mOpenCameraThread != null) {
@@ -2737,10 +2790,21 @@ public class PhotoModule
             mFocusManager.setAeAwbLock(false); // Unlock AE and AWB.
         }
 
+        if (!mSnapshotOnIdle) {
+            mFocusManager.setAeAwbLock(false); // Unlock AE and AWB.
+        }
+
         setCameraParameters(UPDATE_PARAM_ALL);
 
         mCameraDevice.startPreview();
         setCameraState(IDLE);
+        mCameraDevice.setOneShotPreviewCallback(mHandler,
+                new CameraManager.CameraPreviewDataCallback() {
+                    @Override
+                    public void onPreviewFrame(byte[] data, CameraProxy camera) {
+                        mUI.hidePreviewCover();
+                    }
+                });
         mHandler.sendEmptyMessage(ON_PREVIEW_STARTED);
 
         setDisplayOrientation();
@@ -3254,7 +3318,7 @@ public class PhotoModule
         String zsl = mPreferences.getString(CameraSettings.KEY_ZSL,
                                   mActivity.getString(R.string.pref_camera_zsl_default));
         String auto_hdr = mPreferences.getString(CameraSettings.KEY_AUTO_HDR,
-                                       mActivity.getString(R.string.pref_camera_hdr_default));
+                                       mActivity.getString(R.string.pref_camera_auto_hdr_default));
         if (CameraUtil.isAutoHDRSupported(mParameters)) {
             mParameters.set("auto-hdr-enable",auto_hdr);
             if (auto_hdr.equals("enable")) {

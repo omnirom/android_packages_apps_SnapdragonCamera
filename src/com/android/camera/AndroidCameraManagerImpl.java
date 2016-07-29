@@ -78,6 +78,7 @@ class AndroidCameraManagerImpl implements CameraManager {
     private static final int ADD_CALLBACK_BUFFER =              105;
     private static final int SET_PREVIEW_DISPLAY_ASYNC =        106;
     private static final int SET_PREVIEW_CALLBACK =             107;
+    private static final int SET_ONESHOT_PREVIEW_CALLBACK =     108;
     // Parameters
     private static final int SET_PARAMETERS =     201;
     private static final int GET_PARAMETERS =     202;
@@ -115,6 +116,8 @@ class AndroidCameraManagerImpl implements CameraManager {
     }
 
     private class CameraHandler extends Handler {
+        CameraOpenErrorCallbackForward errorCbInstance;
+
         CameraHandler(Looper looper) {
             super(looper);
         }
@@ -247,6 +250,7 @@ class AndroidCameraManagerImpl implements CameraManager {
                             return;
                         }
                         mCamera.release();
+                        errorCbInstance = null;
                         mCamera = null;
                         return;
 
@@ -280,7 +284,13 @@ class AndroidCameraManagerImpl implements CameraManager {
                         return;
 
                     case START_PREVIEW_ASYNC:
-                        mCamera.startPreview();
+                        try {
+                            mCamera.startPreview();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            if (errorCbInstance != null)
+                                errorCbInstance.onStartPreviewFailure(msg.arg1);
+                        }
                         return;
 
                     case STOP_PREVIEW:
@@ -350,6 +360,10 @@ class AndroidCameraManagerImpl implements CameraManager {
                         mCamera.setPreviewCallback((PreviewCallback) msg.obj);
                         return;
 
+                    case SET_ONESHOT_PREVIEW_CALLBACK:
+                        mCamera.setOneShotPreviewCallback((PreviewCallback) msg.obj);
+                        return;
+
                     case ENABLE_SHUTTER_SOUND:
                         enableShutterSound((msg.arg1 == 1) ? true : false);
                         return;
@@ -407,9 +421,10 @@ class AndroidCameraManagerImpl implements CameraManager {
     @Override
     public CameraManager.CameraProxy cameraOpen(
         Handler handler, int cameraId, CameraOpenErrorCallback callback) {
-        mCameraHandler.obtainMessage(OPEN_CAMERA, cameraId, 0,
-                CameraOpenErrorCallbackForward.getNewInstance(
-                        handler, callback)).sendToTarget();
+        mCameraHandler.errorCbInstance = CameraOpenErrorCallbackForward
+                .getNewInstance(handler, callback);
+        mCameraHandler.obtainMessage(OPEN_CAMERA, cameraId, 0, mCameraHandler.errorCbInstance)
+                .sendToTarget();
         mCameraHandler.waitDone();
         if (mCamera != null) {
             return new AndroidCameraProxyImpl();
@@ -508,6 +523,13 @@ class AndroidCameraManagerImpl implements CameraManager {
                 Handler handler, CameraPreviewDataCallback cb) {
             mCameraHandler.obtainMessage(
                     SET_PREVIEW_CALLBACK_WITH_BUFFER,
+                    PreviewCallbackForward.getNewInstance(handler, this, cb)).sendToTarget();
+        }
+
+        @Override
+        public void setOneShotPreviewCallback(Handler handler, CameraPreviewDataCallback cb) {
+            mCameraHandler.obtainMessage(
+                    SET_ONESHOT_PREVIEW_CALLBACK,
                     PreviewCallbackForward.getNewInstance(handler, this, cb)).sendToTarget();
         }
 
@@ -714,7 +736,8 @@ class AndroidCameraManagerImpl implements CameraManager {
         public void onAutoFocusMoving(
                 final boolean moving, android.hardware.Camera camera) {
             final android.hardware.Camera currentCamera = mCamera.getCamera();
-
+            if(currentCamera == null)
+                return;
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -965,6 +988,16 @@ class AndroidCameraManagerImpl implements CameraManager {
                 @Override
                 public void run() {
                     mCallback.onReconnectionFailure(mgr);
+                }
+            });
+        }
+
+        @Override
+        public void onStartPreviewFailure(final int cameraId) {
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    mCallback.onStartPreviewFailure(cameraId);
                 }
             });
         }

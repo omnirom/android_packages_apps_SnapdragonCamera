@@ -806,6 +806,13 @@ public class PhotoMenu extends MenuController
                         .findPreference(prefKey);
                 if (pref == null)
                     return;
+
+                if (prefKey.equals(CameraSettings.KEY_CAMERA_ID)) {
+                    // Hide the camera control while switching the camera.
+                    // The camera control will be added back when
+                    // onCameraPickerClicked is completed
+                    mUI.hideUI();
+                }
                 int index = pref.findIndexOfValue(pref.getValue());
                 CharSequence[] values = pref.getEntryValues();
                 index = (index + 1) % values.length;
@@ -1262,6 +1269,7 @@ public class PhotoMenu extends MenuController
 
     public void onListMenuTouched() {
         mUI.removeLevel2();
+        mPopupStatus = POPUP_FIRST_LEVEL;
     }
 
     public void closeAllView() {

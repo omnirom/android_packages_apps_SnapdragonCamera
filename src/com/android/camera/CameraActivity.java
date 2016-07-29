@@ -243,6 +243,7 @@ public class CameraActivity extends Activity
     // FilmStripView.setDataAdapter fires 2 onDataLoaded calls before any data is actually loaded
     // Keep track of data request here to avoid creating useless UpdateThumbnailTask.
     private boolean mDataRequested;
+    private Cursor mCursor;
 
     private WakeLock mWakeLock;
 
@@ -306,6 +307,15 @@ public class CameraActivity extends Activity
                 public void onReconnectionFailure(CameraManager mgr) {
                     UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                             UsageStatistics.ACTION_OPEN_FAIL, "reconnect");
+
+                    CameraUtil.showErrorAndFinish(CameraActivity.this,
+                            R.string.cannot_connect_camera);
+                }
+
+                @Override
+                public void onStartPreviewFailure(int cameraId) {
+                    UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
+                            UsageStatistics.ACTION_START_PREVIEW_FAIL, "startpreview");
 
                     CameraUtil.showErrorAndFinish(CameraActivity.this,
                             R.string.cannot_connect_camera);
@@ -779,6 +789,8 @@ public class CameraActivity extends Activity
         protected void onPostExecute(Bitmap bitmap) {
             if (bitmap == null) {
                 if (mThumbnail != null) {
+                    // Clear the image resource when the bitmap is invalid.
+                    mThumbnail.setImageDrawable(null);
                     mThumbnail.setVisibility(View.GONE);
                 }
             } else {
@@ -859,6 +871,20 @@ public class CameraActivity extends Activity
         public CircularDrawable(Bitmap bitmap) {
             int w = bitmap.getWidth();
             int h = bitmap.getHeight();
+            int targetSize = getResources().getDimensionPixelSize(R.dimen.capture_size);
+            if (Math.min(w, h) < targetSize) {
+                Matrix matrix = new Matrix();
+                float scale = 1.0f;
+                if (w > h) {
+                    scale = (float) targetSize / (float) h;
+                } else {
+                    scale = (float) targetSize / (float) w;
+                }
+                matrix.postScale(scale, scale);
+                bitmap = Bitmap.createBitmap(bitmap, 0, 0, w, h, matrix, true);
+                w = (int) (w * scale);
+                h = (int) (h * scale);
+            }
             if (w > h) {
                 mLength = h;
                 bitmap = Bitmap.createBitmap(bitmap, (w - h) / 2, 0, h, h);
@@ -1376,6 +1402,8 @@ public class CameraActivity extends Activity
             mSecureCamera = intent.getBooleanExtra(SECURE_CAMERA_EXTRA, false);
         }
 
+        mCursor = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, null);
+
         if (mSecureCamera) {
             // Change the window flags so that secure camera can show when locked
             Window win = getWindow();
@@ -1612,6 +1640,13 @@ public class CameraActivity extends Activity
     }
 
     @Override
+    public void onWindowFocusChanged(boolean focus) {
+        // Hide action bar first since we are in full screen mode first, and
+        // switch the system UI to lights-out mode.
+        if (focus) this.setSystemBarsVisibility(false);
+    }
+
+    @Override
     public void onResume() {
         UsageStatistics.onEvent(UsageStatistics.COMPONENT_CAMERA,
                 UsageStatistics.ACTION_FOREGROUNDED, this.getClass().getSimpleName());
@@ -1680,6 +1715,8 @@ public class CameraActivity extends Activity
         getContentResolver().unregisterContentObserver(mLocalVideosObserver);
         unregisterReceiver(mSDcardMountedReceiver);
 
+        mCursor.close();
+        mCursor=null;
         super.onDestroy();
     }
 

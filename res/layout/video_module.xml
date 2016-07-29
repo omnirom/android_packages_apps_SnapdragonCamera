@@ -33,8 +33,7 @@
         android:id="@+id/preview_cover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black"
-        android:visibility="gone" />
+        android:background="@android:color/black" />
     <View
         android:id="@+id/flash_overlay"
         android:layout_width="match_parent"
@@ -62,7 +61,7 @@
             <com.android.camera.PauseButton android:id="@+id/video_pause"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="70dp"
                 android:padding="23dp"
                 android:visibility="gone"
                 android:src="@drawable/btn_pause_recording"/>

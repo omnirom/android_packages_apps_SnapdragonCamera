@@ -88,6 +88,7 @@ public class WideAnglePanoramaUI implements
     private ShutterButton mShutterButton;
     private CameraControls mCameraControls;
     private ImageView mThumbnail;
+    private Bitmap mThumbnailBitmap;
 
     private Matrix mProgressDirectionMatrix = new Matrix();
     private float[] mProgressAngle = new float[2];
@@ -303,7 +304,7 @@ public class WideAnglePanoramaUI implements
         mCaptureProgressBar.setVisibility(View.INVISIBLE);
     }
 
-    public void showFinalMosaic(Bitmap bitmap, int orientation) {
+    public void saveFinalMosaic(Bitmap bitmap, int orientation) {
         if (bitmap != null && orientation != 0) {
             Matrix rotateMatrix = new Matrix();
             rotateMatrix.setRotate(orientation);
@@ -320,7 +321,14 @@ public class WideAnglePanoramaUI implements
         // a framework bug. Call requestLayout() as a workaround.
         mSavingProgressBar.requestLayout();
 
-        mActivity.updateThumbnail(bitmap);
+        mThumbnailBitmap = bitmap;
+    }
+
+    public void showFinalMosaic() {
+        if (mThumbnailBitmap == null) return;
+        mActivity.updateThumbnail(mThumbnailBitmap);
+        mThumbnailBitmap.recycle();
+        mThumbnailBitmap = null;
     }
 
     public void onConfigurationChanged(
@@ -626,7 +634,7 @@ public class WideAnglePanoramaUI implements
                 + progressLayout.getChildAt(0).getHeight() / 2;
 
         int[] x = { r / 2, r / 10, r * 9 / 10, r / 2 };
-        int[] y = { t / 2, (t + b1) / 2, (t + b1) / 2, b1 + pivotY };
+        int[] y = { t / 2 + pivotY, (t + b1) / 2, (t + b1) / 2, b1 + pivotY };
 
         int idx1, idx2;
         int g;
