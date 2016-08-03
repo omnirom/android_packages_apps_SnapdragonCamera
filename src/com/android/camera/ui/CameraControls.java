@@ -18,6 +18,7 @@ package com.android.camera.ui;
 
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -40,6 +41,8 @@ import org.codeaurora.snapcam.R;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateImageView;
 import com.android.camera.ui.RotateVectorView;
+import com.android.camera.ComboPreferences;
+import com.android.camera.RemainingPreference;
 import com.android.camera.ShutterButton;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.TsMakeupManager;
@@ -78,6 +81,10 @@ public class CameraControls extends RotatableLayout {
     private int mBottomMargin = 0;
 
     private Paint mPaint;
+
+    private ComboPreferences mPreferences;
+    private ContentResolver mContentResolver;
+
 
     AnimatorListener outlistener = new AnimatorListener() {
         @Override
@@ -667,12 +674,16 @@ public class CameraControls extends RotatableLayout {
     }
 
     public void updateRemainingPhotos(int remaining) {
-        if (remaining < 0) {
-            mRemainingPhotos.setVisibility(View.GONE);
-        } else {
-            mRemainingPhotos.setVisibility(View.VISIBLE);
-            mRemainingPhotosText.setText(remaining + " ");
-        }
+        boolean displayRemaining = RemainingPreference.get(
+                mPreferences, mContentResolver);
+        if (displayRemaining) {
+            if (remaining < 0) {
+                mRemainingPhotos.setVisibility(View.GONE);
+            } else {
+                mRemainingPhotos.setVisibility(View.VISIBLE);
+                mRemainingPhotosText.setText(remaining + " ");
+            }
+        } else mRemainingPhotos.setVisibility(View.GONE);
     }
 
     public void setMargins(int top, int bottom) {
