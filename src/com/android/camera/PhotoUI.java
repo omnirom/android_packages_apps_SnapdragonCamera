@@ -582,6 +582,8 @@ public class PhotoUI implements PieListener,
         if (!mUIhidden || (mMenu != null && mMenu.isMenuBeingShown()))
             return;
         mUIhidden = false;
+        // after settings have been changed
+        mCameraControls.setShowRemaingPhotos();
         mCameraControls.showUI();
     }
 

@@ -18,6 +18,7 @@ package com.android.camera.ui;
 
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -40,6 +41,8 @@ import org.codeaurora.snapcam.R;
 import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateImageView;
 import com.android.camera.ui.RotateVectorView;
+import com.android.camera.ComboPreferences;
+import com.android.camera.RemainingPreference;
 import com.android.camera.ShutterButton;
 import com.android.camera.util.CameraUtil;
 import com.android.camera.TsMakeupManager;
@@ -78,6 +81,8 @@ public class CameraControls extends RotatableLayout {
     private int mBottomMargin = 0;
 
     private Paint mPaint;
+    private boolean mShowRemainingPhotos = true;
+    private int mRemainingCount = 0;
 
     AnimatorListener outlistener = new AnimatorListener() {
         @Override
@@ -435,7 +440,6 @@ public class CameraControls extends RotatableLayout {
         int topTranslation = rotation == 0 || rotation == 90 ? -mSize : mSize;
         boolean isYTranslation = rotation == 0 || rotation == 180;
         animateViews(topTranslation, isYTranslation);
-        //mRemainingPhotos.getVisibility(View.INVISIBLE);
         mRefocusToast.setVisibility(View.GONE);
     }
 
@@ -482,9 +486,6 @@ public class CameraControls extends RotatableLayout {
         int topTranslation = rotation == 0 || rotation == 90 ? mSize : -mSize;
         boolean isYTranslation = rotation == 0 || rotation == 180;
         animateViews(topTranslation, isYTranslation);
-        /*if (mRemainingPhotos.getVisibility() == View.INVISIBLE) {
-            mRemainingPhotos.setVisibility(View.VISIBLE);
-        }*/
         mRefocusToast.setVisibility(View.GONE);
     }
 
@@ -666,13 +667,16 @@ public class CameraControls extends RotatableLayout {
         mRemainingPhotos.setRotation(-mOrientation);
     }
 
+    public void setShowRemaingPhotos() {
+        mShowRemainingPhotos = RemainingPreference.get(
+                ComboPreferences.get(mContext), mContext.getContentResolver());
+        mRemainingPhotos.setVisibility((mShowRemainingPhotos && mRemainingCount > 0) ? View.VISIBLE : View.GONE);
+    }
+
     public void updateRemainingPhotos(int remaining) {
-        if (remaining < 0) {
-            mRemainingPhotos.setVisibility(View.GONE);
-        } else {
-            mRemainingPhotos.setVisibility(View.VISIBLE);
-            mRemainingPhotosText.setText(remaining + " ");
-        }
+        mRemainingCount = remaining;
+        mRemainingPhotosText.setText(mRemainingCount + " ");
+        setShowRemaingPhotos();
     }
 
     public void setMargins(int top, int bottom) {
@@ -696,7 +700,7 @@ public class CameraControls extends RotatableLayout {
 
     public void showRefocusToast(boolean show) {
         mRefocusToast.setVisibility(show ? View.VISIBLE : View.GONE);
-        mRemainingPhotos.setVisibility(show ? View.GONE : View.VISIBLE);
+        setShowRemaingPhotos();
     }
 
     public void setOrientation(int orientation, boolean animation) {
