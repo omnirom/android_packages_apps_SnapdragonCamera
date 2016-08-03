@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3801c1f3_def8c147",
+        "filename": "src/com/android/camera/ComboPreferences.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2016-08-03T12:55:18Z",
+      "side": 1,
+      "message": "not sure if this is needed",
+      "revId": "a6b96ce69c9d5d03f2a1292a871e0fcf19129fb1",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
