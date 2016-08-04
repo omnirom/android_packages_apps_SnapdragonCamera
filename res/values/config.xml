@@ -58,4 +58,9 @@
     <!-- Restart preview for front camera onPictureTaken -->
     <bool name="front_camera_restart_preview_onPictureTaken">false</bool>
 
+    <!-- A list of scenemodes where Longshot should be enabled.
+         An empty list will use the default restrictions. If defined, longshot
+         will be enabled ONLY for these scenemodes and disabled for others. -->
+    <string-array name="longshot_scenemodes"></string-array>
+
 </resources>
