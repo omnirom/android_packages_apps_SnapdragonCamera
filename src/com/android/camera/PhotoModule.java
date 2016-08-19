@@ -2825,7 +2825,7 @@ public class PhotoModule
         }
     }
     private boolean needRestart() {
-        mRestartPreview = false;
+        boolean needRestartPreview = false;
         String zsl = mPreferences.getString(CameraSettings.KEY_ZSL,
                                   mActivity.getString(R.string.pref_camera_zsl_default));
         String shutterSpeed = mPreferences.getString(
@@ -2843,17 +2843,15 @@ public class PhotoModule
            && mCameraState != PREVIEW_STOPPED) {
             //Switch on ZSL Camera mode
             Log.v(TAG, "Switching to ZSL Camera Mode. Restart Preview");
-            mRestartPreview = true;
-            return mRestartPreview;
+            needRestartPreview = true;
         }
         if(zsl.equals("off") && mSnapshotMode != CameraInfo.CAMERA_SUPPORT_MODE_NONZSL
                  && mCameraState != PREVIEW_STOPPED) {
             //Switch on Normal Camera mode
             Log.v(TAG, "Switching to Normal Camera Mode. Restart Preview");
-            mRestartPreview = true;
-            return mRestartPreview;
+            needRestartPreview = true;
         }
-        return mRestartPreview;
+        return needRestartPreview;
     }
 
     private void qcomUpdateAdvancedFeatures(String ubiFocus,
@@ -4401,7 +4399,7 @@ public class PhotoModule
         boolean recordLocation = RecordLocationPreference.get(
                 mPreferences, mContentResolver);
         mLocationManager.recordLocation(recordLocation);
-        if(needRestart()){
+        if(needRestart() || mRestartPreview){
             Log.v(TAG, "Restarting Preview... Camera Mode Changed");
             setCameraParameters(UPDATE_PARAM_PREFERENCE);
             stopPreview();
