@@ -16,15 +16,31 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
+  <string name="app_name">Câmera</string>
+  <string name="snapcam_app_name">Câmera</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
+  <string name="video_camera_label">Câmara de vídeo</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
   <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
   <!-- Displayed in the title of the dialog for things to do with a picture
              that is to be "set as" (e.g. set as contact photo or set as wallpaper) -->
+  <string name="set_image">Definir imagem como</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
+  <string name="delete">Excluir</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
+  <plurals name="delete_selection">
+    <item quantity="one">Eliminar item selecionado?</item>
+    <item quantity="other">Eliminar itens selecionados?</item>
+  </plurals>
+  <string name="share">Compartilhar</string>
+  <string name="share_panorama">Compartilhar panorama</string>
+  <string name="share_as_photo">Compartilhar como foto</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
+  <string name="deleted">Excluído</string>
   <!-- The label on the button which when clicked will undo a deletion of image [CHAR LIMIT=16]-->
+  <string name="undo">DESFAZER</string>
+  <string name="details">Detalhes</string>
+  <string name="close">Fechar</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <!-- String indicating how many media album(s) is(are) selected
@@ -32,38 +48,69 @@
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <!-- String indicating timestamp of photo or video -->
+  <string name="show_on_map">Mostrar no mapa</string>
+  <string name="rotate_left">Girar para a esquerda</string>
+  <string name="rotate_right">Girar para a direita</string>
   <!-- String used as a menu label. The user can choose to edit the image
          [CHAR_LIMIT=20]-->
+  <string name="edit">Editar</string>
   <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
+  <string name="crop_action">Recortar</string>
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
+  <string name="trim_action">Cortar</string>
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
+  <string name="set_as">Definir como</string>
   <!-- String indicating an error when playing the video. [CHAR LIMIT=30] -->
+  <string name="video_err">Impossível reproduzir vídeo.</string>
   <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
   <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
+  <string name="title">Título</string>
   <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
+  <string name="description">Descrição</string>
   <!-- Text indicating the creation time of a media item in details window [CHAR LIMIT=14] -->
+  <string name="time">Hora</string>
   <!-- Text indicating the location of a media item in details window [CHAR LIMIT=14] -->
+  <string name="location">Localização</string>
   <!-- Text indicating the path of a media item in details window [CHAR LIMIT=14] -->
+  <string name="path">Caminho</string>
   <!-- Text indicating the width of a media item in details window [CHAR LIMIT=14] -->
+  <string name="width">Largura</string>
   <!-- Text indicating the height of a media item in details window [CHAR LIMIT=14] -->
+  <string name="height">Altura</string>
   <!-- Text indicating the orientation of a media item in details window [CHAR LIMIT=14] -->
+  <string name="orientation">Orientação</string>
   <!-- Text indicating the duration of a video item in details window [CHAR LIMIT=18] -->
+  <string name="duration">Duração</string>
   <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
+  <string name="mimetype">Tipo MIME</string>
   <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
+  <string name="file_size">Tamanho do arquivo</string>
   <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
+  <string name="maker">Fabricante</string>
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
+  <string name="model">Modelo</string>
   <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
+  <string name="flash">Flash</string>
   <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
+  <string name="aperture">Abertura</string>
   <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
+  <string name="focal_length">Comprimento focal</string>
   <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
+  <string name="white_balance">Balanço de branco</string>
   <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
+  <string name="exposure_time">Tempo de exposição</string>
   <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
+  <string name="iso">ISO</string>
   <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
   <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
+  <string name="unit_mm">mm</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
+  <string name="manual">Manual</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
+  <string name="auto">Automático</string>
   <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
+  <string name="flash_on">Flash disparado</string>
   <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
   <!-- String indicating image width or height is unknown. [CHAR LIMIT=14] -->
   <!-- Toast message shown after we try to make a local album available offline
@@ -120,26 +167,54 @@
   <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
   <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
   <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
+  <string name="pref_camera_flashmode_label_auto">FLASH AUTOMÁTICO</string>
+  <string name="pref_camera_flashmode_label_on">FLASH ATIVADO</string>
+  <string name="pref_camera_flashmode_label_off">FLASH DESATIVADO</string>
   <!-- Default videocamera flash mode setting.-->
   <!-- Default white balance setting. -->
   <!-- Settings screen, white balance title -->
+  <string name="pref_camera_whitebalance_title">Balanço de branco</string>
   <!-- Menu, white balance label -->
+  <string name="pref_camera_whitebalance_label">BALANÇO DE BRANCO</string>
   <!-- Settings screen, White balance dialog radio button choices -->
+  <string name="pref_camera_whitebalance_entry_auto">Automático</string>
+  <string name="pref_camera_whitebalance_entry_incandescent">Incandescente</string>
+  <string name="pref_camera_whitebalance_entry_daylight">Luz do dia</string>
+  <string name="pref_camera_whitebalance_entry_fluorescent">Fluorescente</string>
+  <string name="pref_camera_whitebalance_entry_cloudy">Nublado</string>
   <!-- Menu, White balance labels [CHAR LIMIT=50] -->
+  <string name="pref_camera_whitebalance_label_auto">AUTOMÁTICO</string>
+  <string name="pref_camera_whitebalance_label_incandescent">INCANDESCENTE</string>
+  <string name="pref_camera_whitebalance_label_daylight">LUZ DO DIA</string>
+  <string name="pref_camera_whitebalance_label_fluorescent">FLUORESCENTE</string>
+  <string name="pref_camera_whitebalance_label_cloudy">NUBLADO</string>
   <!-- Default scene mode setting. -->
   <!-- Settings screen, Select Scene mode -->
+  <string name="pref_camera_scenemode_title">Modo de cena</string>
   <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_auto">Automático</string>
   <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
   <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_hdr">HDR</string>
   <!-- Scene mode to turn on HDR (better high dynamic range) [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_on">HDR+ ATIVADO</string>
   <!-- Scene mode to turn off HDR (better high dynamic range) [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_entry_turn_hdr_plus_off">HDR+ DESATIVADO</string>
   <!-- Scene mode to turn on HDR (high dynamic range) [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_entry_turn_hdr_on">HDR ATIVADO</string>
   <!-- Scene mode to turn off HDR (high dynamic range) [CHAR LIMIT=50] -->
+  <string name="pref_camera_scenemode_entry_turn_hdr_off">HDR DESATIVADO</string>
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_action">Ação</string>
   <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_night">Noite</string>
   <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_sunset">Pôr do sol</string>
   <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_party">Festa</string>
   <!-- Scene mode for refocus feature [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_refocus">Macro +</string>
   <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
   <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=50] -->
@@ -274,4 +349,5 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
   <!-- Label for album filmstrip button -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
 </resources>

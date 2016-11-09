@@ -505,4 +505,5 @@ CHAR LIMIT = NONE] -->
   <string name="switch_photo_filmstrip">Prikaz filmske vrpce</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Postavljanje pozadinske slike</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
 </resources>

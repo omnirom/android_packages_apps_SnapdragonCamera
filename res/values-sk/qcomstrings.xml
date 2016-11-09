@@ -25,159 +25,465 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Režim nabíjanie</string>
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Automatická expozícia</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
+  <string name="pref_camera_autoexposure_entry_frameaverage">Priemer rámu</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Vyvážený stred</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Fotometria</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
+  <string name="pref_camera_videoencoder_title">Video enkóder</string>
   <!-- Settings screen, Video encoder dialog radio button choices -->
+  <string name="pref_camera_videoencoder_entry_0">MPEG4</string>
+  <string name="pref_camera_videoencoder_entry_1">H263</string>
+  <string name="pref_camera_videoencoder_entry_2">H264</string>
+  <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
+  <string name="pref_camera_videoencoder_dialogtitle">Video enkóder</string>
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
+  <string name="pref_camera_audioencoder_title">Audio enkóder</string>
   <!-- Settings screen, Audio encoder dialog radio button choices -->
+  <string name="pref_camera_audioencoder_entry_0">AMRNB</string>
+  <string name="pref_camera_audioencoder_entry_1">AAC</string>
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
+  <string name="pref_camera_video_duration_title">Dĺžka videa</string>
   <!-- Settings screen, Video duration dialog radio button choices -->
+  <string name="pref_camera_video_duration_entry_mms">30 sekúnd(MMS)</string>
+  <string name="pref_camera_video_duration_entry_10">10 minút</string>
+  <string name="pref_camera_video_duration_entry_30">30 minút</string>
+  <string name="pref_camera_video_duration_entry_nolimit">bez limitu</string>
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
+  <string name="pref_camera_skinToneEnhancement_title">Úprava odtieňa pokožky</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
+  <string name="pref_camera_zsl_title">Žiadne oneskorenie uzávierky</string>
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
+  <string name="pref_camera_selectablezoneaf_title">Zóna automatického zaostrenia</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Vyvážený stred</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Priemer rámu</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Fotometria</string>
   <!-- Auto exposure entry values. Do not translate. -->
+  <string name="pref_camera_advanced_feature_default">Žiadne</string>
   <!-- Settings screen, Selectable advanced features title -->
+  <string name="pref_camera_advanced_features_title">Pokročilé funkcie</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_advanced_feature_entry_none">Žiadne</string>
+  <string name="pref_camera_advanced_feature_entry_ubifocus">Zaostrenie Ubi</string>
+  <string name="pref_camera_advanced_feature_entry_refocus">Znovu zaostriť</string>
+  <string name="pref_camera_advanced_feature_entry_chromaflash">Chroma Flash</string>
+  <string name="pref_camera_advanced_feature_entry_optizoom">Opti Zoom</string>
+  <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
+  <string name="pref_camera_advanced_feature_entry_trueportrait">Skutočný portrét</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-dotykové zaostrenie</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
+  <string name="pref_camera_manual_exp_title">Manuálna expozícia</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">ISO priorita</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Expozícia s časovou prioritou</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Používateľské nastavenia</string>
   <!-- Manual white balance entry values -->
+  <string name="pref_camera_manual_wb_title">Manuálne vyváženie bielej</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Farebná teplota</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Zvýraznenie RBGB</string>
   <!-- Manual Focus entry values -->
+  <string name="pref_camera_manual_focus_title">Ručné zaostrenie</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Režim kalibrácie</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Režim dioptrie</string>
   <!-- Settings screen, ZSL location dialog choices -->
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
+  <string name="hdr_enable_message">HDR je zapnuté, funguje len s režimom automatickej scény</string>
+  <string name="scene_enable_message">HDR nie je podporované v inom režime scény než v automatickom</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <!-- Settings screen, CDS location dialog choices -->
+  <string name="pref_camera_cds_entry_auto">Auto</string>
   <!-- Settings screen, video CDS location dialog choices -->
+  <string name="pref_camera_video_cds_entry_auto">Auto</string>
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
+  <string name="pref_camera_video_hdr_title">Video HDR</string>
   <!-- Settings menu, setting title text for cds mode-->
+  <string name="pref_camera_cds_title">Režim CDS</string>
   <!-- Settings menu, setting title text for video cds mode-->
+  <string name="pref_camera_video_cds_title">Režim video CDS</string>
   <!-- Default cds mode setting-->
   <!-- Default video cds mode setting-->
   <!-- Settings menu, setting title text for tnr mode-->
+  <string name="pref_camera_tnr_title">Režim TNR</string>
   <!-- Settings menu, setting title text for video tnr mode-->
+  <string name="pref_camera_video_tnr_title">Režim video TNR</string>
   <!-- Default tnr mode setting-->
   <!-- Default video tnr mode setting-->
   <!-- Default face  detection setting. -->
   <!-- Settings screen, Select Face Detection -->
+  <string name="pref_camera_facedetection_title">Detekcia tváre</string>
   <!-- Settings menu, Face Detection choices -->
   <!-- Default redeye reduction setting. -->
   <!-- Settings screen, Select Redeye Reduction -->
+  <string name="pref_camera_redeyereduction_title">Redukcia červených očí</string>
   <!-- Settings menu, redeye reduction choices -->
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
+  <string name="error_app_unsupported_hfr_selection">Vysokorýchlostné/spomalené nahrávky nie sú podporované v režime DIS/TimeLapse/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
+  <string name="error_app_unsupported_hfr">Vybrané rozlíšenie nie je podporované v režime pomalé nahrávanie pohybu. Vyberte nižšie rozlíšenie.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
+  <string name="error_app_unsupported_dis">Nepodporované rozlíšenie pre stabilizáciu obrazu videa (DIS)</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
+  <string name="error_app_unsupported_hsr">Vybrané rozlíšenie nie je podporované v režime vysokorýchlostné nahrávanie pohybu. Vyberte nižšie rozlíšenie.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">Pri zapnutom HFR je podporované iba kódovanie videa H264</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">Tento enkóder nepodporuje zvolené rozlíšenie videa</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
+  <string name="error_app_unsupported_profile">Nepodporovaný video profil</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
+  <string name="error_app_unsupported_raw">Formát RAW nie je podporovaný
+        v režime ZSL, zmente ho na JPEG
+    </string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution (4k DCI) for video HDR-->
+  <string name="error_app_unsupported_video_hdr">HDR video nie je podporované pre DCI 4k</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
+  <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">Kor. aut. expozície</string>
+  <string name="pref_camera_ae_bracket_hdr_title">Korekcia automatickej expozície</string>
+  <string name="err_app_unsupport_ae_bracket_code">programy v súčasnosti nepodporujú automatickú korekciu expozície</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">Veľkosť videomomentky je menšia ako veľkosť videa. Veľkosť bude obmedzená na veľkosť videa. Zvoľte prosím rozlíšenie, ktoré je vyššie alebo rovné súčasnej kvalite videa. </string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">V režime šetrenia batérie
+        nie je podporované rozlíšenie obrazu. Bude spravená videomomentka. Vypnite
+        prosím režim šetrenia batérie.
+    </string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+  <string name="snapshot_qcif_and_d1">Pre toto rozlíšenie je podporovaná len videomomentka. </string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
+  <string name="pref_camera_hfr_title">Vysokorýchlostný záznam</string>
   <!-- Settings screen, hfr radio button choices -->
+  <string name="pref_camera_hfr_entry_2x">Spomalený záber; 60 sn./s</string>
+  <string name="pref_camera_hfr_entry_3x">Spomalený záber; 90 sn./s.</string>
+  <string name="pref_camera_hfr_entry_4x">Spomalený záber; 120 sn./s</string>
+  <string name="pref_camera_hfr_entry_hsr_60">Vysokorýchlostný záber; 60 sn./s</string>
+  <string name="pref_camera_hfr_entry_hsr_90">Vysokorýchlostný záber; 90 sn./s</string>
+  <string name="pref_camera_hfr_entry_hsr_120">Vysokorýchlostný záber; 120 sn./s</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_see_more_title">Zobraziť viac</string>
   <!-- Settings screen, see more radio button choices -->
   <!-- see more entry values. Do not translate. -->
   <!-- Denoise Settings screen, setting title text -->
+  <string name="pref_camera_denoise_title">Odstr. šumu</string>
   <!-- Denoise Settings screen, Record location dialog choices -->
   <!-- Default iso setting. Do not translate. -->
   <!-- Settings screen, Select Iso title -->
+  <string name="pref_camera_iso_title">ISO</string>
   <!-- Settings screen, ISO dialog radio button choices -->
+  <string name="pref_camera_iso_entry_auto">Auto</string>
+  <string name="pref_camera_iso_entry_isodeblur">Automaticky (HJR)</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <!-- ISO entry values. Do not translate. -->
   <!-- Settings screen, Anti Banding title -->
+  <string name="pref_camera_antibanding_title">Odstránenie pruhov</string>
   <!-- Default Anti Banding setting. -->
   <!-- Settings screen, Anti Banding entries -->
+  <string name="pref_camera_antibanding_entry_0">Automaticky</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (Európa)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
   <!-- Default color effect setting. -->
   <!-- Settings screen, Select Color effect title -->
+  <string name="pref_camera_coloreffect_title">Farebné efekty</string>
   <!-- Settings screen, Color effect dialog radio button choices -->
+  <string name="pref_camera_coloreffect_entry_none">Žiadne</string>
+  <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Sépia</string>
+  <string name="pref_camera_coloreffect_entry_negative">Negatív</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">Solarizácia</string>
+  <string name="pref_camera_coloreffect_entry_posterize">Posterizácia</string>
+  <string name="pref_camera_coloreffect_entry_aqua">Aqua</string>
+  <string name="pref_camera_coloreffect_entry_emboss">Reliéf</string>
+  <string name="pref_camera_coloreffect_entry_sketch">Skica</string>
+  <string name="pref_camera_coloreffect_entry_neon">Neón</string>
+  <string name="pref_camera_coloreffect_entry_pastel">Pastel</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">Mozaika</string>
+  <string name="pref_camera_coloreffect_entry_redtint">Červený odtieň</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">Modrý odtieň</string>
+  <string name="pref_camera_coloreffect_entry_greentint">Zelený odtieň</string>
   <!-- Default Touch AF/AEC setting. Do not translate. -->
   <!-- Settings screen, Select Touch AF/AEC title -->
+  <string name="pref_camera_touchafaec_title">Dotykom AF/AEC</string>
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
+  <string name="pref_camera_dis_title">Stabilizácia obrazu</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
+  <string name="pref_camera_facerc_title">Rozpoznanie tváre</string>
   <!-- Face Recognition choices -->
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_sharpness_entry_level0">Úroveň 0</string>
+  <string name="pref_camera_sharpness_entry_level1">Úroveň 1</string>
+  <string name="pref_camera_sharpness_entry_level2">Úroveň 2 (predvolená)</string>
+  <string name="pref_camera_sharpness_entry_level3">Úroveň 3</string>
+  <string name="pref_camera_sharpness_entry_level4">Úroveň 4</string>
+  <string name="pref_camera_sharpness_entry_level5">Úroveň 5</string>
+  <string name="pref_camera_sharpness_entry_level6">Úroveň 6</string>
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_contrast_entry_level0">Úroveň 0</string>
+  <string name="pref_camera_contrast_entry_level1">Úroveň 1</string>
+  <string name="pref_camera_contrast_entry_level2">Úroveň 2</string>
+  <string name="pref_camera_contrast_entry_level3">Úroveň 3</string>
+  <string name="pref_camera_contrast_entry_level4">Úroveň 4</string>
+  <string name="pref_camera_contrast_entry_level5">Úroveň 5 (predvolená)</string>
+  <string name="pref_camera_contrast_entry_level6">Úroveň 6</string>
+  <string name="pref_camera_contrast_entry_level7">Úroveň 7</string>
+  <string name="pref_camera_contrast_entry_level8">Úroveň 8</string>
+  <string name="pref_camera_contrast_entry_level9">Úroveň 9</string>
+  <string name="pref_camera_contrast_entry_level10">Úroveň 10</string>
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_saturation_entry_level0">Úroveň 0</string>
+  <string name="pref_camera_saturation_entry_level1">Úroveň 1</string>
+  <string name="pref_camera_saturation_entry_level2">Úroveň 2</string>
+  <string name="pref_camera_saturation_entry_level3">Úroveň 3</string>
+  <string name="pref_camera_saturation_entry_level4">Úroveň 4</string>
+  <string name="pref_camera_saturation_entry_level5">Úroveň 5 (predvolená)</string>
+  <string name="pref_camera_saturation_entry_level6">Úroveň 6</string>
+  <string name="pref_camera_saturation_entry_level7">Úroveň 7</string>
+  <string name="pref_camera_saturation_entry_level8">Úroveň 8</string>
+  <string name="pref_camera_saturation_entry_level9">Úroveň 9</string>
+  <string name="pref_camera_saturation_entry_level10">Úroveň 10</string>
   <!-- Default sharpness setting. Do not translate. -->
   <!-- Settings screen, Select sharpness title -->
+  <string name="pref_camera_sharpness_title">Ostrosť</string>
   <!-- Default contrast setting. Do not translate. -->
   <!-- Settings screen, Select contrast title -->
+  <string name="pref_camera_contrast_title">Kontrast</string>
   <!-- Default saturation setting. Do not translate. -->
   <!-- Settings screen, Select saturation title -->
+  <string name="pref_camera_saturation_title">Nasýtenie</string>
   <!-- Default picture quality setting. See
          pref_camera_jpegquality_entryvalues for possible values -->
   <!-- Default Picture format setting. Do not translate. -->
   <!-- Settings screen, Select Picture format title -->
+  <string name="pref_camera_picture_format_title">Vyberte formát obrazu</string>
   <!-- Settings screen, picture format dialog radio button choices -->
+  <string name="pref_camera_picture_format_entry_jpeg">JPEG</string>
+  <string name="pref_camera_picture_format_entry_raw">RAW</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_422_sp">YUV422SP</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yuyv">YUVRaw8YUYV</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yvyu">YUVRaw8YVYU</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_uyvy">YUVRaw8UYVY</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_vyuy">YUVRaw8VYUY</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8gbrg">BayerQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8grbg">BayerQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8rggb">BayerQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8bggr">BayerQ8BGRR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10gbrg">BayerQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10grbg">BayerQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10rggb">BayerQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10bggr">BayerQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12gbrg">BayerQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12grbg">BayerQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12rggb">BayerQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12bggr">BayerQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8gbrg">BayerM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8grbg">BayerM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8rggb">BayerM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8bggr">BayerM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10gbrg">BayerM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10grbg">BayerM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10rggb">BayerM10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10bggr">BayerM10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12gbrg">BayerM12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12grbg">BayerM12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12rggb">BayerM12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12bggr">BayerM12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8gbrg">BayerIQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8grbg">BayerIQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8rggb">BayerIQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8bggr">BayerIQ8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10gbrg">BayerIQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10grbg">BayerIQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10rggb">BayerIQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10bggr">BayerIQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12gbrg">BayerIQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12grbg">BayerIQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12rggb">BayerIQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12bggr">BayerIQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8gbrg">BayerIM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8grbg">BayerIM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8rggb">BayerIM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8bggr">BayerIM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10gbrg">BayerIM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10grbg">BayerIM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10rggb">BayerIM10rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10bggr">BayerIM8bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12gbrg">BayerIM12gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12grbg">BayerIM12grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12rggb">BayerIM12rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12bggr">BayerIM12bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8gbrg">BayerIP88gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8grbg">BayerIP88grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8rggb">BayerIP88rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8bggr">BayerIP88bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8gbrg">BayerIP168gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8grbg">BayerIP168grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8rggb">BayerIP168rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8bggr">BayerIP168bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10gbrg">BayerIP1610gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10grbg">BayerIP1610grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10rggb">BayerIP1610rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10bggr">BayerIP1610bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12gbrg">BayerIP1612gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12grbg">BayerIP1612grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12rggb">BayerIP1612rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12bggr">BayerIP1612bggr</string>
   <!-- Picture format entry values. Do not translate. -->
   <!-- Settings screen, Picture quality title -->
+  <string name="pref_camera_jpegquality_title">Kvalita obrazu</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_0">Nízka</string>
+  <string name="pref_camera_jpegquality_entry_1">Štandardná</string>
+  <string name="pref_camera_jpegquality_entry_2">Vysoká</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
+  <string name="pref_camera_histogram_title">Histogram</string>
   <!-- Settings screen, Histogram radio button choices -->
   <!-- Histogram entry values. Do not translate. -->
+  <string name="pref_camera_focusmode_entry_normal">Normálna</string>
+  <string name="pref_camera_focusmode_entry_continuous">Nepretržité snímkovanie</string>
+  <string name="pref_video_focusmode_entry_continuous">Nepetržité natáčanie</string>
+  <string name="pref_camera_scenemode_entry_asd">ASD</string>
   <!-- Scene mode that takes an image with as little noise as possible so details of the subject are maintained. -->
+  <string name="pref_camera_scenemode_entry_portrait">Portrét</string>
   <!-- Scene mode that takes an image of a landscape assuming all subjects are relatively far from the phone. -->
+  <string name="pref_camera_scenemode_entry_landscape">Krajina</string>
   <!-- Scene mode that takes night shots with long exposure and flash to illuminate the subject while still capturing darker detail in the background. -->
+  <string name="pref_camera_scenemode_entry_night_portrait">Nočný portrét</string>
   <!-- Scene mode to be used in a stage show. -->
+  <string name="pref_camera_scenemode_entry_theatre">Divadlo</string>
   <!-- Scene mode optimized for taking images on the beach. -->
+  <string name="pref_camera_scenemode_entry_beach">Pláž</string>
   <!-- Scene mode optimized for taking images in the snow. -->
+  <string name="pref_camera_scenemode_entry_snow">Sneh</string>
   <!-- Scene mode for taking a photo as sharp as possible. -->
+  <string name="pref_camera_scenemode_entry_steadyphoto">Stabilná fotka</string>
   <!-- Scene mode optimized for taking images of fireworks. -->
+  <string name="pref_camera_scenemode_entry_fireworks">Ohňostroj</string>
   <!-- Scene mode optimized for taking images during sports . -->
+  <string name="pref_camera_scenemode_entry_sports">Šport</string>
   <!-- Scene mode optimized for capturing the naturally warm color of scenes lit by candles. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_candlelight">Osvetlenie sviečkami</string>
   <!-- Scene mode for taking a photo with backlight. -->
+  <string name="pref_camera_scenemode_entry_backlight">Podsvietenie</string>
   <!-- Scene mode optimized for taking images of flowers. -->
+  <string name="pref_camera_scenemode_entry_flowers">Kvetiny</string>
   <!-- Scene mode optimized for taking images of AR. -->
+  <string name="pref_camera_scenemode_entry_ar">Rozšírená realita</string>
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
+  <string name="pref_camera_scenedetect_title">Automatická detekcia scény</string>
   <!-- Settings menu, auto scene detection choices -->
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
+  <string name="time_lapse_error">Neplatná veľkosť pre časovo oneskorené snímky.</string>
   <!-- longshot value -->
+  <string name="pref_camera_longshot_title">Nepretržité fotografovanie</string>
+  <string name="msg_cancel_longshot_for_limited_memory">nedostatok pamäte, snímkovanie prerušené</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">Blesk nie je podporovaný v režime rozšírenej reality</string>
   <!-- Settings screen, setting title text for Auto HDR-->
+  <string name="pref_camera_auto_hdr_title">Auto HDR</string>
   <!-- Settings screen, Auto HDR location dialog choices -->
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Nedostatok miesta na lokálnom úložisku - úložisko bolo zmenené na SD kartu</string>
   <!-- Settings screen, Selectable HDR mode title -->
+  <string name="pref_camera_hdr_mode_title">Režim HDR</string>
   <!-- Settings screen, Selectable HDR mode radio button choices -->
+  <string name="pref_camera_hdr_mode_entry_sensor">Senzor HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">Viac snímkový HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
   <!-- Settings screen, Selectable HDR need 1x frame default value -->
   <!-- Settings screen, Selectable HDR need 1x frame title -->
+  <string name="pref_camera_hdr_need_1x_title">HDR vyžaduje jednu snímku</string>
   <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
   <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
+  <string name="pref_camera_video_rotation_title">Otočenie videa</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
+  <string name="pref_camera_video_rotation_entry_0">0</string>
+  <string name="pref_camera_video_rotation_entry_90">90</string>
+  <string name="pref_camera_video_rotation_entry_180">180</string>
+  <string name="pref_camera_video_rotation_entry_270">270</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Aplikácia na zobrazenie polohy nenájdená.</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">
+Pokročilé funkcie nie sú podporované v režime nepretržité snímkovanie</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">
+V režime nepretržité snímkovanie nie sú podporované pokročilé funkcie</string>
   <!-- The alas of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Spustenie fotoaparátu</string>
+  <string name="pref_camera_tsmakeup_title">Skrášliť</string>
+  <string name="pref_camera_tsmakeup_custom">Vlastné</string>
+  <string name="pref_camera_tsmakeup_level_whiten">Vybieliť</string>
+  <string name="pref_camera_tsmakeup_level_clean">Zmäkčíť</string>
+  <string name="text_tsmakeup_alert_title">Upozornenie</string>
+  <string name="text_tsmakeup_alert_msg">Pre skrášlenie je nutné zapnúť detekciu tváre, pokračovať alebo ukončiť?</string>
+  <string name="text_tsmakeup_alert_continue">Pokračovať</string>
+  <string name="text_tsmakeup_alert_quit">Ukončiť</string>
+  <string name="all_in_focus">Zaostriť všetko</string>
   <!-- Touch-focus duration settings -->
+  <string name="pref_camera_touchfocus_duration_title">Dĺžka trvania zaostrovania dotykom</string>
+  <string name="pref_camera_touchfocus_duration_default">3</string>
+  <string name="pref_video_touchfocus_duration_default">0</string>
+  <string name="pref_camera_touchfocus_duration_entry_0">0 sekúnd</string>
+  <string name="pref_camera_touchfocus_duration_entry_3">3 sekundy</string>
+  <string name="pref_camera_touchfocus_duration_entry_5">5 sekúnd</string>
+  <string name="pref_camera_touchfocus_duration_entry_10">10 sekúnd</string>
+  <string name="pref_camera_touchfocus_duration_entry_infinity">Nekonečno</string>
+  <string name="pref_camera_touchfocus_duration_value_0">0</string>
+  <string name="pref_camera_touchfocus_duration_value_3">3</string>
+  <string name="pref_camera_touchfocus_duration_value_5">5</string>
+  <string name="pref_camera_touchfocus_duration_value_10">10</string>
+  <string name="pref_camera_touchfocus_duration_value_infinity">0x7FFFFFFF</string>
   <!-- Slow-shutter settings -->
+  <string name="pref_camera_shutter_speed_title">Rýchlosť uzávierky</string>
+  <string name="pref_camera_shutter_speed_default">0</string>
+  <string name="pref_camera_shutter_speed_entry_off">Auto</string>
+  <string name="pref_camera_shutter_speed_entry_1_5000th">1/5000 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_2500th">1/2500 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_1500th">1/1500 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_1000th">1/1000 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_500th">1/500 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_250th">1/250 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_125th">1/125 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_64th">1/64 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_32nd">1/32 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_16th">1/16 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_8th">1/8 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_4th">1/4 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1_2">1/2 sekundy</string>
+  <string name="pref_camera_shutter_speed_entry_1">1 sekunda</string>
+  <string name="pref_camera_shutter_speed_entry_2">2 sekundy</string>
 </resources>

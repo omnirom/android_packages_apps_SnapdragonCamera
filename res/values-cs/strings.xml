@@ -17,6 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
   <string name="app_name">Fotoaparát</string>
+  <string name="snapcam_app_name">Fotoaparát</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
   <string name="video_camera_label">Videokamera</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
@@ -29,6 +30,11 @@
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">Smazat</string>
   <!-- String Delete the selected media item(s) [CHAR LIMIT=50] -->
+  <plurals name="delete_selection">
+    <item quantity="one">Smazat vybranou položku?</item>
+    <item quantity="few">Smazat vybrané položky?</item>
+    <item quantity="other">Smazat vybrané položky?</item>
+  </plurals>
   <string name="share">Sdílet</string>
   <string name="share_panorama">Sdílet panorama</string>
   <string name="share_as_photo">Sdílet jako fotku</string>
@@ -40,10 +46,25 @@
   <string name="close">Zavřít</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_items_selected">
+    <item quantity="one">Vybráno: %1$d</item>
+    <item quantity="few">Vybráno: %1$d</item>
+    <item quantity="other">Vybráno: %1$d</item>
+  </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_albums_selected">
+    <item quantity="one">Vybráno: %1$d</item>
+    <item quantity="few">Vybráno: %1$d</item>
+    <item quantity="other">Vybráno: %1$d</item>
+  </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
+  <plurals name="number_of_groups_selected">
+    <item quantity="one">Vybráno: %1$d</item>
+    <item quantity="few">Vybráno: %1$d</item>
+    <item quantity="other">Vybráno: %1$d</item>
+  </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">Zobrazit na mapě</string>
   <string name="rotate_left">Otočit doleva</string>
@@ -151,9 +172,18 @@
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
   <string name="pref_camera_timer_title">Časovač odpočítávání</string>
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
+  <plurals name="pref_camera_timer_entry">
+    <item quantity="one">1 s</item>
+    <item quantity="few">%d s</item>
+    <item quantity="other">%d s</item>
+  </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Zvuk při odpočtu</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">Umístění uložiště</string>
+  <string name="pref_camera_savepath_default">0</string>
+  <string name="pref_camera_savepath_entry_0">Interní uložiště</string>
+  <string name="pref_camera_savepath_entry_1">Externí uložiště</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Vypnuto</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -180,6 +210,7 @@
   <!-- Settings screen, Camcorder setting category title -->
   <string name="pref_camcorder_settings_category">Nastavení videokamery</string>
   <!-- Settings screen, Picture size title -->
+  <string name="pref_camera_picturesize_title">Velikost fotografie</string>
   <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">Režim zaostření</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
@@ -250,6 +281,7 @@
   <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_party">Oslava</string>
   <!-- Scene mode for refocus feature [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_refocus">Makro+</string>
   <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_auto">ŽÁDNÉ</string>
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
@@ -273,8 +305,11 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Tuto možnost ve scénickém režimu vybrat nelze.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Zapnutím HDR zakážete nepřetržité snímání.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Povolením rozšířeného zachytávání zakážete nepřetržité snímání.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">Povolením video kvality 4K zakážete IS.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Expozice</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -505,4 +540,9 @@ CHAR LIMIT = NONE] -->
   <string name="switch_photo_filmstrip">Zobrazení filmového pásu</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Nastavování tapety</string>
+  <string name="remaining_photos_format">%d vlevo</string>
+  <string name="refocus_toast">Pro přesměrování na poslední fotografii, klepněte zde</string>
+  <string name="pref_camera_remaining_title">Zobrazit čítač zbývajících snímků</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <string name="pref_camera_remaining_label">Zbývá</string>
 </resources>
