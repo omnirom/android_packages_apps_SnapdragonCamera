@@ -475,4 +475,5 @@ CHAR LIMIT = NONE] -->
   <!-- Label for album filmstrip button -->
   <string name="switch_photo_filmstrip">Pandangan jalur filem</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
 </resources>

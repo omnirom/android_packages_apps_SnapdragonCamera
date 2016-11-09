@@ -274,4 +274,5 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when we cannot load the image when starting the activity [CHAR LIMIT=NONE] -->
   <!-- Label for album filmstrip button -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
 </resources>

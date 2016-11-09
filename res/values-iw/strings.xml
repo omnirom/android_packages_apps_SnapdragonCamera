@@ -505,4 +505,5 @@ CHAR LIMIT = NONE] -->
   <string name="switch_photo_filmstrip">תצוגה בסרט שקופיות</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">מגדיר טפט</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
 </resources>

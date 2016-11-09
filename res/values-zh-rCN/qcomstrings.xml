@@ -25,159 +25,460 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">电源模式</string>
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">自动曝光</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
+  <string name="pref_camera_autoexposure_entry_frameaverage">帧平均</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">中央偏重测光</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">点测光</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
+  <string name="pref_camera_videoencoder_title">视频编码器</string>
   <!-- Settings screen, Video encoder dialog radio button choices -->
+  <string name="pref_camera_videoencoder_entry_0">MPEG4</string>
+  <string name="pref_camera_videoencoder_entry_1">H263</string>
+  <string name="pref_camera_videoencoder_entry_2">H264</string>
+  <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
+  <string name="pref_camera_videoencoder_dialogtitle">视频编码器</string>
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
+  <string name="pref_camera_audioencoder_title">音频编码器</string>
   <!-- Settings screen, Audio encoder dialog radio button choices -->
+  <string name="pref_camera_audioencoder_entry_0">AMRNB</string>
+  <string name="pref_camera_audioencoder_entry_1">高级音频编码</string>
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
+  <string name="pref_camera_video_duration_title">视频持续时间</string>
   <!-- Settings screen, Video duration dialog radio button choices -->
+  <string name="pref_camera_video_duration_entry_mms">30 秒(MMS)</string>
+  <string name="pref_camera_video_duration_entry_10">10分钟</string>
+  <string name="pref_camera_video_duration_entry_30">30 分钟</string>
+  <string name="pref_camera_video_duration_entry_nolimit">无限制</string>
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
+  <string name="pref_camera_skinToneEnhancement_title">肤色增强</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
+  <string name="pref_camera_zsl_title">零快门延迟</string>
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
+  <string name="pref_camera_selectablezoneaf_title">自动对焦区域</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_selectablezoneaf_entry_auto">自动</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">中央偏重测光</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">平均帧</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">点测光</string>
   <!-- Auto exposure entry values. Do not translate. -->
+  <string name="pref_camera_advanced_feature_default">无</string>
   <!-- Settings screen, Selectable advanced features title -->
+  <string name="pref_camera_advanced_features_title">高级功能</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_advanced_feature_entry_none">无</string>
+  <string name="pref_camera_advanced_feature_entry_ubifocus">Ubi对焦</string>
+  <string name="pref_camera_advanced_feature_entry_refocus">重新对焦</string>
+  <string name="pref_camera_advanced_feature_entry_chromaflash">色度闪光灯</string>
+  <string name="pref_camera_advanced_feature_entry_optizoom">光学变焦</string>
+  <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
+  <string name="pref_camera_advanced_feature_entry_trueportrait">真实影像</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">多点触控对焦</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
+  <string name="pref_camera_manual_exp_title">手动曝光</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">ISO优先</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">曝光时间优先</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">用户设置</string>
   <!-- Manual white balance entry values -->
+  <string name="pref_camera_manual_wb_title">手动白平衡</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">色温</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB 增益</string>
   <!-- Manual Focus entry values -->
+  <string name="pref_camera_manual_focus_title">手动对焦</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">缩放模式</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">屈光度模式</string>
   <!-- Settings screen, ZSL location dialog choices -->
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
+  <string name="hdr_enable_message">HDR启用，仅支持自动场景模式</string>
+  <string name="scene_enable_message">HDR 不支持非自动场景模式</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <!-- Settings screen, CDS location dialog choices -->
+  <string name="pref_camera_cds_entry_auto">自动</string>
   <!-- Settings screen, video CDS location dialog choices -->
+  <string name="pref_camera_video_cds_entry_auto">自动</string>
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
+  <string name="pref_camera_video_hdr_title">HDR录像</string>
   <!-- Settings menu, setting title text for cds mode-->
+  <string name="pref_camera_cds_title">CDS模式</string>
   <!-- Settings menu, setting title text for video cds mode-->
+  <string name="pref_camera_video_cds_title">CDS录像模式</string>
   <!-- Default cds mode setting-->
   <!-- Default video cds mode setting-->
   <!-- Settings menu, setting title text for tnr mode-->
+  <string name="pref_camera_tnr_title">TNR模式</string>
   <!-- Settings menu, setting title text for video tnr mode-->
+  <string name="pref_camera_video_tnr_title">TNR录像模式</string>
   <!-- Default tnr mode setting-->
   <!-- Default video tnr mode setting-->
   <!-- Default face  detection setting. -->
   <!-- Settings screen, Select Face Detection -->
+  <string name="pref_camera_facedetection_title">人脸识别</string>
   <!-- Settings menu, Face Detection choices -->
   <!-- Default redeye reduction setting. -->
   <!-- Settings screen, Select Redeye Reduction -->
+  <string name="pref_camera_redeyereduction_title">红眼消除</string>
   <!-- Settings menu, redeye reduction choices -->
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
+  <string name="error_app_unsupported_hfr_selection">HFR/HSR不支持DIS/TIMELAPSE/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
+  <string name="error_app_unsupported_hfr">慢动作不支持所选视频大小。请选择一个较低的视频大小。</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
+  <string name="error_app_unsupported_dis">视频分辨率不支持显示图像稳定(DIS)</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
+  <string name="error_app_unsupported_hsr">高速模式不支持所选视频大小。请选择一个较低的视频大小。</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">只有当HFR为开启时才支持H264视频编码</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">此编码器类型不支持的视频分辨率</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
+  <string name="error_app_unsupported_profile">不支持的视频配置文件</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
+  <string name="error_app_unsupported_raw">原图片格式不支持zsl模式，请更改为JPEG格式    </string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution (4k DCI) for video HDR-->
+  <string name="error_app_unsupported_video_hdr">HDR录像不支持4K DCI</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
+  <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">自动包围曝光</string>
+  <string name="pref_camera_ae_bracket_hdr_title">自动包围曝光</string>
+  <string name="err_app_unsupport_ae_bracket_code">应用程序没有自动包围曝光支持</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">视频快照大小低于视频的大小。限制视频大小。请选择一个分辨率高于或等于当前视频的大小。 </string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
+  <string name="snapshotsize_low_powermode">我们在低功率模式下不支持图片分辨率。将拍摄视频大小快照。请选择高功率模式。    </string>
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
+  <string name="snapshot_qcif_and_d1">仅视频快照大小支持此分辨率 </string>
   <!-- Default hfr setting. Do not translate. -->
   <!-- Settings screen, Select hfr title -->
+  <string name="pref_camera_hfr_title">高帧率录制</string>
   <!-- Settings screen, hfr radio button choices -->
+  <string name="pref_camera_hfr_entry_2x">慢动作; 60 FPS</string>
+  <string name="pref_camera_hfr_entry_3x">慢动作; 90 FPS</string>
+  <string name="pref_camera_hfr_entry_4x">慢动作; 120 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_60">高速; 60 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_90">高速; 90 FPS</string>
+  <string name="pref_camera_hfr_entry_hsr_120">高速; 120 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_see_more_title">查看更多</string>
   <!-- Settings screen, see more radio button choices -->
   <!-- see more entry values. Do not translate. -->
   <!-- Denoise Settings screen, setting title text -->
+  <string name="pref_camera_denoise_title">降噪</string>
   <!-- Denoise Settings screen, Record location dialog choices -->
   <!-- Default iso setting. Do not translate. -->
   <!-- Settings screen, Select Iso title -->
+  <string name="pref_camera_iso_title">感光度</string>
   <!-- Settings screen, ISO dialog radio button choices -->
+  <string name="pref_camera_iso_entry_auto">自动</string>
+  <string name="pref_camera_iso_entry_isodeblur">自动(HJR)</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <!-- ISO entry values. Do not translate. -->
   <!-- Settings screen, Anti Banding title -->
+  <string name="pref_camera_antibanding_title">避免闪烁</string>
   <!-- Default Anti Banding setting. -->
   <!-- Settings screen, Anti Banding entries -->
+  <string name="pref_camera_antibanding_entry_0">自动</string>
+  <string name="pref_camera_antibanding_entry_1">50 Hz (欧洲)</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (美国)</string>
   <!-- Default color effect setting. -->
   <!-- Settings screen, Select Color effect title -->
+  <string name="pref_camera_coloreffect_title">色彩效果</string>
   <!-- Settings screen, Color effect dialog radio button choices -->
+  <string name="pref_camera_coloreffect_entry_none">无</string>
+  <string name="pref_camera_coloreffect_entry_mono">黑白</string>
+  <string name="pref_camera_coloreffect_entry_sepia">棕褐色</string>
+  <string name="pref_camera_coloreffect_entry_negative">负片</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_solarize">过曝</string>
+  <string name="pref_camera_coloreffect_entry_posterize">色调分离</string>
+  <string name="pref_camera_coloreffect_entry_aqua">水蓝色</string>
+  <string name="pref_camera_coloreffect_entry_emboss">浮雕</string>
+  <string name="pref_camera_coloreffect_entry_sketch">素描</string>
+  <string name="pref_camera_coloreffect_entry_neon">霓虹灯</string>
+  <string name="pref_camera_coloreffect_entry_pastel">柔和</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">马赛克</string>
+  <string name="pref_camera_coloreffect_entry_redtint">偏红</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">偏蓝</string>
+  <string name="pref_camera_coloreffect_entry_greentint">偏绿</string>
   <!-- Default Touch AF/AEC setting. Do not translate. -->
   <!-- Settings screen, Select Touch AF/AEC title -->
+  <string name="pref_camera_touchafaec_title">触摸自动对焦/自动曝光</string>
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
+  <string name="pref_camera_dis_title">防抖</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
+  <string name="pref_camera_facerc_title">人脸识别</string>
   <!-- Face Recognition choices -->
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_sharpness_entry_level0">级别0</string>
+  <string name="pref_camera_sharpness_entry_level1">级别1</string>
+  <string name="pref_camera_sharpness_entry_level2">级别2(默认值)</string>
+  <string name="pref_camera_sharpness_entry_level3">级别3</string>
+  <string name="pref_camera_sharpness_entry_level4">级别4</string>
+  <string name="pref_camera_sharpness_entry_level5">级别5</string>
+  <string name="pref_camera_sharpness_entry_level6">级别6</string>
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_contrast_entry_level0">级别0</string>
+  <string name="pref_camera_contrast_entry_level1">级别1</string>
+  <string name="pref_camera_contrast_entry_level2">级别2</string>
+  <string name="pref_camera_contrast_entry_level3">级别3</string>
+  <string name="pref_camera_contrast_entry_level4">级别4</string>
+  <string name="pref_camera_contrast_entry_level5">级别5(默认值)</string>
+  <string name="pref_camera_contrast_entry_level6">级别6</string>
+  <string name="pref_camera_contrast_entry_level7">级别7</string>
+  <string name="pref_camera_contrast_entry_level8">级别8</string>
+  <string name="pref_camera_contrast_entry_level9">级别9</string>
+  <string name="pref_camera_contrast_entry_level10">级别10</string>
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_saturation_entry_level0">级别0</string>
+  <string name="pref_camera_saturation_entry_level1">级别1</string>
+  <string name="pref_camera_saturation_entry_level2">级别2</string>
+  <string name="pref_camera_saturation_entry_level3">级别3</string>
+  <string name="pref_camera_saturation_entry_level4">级别4</string>
+  <string name="pref_camera_saturation_entry_level5">级别5(默认值)</string>
+  <string name="pref_camera_saturation_entry_level6">级别6</string>
+  <string name="pref_camera_saturation_entry_level7">级别7</string>
+  <string name="pref_camera_saturation_entry_level8">级别8</string>
+  <string name="pref_camera_saturation_entry_level9">级别9</string>
+  <string name="pref_camera_saturation_entry_level10">级别10</string>
   <!-- Default sharpness setting. Do not translate. -->
   <!-- Settings screen, Select sharpness title -->
+  <string name="pref_camera_sharpness_title">锐度</string>
   <!-- Default contrast setting. Do not translate. -->
   <!-- Settings screen, Select contrast title -->
+  <string name="pref_camera_contrast_title">对比度</string>
   <!-- Default saturation setting. Do not translate. -->
   <!-- Settings screen, Select saturation title -->
+  <string name="pref_camera_saturation_title">饱和度</string>
   <!-- Default picture quality setting. See
          pref_camera_jpegquality_entryvalues for possible values -->
   <!-- Default Picture format setting. Do not translate. -->
   <!-- Settings screen, Select Picture format title -->
+  <string name="pref_camera_picture_format_title">选择图片格式</string>
   <!-- Settings screen, picture format dialog radio button choices -->
+  <string name="pref_camera_picture_format_entry_jpeg">Jpeg</string>
+  <string name="pref_camera_picture_format_entry_raw">原始文件</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_422_sp">YUV422SP</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yuyv">YUVRaw8YUYV</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yvyu">YUVRaw8YVYU</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_uyvy">YUVRaw8UYVY</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_vyuy">YUVRaw8VYUY</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8gbrg">BayerQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8grbg">BayerQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8rggb">BayerQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8bggr">BayerQ8BGRR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10gbrg">BayerQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10grbg">BayerQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10rggb">BayerQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10bggr">BayerQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12gbrg">BayerQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12grbg">BayerQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12rggb">BayerQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12bggr">BayerQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8gbrg">BayerM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8grbg">BayerM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8rggb">BayerM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8bggr">BayerM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10gbrg">BayerM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10grbg">BayerM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10rggb">BayerM10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10bggr">BayerM10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12gbrg">BayerM12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12grbg">BayerM12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12rggb">BayerM12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12bggr">BayerM12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8gbrg">BayerIQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8grbg">BayerIQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8rggb">BayerIQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8bggr">BayerIQ8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10gbrg">BayerIQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10grbg">BayerIQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10rggb">BayerIQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10bggr">BayerIQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12gbrg">BayerIQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12grbg">BayerIQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12rggb">BayerIQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12bggr">BayerIQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8gbrg">BayerIM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8grbg">BayerIM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8rggb">BayerIM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8bggr">BayerIM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10gbrg">BayerIM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10grbg">BayerIM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10rggb">BayerIM10rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10bggr">BayerIM8bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12gbrg">BayerIM12gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12grbg">BayerIM12grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12rggb">BayerIM12rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12bggr">BayerIM12bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8gbrg">BayerIP88gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8grbg">BayerIP88grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8rggb">BayerIP88rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8bggr">BayerIP88bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8gbrg">BayerIP168gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8grbg">BayerIP168grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8rggb">BayerIP168rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8bggr">BayerIP168bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10gbrg">BayerIP1610gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10grbg">BayerIP1610grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10rggb">BayerIP1610rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10bggr">BayerIP1610bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12gbrg">BayerIP1612gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12grbg">BayerIP1612grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12rggb">BayerIP1612rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12bggr">BayerIP1612bggr</string>
   <!-- Picture format entry values. Do not translate. -->
   <!-- Settings screen, Picture quality title -->
+  <string name="pref_camera_jpegquality_title">图片质量</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_0">低</string>
+  <string name="pref_camera_jpegquality_entry_1">标准</string>
+  <string name="pref_camera_jpegquality_entry_2">高</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
+  <string name="pref_camera_histogram_title">直方图</string>
   <!-- Settings screen, Histogram radio button choices -->
   <!-- Histogram entry values. Do not translate. -->
+  <string name="pref_camera_focusmode_entry_normal">普通</string>
+  <string name="pref_camera_focusmode_entry_continuous">连续照片</string>
+  <string name="pref_video_focusmode_entry_continuous">连续视频</string>
+  <string name="pref_camera_scenemode_entry_asd">ASD</string>
   <!-- Scene mode that takes an image with as little noise as possible so details of the subject are maintained. -->
+  <string name="pref_camera_scenemode_entry_portrait">肖像</string>
   <!-- Scene mode that takes an image of a landscape assuming all subjects are relatively far from the phone. -->
+  <string name="pref_camera_scenemode_entry_landscape">风景</string>
   <!-- Scene mode that takes night shots with long exposure and flash to illuminate the subject while still capturing darker detail in the background. -->
+  <string name="pref_camera_scenemode_entry_night_portrait">夜景肖像</string>
   <!-- Scene mode to be used in a stage show. -->
+  <string name="pref_camera_scenemode_entry_theatre">影院</string>
   <!-- Scene mode optimized for taking images on the beach. -->
+  <string name="pref_camera_scenemode_entry_beach">海滩</string>
   <!-- Scene mode optimized for taking images in the snow. -->
+  <string name="pref_camera_scenemode_entry_snow">雪景</string>
   <!-- Scene mode for taking a photo as sharp as possible. -->
+  <string name="pref_camera_scenemode_entry_steadyphoto">防抖</string>
   <!-- Scene mode optimized for taking images of fireworks. -->
+  <string name="pref_camera_scenemode_entry_fireworks">烟火</string>
   <!-- Scene mode optimized for taking images during sports . -->
+  <string name="pref_camera_scenemode_entry_sports">运动</string>
   <!-- Scene mode optimized for capturing the naturally warm color of scenes lit by candles. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_candlelight">烛光</string>
   <!-- Scene mode for taking a photo with backlight. -->
+  <string name="pref_camera_scenemode_entry_backlight">背光</string>
   <!-- Scene mode optimized for taking images of flowers. -->
+  <string name="pref_camera_scenemode_entry_flowers">鲜花</string>
   <!-- Scene mode optimized for taking images of AR. -->
+  <string name="pref_camera_scenemode_entry_ar">AR</string>
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
+  <string name="pref_camera_scenedetect_title">自动</string>
   <!-- Settings menu, auto scene detection choices -->
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
+  <string name="time_lapse_error">无效的延时录制视频大小。</string>
   <!-- longshot value -->
+  <string name="pref_camera_longshot_title">连拍</string>
+  <string name="msg_cancel_longshot_for_limited_memory">内存不足，取消远景</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">自动包围曝光模式下不支持闪光灯</string>
   <!-- Settings screen, setting title text for Auto HDR-->
+  <string name="pref_camera_auto_hdr_title">自动HDR</string>
   <!-- Settings screen, Auto HDR location dialog choices -->
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">内部存储空间不足-保存路径切换到SD卡</string>
   <!-- Settings screen, Selectable HDR mode title -->
+  <string name="pref_camera_hdr_mode_title">HDR模式</string>
   <!-- Settings screen, Selectable HDR mode radio button choices -->
+  <string name="pref_camera_hdr_mode_entry_sensor">HDR传感器</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">多帧HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
   <!-- Settings screen, Selectable HDR need 1x frame default value -->
   <!-- Settings screen, Selectable HDR need 1x frame title -->
+  <string name="pref_camera_hdr_need_1x_title">HDR 需要1x 帧</string>
   <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
   <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
+  <string name="pref_camera_video_rotation_title">视频旋转</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
+  <string name="pref_camera_video_rotation_entry_0">0</string>
+  <string name="pref_camera_video_rotation_entry_90">90</string>
+  <string name="pref_camera_video_rotation_entry_180">180</string>
+  <string name="pref_camera_video_rotation_entry_270">270</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">没有地图应用程序以显示位置。</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">
+在连续拍摄模式下不支持高级功能</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">
+高级功能启用时，不支持连拍</string>
   <!-- The alas of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">启动相机</string>
+  <string name="pref_camera_tsmakeup_title">美化</string>
+  <string name="pref_camera_tsmakeup_custom">自定义</string>
+  <string name="pref_camera_tsmakeup_level_whiten">美白</string>
+  <string name="pref_camera_tsmakeup_level_clean">柔和</string>
+  <string name="text_tsmakeup_alert_title">警告</string>
+  <string name="text_tsmakeup_alert_msg">美化必须开启人脸识别，继续或退出？</string>
+  <string name="text_tsmakeup_alert_continue">继续</string>
+  <string name="text_tsmakeup_alert_quit">结束</string>
+  <string name="all_in_focus">全景聚焦</string>
   <!-- Touch-focus duration settings -->
+  <string name="pref_camera_touchfocus_duration_title">触摸对焦持续时间</string>
+  <string name="pref_camera_touchfocus_duration_default">3</string>
+  <string name="pref_video_touchfocus_duration_default">0</string>
+  <string name="pref_camera_touchfocus_duration_entry_0">0 秒</string>
+  <string name="pref_camera_touchfocus_duration_entry_3">3秒</string>
+  <string name="pref_camera_touchfocus_duration_entry_5">5秒</string>
+  <string name="pref_camera_touchfocus_duration_entry_10">10秒</string>
+  <string name="pref_camera_touchfocus_duration_entry_infinity">无限</string>
+  <string name="pref_camera_touchfocus_duration_value_0">0</string>
+  <string name="pref_camera_touchfocus_duration_value_3">3</string>
+  <string name="pref_camera_touchfocus_duration_value_5">5</string>
+  <string name="pref_camera_touchfocus_duration_value_10">10</string>
+  <string name="pref_camera_touchfocus_duration_value_infinity">0x7FFFFFFF</string>
   <!-- Slow-shutter settings -->
+  <string name="pref_camera_shutter_speed_title">快门速度</string>
+  <string name="pref_camera_shutter_speed_default">0</string>
+  <string name="pref_camera_shutter_speed_entry_off">自动</string>
+  <string name="pref_camera_shutter_speed_entry_1_5000th">1/5000 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_2500th">1/2500 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_1500th">1/1500 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_1000th">1/1000 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_500th">1/500 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_250th">1/250 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_125th">1/125 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_64th">1/64 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_32nd">1/32 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_16th">1/16 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_8th">1/8 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_4th">1/4 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1_2">1/2 秒</string>
+  <string name="pref_camera_shutter_speed_entry_1">1秒</string>
+  <string name="pref_camera_shutter_speed_entry_2">2秒</string>
 </resources>
