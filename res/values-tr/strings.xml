@@ -537,5 +537,7 @@ CHAR LIMIT = NONE] -->
   <string name="setting_wallpaper">Duvar kağıdı ayarlanıyor</string>
   <string name="remaining_photos_format">%d kaldı</string>
   <string name="refocus_toast">Son fotoğrafa yeniden odaklanmak için, buraya dokunun</string>
+  <string name="pref_camera_remaining_title">Kalan sayacı göster</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <string name="pref_camera_remaining_label">KALAN</string>
 </resources>

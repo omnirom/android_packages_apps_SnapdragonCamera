@@ -25,31 +25,61 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Режим питания</string>
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Автоэкспозиция</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
+  <string name="pref_camera_autoexposure_entry_frameaverage">Каркасно-средняя</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Центро-взвешенный</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
+  <string name="pref_camera_videoencoder_title">Видео кодирование</string>
   <!-- Settings screen, Video encoder dialog radio button choices -->
+  <string name="pref_camera_videoencoder_entry_0">MPEG4</string>
+  <string name="pref_camera_videoencoder_entry_1">H263</string>
+  <string name="pref_camera_videoencoder_entry_2">H264</string>
+  <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
+  <string name="pref_camera_videoencoder_dialogtitle">Видео кодирование</string>
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
+  <string name="pref_camera_audioencoder_title">Аудио кодирование</string>
   <!-- Settings screen, Audio encoder dialog radio button choices -->
+  <string name="pref_camera_audioencoder_entry_0">AMRNB</string>
+  <string name="pref_camera_audioencoder_entry_1">AAC</string>
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
+  <string name="pref_camera_video_duration_title">Длительность видео</string>
   <!-- Settings screen, Video duration dialog radio button choices -->
+  <string name="pref_camera_video_duration_entry_mms">30 секунд (MMS)</string>
+  <string name="pref_camera_video_duration_entry_10">10 минут</string>
+  <string name="pref_camera_video_duration_entry_30">30 минут</string>
+  <string name="pref_camera_video_duration_entry_nolimit">без ограничения</string>
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
+  <string name="pref_camera_skinToneEnhancement_title">Улучшение цвета кожи</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
+  <string name="pref_camera_zsl_title">Нулевая задержка затвора</string>
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
+  <string name="pref_camera_selectablezoneaf_title">Зона автофокусировки</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_selectablezoneaf_entry_auto">Авто</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Центро-взвешенный</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Каркасно-средняя</string>
   <!-- Auto exposure entry values. Do not translate. -->
+  <string name="pref_camera_advanced_feature_default">без эффекта</string>
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Расширенные возможности</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_advanced_feature_entry_none">Без эффекта</string>
+  <string name="pref_camera_advanced_feature_entry_ubifocus">UBI фокус</string>
+  <string name="pref_camera_advanced_feature_entry_refocus">Перефокусировать</string>
+  <string name="pref_camera_advanced_feature_entry_optizoom">Оптический зум</string>
+  <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
   <!-- Manual white balance entry values -->
@@ -59,6 +89,8 @@
   <string name="pref_camera_manual_focus_title">Ручная фокусировка</string>
   <!-- Settings screen, ZSL location dialog choices -->
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
+  <string name="hdr_enable_message">HDR включен, поддерживается только автоматический режим сцены</string>
+  <string name="scene_enable_message">HDR не поддерживается в режиме сцены, кроме автоматического режима сцены</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <!-- Settings screen, CDS location dialog choices -->
   <string name="pref_camera_cds_entry_auto">Авто</string>
@@ -69,16 +101,22 @@
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
+  <string name="pref_camera_video_hdr_title">Видео HDR</string>
   <!-- Settings menu, setting title text for cds mode-->
+  <string name="pref_camera_cds_title">CDS режим</string>
   <!-- Settings menu, setting title text for video cds mode-->
+  <string name="pref_camera_video_cds_title">CDS режим видео</string>
   <!-- Default cds mode setting-->
   <!-- Default video cds mode setting-->
   <!-- Settings menu, setting title text for tnr mode-->
+  <string name="pref_camera_tnr_title">TNR режим</string>
   <!-- Settings menu, setting title text for video tnr mode-->
+  <string name="pref_camera_video_tnr_title">TNR режим видео</string>
   <!-- Default tnr mode setting-->
   <!-- Default video tnr mode setting-->
   <!-- Default face  detection setting. -->
   <!-- Settings screen, Select Face Detection -->
+  <string name="pref_camera_facedetection_title">Распознавание лиц</string>
   <!-- Settings menu, Face Detection choices -->
   <!-- Default redeye reduction setting. -->
   <!-- Settings screen, Select Redeye Reduction -->
@@ -154,25 +192,102 @@
   <!-- Default Picture format setting. Do not translate. -->
   <!-- Settings screen, Select Picture format title -->
   <!-- Settings screen, picture format dialog radio button choices -->
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12gbrg">BayerQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12grbg">BayerQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12rggb">BayerQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12bggr">BayerQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8gbrg">BayerM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8grbg">BayerM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8rggb">BayerM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8bggr">BayerM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10gbrg">BayerM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10grbg">BayerM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10rggb">BayerM10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10bggr">BayerM10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12gbrg">BayerM12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12grbg">BayerM12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12rggb">BayerM12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12bggr">BayerM12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8gbrg">BayerIQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8grbg">BayerIQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8rggb">BayerIQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8bggr">BayerIQ8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10gbrg">BayerIQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10grbg">BayerIQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10rggb">BayerIQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10bggr">BayerIQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12gbrg">BayerIQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12grbg">BayerIQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12rggb">BayerIQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12bggr">BayerIQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8gbrg">BayerIM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8grbg">BayerIM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8rggb">BayerIM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8bggr">BayerIM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10gbrg">BayerIM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10grbg">BayerIM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10rggb">BayerIM10rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10bggr">BayerIM8bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12gbrg">BayerIM12gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12grbg">BayerIM12grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12rggb">BayerIM12rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12bggr">BayerIM12bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8gbrg">BayerIP88gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8grbg">BayerIP88grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8rggb">BayerIP88rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8bggr">BayerIP88bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8gbrg">BayerIP168gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8grbg">BayerIP168grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8rggb">BayerIP168rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8bggr">BayerIP168bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10gbrg">BayerIP1610gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10grbg">BayerIP1610grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10rggb">BayerIP1610rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10bggr">BayerIP1610bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12gbrg">BayerIP1612gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12grbg">BayerIP1612grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12rggb">BayerIP1612rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12bggr">BayerIP1612bggr</string>
   <!-- Picture format entry values. Do not translate. -->
   <!-- Settings screen, Picture quality title -->
+  <string name="pref_camera_jpegquality_title">Качество изображения</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_0">Низкое</string>
+  <string name="pref_camera_jpegquality_entry_1">Стандарт</string>
+  <string name="pref_camera_jpegquality_entry_2">Высокое</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
+  <string name="pref_camera_histogram_title">Гистограмма</string>
   <!-- Settings screen, Histogram radio button choices -->
   <!-- Histogram entry values. Do not translate. -->
+  <string name="pref_camera_focusmode_entry_normal">Нормальный</string>
+  <string name="pref_camera_focusmode_entry_continuous">Бесконечный фокус</string>
+  <string name="pref_video_focusmode_entry_continuous">Непрерывная фокусировка в видео</string>
+  <string name="pref_camera_scenemode_entry_asd">ASD</string>
   <!-- Scene mode that takes an image with as little noise as possible so details of the subject are maintained. -->
+  <string name="pref_camera_scenemode_entry_portrait">Портретная</string>
   <!-- Scene mode that takes an image of a landscape assuming all subjects are relatively far from the phone. -->
+  <string name="pref_camera_scenemode_entry_landscape">Альбомная</string>
   <!-- Scene mode that takes night shots with long exposure and flash to illuminate the subject while still capturing darker detail in the background. -->
+  <string name="pref_camera_scenemode_entry_night_portrait">Ночная Портретная</string>
   <!-- Scene mode to be used in a stage show. -->
+  <string name="pref_camera_scenemode_entry_theatre">Театр</string>
   <!-- Scene mode optimized for taking images on the beach. -->
+  <string name="pref_camera_scenemode_entry_beach">Пляж</string>
   <!-- Scene mode optimized for taking images in the snow. -->
+  <string name="pref_camera_scenemode_entry_snow">Снег</string>
   <!-- Scene mode for taking a photo as sharp as possible. -->
+  <string name="pref_camera_scenemode_entry_steadyphoto">Фото со штатива</string>
   <!-- Scene mode optimized for taking images of fireworks. -->
+  <string name="pref_camera_scenemode_entry_fireworks">Фейерверк</string>
   <!-- Scene mode optimized for taking images during sports . -->
+  <string name="pref_camera_scenemode_entry_sports">Спорт</string>
   <!-- Scene mode optimized for capturing the naturally warm color of scenes lit by candles. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_candlelight">Свечи</string>
   <!-- Scene mode for taking a photo with backlight. -->
+  <string name="pref_camera_scenemode_entry_backlight">Подсветка</string>
   <!-- Scene mode optimized for taking images of flowers. -->
+  <string name="pref_camera_scenemode_entry_flowers">Цветы</string>
   <!-- Scene mode optimized for taking images of AR. -->
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
@@ -185,7 +300,9 @@
   <!-- Settings screen, Auto HDR location dialog choices -->
   <!-- toast message for storage location switch -->
   <!-- Settings screen, Selectable HDR mode title -->
+  <string name="pref_camera_hdr_mode_title">Режим HDR</string>
   <!-- Settings screen, Selectable HDR mode radio button choices -->
+  <string name="pref_camera_hdr_mode_entry_sensor">Сенсор HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
   <!-- Settings screen, Selectable HDR need 1x frame default value -->
   <!-- Settings screen, Selectable HDR need 1x frame title -->
@@ -200,4 +317,20 @@
   <!-- The alas of CameraActivity for gesture operation -->
   <!-- Touch-focus duration settings -->
   <!-- Slow-shutter settings -->
+  <string name="pref_camera_shutter_speed_entry_off">Авто</string>
+  <string name="pref_camera_shutter_speed_entry_1_5000th">1/5000 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_2500th">1/2500 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_1500th">1/1500 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_1000th">1/1000 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_500th">1/500 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_250th">1/250 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_125th">1/125 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_64th">1/64 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_32nd">1/32 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_16th">1/16 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_8th">1/8 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_4th">1/4 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1_2">1/2 секунды</string>
+  <string name="pref_camera_shutter_speed_entry_1">1 секунда</string>
+  <string name="pref_camera_shutter_speed_entry_2">2 секунды</string>
 </resources>
