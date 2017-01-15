@@ -25,64 +25,32 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
-  <string name="pref_camera_powermode_title">Power Mode</string>
   <!-- Auto exposure -->
-  <string name="pref_camera_autoexposure_title">Automatische belichting</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
-  <string name="pref_camera_autoexposure_entry_frameaverage">Frame-gemiddelde</string>
-  <string name="pref_camera_autoexposure_entry_centerweighted">Midden-gewogen</string>
-  <string name="pref_camera_autoexposure_entry_spotmetering">Spotmeting</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
-  <string name="pref_camera_videoencoder_title">Video Encoder</string>
   <!-- Settings screen, Video encoder dialog radio button choices -->
-  <string name="pref_camera_videoencoder_entry_0">MPEG4</string>
-  <string name="pref_camera_videoencoder_entry_1">H263</string>
-  <string name="pref_camera_videoencoder_entry_2">H264</string>
-  <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
-  <string name="pref_camera_videoencoder_dialogtitle">Video Encoder</string>
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
-  <string name="pref_camera_audioencoder_title">Audio Encoder</string>
   <!-- Settings screen, Audio encoder dialog radio button choices -->
-  <string name="pref_camera_audioencoder_entry_0">AMRNB</string>
-  <string name="pref_camera_audioencoder_entry_1">AAC</string>
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
-  <string name="pref_camera_video_duration_title">Video duur</string>
   <!-- Settings screen, Video duration dialog radio button choices -->
-  <string name="pref_camera_video_duration_entry_mms">30 seconden(MMS)</string>
-  <string name="pref_camera_video_duration_entry_10">10 minuten</string>
-  <string name="pref_camera_video_duration_entry_30">30 minuten</string>
-  <string name="pref_camera_video_duration_entry_nolimit">geen limiet</string>
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
-  <string name="pref_camera_skinToneEnhancement_title">Huidkleur verbeteren</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
-  <string name="pref_camera_zsl_title">Geen sluiter vertraging</string>
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
-  <string name="pref_camera_selectablezoneaf_title">Autofocus zone</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
-  <string name="pref_camera_selectablezoneaf_entry_auto">Automatisch</string>
-  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Midden-gewogen</string>
-  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Frame-gemiddelde</string>
-  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spotmeting</string>
   <!-- Auto exposure entry values. Do not translate. -->
-  <string name="pref_camera_advanced_feature_default">geen</string>
   <!-- Settings screen, Selectable advanced features title -->
-  <string name="pref_camera_advanced_features_title">Geavanceerde functies</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
-  <string name="pref_camera_advanced_feature_entry_none">Geen</string>
-  <string name="pref_camera_advanced_feature_entry_ubifocus">Ubi Focus</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
-  <string name="pref_camera_manual_exp_title">Handmatige belichting</string>
-  <string name="pref_camera_manual_exp_entry_ISO_priority">ISO prioriteit</string>
   <!-- Manual white balance entry values -->
   <!-- Manual Focus entry values -->
   <!-- Settings screen, ZSL location dialog choices -->
@@ -96,20 +64,15 @@
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
   <!-- Settings menu, setting title text for cds mode-->
-  <string name="pref_camera_cds_title">CDS modus</string>
   <!-- Settings menu, setting title text for video cds mode-->
-  <string name="pref_camera_video_cds_title">Video CDS modus</string>
   <!-- Default cds mode setting-->
   <!-- Default video cds mode setting-->
   <!-- Settings menu, setting title text for tnr mode-->
-  <string name="pref_camera_tnr_title">TNR-modus</string>
   <!-- Settings menu, setting title text for video tnr mode-->
-  <string name="pref_camera_video_tnr_title">TNR videomodus</string>
   <!-- Default tnr mode setting-->
   <!-- Default video tnr mode setting-->
   <!-- Default face  detection setting. -->
   <!-- Settings screen, Select Face Detection -->
-  <string name="pref_camera_facedetection_title">Gezichtsdetectie</string>
   <!-- Settings menu, Face Detection choices -->
   <!-- Default redeye reduction setting. -->
   <!-- Settings screen, Select Redeye Reduction -->

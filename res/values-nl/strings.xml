@@ -17,6 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
   <string name="app_name">Camera</string>
+  <string name="snapcam_app_name">Camera</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
   <string name="video_camera_label">Camcorder</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
@@ -174,6 +175,10 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Pieptoon bij aftellen</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">Opslaglocatie</string>
+  <string name="pref_camera_savepath_default">0</string>
+  <string name="pref_camera_savepath_entry_0">Interne opslag</string>
+  <string name="pref_camera_savepath_entry_1">Externe opslag</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Uit</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -200,6 +205,7 @@
   <!-- Settings screen, Camcorder setting category title -->
   <string name="pref_camcorder_settings_category">Camcorderinstellingen</string>
   <!-- Settings screen, Picture size title -->
+  <string name="pref_camera_picturesize_title">Grootte van foto</string>
   <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">Scherpstelmodus</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
@@ -270,6 +276,7 @@
   <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_party">Feest</string>
   <!-- Scene mode for refocus feature [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_refocus">Macro +</string>
   <!-- Settings menu, scene mode labels [CHAR LIMIT=50] -->
   <string name="pref_camera_scenemode_label_auto">GEEN</string>
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=50] -->
@@ -293,8 +300,11 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Kan niet worden geselecteerd in scènemodus.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Het inschakelen van HDR zal Continuous Shot uitschakelen.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Bij het aanzetten van Advanced Capture zal Conitnuous Shot uitgeschakeld worden.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">Bij het inschakelen van 4k video, wordt IS uitgeschakeld.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Belichting</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -525,4 +535,9 @@ CHAR LIMIT = NONE] -->
   <string name="switch_photo_filmstrip">Filmstrookweergave</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Achtergrond instellen</string>
+  <string name="remaining_photos_format">%d links</string>
+  <string name="refocus_toast">Tik hier om de laatste foto opnieuw scherp te stellen</string>
+  <string name="pref_camera_remaining_title">Toon overige teller</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <string name="pref_camera_remaining_label">RESTERENDE</string>
 </resources>

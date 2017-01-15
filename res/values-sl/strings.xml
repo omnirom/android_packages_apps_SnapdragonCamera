@@ -140,7 +140,8 @@
   <string name="unknown">Neznano</string>
   <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
-  <string name="try_to_set_local_album_available_offline">Element je shranjen lokalno in na voljo brez povezave.</string>
+  <string name="try_to_set_local_album_available_offline">
+Ta predmet je shranjen krajevno in na voljo brez povezave.</string>
   <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
   <string name="please_wait">Počakajte</string>
   <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
@@ -215,6 +216,7 @@
   <!-- Settings screen, Camcorder setting category title -->
   <string name="pref_camcorder_settings_category">Nastavitve videokamere</string>
   <!-- Settings screen, Picture size title -->
+  <string name="pref_camera_picturesize_title">Velikost slike</string>
   <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">Način ostrenja</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
@@ -546,4 +548,7 @@ CHAR LIMIT = NONE] -->
   <string name="setting_wallpaper">Nastavljanje ozadja</string>
   <string name="remaining_photos_format">%d preostalo</string>
   <string name="refocus_toast">Za ponovno ostrenje zadnje fotografije se dotaknite tukaj</string>
+  <string name="pref_camera_remaining_title">Prikaži števec preostalih</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <string name="pref_camera_remaining_label">PREOSTALI</string>
 </resources>

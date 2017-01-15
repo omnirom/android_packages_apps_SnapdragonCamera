@@ -520,4 +520,5 @@ CHAR LIMIT = NONE] -->
   <string name="switch_photo_filmstrip">幻燈片檢視</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">正在設定桌布</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
 </resources>

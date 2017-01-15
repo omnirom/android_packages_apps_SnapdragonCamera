@@ -205,6 +205,7 @@
   <!-- Settings screen, Camcorder setting category title -->
   <string name="pref_camcorder_settings_category">Camcorder-Einstellungen</string>
   <!-- Settings screen, Picture size title -->
+  <string name="pref_camera_picturesize_title">Bildgröße</string>
   <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">Fokussierungsmodus</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
@@ -299,8 +300,11 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Diese Einstellung kann im Szenenmodus nicht ausgewählt werden.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
+  <string name="HDR_disable_continuous_shot">Serienaufnahme wird durch Aktivieren von HDR deaktiviert.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
+  <string name="advanced_capture_disable_continuous_shot">Serienaufnahme wurde automatisch deaktiviert.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
+  <string name="video_quality_4k_disable_IS">4k-Videoqualität deaktiviert IS.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Belichtung</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -533,4 +537,7 @@ CHAR LIMIT = NONE] -->
   <string name="setting_wallpaper">Hintergrund wird festgelegt</string>
   <string name="remaining_photos_format">%d verbleibend</string>
   <string name="refocus_toast">Hier berühren um das letzte Foto neu zu fokussieren</string>
+  <string name="pref_camera_remaining_title">Verbleibenden Zähler anzeigen</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <string name="pref_camera_remaining_label">VERBLEIBENDE</string>
 </resources>

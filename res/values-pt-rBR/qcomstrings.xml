@@ -25,71 +25,141 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Modo de energia</string>
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Exposição automática</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
+  <string name="pref_camera_autoexposure_entry_frameaverage">Quadro-média</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Centro-ponderado</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Medição pontual</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
+  <string name="pref_camera_videoencoder_title">Codificador de vídeo</string>
   <!-- Settings screen, Video encoder dialog radio button choices -->
+  <string name="pref_camera_videoencoder_entry_0">MPEG4</string>
+  <string name="pref_camera_videoencoder_entry_1">H263</string>
+  <string name="pref_camera_videoencoder_entry_2">H264</string>
+  <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
+  <string name="pref_camera_videoencoder_dialogtitle">Codificador de vídeo</string>
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
+  <string name="pref_camera_audioencoder_title">Codificador do áudio</string>
   <!-- Settings screen, Audio encoder dialog radio button choices -->
+  <string name="pref_camera_audioencoder_entry_0">AMRNB</string>
+  <string name="pref_camera_audioencoder_entry_1">AAC</string>
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
+  <string name="pref_camera_video_duration_title">Duração do vídeo</string>
   <!-- Settings screen, Video duration dialog radio button choices -->
+  <string name="pref_camera_video_duration_entry_mms">30 segundos(MMS)</string>
+  <string name="pref_camera_video_duration_entry_10">10 minutos</string>
+  <string name="pref_camera_video_duration_entry_30">30 minutos</string>
+  <string name="pref_camera_video_duration_entry_nolimit">sem limite</string>
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
+  <string name="pref_camera_skinToneEnhancement_title">Realce do Tom de pele</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
+  <string name="pref_camera_zsl_title">Atraso zero do obturador</string>
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
+  <string name="pref_camera_selectablezoneaf_title">Zona de focagem automática</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_selectablezoneaf_entry_auto">Automático</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Centro-ponderado</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Quadro-média</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Medição pontual</string>
   <!-- Auto exposure entry values. Do not translate. -->
+  <string name="pref_camera_advanced_feature_default">nenhum</string>
   <!-- Settings screen, Selectable advanced features title -->
+  <string name="pref_camera_advanced_features_title">Recursos avançados</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_advanced_feature_entry_none">Nenhum</string>
+  <string name="pref_camera_advanced_feature_entry_ubifocus">Ubi Foco</string>
+  <string name="pref_camera_advanced_feature_entry_refocus">Recentrar</string>
+  <string name="pref_camera_advanced_feature_entry_chromaflash">Chroma Flash</string>
+  <string name="pref_camera_advanced_feature_entry_optizoom">Opti Zoom</string>
+  <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
+  <string name="pref_camera_advanced_feature_entry_trueportrait">Retrato verdadeiro</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Foco multi-toque</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
+  <string name="pref_camera_manual_exp_title">Exposição manual</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">Prioridade ISO</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Prioridade de tempo de exposição</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Configurações do usuário</string>
   <!-- Manual white balance entry values -->
+  <string name="pref_camera_manual_wb_title">Balanço de branco manual</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura de cor</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Ganhos RBGB</string>
   <!-- Manual Focus entry values -->
+  <string name="pref_camera_manual_focus_title">Foco manual</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Modo de escala</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Modo dioptria</string>
   <!-- Settings screen, ZSL location dialog choices -->
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
+  <string name="hdr_enable_message">HDR está habilitado, modo de cena automático é suportado</string>
+  <string name="scene_enable_message">HDR não é suportado no modo de cena diferente do Auto</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <!-- Settings screen, CDS location dialog choices -->
+  <string name="pref_camera_cds_entry_auto">Automático</string>
   <!-- Settings screen, video CDS location dialog choices -->
+  <string name="pref_camera_video_cds_entry_auto">Automático</string>
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
+  <string name="pref_camera_video_hdr_title">Vídeo HDR</string>
   <!-- Settings menu, setting title text for cds mode-->
+  <string name="pref_camera_cds_title">Modo CDS</string>
   <!-- Settings menu, setting title text for video cds mode-->
+  <string name="pref_camera_video_cds_title">Modo vídeo CDS</string>
   <!-- Default cds mode setting-->
   <!-- Default video cds mode setting-->
   <!-- Settings menu, setting title text for tnr mode-->
+  <string name="pref_camera_tnr_title">Modo TNR</string>
   <!-- Settings menu, setting title text for video tnr mode-->
+  <string name="pref_camera_video_tnr_title">Modo vídeo TNR</string>
   <!-- Default tnr mode setting-->
   <!-- Default video tnr mode setting-->
   <!-- Default face  detection setting. -->
   <!-- Settings screen, Select Face Detection -->
+  <string name="pref_camera_facedetection_title">Detecção de face</string>
   <!-- Settings menu, Face Detection choices -->
   <!-- Default redeye reduction setting. -->
   <!-- Settings screen, Select Redeye Reduction -->
+  <string name="pref_camera_redeyereduction_title">Redução de olhos vermelhos</string>
   <!-- Settings menu, redeye reduction choices -->
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
+  <string name="error_app_unsupported_hfr_selection">HFR/HSR não tem suporte para HDR/DIS/TimeLapse</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
+  <string name="error_app_unsupported_hfr">Câmera lenta não é suportada para o tamanho do vídeo selecionado. Selecione um tamanho de vídeo mais baixo.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
+  <string name="error_app_unsupported_dis">Resolução de vídeo sem suporte para Display Image Stabilization(DIS)</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
+  <string name="error_app_unsupported_hsr">Modo de alta velocidade não é suportado para o tamanho do vídeo selecionado. Selecione um tamanho de vídeo mais baixo.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">Codificação de vídeo H264 é suportado quando HFR está LIGADO</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">Resolução de vídeo não suportada para este tipo de codificador</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
+  <string name="error_app_unsupported_profile">Perfil de vídeo não suportado</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
+  <string name="error_app_unsupported_raw">Formato de imagem RAW não é suportado no modo zsl, mude para JPEG    </string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution (4k DCI) for video HDR-->
+  <string name="error_app_unsupported_video_hdr">HDR vídeo não é suportado para 4K DCI</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
+  <string name="pref_camera_ae_bracket_hdr_entry_ae_bracket">AE-suporte</string>
+  <string name="pref_camera_ae_bracket_hdr_title">Suportando exposição automática</string>
+  <string name="err_app_unsupport_ae_bracket_code">nenhum ae suporte para Apps agora</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
+  <string name="snapshot_lower_than_video">Tamanho de vídeo instantâneo mais baixo do que o tamanho do vídeo. Nivelamento para o tamanho do vídeo. Por favor, selecione uma resolução maior ou igual ao tamanho do vídeo atual. </string>
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
   <!-- Default hfr setting. Do not translate. -->
@@ -121,63 +191,163 @@
   <!-- Select Face Recognition title -->
   <!-- Face Recognition choices -->
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_sharpness_entry_level6">Nível 6</string>
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_contrast_entry_level0">Nível 0</string>
+  <string name="pref_camera_contrast_entry_level1">Nível 1</string>
+  <string name="pref_camera_contrast_entry_level2">Nível 2</string>
+  <string name="pref_camera_contrast_entry_level3">Nível 3</string>
+  <string name="pref_camera_contrast_entry_level4">Nível 4</string>
+  <string name="pref_camera_contrast_entry_level5">Nível 5 (padrão)</string>
+  <string name="pref_camera_contrast_entry_level6">Nível 6</string>
+  <string name="pref_camera_contrast_entry_level7">Nível 7</string>
+  <string name="pref_camera_contrast_entry_level8">Nível 8</string>
+  <string name="pref_camera_contrast_entry_level9">Nível 9</string>
+  <string name="pref_camera_contrast_entry_level10">Nível 10</string>
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_saturation_entry_level0">Nível 0</string>
+  <string name="pref_camera_saturation_entry_level1">Nível 1</string>
+  <string name="pref_camera_saturation_entry_level2">Nível 2</string>
+  <string name="pref_camera_saturation_entry_level3">Nível 3</string>
+  <string name="pref_camera_saturation_entry_level4">Nível 4</string>
+  <string name="pref_camera_saturation_entry_level5">Nível 5 (padrão)</string>
+  <string name="pref_camera_saturation_entry_level6">Nível 6</string>
+  <string name="pref_camera_saturation_entry_level7">Nível 7</string>
+  <string name="pref_camera_saturation_entry_level8">Nível 8</string>
+  <string name="pref_camera_saturation_entry_level9">Nível 9</string>
+  <string name="pref_camera_saturation_entry_level10">Nível 10</string>
   <!-- Default sharpness setting. Do not translate. -->
   <!-- Settings screen, Select sharpness title -->
+  <string name="pref_camera_sharpness_title">Nitidez</string>
   <!-- Default contrast setting. Do not translate. -->
   <!-- Settings screen, Select contrast title -->
+  <string name="pref_camera_contrast_title">Contraste</string>
   <!-- Default saturation setting. Do not translate. -->
   <!-- Settings screen, Select saturation title -->
+  <string name="pref_camera_saturation_title">Saturação</string>
   <!-- Default picture quality setting. See
          pref_camera_jpegquality_entryvalues for possible values -->
   <!-- Default Picture format setting. Do not translate. -->
   <!-- Settings screen, Select Picture format title -->
+  <string name="pref_camera_picture_format_title">Selecione o formato de imagem</string>
   <!-- Settings screen, picture format dialog radio button choices -->
+  <string name="pref_camera_picture_format_entry_jpeg">Jpeg</string>
+  <string name="pref_camera_picture_format_entry_raw">Raw</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_422_sp">YUV422SP</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yuyv">YUVRaw8YUYV</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yvyu">YUVRaw8YVYU</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_uyvy">YUVRaw8UYVY</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_vyuy">YUVRaw8VYUY</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8gbrg">BayerQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8grbg">BayerQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8rggb">BayerQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8bggr">BayerQ8BGRR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10gbrg">BayerQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10grbg">BayerQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10rggb">BayerQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10bggr">BayerQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12gbrg">BayerQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12grbg">BayerQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12rggb">BayerQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12bggr">BayerQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8gbrg">BayerM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8grbg">BayerM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8rggb">BayerM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8bggr">BayerM8BGGR</string>
   <!-- Picture format entry values. Do not translate. -->
   <!-- Settings screen, Picture quality title -->
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_1">Padrão</string>
+  <string name="pref_camera_jpegquality_entry_2">Alto</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
+  <string name="pref_camera_histogram_title">Histograma</string>
   <!-- Settings screen, Histogram radio button choices -->
   <!-- Histogram entry values. Do not translate. -->
+  <string name="pref_camera_focusmode_entry_normal">Normal</string>
+  <string name="pref_camera_focusmode_entry_continuous">Imagens contínuas</string>
+  <string name="pref_video_focusmode_entry_continuous">Vídeo contínuo</string>
+  <string name="pref_camera_scenemode_entry_asd">ASD</string>
   <!-- Scene mode that takes an image with as little noise as possible so details of the subject are maintained. -->
+  <string name="pref_camera_scenemode_entry_portrait">Retrato</string>
   <!-- Scene mode that takes an image of a landscape assuming all subjects are relatively far from the phone. -->
+  <string name="pref_camera_scenemode_entry_landscape">Paisagem</string>
   <!-- Scene mode that takes night shots with long exposure and flash to illuminate the subject while still capturing darker detail in the background. -->
+  <string name="pref_camera_scenemode_entry_night_portrait">Retrato noturno</string>
   <!-- Scene mode to be used in a stage show. -->
+  <string name="pref_camera_scenemode_entry_theatre">Teatro</string>
   <!-- Scene mode optimized for taking images on the beach. -->
+  <string name="pref_camera_scenemode_entry_beach">Praia</string>
   <!-- Scene mode optimized for taking images in the snow. -->
+  <string name="pref_camera_scenemode_entry_snow">Neve</string>
   <!-- Scene mode for taking a photo as sharp as possible. -->
+  <string name="pref_camera_scenemode_entry_steadyphoto">Foto estável</string>
   <!-- Scene mode optimized for taking images of fireworks. -->
+  <string name="pref_camera_scenemode_entry_fireworks">Fogos de artifício</string>
   <!-- Scene mode optimized for taking images during sports . -->
+  <string name="pref_camera_scenemode_entry_sports">Esportes</string>
   <!-- Scene mode optimized for capturing the naturally warm color of scenes lit by candles. [CHAR LIMIT=16] -->
+  <string name="pref_camera_scenemode_entry_candlelight">Luz de velas</string>
   <!-- Scene mode for taking a photo with backlight. -->
+  <string name="pref_camera_scenemode_entry_backlight">Luz de fundo</string>
   <!-- Scene mode optimized for taking images of flowers. -->
+  <string name="pref_camera_scenemode_entry_flowers">Flores</string>
   <!-- Scene mode optimized for taking images of AR. -->
+  <string name="pref_camera_scenemode_entry_ar">AR</string>
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
+  <string name="pref_camera_scenedetect_title">Autodetecção de cena</string>
   <!-- Settings menu, auto scene detection choices -->
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
+  <string name="time_lapse_error">Vídeo-tamanho inválido para gravação de lapso de tempo.</string>
   <!-- longshot value -->
+  <string name="pref_camera_longshot_title">Disparo contínuo</string>
+  <string name="msg_cancel_longshot_for_limited_memory">esgotar a memória, cancelando o disparo longo</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">Flash não é suportado no modo AE-suporte</string>
   <!-- Settings screen, setting title text for Auto HDR-->
+  <string name="pref_camera_auto_hdr_title">Auto HDR</string>
   <!-- Settings screen, Auto HDR location dialog choices -->
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Espaço de armazenamento interno não é suficiente - procurando salva o caminho para o cartão SD</string>
   <!-- Settings screen, Selectable HDR mode title -->
+  <string name="pref_camera_hdr_mode_title">Modo HDR</string>
   <!-- Settings screen, Selectable HDR mode radio button choices -->
+  <string name="pref_camera_hdr_mode_entry_sensor">Sensor HDR</string>
+  <string name="pref_camera_hdr_mode_entry_multi_frame">Multi quadros HDR</string>
   <!-- HDR mode entry values. Do not translate. -->
   <!-- Settings screen, Selectable HDR need 1x frame default value -->
   <!-- Settings screen, Selectable HDR need 1x frame title -->
+  <string name="pref_camera_hdr_need_1x_title">HDR precisa de 1x quadro</string>
   <!-- Settings screen, Selectable HDR need 1x frame radio button choices -->
   <!-- HDR need 1x frame entry values. Do not translate. -->
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
+  <string name="pref_camera_video_rotation_title">Rotação de vídeo</string>
   <!-- Settings screen, Video rotation dialog radio button choices -->
+  <string name="pref_camera_video_rotation_entry_0">0</string>
+  <string name="pref_camera_video_rotation_entry_90">90</string>
+  <string name="pref_camera_video_rotation_entry_180">180</string>
+  <string name="pref_camera_video_rotation_entry_270">270</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
+  <string name="map_activity_not_found_err">Não há nenhum aplicativo de mapa para mostrar a localização.</string>
   <!-- Continous shot enable message -->
+  <string name="longshot_enable_message">Recursos avançados não é suportado no modo de disparo contínuo</string>
   <!-- Advance features enable message -->
+  <string name="advance_feature_enable_msg">Disparo contínuo não é suportado quando o recurso avançado está habilitado</string>
   <!-- The alas of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Lançar câmera</string>
+  <string name="pref_camera_tsmakeup_title">Embelezamento</string>
+  <string name="pref_camera_tsmakeup_custom">Personalizado</string>
+  <string name="pref_camera_tsmakeup_level_whiten">Branquinhos</string>
+  <string name="pref_camera_tsmakeup_level_clean">Suavizar</string>
+  <string name="text_tsmakeup_alert_title">Aviso</string>
+  <string name="text_tsmakeup_alert_msg">O embelezamento deve ativar Detecção de Face, continuar ou desistir?</string>
+  <string name="text_tsmakeup_alert_continue">Próximo</string>
+  <string name="text_tsmakeup_alert_quit">Sair</string>
+  <string name="all_in_focus">Tudo em foco</string>
   <!-- Touch-focus duration settings -->
+  <string name="pref_camera_touchfocus_duration_title">Toque-para-foco duração</string>
   <!-- Slow-shutter settings -->
 </resources>

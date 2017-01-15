@@ -525,4 +525,5 @@ CHAR LIMIT = NONE] -->
   <string name="switch_photo_filmstrip">Visualització de tira de pel·lícula</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">S\'està establint el fons de pantalla</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
 </resources>

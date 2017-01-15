@@ -505,4 +505,5 @@ CHAR LIMIT = NONE] -->
   <string name="switch_photo_filmstrip">Diafilmo rodinys</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Nustatomas ekrano fonas</string>
+  <!--  Label for record location preference [CHAR LIMIT=50] -->
 </resources>
