@@ -724,7 +724,7 @@ public class PhotoMenu extends MenuController
 
         if ((zsl != null) && Parameters.ZSL_OFF.equals(zsl)) {
             popup1.overrideSettings(CameraSettings.KEY_ADVANCED_FEATURES,
-                    mActivity.getString(R.string.pref_camera_advanced_feature_default));
+                    mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
 
             popup1.setPreferenceEnabled(CameraSettings.KEY_ADVANCED_FEATURES, false);
             if(!TsMakeupManager.HAS_TS_MAKEUP) {
@@ -1352,15 +1352,15 @@ public class PhotoMenu extends MenuController
                     mPreferenceGroup.findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
             if (advancefeaturePref != null) {
                 if (notSame(advancefeaturePref, CameraSettings.KEY_ADVANCED_FEATURES,
-                        mActivity.getString(R.string.pref_camera_advanced_feature_default))) {
+                        mActivity.getString(R.string.pref_camera_advanced_feature_value_none))) {
                     RotateTextToast.makeText(mActivity, R.string.longshot_enable_message,
                             Toast.LENGTH_LONG).show();
                 }
                 setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
-                        mActivity.getString(R.string.pref_camera_advanced_feature_default));
+                        mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
             }
         } else if (notSame(pref, CameraSettings.KEY_ADVANCED_FEATURES,
-                mActivity.getString(R.string.pref_camera_advanced_feature_default))) {
+                mActivity.getString(R.string.pref_camera_advanced_feature_value_none))) {
             ListPreference longshotPref =
                     mPreferenceGroup.findPreference(CameraSettings.KEY_LONGSHOT);
             if (longshotPref != null ) {
@@ -1379,7 +1379,7 @@ public class PhotoMenu extends MenuController
                     .findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
             if (lp != null && refocusOn.equals(lp.getValue())) {
                 setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
-                        mActivity.getString(R.string.pref_camera_advanced_feature_default));
+                        mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
             }
         }
         updateFilterModeIcon(pref, pref);

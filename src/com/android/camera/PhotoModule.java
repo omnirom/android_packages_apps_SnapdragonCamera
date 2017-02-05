@@ -3155,7 +3155,7 @@ public class PhotoModule
         // Set Advanced features.
         String advancedFeature = mPreferences.getString(
                 CameraSettings.KEY_ADVANCED_FEATURES,
-                mActivity.getString(R.string.pref_camera_advanced_feature_default));
+                mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
         Log.e(TAG, " advancedFeature value =" + advancedFeature);
 
         mRefocus = false;

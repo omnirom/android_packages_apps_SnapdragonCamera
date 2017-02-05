@@ -544,7 +544,7 @@ public class CameraSettings {
         str += ',' + params.get(KEY_QC_SUPPORTED_FSSR_MODES);
         str += ',' + params.get(KEY_QC_SUPPORTED_TP_MODES);
         str += ',' + params.get(KEY_QC_SUPPORTED_MTF_MODES);
-        str += ',' + mContext.getString(R.string.pref_camera_advanced_feature_default);
+        str += ',' + mContext.getString(R.string.pref_camera_advanced_feature_value_none);
         str += ',' + params.get(KEY_QC_SUPPORTED_RE_FOCUS_MODES);
         return split(str);
     }
