@@ -17,6 +17,7 @@
 package com.android.camera;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import android.content.Context;
@@ -160,7 +161,12 @@ public class ListPreference extends CameraPreference {
         if (index < 0) {
             index = findIndexOfValue(findSupportedDefaultValue());
         }
+        try {
         return mEntries[index].toString();
+        } catch(Exception e) {
+            Log.e("maxwen", "" + getValue() + "\n" + Arrays.asList(mEntries) + "\n" + Arrays.asList(mEntryValues));
+        }
+        return mEntries[0].toString();
     }
 
     public String getLabel() {

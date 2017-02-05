@@ -544,7 +544,7 @@ public class CameraSettings {
         str += ',' + params.get(KEY_QC_SUPPORTED_FSSR_MODES);
         str += ',' + params.get(KEY_QC_SUPPORTED_TP_MODES);
         str += ',' + params.get(KEY_QC_SUPPORTED_MTF_MODES);
-        str += ',' + mContext.getString(R.string.pref_camera_advanced_feature_default);
+        str += ',' + mContext.getString(R.string.pref_camera_advanced_feature_value_none);
         str += ',' + params.get(KEY_QC_SUPPORTED_RE_FOCUS_MODES);
         return split(str);
     }
@@ -833,8 +833,16 @@ public class CameraSettings {
         }
 
         if(advancedFeatures != null) {
-            filterUnsupportedOptions(group,
-                    advancedFeatures, getSupportedAdvancedFeatures(mParameters));
+            if (!mContext.getResources().getBoolean(R.bool.enable_advanced_features)) {
+                removePreference(group, advancedFeatures.getKey());
+                SharedPreferences pref = group.getSharedPreferences();
+                // make sure they are disabled
+                pref.edit().putString(CameraSettings.KEY_ADVANCED_FEATURES,
+                        mContext.getResources().getString(R.string.pref_camera_advanced_feature_value_none)).commit();
+            } else {
+                filterUnsupportedOptions(group,
+                        advancedFeatures, getSupportedAdvancedFeatures(mParameters));
+            }
         }
         if (longShot!= null && !isLongshotSupported(mParameters)) {
             removePreference(group, longShot.getKey());

@@ -72,8 +72,6 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Sredinsko uravnoteženo</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Povprečje okvirja</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Točkovno</string>
-  <!-- Auto exposure entry values. Do not translate. -->
-  <string name="pref_camera_advanced_feature_default">brez</string>
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Napredne značilnosti</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->

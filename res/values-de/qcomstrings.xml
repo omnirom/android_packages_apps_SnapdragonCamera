@@ -72,8 +72,6 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Mittenbetont</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Mehrfeldmessung</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spotmessung</string>
-  <!-- Auto exposure entry values. Do not translate. -->
-  <string name="pref_camera_advanced_feature_default">keine</string>
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Erweiterte Funktionen</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->

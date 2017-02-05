@@ -72,8 +72,6 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Vyvážený stred</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Priemer rámu</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Fotometria</string>
-  <!-- Auto exposure entry values. Do not translate. -->
-  <string name="pref_camera_advanced_feature_default">Žiadne</string>
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Pokročilé funkcie</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->

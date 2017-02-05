@@ -3155,11 +3155,11 @@ public class PhotoModule
         // Set Advanced features.
         String advancedFeature = mPreferences.getString(
                 CameraSettings.KEY_ADVANCED_FEATURES,
-                mActivity.getString(R.string.pref_camera_advanced_feature_default));
+                mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
         Log.e(TAG, " advancedFeature value =" + advancedFeature);
 
         mRefocus = false;
-        if(advancedFeature != null) {
+        if(!advancedFeature.equals(mActivity.getString(R.string.pref_camera_advanced_feature_value_none))) {
              String ubiFocusOff = mActivity.getString(R.string.
                  pref_camera_advanced_feature_value_ubifocus_off);
              String chromaFlashOff = mActivity.getString(R.string.
@@ -3662,9 +3662,6 @@ public class PhotoModule
             }
         }
 
-        String refocusOn = mActivity.getString(R.string
-                .pref_camera_advanced_feature_value_refocus_on);
-
         if (CameraUtil.isSupported(mSceneMode, mParameters.getSupportedSceneModes())) {
             if (!mParameters.getSceneMode().equals(mSceneMode)) {
                 mParameters.setSceneMode(mSceneMode);
@@ -3676,16 +3673,9 @@ public class PhotoModule
                 mParameters = mCameraDevice.getParameters();
             }
         } else {
-            if (refocusOn.equals(mSceneMode)) {
-                try {
-                    mUI.setPreference(CameraSettings.KEY_ADVANCED_FEATURES, refocusOn);
-                } catch (NullPointerException e) {
-                }
-            } else {
-                mSceneMode = mParameters.getSceneMode();
-                if (mSceneMode == null) {
-                    mSceneMode = Parameters.SCENE_MODE_AUTO;
-                }
+            mSceneMode = mParameters.getSceneMode();
+            if (mSceneMode == null) {
+                mSceneMode = Parameters.SCENE_MODE_AUTO;
             }
         }
 

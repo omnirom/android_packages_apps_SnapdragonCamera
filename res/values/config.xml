@@ -63,4 +63,7 @@
          will be enabled ONLY for these scenemodes and disabled for others. -->
     <string-array name="longshot_scenemodes"></string-array>
 
+    <!-- show/hide the advanced features menu -->
+    <bool name="enable_advanced_features">false</bool>
+
 </resources>
