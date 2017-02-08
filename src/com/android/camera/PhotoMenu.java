@@ -100,9 +100,6 @@ public class PhotoMenu extends MenuController
     private int mPreviewMenuStatus;
     private ListSubMenu mListSubMenu;
     private CameraActivity mActivity;
-    private String mPrevSavedCDS;
-    private boolean mIsTNREnabled = false;
-    private boolean mIsCDSUpdated = false;
     private int privateCounter = 0;
     private static final int ANIMATION_DURATION = 300;
     private static final int CLICK_THRESHOLD = 200;
@@ -607,30 +604,14 @@ public class PhotoMenu extends MenuController
             String tnr = (pref_tnr != null) ? pref_tnr.getValue() : null;
             String cds = (pref_cds != null) ? pref_cds.getValue() : null;
 
-            if (mPrevSavedCDS == null && cds != null) {
-                mPrevSavedCDS = cds;
-            }
-
-            mListMenu.setPreferenceEnabled(CameraSettings.KEY_TNR_MODE, false);
-            if ((tnr != null) && !mActivity.getString(R.string.
-                    pref_camera_tnr_default).equals(tnr)) {
+            if ((tnr != null) && mActivity.getString(R.string.
+                    pref_camera_tnr_value_on).equals(tnr)) {
                 mListMenu.setPreferenceEnabled(CameraSettings.KEY_CDS_MODE, false);
                 mListMenu.overrideSettings(CameraSettings.KEY_CDS_MODE,
                         mActivity.getString(R.string.pref_camera_cds_value_off));
-                mIsTNREnabled = true;
-                if (!mIsCDSUpdated) {
-                    if (cds != null) {
-                        mPrevSavedCDS = cds;
-                    }
-                    mIsCDSUpdated = true;
-                }
             } else if (tnr != null) {
                 mListMenu.setPreferenceEnabled(CameraSettings.KEY_CDS_MODE, true);
-                if (mIsTNREnabled && mPrevSavedCDS != cds) {
-                    mListMenu.overrideSettings(CameraSettings.KEY_CDS_MODE, mPrevSavedCDS);
-                    mIsTNREnabled = false;
-                    mIsCDSUpdated = false;
-                }
+                mListMenu.overrideSettings(CameraSettings.KEY_CDS_MODE, null);
             }
         }
         for (int i = 0; i < keyvalues.length; i += 2) {
@@ -704,61 +685,63 @@ public class PhotoMenu extends MenuController
             popup1.setPreferenceEnabled(CameraSettings.KEY_ZSL, false);
         }
 
-        pref = mPreferenceGroup.findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
-        String advancedFeatures = (pref != null) ? pref.getValue() : null;
+        if (CameraUtil.isAdvancedFeaturesEnabled(mActivity)) {
+            pref = mPreferenceGroup.findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
+            String advancedFeatures = (pref != null) ? pref.getValue() : null;
 
-        String ubiFocusOn = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_ubifocus_on);
-        String reFocusOn = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_refocus_on);
-        String chromaFlashOn = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_chromaflash_on);
-        String optiZoomOn = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_optizoom_on);
-        String fssrOn = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_FSSR_on);
-        String truePortraitOn = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_trueportrait_on);
-        String multiTouchFocusOn = mActivity.getString(R.string.
-                pref_camera_advanced_feature_value_multi_touch_focus_on);
+            String ubiFocusOn = mActivity.getString(R.string.
+                    pref_camera_advanced_feature_value_ubifocus_on);
+            String reFocusOn = mActivity.getString(R.string.
+                    pref_camera_advanced_feature_value_refocus_on);
+            String chromaFlashOn = mActivity.getString(R.string.
+                    pref_camera_advanced_feature_value_chromaflash_on);
+            String optiZoomOn = mActivity.getString(R.string.
+                    pref_camera_advanced_feature_value_optizoom_on);
+            String fssrOn = mActivity.getString(R.string.
+                    pref_camera_advanced_feature_value_FSSR_on);
+            String truePortraitOn = mActivity.getString(R.string.
+                    pref_camera_advanced_feature_value_trueportrait_on);
+            String multiTouchFocusOn = mActivity.getString(R.string.
+                    pref_camera_advanced_feature_value_multi_touch_focus_on);
 
-        if ((zsl != null) && Parameters.ZSL_OFF.equals(zsl)) {
-            popup1.overrideSettings(CameraSettings.KEY_ADVANCED_FEATURES,
-                    mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
+            if ((zsl != null) && Parameters.ZSL_OFF.equals(zsl)) {
+                popup1.overrideSettings(CameraSettings.KEY_ADVANCED_FEATURES,
+                        mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
 
-            popup1.setPreferenceEnabled(CameraSettings.KEY_ADVANCED_FEATURES, false);
-            if(!TsMakeupManager.HAS_TS_MAKEUP) {
-                if (mHdrSwitcher.getVisibility() == View.VISIBLE) {
-                    buttonSetEnabled(mHdrSwitcher, true);
-                }
-            }
-        } else {
-            if ((advancedFeatures != null) && (advancedFeatures.equals(ubiFocusOn) ||
-                    advancedFeatures.equals(chromaFlashOn) ||
-                    advancedFeatures.equals(reFocusOn) ||
-                    advancedFeatures.equals(optiZoomOn) ||
-                    advancedFeatures.equals(fssrOn) ||
-                    advancedFeatures.equals(truePortraitOn) ||
-                    advancedFeatures.equals(multiTouchFocusOn))) {
-                popup1.setPreferenceEnabled(CameraSettings.KEY_FOCUS_MODE, false);
-                popup1.setPreferenceEnabled(CameraSettings.KEY_FLASH_MODE, false);
-                popup1.setPreferenceEnabled(CameraSettings.KEY_AE_BRACKET_HDR, false);
-                popup1.setPreferenceEnabled(CameraSettings.KEY_REDEYE_REDUCTION, false);
-                popup1.setPreferenceEnabled(CameraSettings.KEY_EXPOSURE, false);
-                popup1.setPreferenceEnabled(CameraSettings.KEY_COLOR_EFFECT, false);
-                popup1.setPreferenceEnabled(CameraSettings.KEY_TOUCH_AF_AEC, false);
-                popup1.setPreferenceEnabled(CameraSettings.KEY_SCENE_MODE, false);
-
-                setPreference(CameraSettings.KEY_CAMERA_HDR, mSettingOff);
-                if(!TsMakeupManager.HAS_TS_MAKEUP) {
-                    if (mHdrSwitcher.getVisibility() == View.VISIBLE) {
-                        buttonSetEnabled(mHdrSwitcher, false);
-                    }
-                }
-            } else {
+                popup1.setPreferenceEnabled(CameraSettings.KEY_ADVANCED_FEATURES, false);
                 if(!TsMakeupManager.HAS_TS_MAKEUP) {
                     if (mHdrSwitcher.getVisibility() == View.VISIBLE) {
                         buttonSetEnabled(mHdrSwitcher, true);
+                    }
+                }
+            } else {
+                if ((advancedFeatures != null) && (advancedFeatures.equals(ubiFocusOn) ||
+                        advancedFeatures.equals(chromaFlashOn) ||
+                        advancedFeatures.equals(reFocusOn) ||
+                        advancedFeatures.equals(optiZoomOn) ||
+                        advancedFeatures.equals(fssrOn) ||
+                        advancedFeatures.equals(truePortraitOn) ||
+                        advancedFeatures.equals(multiTouchFocusOn))) {
+                    popup1.setPreferenceEnabled(CameraSettings.KEY_FOCUS_MODE, false);
+                    popup1.setPreferenceEnabled(CameraSettings.KEY_FLASH_MODE, false);
+                    popup1.setPreferenceEnabled(CameraSettings.KEY_AE_BRACKET_HDR, false);
+                    popup1.setPreferenceEnabled(CameraSettings.KEY_REDEYE_REDUCTION, false);
+                    popup1.setPreferenceEnabled(CameraSettings.KEY_EXPOSURE, false);
+                    popup1.setPreferenceEnabled(CameraSettings.KEY_COLOR_EFFECT, false);
+                    popup1.setPreferenceEnabled(CameraSettings.KEY_TOUCH_AF_AEC, false);
+                    popup1.setPreferenceEnabled(CameraSettings.KEY_SCENE_MODE, false);
+
+                    setPreference(CameraSettings.KEY_CAMERA_HDR, mSettingOff);
+                    if(!TsMakeupManager.HAS_TS_MAKEUP) {
+                        if (mHdrSwitcher.getVisibility() == View.VISIBLE) {
+                            buttonSetEnabled(mHdrSwitcher, false);
+                        }
+                    }
+                } else {
+                    if(!TsMakeupManager.HAS_TS_MAKEUP) {
+                        if (mHdrSwitcher.getVisibility() == View.VISIBLE) {
+                            buttonSetEnabled(mHdrSwitcher, true);
+                        }
                     }
                 }
             }

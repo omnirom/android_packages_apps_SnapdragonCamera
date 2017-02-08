@@ -835,10 +835,6 @@ public class CameraSettings {
         if(advancedFeatures != null) {
             if (!CameraUtil.isAdvancedFeaturesEnabled(mContext)) {
                 removePreference(group, advancedFeatures.getKey());
-                SharedPreferences pref = group.getSharedPreferences();
-                // make sure they are disabled
-                pref.edit().putString(CameraSettings.KEY_ADVANCED_FEATURES,
-                        mContext.getResources().getString(R.string.pref_camera_advanced_feature_value_none)).commit();
             } else {
                 filterUnsupportedOptions(group,
                         advancedFeatures, getSupportedAdvancedFeatures(mParameters));
