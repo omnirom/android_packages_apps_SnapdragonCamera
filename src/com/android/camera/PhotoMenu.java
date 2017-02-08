@@ -1348,18 +1348,21 @@ public class PhotoMenu extends MenuController
                 }
             }
         } else if (notSame(pref, CameraSettings.KEY_LONGSHOT, mSettingOff)) {
-            ListPreference advancefeaturePref =
-                    mPreferenceGroup.findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
-            if (advancefeaturePref != null) {
-                if (notSame(advancefeaturePref, CameraSettings.KEY_ADVANCED_FEATURES,
-                        mActivity.getString(R.string.pref_camera_advanced_feature_value_none))) {
-                    RotateTextToast.makeText(mActivity, R.string.longshot_enable_message,
-                            Toast.LENGTH_LONG).show();
+            if (CameraUtil.isAdvancedFeaturesEnabled(mActivity)) {
+                ListPreference advancefeaturePref =
+                        mPreferenceGroup.findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
+                if (advancefeaturePref != null) {
+                    if (notSame(advancefeaturePref, CameraSettings.KEY_ADVANCED_FEATURES,
+                            mActivity.getString(R.string.pref_camera_advanced_feature_value_none))) {
+                        RotateTextToast.makeText(mActivity, R.string.longshot_enable_message,
+                                Toast.LENGTH_LONG).show();
+                    }
+                    setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
+                            mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
                 }
-                setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
-                        mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
             }
-        } else if (notSame(pref, CameraSettings.KEY_ADVANCED_FEATURES,
+        } else if (CameraUtil.isAdvancedFeaturesEnabled(mActivity) &&
+                notSame(pref, CameraSettings.KEY_ADVANCED_FEATURES,
                 mActivity.getString(R.string.pref_camera_advanced_feature_value_none))) {
             ListPreference longshotPref =
                     mPreferenceGroup.findPreference(CameraSettings.KEY_LONGSHOT);
@@ -1372,14 +1375,16 @@ public class PhotoMenu extends MenuController
             }
         }
 
-        String refocusOn = mActivity.getString(R.string
-                .pref_camera_advanced_feature_value_refocus_on);
-        if (notSame(pref, CameraSettings.KEY_SCENE_MODE, refocusOn)) {
-            ListPreference lp = mPreferenceGroup
-                    .findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
-            if (lp != null && refocusOn.equals(lp.getValue())) {
-                setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
-                        mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
+        if (CameraUtil.isAdvancedFeaturesEnabled(mActivity)) {
+            String refocusOn = mActivity.getString(R.string
+                    .pref_camera_advanced_feature_value_refocus_on);
+            if (notSame(pref, CameraSettings.KEY_SCENE_MODE, refocusOn)) {
+                ListPreference lp = mPreferenceGroup
+                        .findPreference(CameraSettings.KEY_ADVANCED_FEATURES);
+                if (lp != null && refocusOn.equals(lp.getValue())) {
+                    setPreference(CameraSettings.KEY_ADVANCED_FEATURES,
+                            mActivity.getString(R.string.pref_camera_advanced_feature_value_none));
+                }
             }
         }
         updateFilterModeIcon(pref, pref);

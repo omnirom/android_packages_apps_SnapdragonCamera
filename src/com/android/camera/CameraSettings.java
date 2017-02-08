@@ -833,7 +833,7 @@ public class CameraSettings {
         }
 
         if(advancedFeatures != null) {
-            if (!mContext.getResources().getBoolean(R.bool.enable_advanced_features)) {
+            if (!CameraUtil.isAdvancedFeaturesEnabled(mContext)) {
                 removePreference(group, advancedFeatures.getKey());
                 SharedPreferences pref = group.getSharedPreferences();
                 // make sure they are disabled
@@ -939,12 +939,14 @@ public class CameraSettings {
             List<String> supportedSceneModes = mParameters.getSupportedSceneModes();
             List<String> supportedAdvancedFeatures =
                     getSupportedAdvancedFeatures(mParameters);
-            if (CameraUtil.isSupported(
+            if (CameraUtil.isAdvancedFeaturesEnabled(mContext)) {
+                if (CameraUtil.isSupported(
                         mContext.getString(R.string
                                 .pref_camera_advanced_feature_value_refocus_on),
                         supportedAdvancedFeatures)) {
-                supportedSceneModes.add(mContext.getString(R.string
+                    supportedSceneModes.add(mContext.getString(R.string
                             .pref_camera_advanced_feature_value_refocus_on));
+                }
             }
             filterUnsupportedOptions(group, sceneMode, supportedSceneModes);
         }

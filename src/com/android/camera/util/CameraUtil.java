@@ -1155,4 +1155,7 @@ public class CameraUtil {
         return retRatio;
     }
 
+    public static boolean isAdvancedFeaturesEnabled(Context context) {
+        return context.getResources().getBoolean(R.bool.enable_advanced_features);
+    }
 }

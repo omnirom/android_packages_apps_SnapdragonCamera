@@ -162,9 +162,9 @@ public class ListPreference extends CameraPreference {
             index = findIndexOfValue(findSupportedDefaultValue());
         }
         try {
-        return mEntries[index].toString();
+            return mEntries[index].toString();
         } catch(Exception e) {
-            Log.e("maxwen", "" + getValue() + "\n" + Arrays.asList(mEntries) + "\n" + Arrays.asList(mEntryValues));
+            Log.e(TAG, "" + getValue() + "\n" + Arrays.asList(mEntries) + "\n" + Arrays.asList(mEntryValues), e);
         }
         return mEntries[0].toString();
     }

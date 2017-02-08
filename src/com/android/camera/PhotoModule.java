@@ -3159,7 +3159,8 @@ public class PhotoModule
         Log.e(TAG, " advancedFeature value =" + advancedFeature);
 
         mRefocus = false;
-        if(!advancedFeature.equals(mActivity.getString(R.string.pref_camera_advanced_feature_value_none))) {
+        if (CameraUtil.isAdvancedFeaturesEnabled(mActivity) &&
+                !advancedFeature.equals(mActivity.getString(R.string.pref_camera_advanced_feature_value_none))) {
              String ubiFocusOff = mActivity.getString(R.string.
                  pref_camera_advanced_feature_value_ubifocus_off);
              String chromaFlashOff = mActivity.getString(R.string.
