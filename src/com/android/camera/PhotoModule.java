@@ -203,8 +203,6 @@ public class PhotoModule
     // The degrees of the device rotated clockwise from its natural orientation.
     private int mOrientation = OrientationEventListener.ORIENTATION_UNKNOWN;
     private ComboPreferences mPreferences;
-    private String mPrevSavedCDS;
-    private boolean isTNREnabled;
 
     private static final String sTempCropFilename = "crop-temp";
 
@@ -3081,18 +3079,18 @@ public class PhotoModule
         String faceRC = mPreferences.getString(
                 CameraSettings.KEY_FACE_RECOGNITION,
                 mActivity.getString(R.string.pref_camera_facerc_default));
-        Log.v(TAG, "Face Recognition value = " + faceRC);
         if (CameraUtil.isSupported(faceRC,
                 CameraSettings.getSupportedFaceRecognitionModes(mParameters))) {
+            Log.v(TAG, "Face Recognition value = " + faceRC);
             mParameters.set(CameraSettings.KEY_QC_FACE_RECOGNITION, faceRC);
         }
         // Set AE Bracketing
         String aeBracketing = mPreferences.getString(
                 CameraSettings.KEY_AE_BRACKET_HDR,
                 mActivity.getString(R.string.pref_camera_ae_bracket_hdr_default));
-        Log.v(TAG, "AE Bracketing value =" + aeBracketing);
         if (CameraUtil.isSupported(aeBracketing,
                 CameraSettings.getSupportedAEBracketingModes(mParameters))) {
+            Log.v(TAG, "AE Bracketing value =" + aeBracketing);
             mParameters.set(CameraSettings.KEY_QC_AE_BRACKETING, aeBracketing);
         }
 
@@ -3100,9 +3098,6 @@ public class PhotoModule
         String cds = mPreferences.getString(
                 CameraSettings.KEY_CDS_MODE,
                 mActivity.getString(R.string.pref_camera_cds_default));
-        if ((mPrevSavedCDS == null) && (cds != null)) {
-            mPrevSavedCDS = cds;
-        }
         if (CameraUtil.isSupported(cds,
                 CameraSettings.getSupportedCDSModes(mParameters))) {
             mParameters.set(CameraSettings.KEY_QC_CDS_MODE, cds);
@@ -3114,17 +3109,11 @@ public class PhotoModule
                 mActivity.getString(R.string.pref_camera_tnr_default));
         if (CameraUtil.isSupported(tnr,
                 CameraSettings.getSupportedTNRModes(mParameters))) {
-            if (!tnr.equals(mActivity.getString(R.string.
-                    pref_camera_tnr_value_off))) {
+            if (!tnr.equals(mActivity.getString(R.string.pref_camera_tnr_value_off))) {
                 mParameters.set(CameraSettings.KEY_QC_CDS_MODE,
                         mActivity.getString(R.string.pref_camera_cds_value_off));
-                if (cds != null) {
-                    mPrevSavedCDS = cds;
-                }
-                isTNREnabled = true;
-            } else if (isTNREnabled) {
-                mParameters.set(CameraSettings.KEY_QC_CDS_MODE, mPrevSavedCDS);
-                isTNREnabled = false;
+            } else {
+                mParameters.set(CameraSettings.KEY_QC_CDS_MODE, cds);
             }
             mParameters.set(CameraSettings.KEY_QC_TNR_MODE, tnr);
         }
@@ -3133,9 +3122,9 @@ public class PhotoModule
         String hdrMode = mPreferences.getString(
                 CameraSettings.KEY_HDR_MODE,
                 mActivity.getString(R.string.pref_camera_hdr_mode_default));
-        Log.v(TAG, "HDR Mode value =" + hdrMode);
         if (CameraUtil.isSupported(hdrMode,
                 CameraSettings.getSupportedHDRModes(mParameters))) {
+            Log.v(TAG, "HDR Mode value =" + hdrMode);
             mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_MODE, hdrMode);
         }
 
@@ -3143,9 +3132,9 @@ public class PhotoModule
         String hdrNeed1x = mPreferences.getString(
                 CameraSettings.KEY_HDR_NEED_1X,
                 mActivity.getString(R.string.pref_camera_hdr_need_1x_default));
-        Log.v(TAG, "HDR need 1x value =" + hdrNeed1x);
         if (CameraUtil.isSupported(hdrNeed1x,
                 CameraSettings.getSupportedHDRNeed1x(mParameters))) {
+            Log.v(TAG, "HDR need 1x value =" + hdrNeed1x);
             mParameters.set(CameraSettings.KEY_SNAPCAM_HDR_NEED_1X, hdrNeed1x);
         }
 
@@ -3252,8 +3241,8 @@ public class PhotoModule
         String autoExposure = mPreferences.getString(
                 CameraSettings.KEY_AUTOEXPOSURE,
                 mActivity.getString(R.string.pref_camera_autoexposure_default));
-        Log.v(TAG, "autoExposure value =" + autoExposure);
         if (CameraUtil.isSupported(autoExposure, mParameters.getSupportedAutoexposure())) {
+            Log.v(TAG, "autoExposure value =" + autoExposure);
             mParameters.setAutoExposure(autoExposure);
         }
 
@@ -3261,8 +3250,8 @@ public class PhotoModule
         String antiBanding = mPreferences.getString(
                  CameraSettings.KEY_ANTIBANDING,
                  mActivity.getString(R.string.pref_camera_antibanding_default));
-        Log.v(TAG, "antiBanding value =" + antiBanding);
         if (CameraUtil.isSupported(antiBanding, mParameters.getSupportedAntibanding())) {
+            Log.v(TAG, "antiBanding value =" + antiBanding);
             mParameters.setAntibanding(antiBanding);
         }
 
