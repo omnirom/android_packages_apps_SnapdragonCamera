@@ -82,8 +82,7 @@ public class VideoUI implements PieRenderer.PieListener,
     private PauseButton mPauseButton;
     private ModuleSwitcher mSwitcher;
     private TextView mRecordingTimeView;
-    private LinearLayout mLabelsLinearLayout;
-    private View mTimeLapseLabel;
+    private TextView mRecordingModLabel;
     private RenderOverlay mRenderOverlay;
     private PieRenderer mPieRenderer;
     private VideoMenu mVideoMenu;
@@ -102,6 +101,7 @@ public class VideoUI implements PieRenderer.PieListener,
     private boolean mOrientationResize;
     private boolean mPrevOrientationResize;
     private boolean mIsTimeLapse = false;
+    private boolean mIsHFR;
     private RotateLayout mMenuLayout;
     private RotateLayout mSubMenuLayout;
     private ViewGroup mPreviewMenuLayout;
@@ -541,15 +541,9 @@ public class VideoUI implements PieRenderer.PieListener,
         }
     }
 
-    public void setOrientationIndicator(int orientation, boolean animation) {
-        // We change the orientation of the linearlayout only for phone UI
-        // because when in portrait the width is not enough.
-        if (mLabelsLinearLayout != null) {
-            if (((orientation / 90) & 1) == 0) {
-                mLabelsLinearLayout.setOrientation(LinearLayout.VERTICAL);
-            } else {
-                mLabelsLinearLayout.setOrientation(LinearLayout.HORIZONTAL);
-            }
+    public void updateMenuVisibility() {
+        if (mVideoMenu != null) {
+            mVideoMenu.updateMenuVisibility();
         }
     }
 
@@ -612,18 +606,13 @@ public class VideoUI implements PieRenderer.PieListener,
         mReviewImage = (ImageView) mRootView.findViewById(R.id.review_image);
         mRecordingTimeView = (TextView) mRootView.findViewById(R.id.recording_time);
         mRecordingTimeRect = (RotateLayout) mRootView.findViewById(R.id.recording_time_rect);
-        mTimeLapseLabel = mRootView.findViewById(R.id.time_lapse_label);
-        // The R.id.labels can only be found in phone layout.
-        // That is, mLabelsLinearLayout should be null in tablet layout.
-        mLabelsLinearLayout = (LinearLayout) mRootView.findViewById(R.id.labels);
+        mRecordingModLabel = (TextView) mRootView.findViewById(R.id.recording_label);
 
         mShutterButton.setImageResource(R.drawable.shutter_vector_video_anim);
-        mShutterButton.setOnClickListener(new OnClickListener()
-        {
+        mShutterButton.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (!CameraControls.isAnimating())
-                    doShutterAnimation();
+                doShutterAnimation();
             }
         });
         mShutterButton.setOnShutterButtonListener(mController);
@@ -638,6 +627,14 @@ public class VideoUI implements PieRenderer.PieListener,
         AnimatedVectorDrawable shutterVector = (AnimatedVectorDrawable) mShutterButton.getDrawable();
         if (shutterVector != null && shutterVector instanceof Animatable) {
             ((AnimatedVectorDrawable) shutterVector).start();
+        }
+    }
+
+    public void doStopShutterAnimation() {
+        mShutterButton.setImageResource(R.drawable.shutter_vector_video_anim);
+        AnimatedVectorDrawable shutterVector = (AnimatedVectorDrawable) mShutterButton.getDrawable();
+        if (shutterVector != null && shutterVector instanceof Animatable) {
+            ((AnimatedVectorDrawable) shutterVector).stop();
         }
     }
 
@@ -661,10 +658,16 @@ public class VideoUI implements PieRenderer.PieListener,
     }
 
     public void showTimeLapseUI(boolean enable) {
-        if (mTimeLapseLabel != null) {
-            mTimeLapseLabel.setVisibility(enable ? View.VISIBLE : View.GONE);
-        }
         mIsTimeLapse = enable;
+    }
+
+    public void showHFRUI(boolean enable) {
+        mIsHFR = enable;
+    }
+
+    public void hideModeLabels() {
+        mIsTimeLapse = false;
+        mIsHFR = false;
     }
 
     public void dismissPopup(boolean topLevelOnly) {
@@ -894,19 +897,27 @@ public class VideoUI implements PieRenderer.PieListener,
     public void showRecordingUI(boolean recording) {
         mRecordingStarted = recording;
         mMenuButton.setVisibility(recording ? View.GONE : View.VISIBLE);
+        if (mIsTimeLapse) {
+            mRecordingModLabel.setText(mActivity.getResources().getString(R.string.time_lapse_title));
+        }
+        if (mIsHFR) {
+            mRecordingModLabel.setText(mActivity.getResources().getString(R.string.pref_camera_hfr_title));
+        }
         if (recording) {
             mShutterButton.setImageResource(R.drawable.shutter_vector_video_anim);
             hideSwitcher();
             mRecordingTimeView.setText("");
             mRecordingTimeView.setVisibility(View.VISIBLE);
-            //mPauseButton.setVisibility(mIsTimeLapse ? View.GONE : View.VISIBLE);
+            mPauseButton.setVisibility(mIsTimeLapse ? View.GONE : View.VISIBLE);
+            mRecordingModLabel.setVisibility((mIsTimeLapse || mIsHFR) ? View.VISIBLE : View.GONE);
         } else {
             mShutterButton.setImageResource(R.drawable.shutter_vector_video);
             if (!mController.isVideoCaptureIntent()) {
                 showSwitcher();
             }
             mRecordingTimeView.setVisibility(View.GONE);
-            //mPauseButton.setVisibility(View.GONE);
+            mPauseButton.setVisibility(View.GONE);
+            mRecordingModLabel.setVisibility(View.GONE);
         }
     }
 
@@ -1066,6 +1077,7 @@ public class VideoUI implements PieRenderer.PieListener,
         mRecordingTimeView.setCompoundDrawablesWithIntrinsicBounds(
                 R.drawable.ic_pausing_indicator, 0, 0, 0);
         mController.onButtonPause();
+        doStopShutterAnimation();
     }
 
     @Override
@@ -1073,6 +1085,7 @@ public class VideoUI implements PieRenderer.PieListener,
         mRecordingTimeView.setCompoundDrawablesWithIntrinsicBounds(
                 R.drawable.ic_recording_indicator, 0, 0, 0);
         mController.onButtonContinue();
+        doShutterAnimation();
     }
 
     public void resetPauseButton() {

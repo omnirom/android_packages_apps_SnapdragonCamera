@@ -55,22 +55,34 @@
         android:id="@+id/recording_time_rect"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:orientation="horizontal"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
-            <com.android.camera.PauseButton android:id="@+id/video_pause"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/bg_text_on_preview" >
+
+            <TextView
+                android:id="@+id/recording_time"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:padding="23dp"
+                style="@style/OnViewfinderLabelLarge"
+                android:drawableLeft="@drawable/ic_recording_indicator"
+                android:drawablePadding="5dp"
                 android:visibility="gone"
-                android:src="@drawable/btn_pause_recording"/>
-            <include layout="@layout/viewfinder_labels_video"
-                android:id="@+id/labels" />
+                android:gravity="center_vertical" />
+            <TextView
+                android:id="@+id/recording_label"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/OnViewfinderLabelSmall"
+                android:visibility="gone"
+                android:paddingStart="10dp"
+                android:gravity="center_vertical" />
         </LinearLayout>
     </com.android.camera.ui.RotateLayout>
-    <ImageView android:id="@+id/review_image"
+    <ImageView 
+        android:id="@+id/review_image"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:visibility="gone"
