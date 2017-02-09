@@ -82,12 +82,11 @@ public class VideoMenu extends MenuController
     private int mPopupStatus;
     private int mPreviewMenuStatus;
     private CameraActivity mActivity;
-    private String mPrevSavedVideoCDS;
-    private boolean mIsVideoTNREnabled = false;
-    private boolean mIsVideoCDSUpdated = false;
     private static final int ANIMATION_DURATION = 300;
     private static final int CLICK_THRESHOLD = 200;
     private int previewMenuSize;
+    private String mSavedVideoHDR;
+    private String mSavedDIS;
 
     public VideoMenu(CameraActivity activity, VideoUI ui) {
         super(activity);
@@ -132,9 +131,9 @@ public class VideoMenu extends MenuController
                 //CameraSettings.KEY_VIDEO_ENCODER,
                 //CameraSettings.KEY_AUDIO_ENCODER,
                 CameraSettings.KEY_VIDEO_HDR,
-                CameraSettings.KEY_VIDEO_ROTATION,
-                CameraSettings.KEY_VIDEO_CDS_MODE,
-                CameraSettings.KEY_VIDEO_TNR_MODE
+                //CameraSettings.KEY_VIDEO_ROTATION,
+                //CameraSettings.KEY_VIDEO_CDS_MODE,
+                //CameraSettings.KEY_VIDEO_TNR_MODE
         };
         mFrontBackSwitcher.setVisibility(View.INVISIBLE);
         initSwitchItem(CameraSettings.KEY_CAMERA_ID, mFrontBackSwitcher);
@@ -658,32 +657,61 @@ public class VideoMenu extends MenuController
             String tnr = (pref_tnr != null) ? pref_tnr.getValue() : null;
             String cds = (pref_cds != null) ? pref_cds.getValue() : null;
 
-            if (mPrevSavedVideoCDS == null && cds != null) {
-                mPrevSavedVideoCDS = cds;
-            }
-
-            if ((tnr != null) && !mActivity.getString(R.string.
-                    pref_camera_video_tnr_default).equals(tnr)) {
-                mListMenu.setPreferenceEnabled(
-                        CameraSettings.KEY_VIDEO_CDS_MODE,false);
-                mListMenu.overrideSettings(
-                        CameraSettings.KEY_VIDEO_CDS_MODE,
+            if ((tnr != null) && mActivity.getString(R.string.
+                    pref_camera_video_tnr_value_on).equals(tnr)) {
+                mListMenu.setPreferenceEnabled(CameraSettings.KEY_VIDEO_CDS_MODE,false);
+                mListMenu.overrideSettings(CameraSettings.KEY_VIDEO_CDS_MODE,
                         mActivity.getString(R.string.pref_camera_video_cds_value_off));
-                mIsVideoTNREnabled = true;
-                if (!mIsVideoCDSUpdated) {
-                    if (cds != null) {
-                        mPrevSavedVideoCDS = cds;
-                    }
-                    mIsVideoCDSUpdated = true;
-                }
             } else if (tnr != null) {
-                mListMenu.setPreferenceEnabled(
-                        CameraSettings.KEY_VIDEO_CDS_MODE,true);
-                if (mIsVideoTNREnabled) {
-                    mListMenu.overrideSettings(
-                            CameraSettings.KEY_VIDEO_CDS_MODE, mPrevSavedVideoCDS);
-                    mIsVideoTNREnabled = false;
-                    mIsVideoCDSUpdated = false;
+                mListMenu.setPreferenceEnabled(CameraSettings.KEY_VIDEO_CDS_MODE,true);
+                mListMenu.overrideSettings(CameraSettings.KEY_VIDEO_CDS_MODE, null);
+            }
+        }
+    }
+
+    public void overrideHFRMode() {
+        if (mListMenu != null) {
+            ListPreference pref_dis = mPreferenceGroup.
+                    findPreference(CameraSettings.KEY_DIS);
+            ListPreference pref_videoHdr = mPreferenceGroup.
+                    findPreference(CameraSettings.KEY_VIDEO_HDR);
+            ListPreference pref_hfr = mPreferenceGroup.
+                    findPreference(CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE);
+            ListPreference pref_timelaps = mPreferenceGroup.
+                    findPreference(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL);
+            String dis = (pref_dis != null) ? pref_dis.getValue() : null;
+            String hdr = (pref_videoHdr != null) ? pref_videoHdr.getValue() : null;
+            String hfr = (pref_hfr != null) ? pref_hfr.getValue() : null;
+            String timeLaps = (pref_timelaps != null) ? pref_timelaps.getValue() : null;
+
+            if (pref_hfr != null) {
+                if (mActivity.getString(R.string.pref_camera_hfr_value_off).equals(hfr)) {
+                    mListMenu.setPreferenceEnabled(CameraSettings.KEY_DIS, true);
+                    mListMenu.overrideSettings(CameraSettings.KEY_DIS, null);
+                    if (pref_dis != null && mSavedDIS != null) {
+                        pref_dis.setValue(mSavedDIS);
+                        mSavedDIS = null;
+                    }
+                    mListMenu.setPreferenceEnabled(CameraSettings.KEY_VIDEO_HDR, true);
+                    mListMenu.overrideSettings(CameraSettings.KEY_VIDEO_HDR, null);
+                    if (pref_videoHdr != null && mSavedVideoHDR != null) {
+                        pref_videoHdr.setValue(mSavedVideoHDR);
+                        mSavedVideoHDR = null;
+                    }
+                    mListMenu.setPreferenceEnabled(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, true);
+                    mListMenu.overrideSettings(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, null);
+                } else {
+                    mListMenu.setPreferenceEnabled(CameraSettings.KEY_DIS, false);
+                    mSavedDIS = dis;
+                    mListMenu.overrideSettings(CameraSettings.KEY_DIS,
+                            mActivity.getString(R.string.pref_camera_dis_value_disable));
+                    mListMenu.setPreferenceEnabled(CameraSettings.KEY_VIDEO_HDR, false);
+                    mSavedVideoHDR = hdr;
+                    mListMenu.overrideSettings(CameraSettings.KEY_VIDEO_HDR,
+                            mActivity.getString(R.string.pref_camera_video_hdr_value_off));
+                    mListMenu.setPreferenceEnabled(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, false);
+                    mListMenu.overrideSettings(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL,
+                            mActivity.getString(R.string.pref_video_time_lapse_frame_interval_default));
                 }
             }
         }
@@ -691,14 +719,18 @@ public class VideoMenu extends MenuController
 
     @Override
     public void overrideSettings(final String... keyvalues) {
-        overrideCDSMode();
+        updateMenuVisibility();
         super.overrideSettings(keyvalues);
         if (((mListMenu == null)) || mPopupStatus != POPUP_FIRST_LEVEL) {
             mPopupStatus = POPUP_FIRST_LEVEL;
             initializePopup();
         }
         mListMenu.overrideSettings(keyvalues);
+    }
 
+    public void updateMenuVisibility() {
+        overrideCDSMode();
+        overrideHFRMode();
     }
 
     @Override
@@ -730,7 +762,7 @@ public class VideoMenu extends MenuController
         }
         mListMenu = popup1;
 
-        overrideCDSMode();
+        updateMenuVisibility();
     }
 
     public void popupDismissed(boolean topPopupOnly) {
@@ -812,33 +844,6 @@ public class VideoMenu extends MenuController
     // Return true if the preference has the specified key but not the value.
     private static boolean notSame(ListPreference pref, String key, String value) {
         return (key.equals(pref.getKey()) && !value.equals(pref.getValue()));
-    }
-
-    @Override
-    public void onSettingChanged(ListPreference pref) {
-
-        if (notSame(pref, CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL,
-                mActivity.getString(R.string.pref_video_time_lapse_frame_interval_default))) {
-            ListPreference hfrPref =
-                    mPreferenceGroup.findPreference(CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE);
-            if (hfrPref != null && !"off".equals(hfrPref.getValue())) {
-                RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_hfr_selection,
-                        Toast.LENGTH_LONG).show();
-            }
-            setPreference(CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE, "off");
-        }
-        if (notSame(pref, CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE, "off")) {
-            String defaultValue =
-                    mActivity.getString(R.string.pref_video_time_lapse_frame_interval_default);
-            ListPreference lapsePref = mPreferenceGroup
-                    .findPreference(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL);
-            if (lapsePref != null && !defaultValue.equals(lapsePref.getValue())) {
-                RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_hfr_selection,
-                        Toast.LENGTH_LONG).show();
-            }
-            setPreference(CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL, defaultValue);
-        }
-        super.onSettingChanged(pref);
     }
 
     public int getOrientation() {

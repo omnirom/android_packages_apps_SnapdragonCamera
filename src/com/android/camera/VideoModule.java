@@ -202,11 +202,6 @@ public class VideoModule implements CameraModule,
     private boolean mStopRecPending = false;
     private boolean mStartPrevPending = false;
     private boolean mStopPrevPending = false;
-    private String mPrevSavedVideoCDS = null;
-    private String mTempVideoCDS = null;
-    private boolean mIsVideoTNREnabled;
-    private boolean mIsVideoCDSUpdated = false;
-    private boolean mOverrideCDS = false;
 
     // The preview window is on focus
     private boolean mPreviewFocused = false;
@@ -323,7 +318,6 @@ public class VideoModule implements CameraModule,
     private int videoWidth;
     private int videoHeight;
     boolean mUnsupportedResolution = false;
-    private boolean mUnsupportedHFRVideoSize = false;
     private boolean mUnsupportedHFRVideoCodec = false;
     boolean mUnsupportedProfile = false;
     boolean mUnsupportedHDR = false;
@@ -486,7 +480,6 @@ public class VideoModule implements CameraModule,
         mUI.setOrientationIndicator(0, false);
         setDisplayOrientation();
 
-        mUI.showTimeLapseUI(mCaptureTimeLapse);
         initializeVideoSnapshot();
         resizeForPreviewAspectRatio();
 
@@ -882,29 +875,37 @@ public class VideoModule implements CameraModule,
 
         int hfrRate = 0;
         String highFrameRate = mPreferences.getString(
-            CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
-            mActivity. getString(R.string.pref_camera_hfr_default));
+                CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
+                mActivity. getString(R.string.pref_camera_hfr_default));
         if (!highFrameRate.equals("off")) {
-            Log.i(TAG,"HFR :"  + highFrameRate);
+            Log.i(TAG,"HFR value = "  + highFrameRate);
             try {
                 hfrRate = Integer.parseInt(highFrameRate);
             } catch (NumberFormatException nfe) {
-                Log.e(TAG, "Invalid hfr rate " + highFrameRate);
+                Log.e(TAG, "Invalid HFR rate " + highFrameRate);
             }
         }
 
-        int mappedQuality = quality;
+        int mappedQuality = -1;
         if (mCaptureTimeLapse) {
             mappedQuality = CameraSettings.getTimeLapseQualityFor(quality);
+            Log.i(TAG,"Timelapse value = "  + frameIntervalStr);
         } else if (hfrRate > 0) {
-            mappedQuality = CameraSettings.getHighSpeedQualityFor(quality);
-            Log.i(TAG,"NOTE: HighSpeed quality (" + mappedQuality + ") for (" + quality + ")");
+            Size hfrSize = getHighFrameRateSize(highFrameRate);
+            if (hfrSize != null) {
+                String hfrSizeString = hfrSize.width + "x" + hfrSize.height;
+                Log.v(TAG,"HFR resolution = " + hfrSizeString);
+                mappedQuality = CameraSettings.VIDEO_QUALITY_TABLE.get(hfrSizeString);
+            }
+            if (mappedQuality == -1) {
+                mappedQuality = CameraSettings.getHighSpeedQualityFor(quality);
+            }
         }
-
-        if (CamcorderProfile.hasProfile(mCameraId, mappedQuality)) {
+        if (mappedQuality != -1 &&
+                mappedQuality != quality &&
+                CamcorderProfile.hasProfile(mCameraId, mappedQuality)) {
+            Log.i(TAG,"Mapped quality (" + mappedQuality + ") for (" + quality + ")");
             quality = mappedQuality;
-        } else {
-            Log.e(TAG,"NOTE: Quality " + mappedQuality + " is not supported ! Will use " + quality);
         }
         mProfile = CamcorderProfile.get(mCameraId, quality);
         getDesiredPreviewSize();
@@ -970,55 +971,13 @@ public class VideoModule implements CameraModule,
         return false;
     }
 
-
-    boolean isHFREnabled(int videoWidth, int videoHeight) {
-        if ((null == mPreferences) || (null == mParameters)) {
-            return false;
-        }
-
-        String HighFrameRate = mPreferences.getString(
-                CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE,
-                mActivity. getString(R.string.pref_camera_hfr_default));
-
-        if(!("off".equals(HighFrameRate))) {
-            Size size = null;
-            try {
-                if (isSupported(HighFrameRate.substring(3), mParameters.getSupportedVideoHighFrameRateModes())) {
-                    int index = mParameters.getSupportedVideoHighFrameRateModes().indexOf(
-                            HighFrameRate.substring(3));
-                    size = mParameters.getSupportedHfrSizes().get(index);
-                } else {
-                    return false;
-                }
-            } catch (NullPointerException e) {
-                return false;
-            } catch (IndexOutOfBoundsException e) {
-                return false;
-            }
-
-            if (size != null) {
-                if (videoWidth > size.width || videoHeight > size.height) {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-
-            int hfrFps = Integer.parseInt(HighFrameRate.substring(3));
-            return isSessionSupportedByEncoder(videoWidth, videoHeight, hfrFps);
-        }
-
-        return false;
-    }
-
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void getDesiredPreviewSize() {
         if (mCameraDevice == null) {
             return;
         }
         mParameters = mCameraDevice.getParameters();
-        if (mParameters.getSupportedVideoSizes() == null ||
-                isHFREnabled(mProfile.videoFrameWidth, mProfile.videoFrameHeight)) {
+        if (mParameters.getSupportedVideoSizes() == null) {
             mDesiredPreviewWidth = mProfile.videoFrameWidth;
             mDesiredPreviewHeight = mProfile.videoFrameHeight;
         } else { // Driver supports separates outputs for preview and video.
@@ -1444,31 +1403,6 @@ public class VideoModule implements CameraModule,
         videoHeight = mProfile.videoFrameHeight;
         mUnsupportedResolution = false;
 
-        //check if codec supports the resolution, otherwise throw toast
-        /* List<VideoEncoderCap> videoEncoders = EncoderCapabilities.getVideoEncoders();
-        for (VideoEncoderCap videoEncoder: videoEncoders) {
-            if (videoEncoder.mCodec == mVideoEncoder) {
-                if (videoWidth > videoEncoder.mMaxFrameWidth ||
-                        videoWidth < videoEncoder.mMinFrameWidth ||
-                        videoHeight > videoEncoder.mMaxFrameHeight ||
-                        videoHeight < videoEncoder.mMinFrameHeight) {
-                    Log.e(TAG, "Selected codec " + mVideoEncoder +
-                            " does not support "+ videoWidth + "x" + videoHeight
-                            + " resolution");
-                    Log.e(TAG, "Codec capabilities: " +
-                            "mMinFrameWidth = " + videoEncoder.mMinFrameWidth + " , " +
-                            "mMinFrameHeight = " + videoEncoder.mMinFrameHeight + " , " +
-                            "mMaxFrameWidth = " + videoEncoder.mMaxFrameWidth + " , " +
-                            "mMaxFrameHeight = " + videoEncoder.mMaxFrameHeight);
-                    mUnsupportedResolution = true;
-                    RotateTextToast.makeText(mActivity, R.string.error_app_unsupported,
-                            Toast.LENGTH_LONG).show();
-                    return;
-                }
-                break;
-            }
-        } */
-
         long requestedSizeLimit = 0;
         closeVideoFileDescriptor();
         mCurrentVideoUriFromMediaSaved = false;
@@ -1491,16 +1425,9 @@ public class VideoModule implements CameraModule,
         // Unlock the camera object before passing it to media recorder.
         mCameraDevice.unlock();
         mMediaRecorder.setCamera(mCameraDevice.getCamera());
-        String hfr = mParameters.getVideoHighFrameRate();
-        Log.i(TAG,"NOTE: hfr = " + hfr);
 
-        int captureRate = 0;
-        boolean isHFR = (hfr != null && !hfr.equals("off"));
-        try {
-            captureRate = Integer.parseInt(hfr);
-        } catch (NumberFormatException nfe) {
-            Log.e(TAG, "Invalid hfr(" + hfr + ")");
-        }
+        int captureRate = getHighFrameRateValue();
+        boolean isHFR = captureRate != -1;
 
         mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
 
@@ -1509,7 +1436,7 @@ public class VideoModule implements CameraModule,
         mProfile.duration = mMaxVideoDurationInMs;
 
         // Set params individually for HFR case, as we do not want to encode audio
-        if (isHFR && captureRate > 0) {
+        if (isHFR) {
             mMediaRecorder.setOutputFormat(mProfile.fileFormat);
             mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
             mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
@@ -1526,12 +1453,12 @@ public class VideoModule implements CameraModule,
         if (mCaptureTimeLapse) {
             double fps = 1000 / (double) mTimeBetweenTimeLapseFrameCaptureMs;
             setCaptureRate(mMediaRecorder, fps);
-        } else if (captureRate > 0) {
+        } else if (isHFR) {
             Log.i(TAG, "Setting capture-rate = " + captureRate);
             mMediaRecorder.setCaptureRate(captureRate);
 
             // for HFR, encoder's taget-framerate = 30fps (from profile)
-            int targetFrameRate = isHFR ? 30 : mProfile.videoFrameRate;
+            int targetFrameRate =  30;
 
             Log.i(TAG, "Setting target fps = " + targetFrameRate);
             mMediaRecorder.setVideoFrameRate(targetFrameRate);
@@ -1677,17 +1604,11 @@ public class VideoModule implements CameraModule,
             }
 
             /* Change the duration as per HFR selection */
-            String hfr = mParameters.getVideoHighFrameRate();
             int defaultFps = 30;
             int hfrRatio = 1;
-            if (!("off".equals(hfr))) {
-                try {
-                   int hfrFps = Integer.parseInt(hfr);
-                   hfrRatio = hfrFps / defaultFps;
-                } catch(NumberFormatException ex) {
-                   //Default value will be used
-                   Log.e(TAG,"Invalid hfr values:"+hfr);
-                }
+            int hfrFps = getHighFrameRateValue();
+            if (hfrFps != -1) {
+                hfrRatio = hfrFps / defaultFps;
             }
             duration = duration * hfrRatio;
 
@@ -1777,14 +1698,6 @@ public class VideoModule implements CameraModule,
             return false;
         }
 
-        if( mUnsupportedHFRVideoSize == true) {
-            Log.e(TAG, "Unsupported HFR and video size combinations");
-            RotateTextToast.makeText(mActivity,R.string.error_app_unsupported_hfr,
-                    Toast.LENGTH_LONG).show();
-            mStartRecPending = false;
-            return false;
-        }
-
         if( mUnsupportedHFRVideoCodec == true) {
             Log.e(TAG, "Unsupported HFR and video codec combinations");
             RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_hfr_codec,
@@ -1808,8 +1721,6 @@ public class VideoModule implements CameraModule,
             return false;
         }
 
-        //??
-        //if (!mCameraDevice.waitDone()) return;
         mCurrentVideoUri = null;
 
         initializeRecorder();
@@ -1904,14 +1815,14 @@ public class VideoModule implements CameraModule,
         }
         mUI.showReviewControls();
         mUI.enableCameraControls(false);
-        mUI.showTimeLapseUI(false);
+        mUI.hideModeLabels();
     }
 
     private void pauseVideoRecording() {
         Log.v(TAG, "pauseVideoRecording");
         mMediaRecorderPausing = true;
         mRecordingTotalTime += SystemClock.uptimeMillis() - mRecordingStartTime;
-        //mMediaRecorder.pause();
+        mMediaRecorder.pause();
     }
 
     private void resumeVideoRecording() {
@@ -1919,7 +1830,7 @@ public class VideoModule implements CameraModule,
         mMediaRecorderPausing = false;
         mRecordingStartTime = SystemClock.uptimeMillis();
         updateRecordingTime();
-        mMediaRecorder.start();
+        mMediaRecorder.resume();
     }
 
     private boolean stopVideoRecording() {
@@ -2182,8 +2093,6 @@ public class VideoModule implements CameraModule,
         if(CameraUtil.isSupported(picture_flip, CameraSettings.getSupportedFlipMode(mParameters))){
             mParameters.set(CameraSettings.KEY_QC_SNAPSHOT_PICTURE_FLIP, picture_flip);
         }
-
-
     }
 
      private void qcomSetCameraParameters(){
@@ -2193,35 +2102,27 @@ public class VideoModule implements CameraModule,
         String colorEffect = mPreferences.getString(
             CameraSettings.KEY_COLOR_EFFECT,
             mActivity.getString(R.string.pref_camera_coloreffect_default));
-        Log.v(TAG, "Color effect value =" + colorEffect);
         if (isSupported(colorEffect, mParameters.getSupportedColorEffects())) {
+            Log.v(TAG, "Color effect value =" + colorEffect);
             mParameters.setColorEffect(colorEffect);
         }
 
         String disMode = mPreferences.getString(
                 CameraSettings.KEY_DIS,
                 mActivity.getString(R.string.pref_camera_dis_default));
-        Log.v(TAG, "DIS value =" + disMode);
 
         if (is4KEnabled()) {
             if (isSupported(mActivity.getString(R.string.pref_camera_dis_value_disable),
                     CameraSettings.getSupportedDISModes(mParameters))) {
+                Log.v(TAG, "DIS value = disabled");
                 mParameters.set(CameraSettings.KEY_QC_DIS_MODE,
-                        mActivity.getString(R.string.pref_camera_dis_value_disable));
-                //mUI.overrideSettings(CameraSettings.KEY_DIS,
-                //        mActivity.getString(R.string.pref_camera_dis_value_disable));
-                //RotateTextToast.makeText(mActivity, R.string.video_quality_4k_disable_IS,
-                //        Toast.LENGTH_LONG).show();
-            } else {
-                Log.e(TAG, "Not supported IS mode = " +
                         mActivity.getString(R.string.pref_camera_dis_value_disable));
             }
         } else {
             if (isSupported(disMode,
                     CameraSettings.getSupportedDISModes(mParameters))) {
+                Log.v(TAG, "DIS value =" + disMode);
                 mParameters.set(CameraSettings.KEY_QC_DIS_MODE, disMode);
-            } else {
-                Log.e(TAG, "Not supported IS mode = " + disMode);
             }
         }
 
@@ -2229,21 +2130,20 @@ public class VideoModule implements CameraModule,
         String antiBanding = mPreferences.getString(
                  CameraSettings.KEY_ANTIBANDING,
                  mActivity.getString(R.string.pref_camera_antibanding_default));
-        Log.v(TAG, "antiBanding value =" + antiBanding);
         if (CameraUtil.isSupported(antiBanding, mParameters.getSupportedAntibanding())) {
+            Log.v(TAG, "antiBanding value =" + antiBanding);
             mParameters.setAntibanding(antiBanding);
         }
 
         String seeMoreMode = mPreferences.getString(
                 CameraSettings.KEY_SEE_MORE,
                 mActivity.getString(R.string.pref_camera_see_more_default));
-        Log.v(TAG, "See More value =" + seeMoreMode);
         if (isSupported(seeMoreMode,
                         CameraSettings.getSupportedSeeMoreModes(mParameters))) {
+            Log.v(TAG, "See More value =" + seeMoreMode);
             mParameters.set(CameraSettings.KEY_QC_SEE_MORE_MODE, seeMoreMode);
         }
 
-        mUnsupportedHFRVideoSize = false;
         mUnsupportedHFRVideoCodec = false;
         // To set preview format as YV12 , run command
         // "adb shell setprop "debug.camera.yv12" true"
@@ -2278,39 +2178,16 @@ public class VideoModule implements CameraModule,
         boolean isHFR = highFrameRate != null && !highFrameRate.equals("off");
 
         if (isHFR) {
-            mUnsupportedHFRVideoSize = true;
-            String hfrsize = videoWidth+"x"+videoHeight;
-            Log.v(TAG, "current set resolution is : "+hfrsize+ " : Rate is : " + highFrameRate );
-            try {
-                Size size = null;
-                if (isSupported(highFrameRate, mParameters.getSupportedVideoHighFrameRateModes())) {
-                    int index = mParameters.getSupportedVideoHighFrameRateModes().indexOf(
-                            highFrameRate);
-                    size = mParameters.getSupportedHfrSizes().get(index);
-                }
-                if (size != null) {
-                    if (videoWidth <= size.width && videoHeight <= size.height) {
-                        mUnsupportedHFRVideoSize = false;
-                        Log.v(TAG,"Current hfr resolution is supported");
-                    }
-                }
-            } catch (NullPointerException e){
-                Log.e(TAG, "supported hfr sizes is null");
-            }
-
-            int hfrFps = Integer.parseInt(highFrameRate);
-            if (!isSessionSupportedByEncoder(videoWidth, videoHeight, hfrFps)) {
-                mUnsupportedHFRVideoSize = true;
-            }
-            if (mUnsupportedHFRVideoSize) {
-                mParameters.setVideoHighFrameRate("off");
-                Log.v(TAG,"Unsupported hfr resolution");
-            } else {
-                mParameters.setVideoHighFrameRate(highFrameRate);
-            }
-
             if(mVideoEncoder != MediaRecorder.VideoEncoder.H264) {
-                mUnsupportedHFRVideoCodec = true;
+                mParameters.setVideoHighFrameRate("off");
+            } else {
+                int hfrFps = Integer.parseInt(highFrameRate);
+                if (!isSessionSupportedByEncoder(videoWidth, videoHeight, hfrFps)) {
+                    mParameters.setVideoHighFrameRate("off");
+                } else {
+                    Log.v(TAG, "Video HFR value =" + highFrameRate);
+                    mParameters.setVideoHighFrameRate(highFrameRate);
+                }
             }
         } else {
             mParameters.setVideoHighFrameRate("off");
@@ -2322,17 +2199,9 @@ public class VideoModule implements CameraModule,
                 CameraSettings.KEY_VIDEO_CDS_MODE,
                 mActivity.getString(R.string.pref_camera_video_cds_default));
 
-        if ((mPrevSavedVideoCDS == null) && (video_cds != null)) {
-            mPrevSavedVideoCDS = video_cds;
-        }
-
-        if (mOverrideCDS) {
-            video_cds = mPrevSavedVideoCDS;
-            mOverrideCDS = false;
-        }
-
         if (CameraUtil.isSupported(video_cds,
                 CameraSettings.getSupportedVideoCDSModes(mParameters))) {
+            Log.v(TAG, "Video CDS value =" + video_cds);
             mParameters.set(CameraSettings.KEY_QC_VIDEO_CDS_MODE, video_cds);
         }
 
@@ -2346,60 +2215,37 @@ public class VideoModule implements CameraModule,
                     pref_camera_video_tnr_value_off))) {
                 mParameters.set(CameraSettings.KEY_QC_VIDEO_CDS_MODE,
                         mActivity.getString(R.string.pref_camera_video_cds_value_off));
-                mUI.overrideSettings(CameraSettings.KEY_QC_VIDEO_CDS_MODE,
-                        mActivity.getString(R.string.pref_camera_video_cds_value_off));
-                if (!mIsVideoCDSUpdated) {
-                    if (video_cds != null) {
-                        mPrevSavedVideoCDS = mTempVideoCDS;
-                    }
-                    mIsVideoTNREnabled = true;
-                    mIsVideoCDSUpdated = true;
-                }
-            } else if (mIsVideoTNREnabled) {
-                mParameters.set(CameraSettings.KEY_QC_VIDEO_CDS_MODE, mPrevSavedVideoCDS);
-                mUI.overrideSettings(CameraSettings.KEY_QC_VIDEO_CDS_MODE, mPrevSavedVideoCDS);
-                mIsVideoTNREnabled = false;
-                mIsVideoCDSUpdated = false;
-                mOverrideCDS = true;
             } else {
-                mTempVideoCDS = video_cds;
+                mParameters.set(CameraSettings.KEY_QC_VIDEO_CDS_MODE, video_cds);
             }
+            Log.v(TAG, "Video TNR value =" + video_tnr);
             mParameters.set(CameraSettings.KEY_QC_VIDEO_TNR_MODE, video_tnr);
-            mUI.overrideSettings(CameraSettings.KEY_QC_VIDEO_TNR_MODE, video_tnr);
         }
 
         // Set Video HDR.
         String videoHDR = mPreferences.getString(
                 CameraSettings.KEY_VIDEO_HDR,
                 mActivity.getString(R.string.pref_camera_video_hdr_default));
-        Log.v(TAG, "Video HDR Setting =" + videoHDR);
+        boolean videoHDREnabled = videoHDR.equals("on");
         if (isSupported(videoHDR, mParameters.getSupportedVideoHDRModes())) {
-             if (((videoWidth * videoHeight) == (4096 * 2160)) &&
-                   videoHDR.equals("on")) {
-                 mUnsupportedHDR = true;
-             } else {
-                 mUnsupportedHDR = false;
-                 mParameters.setVideoHDRMode(videoHDR);
-             }
-        } else
-             mParameters.setVideoHDRMode("off");
+            if (mProfile.quality == CamcorderProfile.QUALITY_4KDCI && videoHDREnabled) {
+                mUnsupportedHDR = true;
+            } else {
+                mUnsupportedHDR = false;
+                mParameters.setVideoHDRMode(videoHDR);
+                Log.v(TAG, "Video HDR Setting =" + videoHDR);
+            }
+        }
 
         //HFR/HSR recording not supported with DIS,TimeLapse,HDR option
-        String hfr = mParameters.getVideoHighFrameRate();
-        String hdr = mParameters.getVideoHDRMode();
-        if (hfr != null && !hfr.equals("off")) {
-             // Read time lapse recording interval.
-             String frameIntervalStr = mPreferences.getString(
-                    CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL,
-                    mActivity.getString(R.string.pref_video_time_lapse_frame_interval_default));
-             int timeLapseInterval = Integer.parseInt(frameIntervalStr);
-             if ( (timeLapseInterval != 0) ||
-                  (disMode.equals("enable")) ||
-                  ((hdr != null) && (!hdr.equals("off"))) ) {
+        if (getHighFrameRateValue() != -1) {
+            String hdr = mParameters.getVideoHDRMode();
+            if (mCaptureTimeLapse ||
+                    disMode.equals("enable") ||
+                    videoHDREnabled) {
                 Log.v(TAG,"HDR/DIS/Time Lapse ON for HFR/HSR selection, turning HFR/HSR off");
                 mParameters.setVideoHighFrameRate("off");
-                mUI.overrideSettings(CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE, "off");
-             }
+            }
         }
 
         //getSupportedPictureSizes will always send a sorted a list in descending order
@@ -2411,7 +2257,6 @@ public class VideoModule implements CameraModule,
                 RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_dis,
                                Toast.LENGTH_LONG).show();
                 mParameters.set(CameraSettings.KEY_QC_DIS_MODE, "disable");
-                mUI.overrideSettings(CameraSettings.KEY_DIS,"disable");
             }
         }
         //setting video rotation
@@ -2419,6 +2264,7 @@ public class VideoModule implements CameraModule,
             CameraSettings.KEY_VIDEO_ROTATION,
             mActivity.getString(R.string.pref_camera_video_rotation_default));
         if (isSupported(videoRotation, mParameters.getSupportedVideoRotationValues())) {
+            Log.v(TAG, "Video rotation =" + videoRotation);
             mParameters.setVideoRotation(videoRotation);
         }
 
@@ -2473,13 +2319,6 @@ public class VideoModule implements CameraModule,
 
         mParameters.set(CameraUtil.RECORDING_HINT, CameraUtil.TRUE);
 
-        // Enable video stabilization. Convenience methods not available in API
-        // level <= 14
-        String vstabSupported = mParameters.get("video-stabilization-supported");
-        if ("true".equals(vstabSupported)) {
-            mParameters.set("video-stabilization", "true");
-        }
-
         // Set picture size.
         // The logic here is different from the logic in still-mode camera.
         // There we determine the preview size based on the picture size, but
@@ -2527,6 +2366,8 @@ public class VideoModule implements CameraModule,
         mParameters = mCameraDevice.getParameters();
 
         mFocusManager.setPreviewSize(videoWidth, videoHeight);
+        mUI.showHFRUI(getHighFrameRateValue() != -1);
+        mUI.showTimeLapseUI(mCaptureTimeLapse);
     }
 
     @Override
@@ -2566,12 +2407,15 @@ public class VideoModule implements CameraModule,
             // startPreview().
             if (mCameraDevice == null) return;
 
+            // update menu
+            mUI.updateMenuVisibility();
+
             boolean recordLocation = RecordLocationPreference.get(
                     mPreferences, mContentResolver);
             mLocationManager.recordLocation(recordLocation);
 
             readVideoPreferences();
-            mUI.showTimeLapseUI(mCaptureTimeLapse);
+
             // We need to restart the preview if preview size is changed.
             Size size = mParameters.getPreviewSize();
             if (size.width != mDesiredPreviewWidth
@@ -2639,9 +2483,6 @@ public class VideoModule implements CameraModule,
         // Start switch camera animation. Post a message because
         // onFrameAvailable from the old camera may already exist.
         mHandler.sendEmptyMessage(SWITCH_CAMERA_START_ANIMATION);
-
-        //Display timelapse msg depending upon selection in front/back camera.
-        mUI.showTimeLapseUI(mCaptureTimeLapse);
     }
 
     private void initializeCapabilities() {
@@ -2848,4 +2689,27 @@ public class VideoModule implements CameraModule,
         resumeVideoRecording();
     }
 
+    private Size getHighFrameRateSize(String highFrameRate) {
+        try {
+            if (isSupported(highFrameRate, mParameters.getSupportedVideoHighFrameRateModes())) {
+                int index = mParameters.getSupportedVideoHighFrameRateModes().indexOf(highFrameRate);
+                return mParameters.getSupportedHfrSizes().get(index);
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    // return -1 if disabled
+    private int getHighFrameRateValue() {
+        String hfr = mParameters.getVideoHighFrameRate();
+        if (hfr != null && !hfr.equals("off")) {
+            try {
+                return Integer.parseInt(hfr);
+            } catch(NumberFormatException ex) {
+                Log.e(TAG,"Invalid hfr values:"+hfr);
+            }
+        }
+        return -1;
+    }
 }
