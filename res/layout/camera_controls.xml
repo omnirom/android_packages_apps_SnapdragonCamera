@@ -13,7 +13,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.android.camera.ui.CameraControls xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.camera.ui.CameraControls
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/camera_controls"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -37,6 +38,16 @@
         android:layout_gravity="bottom|left"
         android:layout_marginBottom="2dip"
         android:contentDescription="@string/accessibility_mode_picker" />
+
+    <com.android.camera.PauseButton
+        android:id="@+id/video_pause"
+        android:layout_width="@dimen/capture_size"
+        android:layout_height="@dimen/capture_size"
+        android:layout_margin="12dp"
+        android:visibility="gone"
+        android:scaleType="fitCenter"
+        android:src="@drawable/btn_pause_recording"
+        android:layout_gravity="bottom|left"/>
 
     <com.android.camera.ShutterButton
         android:id="@+id/shutter_button"
