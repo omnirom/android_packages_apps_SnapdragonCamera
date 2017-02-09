@@ -541,6 +541,12 @@ public class VideoUI implements PieRenderer.PieListener,
         }
     }
 
+    public void updateMenuVisibility() {
+        if (mVideoMenu != null) {
+            mVideoMenu.updateMenuVisibility();
+        }
+    }
+
     public void setOrientationIndicator(int orientation, boolean animation) {
         // We change the orientation of the linearlayout only for phone UI
         // because when in portrait the width is not enough.
@@ -661,9 +667,6 @@ public class VideoUI implements PieRenderer.PieListener,
     }
 
     public void showTimeLapseUI(boolean enable) {
-        if (mTimeLapseLabel != null) {
-            mTimeLapseLabel.setVisibility(enable ? View.VISIBLE : View.GONE);
-        }
         mIsTimeLapse = enable;
     }
 
@@ -899,14 +902,16 @@ public class VideoUI implements PieRenderer.PieListener,
             hideSwitcher();
             mRecordingTimeView.setText("");
             mRecordingTimeView.setVisibility(View.VISIBLE);
-            //mPauseButton.setVisibility(mIsTimeLapse ? View.GONE : View.VISIBLE);
+            mPauseButton.setVisibility(mIsTimeLapse ? View.GONE : View.VISIBLE);
+            mTimeLapseLabel.setVisibility(mIsTimeLapse ? View.VISIBLE : View.GONE);
         } else {
             mShutterButton.setImageResource(R.drawable.shutter_vector_video);
             if (!mController.isVideoCaptureIntent()) {
                 showSwitcher();
             }
             mRecordingTimeView.setVisibility(View.GONE);
-            //mPauseButton.setVisibility(View.GONE);
+            mPauseButton.setVisibility(View.GONE);
+            mTimeLapseLabel.setVisibility(View.GONE);
         }
     }
 

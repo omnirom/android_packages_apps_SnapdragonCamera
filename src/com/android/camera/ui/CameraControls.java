@@ -42,6 +42,7 @@ import com.android.camera.ui.ModuleSwitcher;
 import com.android.camera.ui.RotateImageView;
 import com.android.camera.ui.RotateVectorView;
 import com.android.camera.ComboPreferences;
+import com.android.camera.PauseButton;
 import com.android.camera.RemainingPreference;
 import com.android.camera.ShutterButton;
 import com.android.camera.util.CameraUtil;
@@ -62,6 +63,7 @@ public class CameraControls extends RotatableLayout {
     private View mSceneModeSwitcher;
     private View mFilterModeSwitcher;
     private ArrowTextView mRefocusToast;
+    private PauseButton mPauseButton;
 
     private int mSize;
     private static final int WIDTH_GRID = 5;
@@ -214,6 +216,7 @@ public class CameraControls extends RotatableLayout {
         mFilterModeSwitcher = findViewById(R.id.filter_mode_switcher);
         mRemainingPhotos = (LinearLayout) findViewById(R.id.remaining_photos);
         mRemainingPhotosText = (TextView) findViewById(R.id.remaining_photos_text);
+        mPauseButton = (PauseButton) findViewById(R.id.video_pause);
 
         if(TsMakeupManager.HAS_TS_MAKEUP) {
             mTopViews = new View[] {
@@ -227,7 +230,7 @@ public class CameraControls extends RotatableLayout {
             };
         }
         mBottomViews = new View[] {
-            mPreview, mShutter, mSwitcher
+            mPreview, mShutter, mSwitcher, mPauseButton
         };
         mAllViews = new View[mTopViews.length + mBottomViews.length];
         for (int i = 0; i < mTopViews.length; i++) {
@@ -303,6 +306,7 @@ public class CameraControls extends RotatableLayout {
 
         toRight(mSwitcher, expandedShutter, rotation);
         toLeft(mPreview, expandedShutter, rotation);
+        toRight(mPauseButton, expandedShutter, rotation);
 
         layoutToast(mRefocusToast, w, h, rotation);
 

@@ -55,22 +55,35 @@
         android:id="@+id/recording_time_rect"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="horizontal"
+        <LinearLayout
+            android:id="@+id/labels"
+            android:orientation="vertical"
             android:layout_height="match_parent"
-            android:layout_width="match_parent">
-            <com.android.camera.PauseButton android:id="@+id/video_pause"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+            
+            <TextView
+                android:id="@+id/recording_time"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:padding="23dp"
+                style="@style/OnViewfinderLabelLarge"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_recording_indicator"
+                android:drawablePadding="5dp"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/time_lapse_label"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/time_lapse_title"
+                style="@style/OnViewfinderLabelSmall"
                 android:visibility="gone"
-                android:src="@drawable/btn_pause_recording"/>
-            <include layout="@layout/viewfinder_labels_video"
-                android:id="@+id/labels" />
+                android:layout_marginTop="10dp" />
         </LinearLayout>
     </com.android.camera.ui.RotateLayout>
-    <ImageView android:id="@+id/review_image"
+    <ImageView 
+        android:id="@+id/review_image"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:visibility="gone"
