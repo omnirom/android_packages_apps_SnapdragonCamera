@@ -342,6 +342,9 @@ public class CameraSettings {
         mCameraId = cameraId;
         mCameraInfo = cameraInfo;
 
+        // dump camera paramters
+        mParamters.dump();
+
         // ISO
         mKeyIso = mContext.getResources().getString(R.string.key_iso);
         mKeyIsoValues = mContext.getResources().getString(R.string.key_iso_values);
