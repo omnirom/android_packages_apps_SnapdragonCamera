@@ -161,7 +161,6 @@ public class CameraSettings {
     public static final String KEY_QC_VIDEO_TNR_MODE = "video-tnr-mode";
     public static final String KEY_SNAPCAM_HDR_MODE = "hdr-mode";
     public static final String KEY_SNAPCAM_HDR_NEED_1X = "hdr-need-1x";
-    public static final String KEY_VIDEO_HSR = "video-hsr";
     public static final String KEY_QC_SEE_MORE_MODE = "see-more";
 
     public static final String KEY_INTERNAL_PREVIEW_RESTART = "internal-restart";
@@ -1287,7 +1286,6 @@ public class CameraSettings {
     public static List<String> getSupportedHighFrameRateModes(Parameters params) {
         ArrayList<String> supported = new ArrayList<String>();
         List<String> supportedModes = params.getSupportedVideoHighFrameRateModes();
-        String hsr = params.get(KEY_VIDEO_HSR);
 
         if (supportedModes == null) {
             return null;
@@ -1297,10 +1295,7 @@ public class CameraSettings {
             if (highFrameRateMode.equals("off")) {
                 supported.add(highFrameRateMode);
             } else {
-                supported.add("hfr" + highFrameRateMode);
-                if (hsr != null) {
-                    supported.add("hsr" + highFrameRateMode);
-                }
+                supported.add(highFrameRateMode);
             }
         }
         return supported;
