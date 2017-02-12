@@ -56,11 +56,13 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
         <LinearLayout
+            android:id="@+id/recording_labels"
             android:orientation="horizontal"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:padding="10dp"
-            android:background="@drawable/bg_text_on_preview" >
+            android:background="@drawable/bg_text_on_preview"
+            android:visibility="gone" >
 
             <TextView
                 android:id="@+id/recording_time"
@@ -69,7 +71,6 @@
                 style="@style/OnViewfinderLabelLarge"
                 android:drawableLeft="@drawable/ic_recording_indicator"
                 android:drawablePadding="5dp"
-                android:visibility="gone"
                 android:gravity="center_vertical" />
             <TextView
                 android:id="@+id/recording_label"

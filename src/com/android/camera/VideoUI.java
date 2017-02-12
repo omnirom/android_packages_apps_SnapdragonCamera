@@ -83,6 +83,7 @@ public class VideoUI implements PieRenderer.PieListener,
     private ModuleSwitcher mSwitcher;
     private TextView mRecordingTimeView;
     private TextView mRecordingModLabel;
+    private View mRecordingLabels;
     private RenderOverlay mRenderOverlay;
     private PieRenderer mPieRenderer;
     private VideoMenu mVideoMenu;
@@ -604,9 +605,10 @@ public class VideoUI implements PieRenderer.PieListener,
 
     private void initializeMiscControls() {
         mReviewImage = (ImageView) mRootView.findViewById(R.id.review_image);
-        mRecordingTimeView = (TextView) mRootView.findViewById(R.id.recording_time);
         mRecordingTimeRect = (RotateLayout) mRootView.findViewById(R.id.recording_time_rect);
+        mRecordingTimeView = (TextView) mRootView.findViewById(R.id.recording_time);
         mRecordingModLabel = (TextView) mRootView.findViewById(R.id.recording_label);
+        mRecordingLabels = mRootView.findViewById(R.id.recording_labels);
 
         mShutterButton.setImageResource(R.drawable.shutter_vector_video_anim);
         mShutterButton.setOnClickListener(new OnClickListener(){
@@ -907,7 +909,7 @@ public class VideoUI implements PieRenderer.PieListener,
             mShutterButton.setImageResource(R.drawable.shutter_vector_video_anim);
             hideSwitcher();
             mRecordingTimeView.setText("");
-            mRecordingTimeView.setVisibility(View.VISIBLE);
+            mRecordingLabels.setVisibility(View.VISIBLE);
             mPauseButton.setVisibility(mIsTimeLapse ? View.GONE : View.VISIBLE);
             mRecordingModLabel.setVisibility((mIsTimeLapse || mIsHFR) ? View.VISIBLE : View.GONE);
         } else {
@@ -915,7 +917,7 @@ public class VideoUI implements PieRenderer.PieListener,
             if (!mController.isVideoCaptureIntent()) {
                 showSwitcher();
             }
-            mRecordingTimeView.setVisibility(View.GONE);
+            mRecordingLabels.setVisibility(View.GONE);
             mPauseButton.setVisibility(View.GONE);
             mRecordingModLabel.setVisibility(View.GONE);
         }
@@ -1115,9 +1117,7 @@ public class VideoUI implements PieRenderer.PieListener,
         if (mRecordingTimeRect != null) {
             if (orientation == 180) {
                 mRecordingTimeRect.setOrientation(0, false);
-                mRecordingTimeView.setRotation(180);
             } else {
-                mRecordingTimeView.setRotation(0);
                 mRecordingTimeRect.setOrientation(orientation, false);
             }
         }
