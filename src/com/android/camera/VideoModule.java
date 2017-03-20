@@ -48,6 +48,7 @@ import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.provider.MediaStore.MediaColumns;
 import android.provider.MediaStore.Video;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.OrientationEventListener;
@@ -2265,6 +2266,11 @@ public class VideoModule implements CameraModule,
             mParameters.setVideoRotation(videoRotation);
         }
 
+        String previewFpsValue = mActivity.getResources().getString(R.string.preview_fps_range);
+        if (!TextUtils.isEmpty(previewFpsValue)) {
+            Log.v(TAG, "preview-fps-range value =" + previewFpsValue);
+            mParameters.set("preview-fps-range", previewFpsValue);
+        }
     }
     @SuppressWarnings("deprecation")
     private void setCameraParameters() {

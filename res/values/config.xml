@@ -66,4 +66,8 @@
     <!-- show/hide the advanced features menu -->
     <bool name="enable_advanced_features">false</bool>
 
+    <!-- show/hide the advanced features menu -->
+    <string name="preview_fps_range"></string>
+
+    <bool name="config_iso_auto_tweak">false</bool>
 </resources>
