@@ -72,6 +72,7 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Vyvážení na střed</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Průměr snímků</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Bodové měření</string>
+  <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Rozšířené nastavení</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
@@ -136,9 +137,9 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">HFR/HSR není podporováno pro DIS/TimeLapse/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Slow-mo není podporováno pro vybranou velikost videa. Zvolte nižší velikost videa.</string>
+  <string name="error_app_unsupported_hfr">Slow-mo není podporováno pro vybranou velikost videa.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Nepodporované rozlišení videa pro Display Image Stabilization (DIS)</string>
+  <string name="error_app_unsupported_dis">Nepodporované rozlišení videa pro stabilizaci</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">Vysokorychlostní režim není podporován pro vybranou velikost videa. Zvolte nižší velikost videa.</string>
@@ -174,9 +175,6 @@
   <string name="pref_camera_hfr_entry_2x">Pomalu; 60 FPS</string>
   <string name="pref_camera_hfr_entry_3x">Pomalu; 90 FPS</string>
   <string name="pref_camera_hfr_entry_4x">Pomalu; 120 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_60">Zrychleně; 60 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_90">Zrychleně; 90 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_120">Zrychleně; 120 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -232,6 +230,7 @@
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">IS</string>
+  <string name="pref_camera_dis_title_new">Stabilizace videa</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Rozpoznávání obličeje</string>

@@ -72,6 +72,7 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Mittenbetont</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Mehrfeldmessung</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Spotmessung</string>
+  <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Erweiterte Funktionen</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
@@ -136,19 +137,20 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">HFR/HSR ist für DIS/Zeitraffer/HDR nicht unterstützt</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Slow-Motion ist für die Größe des ausgewählten Videos nicht unterstützt. Wählen Sie eine niedrigere Videogröße.</string>
+  <string name="error_app_unsupported_hfr">Slow-Motion ist für die Größe des ausgewählten Videos nicht unterstützt.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Nicht unterstützte Video-Auflösung für die Anzeige Bild Stabilization(DIS)</string>
+  <string name="error_app_unsupported_dis">Nicht unterstützte Video-Auflösung für Video-Stabilisierung</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">High-Speed-Modus ist nicht für die Größe des ausgewählten Videos unterstützt. Wählen Sie eine niedrigere Videogröße.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Nur H264 video-encoding wird unterstützt, wenn HFR eingeschaltet ist</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
-  <string name="error_app_unsupported">Nicht unterstützte Videoauflösung für diesen encoder</string>
+  <string name="error_app_unsupported">Nicht unterstützte Videoauflösung für diesen Encoder</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
   <string name="error_app_unsupported_profile">Nicht unterstütztes Video-Profil</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
+  <string name="error_app_unsupported_raw">RAW Bildformat wird nicht im Zsl-Modus unterstützt, ändern Sie in JPEG     </string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution (4k DCI) for video HDR-->
   <string name="error_app_unsupported_video_hdr">Video HDR wird für 4k DCI nicht unterstützt</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
@@ -171,9 +173,6 @@
   <string name="pref_camera_hfr_entry_2x">Slow-Mo; 60FPS</string>
   <string name="pref_camera_hfr_entry_3x">Slow-Mo; 90 FPS</string>
   <string name="pref_camera_hfr_entry_4x">Slow-Mo; 120 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_60">High-Speed; 60FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_90">High-Speed; 90 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_120">High-Speed; 120 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -229,6 +228,7 @@
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">IS</string>
+  <string name="pref_camera_dis_title_new">Video-Stabilisierung</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Gesichtserkennung</string>

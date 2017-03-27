@@ -17,6 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
   <string name="app_name">카메라</string>
+  <string name="snapcam_app_name">카메라</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
   <string name="video_camera_label">캠코더</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
@@ -169,6 +170,10 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">카운트다운 신호음 켜기</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">저장소 위치</string>
+  <string name="pref_camera_savepath_default">0</string>
+  <string name="pref_camera_savepath_entry_0">내부 저장소</string>
+  <string name="pref_camera_savepath_entry_1">외부 저장소</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">OFF</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -195,6 +200,7 @@
   <!-- Settings screen, Camcorder setting category title -->
   <string name="pref_camcorder_settings_category">캠코더 설정</string>
   <!-- Settings screen, Picture size title -->
+  <string name="pref_camera_picturesize_title">사진 크기</string>
   <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">초점 모드</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->

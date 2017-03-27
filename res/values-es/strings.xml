@@ -538,4 +538,5 @@ CHAR LIMIT = NONE] -->
   <string name="remaining_photos_format">%d restantes</string>
   <string name="refocus_toast">Para volver a enfocar la última foto, pulse aquí</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <string name="pref_camera_remaining_label">RESTANTES</string>
 </resources>

@@ -72,6 +72,7 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Sredinsko uravnoteženo</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Povprečje okvirja</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Točkovno</string>
+  <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Napredne značilnosti</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
@@ -136,9 +137,9 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">HFR/HSR ni podprt za DIS/Hiter posnetek/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Počasi posnetek ni podprt za izbrano velikost videoposnetka.  Izberite manjšo velikost.</string>
+  <string name="error_app_unsupported_hfr">Počasi posnetek ni podprt za izbrano velikost videoposnetka.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Nepodprta ločljivost slike za ustalitev slike (DIS)</string>
+  <string name="error_app_unsupported_dis">Nepodprta ločljivost slike za ustalitev slike</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">Način visoke hitrosti ni podprt za izbrano velikost videoposnetka.  Izberite manjšo velikost.</string>
@@ -174,9 +175,6 @@
   <string name="pref_camera_hfr_entry_2x">Počasni posnetek; 60 sl./s</string>
   <string name="pref_camera_hfr_entry_3x">Počasni posnetek; 90 sl./s</string>
   <string name="pref_camera_hfr_entry_4x">Počasni posnetek; 120 sl./s</string>
-  <string name="pref_camera_hfr_entry_hsr_60">Visoka hitrost; 60 sl./s</string>
-  <string name="pref_camera_hfr_entry_hsr_90">Visoka hitrost; 90 sl./s</string>
-  <string name="pref_camera_hfr_entry_hsr_120">Visoka hitrost; 120 sl./s</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -232,6 +230,7 @@
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">Ustalitev slike</string>
+  <string name="pref_camera_dis_title_new">Ustalitev slike</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Prepoznavanje obraza</string>

@@ -70,16 +70,20 @@
   <string name="pref_camera_selectablezoneaf_entry_auto">Авто</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Центро-взвешенный</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Каркасно-средняя</string>
+  <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Расширенные возможности</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <string name="pref_camera_advanced_feature_entry_none">Без эффекта</string>
   <string name="pref_camera_advanced_feature_entry_ubifocus">UBI фокус</string>
   <string name="pref_camera_advanced_feature_entry_refocus">Перефокусировать</string>
+  <string name="pref_camera_advanced_feature_entry_chromaflash">Chroma-вспышка</string>
   <string name="pref_camera_advanced_feature_entry_optizoom">Оптический зум</string>
   <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
+  <string name="pref_camera_manual_exp_title">Ручная экспозиция</string>
+  <string name="pref_camera_manual_exp_entry_ISO_priority">Приоритет ISO</string>
   <!-- Manual white balance entry values -->
   <string name="pref_camera_manual_wb_title">Ручной баланс белого</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Цветовая температура</string>
@@ -123,9 +127,7 @@
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Замедленная съемка не поддерживается для выбранного размера видео. Выберите меньший размера видео.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Неподдерживаемое разрешение видео для стабилизации изображения (DIS)</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->

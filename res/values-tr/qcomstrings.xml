@@ -72,6 +72,7 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Merkez ağırlıklı</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Çerçeve ortalama</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Işık ölçme</string>
+  <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Gelişmiş Özellikler</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
@@ -136,9 +137,7 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">HFR/HSR, DIS/Zaman Atlama/HDR için desteklenmez</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Ağır çekim seçili video boyutu için desteklenmiyor. Daha düşük bir video boyutu seçin.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Ekran Görüntüsü Sabitleme(DIS) için desteklenmeyen video çözünürlüğü</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">Yüksek hız modu seçili video boyutu için desteklenmiyor. Daha düşük bir video boyutu seçin.</string>
@@ -174,9 +173,6 @@
   <string name="pref_camera_hfr_entry_2x">Ağır çekim; 60 FPS</string>
   <string name="pref_camera_hfr_entry_3x">Ağır çekim; 90 FPS</string>
   <string name="pref_camera_hfr_entry_4x">Ağır çekim; 120 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_60">Yüksek hız; 60 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_90">Yüksek hız; 90 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_120">Yüksek hız; 120 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->

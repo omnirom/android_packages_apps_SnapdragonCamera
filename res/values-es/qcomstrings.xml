@@ -72,6 +72,7 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Balanceado al centro</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Promedio de fotogramas</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Medición puntual</string>
+  <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Funciones avanzadas</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
@@ -136,9 +137,9 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">HFR/HSR no es compatible con DIS/TimeLapse/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">El modo cámara lenta no es compatible con el tamaño de video seleccionado. Seleccione un tamaño de video inferior.</string>
+  <string name="error_app_unsupported_hfr">Slow-motion no es compatible con el tamaño de video selccionado.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Resolución de vídeo no compatible para la estabilización de imagen (DIS)</string>
+  <string name="error_app_unsupported_dis">Resolución de vídeo no compatible con la estabilización de vídeo</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">El modo alta velocidad no es compatible con el tamaño de video seleccionado. Seleccione un tamaño de video inferior.</string>
@@ -171,9 +172,6 @@
   <string name="pref_camera_hfr_entry_2x">Cámara lenta; 60 FPS</string>
   <string name="pref_camera_hfr_entry_3x">Cámara lenta; 90 FPS</string>
   <string name="pref_camera_hfr_entry_4x">Cámara lenta; 120 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_60">Alta velocidad; 60 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_90">Alta velocidad; 90 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_120">Alta velocidad; 120 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -229,6 +227,7 @@
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">IS</string>
+  <string name="pref_camera_dis_title_new">Estabilización de vídeo</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Reconocimiento de cara</string>

@@ -175,6 +175,7 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Bip conto alla rov.</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">Posizione archiviazione</string>
   <string name="pref_camera_savepath_default">0</string>
   <string name="pref_camera_savepath_entry_0">Memoria interna</string>
   <string name="pref_camera_savepath_entry_1">Memoria esterna</string>
@@ -204,6 +205,7 @@
   <!-- Settings screen, Camcorder setting category title -->
   <string name="pref_camcorder_settings_category">Impostazioni videocamera</string>
   <!-- Settings screen, Picture size title -->
+  <string name="pref_camera_picturesize_title">Dimensione immagine</string>
   <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">Modalità messa a fuoco</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
@@ -529,5 +531,6 @@ CHAR LIMIT = NONE] -->
   <string name="switch_photo_filmstrip">Visualizzazione sequenza</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Impostazione dello sfondo</string>
+  <string name="refocus_toast">Per rimettere a fuoco l\'ultima foto, premere qui</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
 </resources>

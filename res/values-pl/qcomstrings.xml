@@ -108,9 +108,7 @@
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Slow-mo nie jest obsługiwany dla tego rozmiaru video. Wybierz niższy rozmiar video</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Stabilizacja obrazu (DIS) nie działa dla wybranej rozdzielczości</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">Tryb High-speed nie jest obsługiwany dla wybranej rozdzielczości. Wybierz niższą rozdzielczość.</string>

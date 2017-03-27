@@ -72,6 +72,7 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Központ-súlyozott</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Átlag-keret</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Fénymérés</string>
+  <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Speciális beállítások</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
@@ -136,9 +137,9 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Nagy sebességű/lassított felvétel DIS/TimeLapse/HDR esetén nem támogatott</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">A kiválasztott felbontásban nem támogatott a Lassított felvétel mód. Válasszon kisebb felbontást.</string>
+  <string name="error_app_unsupported_hfr">Lassított felvétel nem támogatott a kiválasztott videó mérethez.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Nem támogatott videó felbontás a képstabilizációhoz (DIS)</string>
+  <string name="error_app_unsupported_dis">Nem támogatott videó felbontás a videó stabilizációhoz</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">A kiválasztott felbontásban nem támogatott a Gyorsított felvétel mód. Válasszon kisebb felbontást.</string>
@@ -174,9 +175,6 @@
   <string name="pref_camera_hfr_entry_2x">Lassított felvétel; 60 FPS</string>
   <string name="pref_camera_hfr_entry_3x">Lassított felvétel; 90 FPS</string>
   <string name="pref_camera_hfr_entry_4x">Lassított felvétel; 120 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_60">Nagy sebességű; 60 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_90">Nagy sebességű; 90 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_120">Nagy sebességű; 120 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -232,6 +230,7 @@
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">Képstabilizálás</string>
+  <string name="pref_camera_dis_title_new">Videó stabilizáció</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Arcfelismerés</string>

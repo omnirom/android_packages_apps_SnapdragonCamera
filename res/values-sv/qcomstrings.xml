@@ -30,14 +30,24 @@
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
   <!-- Settings screen, Video encoder dialog radio button choices -->
+  <string name="pref_camera_videoencoder_entry_0">MPEG4</string>
+  <string name="pref_camera_videoencoder_entry_1">H263</string>
+  <string name="pref_camera_videoencoder_entry_2">H264</string>
+  <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
   <!-- Settings screen, Audio encoder dialog radio button choices -->
+  <string name="pref_camera_audioencoder_entry_0">AMRNB</string>
+  <string name="pref_camera_audioencoder_entry_1">AAC</string>
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
   <!-- Settings screen, Video duration dialog radio button choices -->
+  <string name="pref_camera_video_duration_entry_mms">30 sekunder(MMS)</string>
+  <string name="pref_camera_video_duration_entry_10">10 minuter</string>
+  <string name="pref_camera_video_duration_entry_30">30 minuter</string>
+  <string name="pref_camera_video_duration_entry_nolimit">ingen gräns</string>
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
@@ -49,6 +59,7 @@
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
   <!-- Manual white balance entry values -->
@@ -63,11 +74,13 @@
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
+  <string name="pref_camera_video_hdr_title">Video HDR</string>
   <!-- Settings menu, setting title text for cds mode-->
   <!-- Settings menu, setting title text for video cds mode-->
   <!-- Default cds mode setting-->
   <!-- Default video cds mode setting-->
   <!-- Settings menu, setting title text for tnr mode-->
+  <string name="pref_camera_tnr_title">TNR-läge</string>
   <!-- Settings menu, setting title text for video tnr mode-->
   <!-- Default tnr mode setting-->
   <!-- Default video tnr mode setting-->
@@ -98,73 +111,199 @@
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
+  <string name="pref_camera_see_more_title">Visa mer</string>
   <!-- Settings screen, see more radio button choices -->
   <!-- see more entry values. Do not translate. -->
   <!-- Denoise Settings screen, setting title text -->
   <!-- Denoise Settings screen, Record location dialog choices -->
   <!-- Default iso setting. Do not translate. -->
   <!-- Settings screen, Select Iso title -->
+  <string name="pref_camera_iso_title">ISO</string>
   <!-- Settings screen, ISO dialog radio button choices -->
+  <string name="pref_camera_iso_entry_auto">Auto</string>
+  <string name="pref_camera_iso_entry_isodeblur">Auto (HJR)</string>
+  <string name="pref_camera_iso_entry_iso100">ISO100</string>
+  <string name="pref_camera_iso_entry_iso200">ISO200</string>
+  <string name="pref_camera_iso_entry_iso400">ISO400</string>
+  <string name="pref_camera_iso_entry_iso800">ISO800</string>
+  <string name="pref_camera_iso_entry_iso1600">ISO1600</string>
+  <string name="pref_camera_iso_entry_iso3200">ISO3200</string>
   <!-- ISO entry values. Do not translate. -->
   <!-- Settings screen, Anti Banding title -->
   <!-- Default Anti Banding setting. -->
   <!-- Settings screen, Anti Banding entries -->
+  <string name="pref_camera_antibanding_entry_0">Auto</string>
+  <string name="pref_camera_antibanding_entry_2">60 Hz (USA)</string>
   <!-- Default color effect setting. -->
   <!-- Settings screen, Select Color effect title -->
+  <string name="pref_camera_coloreffect_title">Färgeffekt</string>
   <!-- Settings screen, Color effect dialog radio button choices -->
+  <string name="pref_camera_coloreffect_entry_mono">Mono</string>
+  <string name="pref_camera_coloreffect_entry_sepia">Sepia</string>
+  <string name="pref_camera_coloreffect_entry_negative">Negativ</string>
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_neon">Neon</string>
+  <string name="pref_camera_coloreffect_entry_mosaic">Mosaik</string>
   <!-- Default Touch AF/AEC setting. Do not translate. -->
   <!-- Settings screen, Select Touch AF/AEC title -->
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
+  <string name="pref_camera_dis_title">IS</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
   <!-- Face Recognition choices -->
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_sharpness_entry_level0">Nivå 0</string>
+  <string name="pref_camera_sharpness_entry_level1">Nivå 1</string>
+  <string name="pref_camera_sharpness_entry_level3">Nivå 3</string>
+  <string name="pref_camera_sharpness_entry_level4">Nivå 4</string>
+  <string name="pref_camera_sharpness_entry_level5">Nivå 5</string>
+  <string name="pref_camera_sharpness_entry_level6">Nivå 6</string>
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_contrast_entry_level0">Nivå 0</string>
+  <string name="pref_camera_contrast_entry_level1">Nivå 1</string>
+  <string name="pref_camera_contrast_entry_level2">Nivå 2</string>
+  <string name="pref_camera_contrast_entry_level3">Nivå 3</string>
+  <string name="pref_camera_contrast_entry_level4">Nivå 4</string>
+  <string name="pref_camera_contrast_entry_level6">Nivå 6</string>
+  <string name="pref_camera_contrast_entry_level7">Nivå 7</string>
+  <string name="pref_camera_contrast_entry_level8">Nivå 8</string>
+  <string name="pref_camera_contrast_entry_level9">Nivå 9</string>
+  <string name="pref_camera_contrast_entry_level10">Nivå 10</string>
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_saturation_entry_level0">Nivå 0</string>
+  <string name="pref_camera_saturation_entry_level1">Nivå 1</string>
+  <string name="pref_camera_saturation_entry_level2">Nivå 2</string>
+  <string name="pref_camera_saturation_entry_level3">Nivå 3</string>
+  <string name="pref_camera_saturation_entry_level4">Nivå 4</string>
+  <string name="pref_camera_saturation_entry_level6">Nivå 6</string>
+  <string name="pref_camera_saturation_entry_level7">Nivå 7</string>
+  <string name="pref_camera_saturation_entry_level8">Nivå 8</string>
+  <string name="pref_camera_saturation_entry_level9">Nivå 9</string>
+  <string name="pref_camera_saturation_entry_level10">Nivå 10</string>
   <!-- Default sharpness setting. Do not translate. -->
   <!-- Settings screen, Select sharpness title -->
   <!-- Default contrast setting. Do not translate. -->
   <!-- Settings screen, Select contrast title -->
+  <string name="pref_camera_contrast_title">Kontrast</string>
   <!-- Default saturation setting. Do not translate. -->
   <!-- Settings screen, Select saturation title -->
+  <string name="pref_camera_saturation_title">Mättnad</string>
   <!-- Default picture quality setting. See
          pref_camera_jpegquality_entryvalues for possible values -->
   <!-- Default Picture format setting. Do not translate. -->
   <!-- Settings screen, Select Picture format title -->
   <!-- Settings screen, picture format dialog radio button choices -->
+  <string name="pref_camera_picture_format_entry_jpeg">JPEG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8gbrg">BayerQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8grbg">BayerQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8rggb">BayerQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8bggr">BayerQ8BGRR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10gbrg">BayerQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10grbg">BayerQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10rggb">BayerQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10bggr">BayerQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12gbrg">BayerQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12grbg">BayerQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12rggb">BayerQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12bggr">BayerQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8gbrg">BayerM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8grbg">BayerM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8rggb">BayerM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8bggr">BayerM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10gbrg">BayerM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10grbg">BayerM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10rggb">BayerM10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10bggr">BayerM10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12gbrg">BayerM12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12grbg">BayerM12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12rggb">BayerM12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12bggr">BayerM12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8gbrg">BayerIQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8grbg">BayerIQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8rggb">BayerIQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8bggr">BayerIQ8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10gbrg">BayerIQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10grbg">BayerIQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10rggb">BayerIQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10bggr">BayerIQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12gbrg">BayerIQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12grbg">BayerIQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12rggb">BayerIQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12bggr">BayerIQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8gbrg">BayerIM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8grbg">BayerIM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8rggb">BayerIM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8bggr">BayerIM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10gbrg">BayerIM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10grbg">BayerIM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10rggb">BayerIM10rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10bggr">BayerIM8bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12gbrg">BayerIM12gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12grbg">BayerIM12grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12rggb">BayerIM12rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12bggr">BayerIM12bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8gbrg">BayerIP88gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8grbg">BayerIP88grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8rggb">BayerIP88rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8bggr">BayerIP88bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8gbrg">BayerIP168gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8grbg">BayerIP168grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8rggb">BayerIP168rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8bggr">BayerIP168bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10gbrg">BayerIP1610gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10grbg">BayerIP1610grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10rggb">BayerIP1610rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10bggr">BayerIP1610bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12gbrg">BayerIP1612gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12grbg">BayerIP1612grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12rggb">BayerIP1612rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12bggr">BayerIP1612bggr</string>
   <!-- Picture format entry values. Do not translate. -->
   <!-- Settings screen, Picture quality title -->
   <!-- Settings screen, Picture quality dialog radio button choices -->
+  <string name="pref_camera_jpegquality_entry_1">Standard</string>
   <!-- Default auto histogram setting. Do not translate. -->
   <!-- Settings screen, Select Histogram title -->
+  <string name="pref_camera_histogram_title">Histogram</string>
   <!-- Settings screen, Histogram radio button choices -->
   <!-- Histogram entry values. Do not translate. -->
+  <string name="pref_camera_focusmode_entry_continuous">Kontinuerlig bild</string>
+  <string name="pref_camera_scenemode_entry_asd">ASD</string>
   <!-- Scene mode that takes an image with as little noise as possible so details of the subject are maintained. -->
   <!-- Scene mode that takes an image of a landscape assuming all subjects are relatively far from the phone. -->
   <!-- Scene mode that takes night shots with long exposure and flash to illuminate the subject while still capturing darker detail in the background. -->
+  <string name="pref_camera_scenemode_entry_night_portrait">Nattporträtt</string>
   <!-- Scene mode to be used in a stage show. -->
   <!-- Scene mode optimized for taking images on the beach. -->
+  <string name="pref_camera_scenemode_entry_beach">Strand</string>
   <!-- Scene mode optimized for taking images in the snow. -->
+  <string name="pref_camera_scenemode_entry_snow">Snö</string>
   <!-- Scene mode for taking a photo as sharp as possible. -->
   <!-- Scene mode optimized for taking images of fireworks. -->
+  <string name="pref_camera_scenemode_entry_fireworks">Fyrverkerier</string>
   <!-- Scene mode optimized for taking images during sports . -->
+  <string name="pref_camera_scenemode_entry_sports">Sporter</string>
   <!-- Scene mode optimized for capturing the naturally warm color of scenes lit by candles. [CHAR LIMIT=16] -->
   <!-- Scene mode for taking a photo with backlight. -->
+  <string name="pref_camera_scenemode_entry_backlight">Bakgrundsbelysning</string>
   <!-- Scene mode optimized for taking images of flowers. -->
+  <string name="pref_camera_scenemode_entry_flowers">Blommor</string>
   <!-- Scene mode optimized for taking images of AR. -->
+  <string name="pref_camera_scenemode_entry_ar">AR</string>
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
   <!-- Settings menu, auto scene detection choices -->
   <!-- Scene detection set to on - supports backlight and snow cloudy detection. -->
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
   <!-- longshot value -->
+  <string name="pref_camera_longshot_title">Kontinuerlig tagning</string>
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
   <!-- Settings screen, setting title text for Auto HDR-->
   <!-- Settings screen, Auto HDR location dialog choices -->
   <!-- toast message for storage location switch -->
   <!-- Settings screen, Selectable HDR mode title -->
+  <string name="pref_camera_hdr_mode_title">HDR-läge</string>
   <!-- Settings screen, Selectable HDR mode radio button choices -->
   <!-- HDR mode entry values. Do not translate. -->
   <!-- Settings screen, Selectable HDR need 1x frame default value -->
@@ -174,10 +313,46 @@
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <!-- Settings screen, Video rotation dialog radio button choices -->
+  <string name="pref_camera_video_rotation_entry_0">0</string>
+  <string name="pref_camera_video_rotation_entry_90">90</string>
+  <string name="pref_camera_video_rotation_entry_180">180</string>
+  <string name="pref_camera_video_rotation_entry_270">270</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <!-- Continous shot enable message -->
   <!-- Advance features enable message -->
   <!-- The alas of CameraActivity for gesture operation -->
+  <string name="camera_gesture_title">Starta kamera</string>
+  <string name="pref_camera_tsmakeup_title">Försköning</string>
+  <string name="pref_camera_tsmakeup_custom">Anpassad</string>
+  <string name="text_tsmakeup_alert_continue">Fortsätt</string>
   <!-- Touch-focus duration settings -->
+  <string name="pref_camera_touchfocus_duration_default">3</string>
+  <string name="pref_video_touchfocus_duration_default">0</string>
+  <string name="pref_camera_touchfocus_duration_entry_0">0 sekunder</string>
+  <string name="pref_camera_touchfocus_duration_entry_3">3 sekunder</string>
+  <string name="pref_camera_touchfocus_duration_entry_5">5 sekunder</string>
+  <string name="pref_camera_touchfocus_duration_entry_10">10 sekunder</string>
+  <string name="pref_camera_touchfocus_duration_value_0">0</string>
+  <string name="pref_camera_touchfocus_duration_value_3">3</string>
+  <string name="pref_camera_touchfocus_duration_value_5">5</string>
+  <string name="pref_camera_touchfocus_duration_value_10">10</string>
+  <string name="pref_camera_touchfocus_duration_value_infinity">0x7FFFFFFF</string>
   <!-- Slow-shutter settings -->
+  <string name="pref_camera_shutter_speed_default">0</string>
+  <string name="pref_camera_shutter_speed_entry_off">Auto</string>
+  <string name="pref_camera_shutter_speed_entry_1_5000th">1/5000 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_2500th">1/2500 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_1500th">1/1500 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_1000th">1/1000 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_500th">1/500 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_250th">1/250 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_125th">1/125 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_64th">1/64 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_32nd">1/32 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_16th">1/16 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_8th">1/8 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_4th">1/4 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1_2">1/2 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_1">1 sekund</string>
+  <string name="pref_camera_shutter_speed_entry_2">2 sekunder</string>
 </resources>

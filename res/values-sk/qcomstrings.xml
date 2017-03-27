@@ -72,6 +72,7 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Vyvážený stred</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Priemer rámu</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Fotometria</string>
+  <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Pokročilé funkcie</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
@@ -136,9 +137,7 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Vysokorýchlostné/spomalené nahrávky nie sú podporované v režime DIS/TimeLapse/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Vybrané rozlíšenie nie je podporované v režime pomalé nahrávanie pohybu. Vyberte nižšie rozlíšenie.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">Nepodporované rozlíšenie pre stabilizáciu obrazu videa (DIS)</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">Vybrané rozlíšenie nie je podporované v režime vysokorýchlostné nahrávanie pohybu. Vyberte nižšie rozlíšenie.</string>
@@ -174,9 +173,6 @@
   <string name="pref_camera_hfr_entry_2x">Spomalený záber; 60 sn./s</string>
   <string name="pref_camera_hfr_entry_3x">Spomalený záber; 90 sn./s.</string>
   <string name="pref_camera_hfr_entry_4x">Spomalený záber; 120 sn./s</string>
-  <string name="pref_camera_hfr_entry_hsr_60">Vysokorýchlostný záber; 60 sn./s</string>
-  <string name="pref_camera_hfr_entry_hsr_90">Vysokorýchlostný záber; 90 sn./s</string>
-  <string name="pref_camera_hfr_entry_hsr_120">Vysokorýchlostný záber; 120 sn./s</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->

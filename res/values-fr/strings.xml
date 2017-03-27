@@ -63,8 +63,8 @@
   </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">Afficher sur la carte</string>
-  <string name="rotate_left">Faire pivoter vers la gauche</string>
-  <string name="rotate_right">Faire pivoter vers la droite</string>
+  <string name="rotate_left">Rotation à gauche</string>
+  <string name="rotate_right">Rotation à droite</string>
   <!-- String used as a menu label. The user can choose to edit the image
          [CHAR_LIMIT=20]-->
   <string name="edit">Modifier</string>
@@ -100,7 +100,7 @@
   <!-- Text indicating the mime type of a media item in details window [CHAR LIMIT=14] -->
   <string name="mimetype">Type MIME</string>
   <!-- Text indicating the file size of a media item in details window [CHAR LIMIT=14] -->
-  <string name="file_size">Taille fichier</string>
+  <string name="file_size">Taille du fichier</string>
   <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
   <string name="maker">Fabricant</string>
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
@@ -114,7 +114,7 @@
   <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
   <string name="white_balance">Balance blancs</string>
   <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
-  <string name="exposure_time">Durée d\'expo</string>
+  <string name="exposure_time">Durée d\'exposition</string>
   <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
   <string name="iso">ISO</string>
   <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
@@ -152,7 +152,7 @@
   <!-- alert to the user that the camera fails to read or write the SD card. -->
   <string name="access_sd_fail" product="default">Impossible d\'accéder à la carte SD.</string>
   <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
-  <string name="time_lapse_title">Enregistrement mode Intervalle temps</string>
+  <string name="time_lapse_title">Enregistrement Time lapse</string>
   <!-- Screen display message during image capture to indicate that the capture is in progress, like during HDR+. [CHAR LIMIT=20] -->
   <string name="capturing">Prise de vue en cours…</string>
   <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->
@@ -199,7 +199,7 @@
   <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->
   <!-- Describes the preference dialog for choosing interval between frame capture for
     time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->
-  <string name="pref_video_time_lapse_frame_interval_title">Intervalle de temps</string>
+  <string name="pref_video_time_lapse_frame_interval_title">Timelapse</string>
   <!-- Settings screen, Camera setting category title -->
   <string name="pref_camera_settings_category">Paramètres de l\'application Appareil photo</string>
   <!-- Settings screen, Camcorder setting category title -->
@@ -221,7 +221,7 @@
   <!-- Default flash mode setting.-->
   <!-- Value for flash off setting-->
   <!-- Settings screen, Flash mode title -->
-  <string name="pref_camera_flashmode_title">Mode Flash</string>
+  <string name="pref_camera_flashmode_title">Flash</string>
   <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
   <string name="pref_camera_flashmode_entry_auto">Automatique</string>
   <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
@@ -320,7 +320,7 @@
   <!-- Dialog "OK" button. Dismisses dialog. -->
   <string name="dialog_ok">OK</string>
   <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->
-  <string name="spaceIsLow_content" product="default">L\'espace disponible sur votre carte SD est insuffisant. Modifiez les paramètres de qualité, ou supprimez des images ou d\'autres fichiers.</string>
+  <string name="spaceIsLow_content" product="default">L\'espace disponible sur votre carte SD est insuffisant. Modifier les paramètres de qualité, ou supprimer des images ou d\'autres fichiers.</string>
   <!-- Camera format string for new image files. Passed to java.text.SimpleDateFormat. -->
   <!-- Video Camera format string for new video files. Passed to java.text.SimpleDateFormat. -->
   <!-- Filename prefix for panorama output. -->
@@ -364,7 +364,7 @@
   <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->
   <string name="effect_backdropper_space">Dans l\'espace</string>
   <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->
-  <string name="effect_backdropper_sunset">Coucher soleil</string>
+  <string name="effect_backdropper_sunset">Coucher de soleil</string>
   <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->
   <string name="effect_backdropper_gallery">Votre vidéo</string>
   <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=54] -->
@@ -394,7 +394,7 @@
   <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_panorama">Passer en mode Panoramique</string>
   <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
-  <string name="accessibility_switch_to_photo_sphere">Passer en mode Photo Sphere</string>
+  <string name="accessibility_switch_to_photo_sphere">Passer en mode Photo Sphère</string>
   <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_gcam">Passer en haute qualité</string>
   <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
@@ -499,7 +499,7 @@ CHAR LIMIT = NONE] -->
   <!-- Title in time interval picker for setting time interval. [CHAR LIMIT = 30]-->
   <string name="set_time_interval">Définir l\'intervalle de temps</string>
   <!-- Help text that is shown when the time lapse feature is turned off. [CHAR LIMIT = 180]-->
-  <string name="set_time_interval_help">La fonctionnalité d\'intervalle de temps est désactivée. Veuillez l\'activer pour définir un intervalle.</string>
+  <string name="set_time_interval_help">La fonction Time lapse est désactivée. Veuillez l\'activer pour définir une intervalle.</string>
   <!-- Title in timer setting for setting the duration for the countdown timer. [CHAR LIMIT = 50]-->
   <string name="set_duration">Définir la durée en secondes</string>
   <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
@@ -507,7 +507,7 @@ CHAR LIMIT = NONE] -->
   <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
   <string name="remember_location_title">Mémoriser le lieu des photos ?</string>
   <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
-  <string name="remember_location_prompt">Ajoutez des tags à vos photos et à vos vidéos pour identifier l\'endroit de la prise de vue.\n\nD\'autres applications peuvent accéder à ces informations, ainsi qu\'aux images enregistrées.</string>
+  <string name="remember_location_prompt">Ajouter des tags à vos photos et à vos vidéos pour identifier l\'endroit de la prise de vue.\n\nD\'autres applications peuvent accéder à ces informations, ainsi qu\'aux images enregistrées.</string>
   <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_no">Non, merci</string>
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->

@@ -72,6 +72,7 @@
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">中央偏重测光</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">平均帧</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">点测光</string>
+  <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">高级功能</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
@@ -136,9 +137,9 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">HFR/HSR不支持DIS/TIMELAPSE/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">慢动作不支持所选视频大小。请选择一个较低的视频大小。</string>
+  <string name="error_app_unsupported_hfr">慢动作不支持所选大小的视频。</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
-  <string name="error_app_unsupported_dis">视频分辨率不支持显示图像稳定(DIS)</string>
+  <string name="error_app_unsupported_dis">为视频稳定不支持此视频分辨率</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">高速模式不支持所选视频大小。请选择一个较低的视频大小。</string>
@@ -169,9 +170,6 @@
   <string name="pref_camera_hfr_entry_2x">慢动作; 60 FPS</string>
   <string name="pref_camera_hfr_entry_3x">慢动作; 90 FPS</string>
   <string name="pref_camera_hfr_entry_4x">慢动作; 120 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_60">高速; 60 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_90">高速; 90 FPS</string>
-  <string name="pref_camera_hfr_entry_hsr_120">高速; 120 FPS</string>
   <!-- HFR entry values. Do not translate. -->
   <!-- Default see more setting. Do not translate. -->
   <!-- Settings screen, Select See More title -->
@@ -227,6 +225,7 @@
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">防抖</string>
+  <string name="pref_camera_dis_title_new">视频稳定</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">人脸识别</string>
