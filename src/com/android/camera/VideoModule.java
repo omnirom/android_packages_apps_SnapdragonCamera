@@ -895,7 +895,10 @@ public class VideoModule implements CameraModule,
             if (hfrSize != null) {
                 String hfrSizeString = hfrSize.width + "x" + hfrSize.height;
                 Log.v(TAG,"HFR resolution = " + hfrSizeString);
-                mappedQuality = CameraSettings.VIDEO_QUALITY_TABLE.get(hfrSizeString);
+                Integer mappedQualityInt = CameraSettings.VIDEO_QUALITY_TABLE.get(hfrSizeString);
+                if (mappedQualityInt != null) {
+                    mappedQuality = mappedQualityInt;
+                }
             }
             if (mappedQuality == -1) {
                 mappedQuality = CameraSettings.getHighSpeedQualityFor(quality);

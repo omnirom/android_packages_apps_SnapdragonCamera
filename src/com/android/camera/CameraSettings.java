@@ -1286,7 +1286,10 @@ public class CameraSettings {
     public static List<String> getSupportedHighFrameRateModes(Parameters params) {
         ArrayList<String> supported = new ArrayList<String>();
         List<String> supportedModes = params.getSupportedVideoHighFrameRateModes();
+        List<Size> supportedSizes = params.getSupportedVideoSizes();
+        List<Size> hfrSizes = params.getSupportedHfrSizes();
 
+        // xxxx
         if (supportedModes == null) {
             return null;
         }
@@ -1295,7 +1298,20 @@ public class CameraSettings {
             if (highFrameRateMode.equals("off")) {
                 supported.add(highFrameRateMode);
             } else {
-                supported.add(highFrameRateMode);
+                if (hfrSizes.size() != 0 && supportedSizes.size() != 0) {
+                    int index = supportedModes.indexOf(highFrameRateMode);
+                    if (index != -1) {
+                        Size hfrSize = hfrSizes.get(index);
+                        Log.d(TAG, "getSupportedHighFrameRateModes check = " + highFrameRateMode + " size = " + hfrSize.width + "x" + hfrSize.height);
+                        if (supportedSizes.contains(hfrSize)) {
+                            supported.add(highFrameRateMode);
+                        } else {
+                            Log.d(TAG, "getSupportedHighFrameRateModes skip = " + highFrameRateMode + " for invalid size = " + hfrSize.width + "x" + hfrSize.height);
+                        }
+                    }
+                } else {
+                    supported.add(highFrameRateMode);
+                }
             }
         }
         return supported;
@@ -1393,7 +1409,6 @@ public class CameraSettings {
               supported.add(Integer.toString(CamcorderProfile.QUALITY_QCIF));
            }
         }
-
     }
 
     public static ArrayList<String> getSupportedVideoQualities(int cameraId,Parameters parameters) {
