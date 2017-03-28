@@ -1647,6 +1647,12 @@ public class PhotoModule
             mUI.enableShutter(false);
         }
 
+        if (!isShutterSoundOn()) {
+            mCameraDevice.enableShutterSound(false);
+        } else {
+            mCameraDevice.enableShutterSound(!mRefocus);
+        }
+
         if (mCameraState == LONGSHOT) {
             if(mLongshotSave) {
                 mCameraDevice.takePicture(mHandler,
@@ -1660,7 +1666,6 @@ public class PhotoModule
                         new JpegPictureCallback(loc));
             }
         } else {
-            mCameraDevice.enableShutterSound(!mRefocus);
             mCameraDevice.takePicture(mHandler,
                     new ShutterCallback(!animateBefore),
                     mRawPictureCallback, mPostViewPictureCallback,
@@ -4663,6 +4668,14 @@ public class PhotoModule
     public boolean isLongshotDone() {
         return ((mCameraState == LONGSHOT) && (mLongshotSnapNum == mReceivedSnapNum) &&
                 !mLongshotActive);
+    }
+
+    private boolean isShutterSoundOn() {
+        String value = mPreferences.getString(CameraSettings.KEY_SHUTTER_SOUND, mActivity.getString(R.string.pref_camera_shuttersound_default));
+        if (value != null && value.equalsIgnoreCase(mActivity.getString(R.string.setting_off_value))) {
+            return false;
+        }
+        return true;
     }
 }
 

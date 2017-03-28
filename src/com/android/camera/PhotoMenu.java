@@ -205,6 +205,7 @@ public class PhotoMenu extends MenuController
                 //CameraSettings.KEY_HISTOGRAM,
                 CameraSettings.KEY_ZSL,
                 CameraSettings.KEY_TIMER_SOUND_EFFECTS,
+                CameraSettings.KEY_SHUTTER_SOUND,
                 CameraSettings.KEY_FACE_RECOGNITION,
                 //CameraSettings.KEY_TOUCH_AF_AEC,
                 CameraSettings.KEY_SELECTABLE_ZONE_AF,

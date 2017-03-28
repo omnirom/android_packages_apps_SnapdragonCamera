@@ -697,4 +697,7 @@ CHAR LIMIT = NONE] -->
          NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
          will be multiplied by 100 as those languages want to count by ten thousands -->
     <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f megapixels</string>
- </resources>
+
+    <string name="pref_camera_shuttersound_title" translatable="true">Shutter Sound</string>
+    <string name="pref_camera_shuttersound_default" translatable="false">@string/setting_on_value</string>
+</resources>
