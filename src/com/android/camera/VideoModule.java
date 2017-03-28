@@ -2412,6 +2412,9 @@ public class VideoModule implements CameraModule,
             // startPreview().
             if (mCameraDevice == null) return;
 
+            // TODO there should be a better solution
+            mCameraDevice.enableShutterSound(isShutterSoundOn());
+
             // update menu
             mUI.updateMenuVisibility();
 
@@ -2714,5 +2717,13 @@ public class VideoModule implements CameraModule,
             }
         }
         return -1;
+    }
+
+    private boolean isShutterSoundOn() {
+        String value = mPreferences.getString(CameraSettings.KEY_SHUTTER_SOUND, mActivity.getString(R.string.pref_camera_shuttersound_default));
+        if (value != null && value.equalsIgnoreCase(mActivity.getString(R.string.setting_off_value))) {
+            return false;
+        }
+        return true;
     }
 }
