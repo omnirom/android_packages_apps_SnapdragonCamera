@@ -134,6 +134,12 @@
             camera:title="@string/pref_camera_timer_sound_title"
             camera:entries="@array/pref_camera_timer_sound_entries"
             camera:entryValues="@array/pref_camera_timer_sound_entryvalues" />
+    <IconListPreference
+            camera:key="pref_camera_shuttersound_key"
+            camera:defaultValue="@string/pref_camera_shuttersound_default"
+            camera:title="@string/pref_camera_shuttersound_title"
+            camera:entries="@array/pref_camera_shuttersound_entries"
+            camera:entryValues="@array/pref_camera_shuttersound_entryvalues" />
     <ListPreference
             camera:key="pref_camera_facerc_key"
             camera:defaultValue="@string/pref_camera_facerc_default"
