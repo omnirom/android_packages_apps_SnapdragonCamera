@@ -41,11 +41,9 @@
 
     <com.android.camera.PauseButton
         android:id="@+id/video_pause"
-        android:layout_width="@dimen/capture_size"
-        android:layout_height="@dimen/capture_size"
-        android:layout_margin="12dp"
+        android:layout_width="@dimen/switcher_size"
+        android:layout_height="@dimen/switcher_size"
         android:visibility="gone"
-        android:scaleType="fitCenter"
         android:src="@drawable/btn_pause_recording"
         android:layout_gravity="bottom|left"/>
 
