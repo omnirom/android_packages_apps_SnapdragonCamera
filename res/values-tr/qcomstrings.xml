@@ -137,7 +137,9 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">HFR/HSR, DIS/Zaman Atlama/HDR için desteklenmez</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
+  <string name="error_app_unsupported_hfr">Seçilen video boyutu için yavaş çekim desteklenmiyor.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
+  <string name="error_app_unsupported_dis">Video sabitleme için desteklenmeyen video çözünürlüğü</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">Yüksek hız modu seçili video boyutu için desteklenmiyor. Daha düşük bir video boyutu seçin.</string>
@@ -228,6 +230,7 @@
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">IS</string>
+  <string name="pref_camera_dis_title_new">Video sabitleme</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Yüz Tanıma</string>
