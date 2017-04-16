@@ -725,7 +725,6 @@ public class VideoModule implements CameraModule,
                 // will not be continuous for a short period of time.
 
                 mUI.animateFlash();
-                mUI.animateCapture();
             }
         }
         mUI.showUIafterRecording();
@@ -2528,7 +2527,6 @@ public class VideoModule implements CameraModule,
         if (CameraUtil.isVideoSnapshotSupported(mParameters) && !mIsVideoCaptureIntent) {
             if (enabled) {
                 mUI.animateFlash();
-                mUI.animateCapture();
             } else {
                 mUI.showPreviewBorder(enabled);
             }
