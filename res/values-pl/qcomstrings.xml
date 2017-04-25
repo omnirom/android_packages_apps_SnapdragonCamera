@@ -56,28 +56,42 @@
   <string name="pref_camera_video_duration_entry_nolimit">Bez limitu</string>
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
+  <string name="pref_camera_skinToneEnhancement_title">Wzmocnienie tonów skórki</string>
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
   <!-- Skin Tone Enhancement entry values. Do not translate. -->
   <!-- Settings screen, setting title text for ZSL-->
   <string name="pref_camera_zsl_title">Bez opóźnienia migawki</string>
   <!-- Default selectable zone af setting. Do not translate. -->
   <!-- Settings screen, Selectable zone af title -->
+  <string name="pref_camera_selectablezoneaf_title">Obszar autofocus\'a</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <string name="pref_camera_selectablezoneaf_entry_auto">Auto</string>
+  <string name="pref_camera_selectablezoneaf_entry_centerweighted">Wypośrodkowany</string>
+  <string name="pref_camera_selectablezoneaf_entry_frameaverage">Uśredniony</string>
   <string name="pref_camera_selectablezoneaf_entry_spotmetering">Pomiar punktowy</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Funkcje zaawansowanie</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <string name="pref_camera_advanced_feature_entry_none">Żaden</string>
+  <string name="pref_camera_advanced_feature_entry_ubifocus">Ubi Focus</string>
+  <string name="pref_camera_advanced_feature_entry_refocus">Dofocusowanie</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Pomiar wielopunktowy</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
   <string name="pref_camera_manual_exp_entry_ISO_priority">Czułość ISO</string>
   <!-- Manual white balance entry values -->
+  <string name="pref_camera_manual_wb_title">Ręczny balans bieli</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura kolorów</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Dostosowywanie kolorów RGB</string>
   <!-- Manual Focus entry values -->
+  <string name="pref_camera_manual_focus_title">Manualne ustawianie ostrości</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Tryb skalowania</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Tryb dioptrii</string>
   <!-- Settings screen, ZSL location dialog choices -->
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
+  <string name="hdr_enable_message">HDR jest włączony, tylko tryb automatycznej scenerii jest obsługiwany</string>
+  <string name="scene_enable_message">HDR jest nieobsługiwany w trybie sceny, w przeciwieństwie do trybu Auto</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <!-- Settings screen, CDS location dialog choices -->
   <string name="pref_camera_cds_entry_auto">Auto</string>

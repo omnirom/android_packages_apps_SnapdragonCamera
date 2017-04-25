@@ -17,6 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- The name of the Android Camera application. [CHAR LIMIT=16] -->
   <string name="app_name">Камера</string>
+  <string name="snapcam_app_name">Камера</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
   <string name="video_camera_label">Відеокамера</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
@@ -506,4 +507,10 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Встановлення фонового малюнка</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <!-- common aspect ratios -->
+  <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <!-- format for entries in the picture size menu. Parameter one is aspect ratio
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
 </resources>

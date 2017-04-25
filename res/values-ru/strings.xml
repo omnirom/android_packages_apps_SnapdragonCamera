@@ -160,6 +160,10 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Сигнал</string>
   <!-- Entry of camera save path -->
+  <string name="pref_camera_savepath_title">Расположение хранилища</string>
+  <string name="pref_camera_savepath_default">0</string>
+  <string name="pref_camera_savepath_entry_0">Внутренняя память</string>
+  <string name="pref_camera_savepath_entry_1">Внешняя память</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
   <string name="setting_off">Выкл.</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
@@ -186,6 +190,7 @@
   <!-- Settings screen, Camcorder setting category title -->
   <string name="pref_camcorder_settings_category">Настройки видеокамеры</string>
   <!-- Settings screen, Picture size title -->
+  <string name="pref_camera_picturesize_title">Размер изображения</string>
   <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">Режим фокусировки</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
@@ -513,4 +518,10 @@ CHAR LIMIT = NONE] -->
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Установка обоев…</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <!-- common aspect ratios -->
+  <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <!-- format for entries in the picture size menu. Parameter one is aspect ratio
+         parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
+         NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
+         will be multiplied by 100 as those languages want to count by ten thousands -->
 </resources>
