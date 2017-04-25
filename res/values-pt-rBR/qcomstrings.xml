@@ -347,6 +347,7 @@
   <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12gbrg">BayerIP1612gbrg</string>
   <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12grbg">BayerIP1612grbg</string>
   <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12rggb">BayerIP1612rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_12bggr">BayerIP1612bggr</string>
   <!-- Picture format entry values. Do not translate. -->
   <!-- Settings screen, Picture quality title -->
   <string name="pref_camera_jpegquality_title">Qualidade da imagem</string>
@@ -444,5 +445,35 @@
   <string name="all_in_focus">Tudo em foco</string>
   <!-- Touch-focus duration settings -->
   <string name="pref_camera_touchfocus_duration_title">Toque-para-foco duração</string>
+  <string name="pref_camera_touchfocus_duration_default">3</string>
+  <string name="pref_video_touchfocus_duration_default">0</string>
+  <string name="pref_camera_touchfocus_duration_entry_0">0 segundo</string>
+  <string name="pref_camera_touchfocus_duration_entry_3">3 segundos</string>
+  <string name="pref_camera_touchfocus_duration_entry_5">5 segundos</string>
+  <string name="pref_camera_touchfocus_duration_entry_10">10 segundos</string>
+  <string name="pref_camera_touchfocus_duration_entry_infinity">Infinito</string>
+  <string name="pref_camera_touchfocus_duration_value_0">0</string>
+  <string name="pref_camera_touchfocus_duration_value_3">3</string>
+  <string name="pref_camera_touchfocus_duration_value_5">5</string>
+  <string name="pref_camera_touchfocus_duration_value_10">10</string>
+  <string name="pref_camera_touchfocus_duration_value_infinity">0x7FFFFFFF</string>
   <!-- Slow-shutter settings -->
+  <string name="pref_camera_shutter_speed_title">Velocidade do obturador</string>
+  <string name="pref_camera_shutter_speed_default">0</string>
+  <string name="pref_camera_shutter_speed_entry_off">Auto</string>
+  <string name="pref_camera_shutter_speed_entry_1_5000th">1/5000 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_2500th">1/2500 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_1500th">1/1500 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_1000th">1/1000 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_500th">1/500 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_250th">1/250 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_125th">1/125 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_64th">1/64 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_32nd">1/32 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_16th">1/16 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_8th">1/8 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_4th">1/4 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1_2">1/2 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_1">1 segundo</string>
+  <string name="pref_camera_shutter_speed_entry_2">2 segundos</string>
 </resources>

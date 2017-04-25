@@ -31,6 +31,7 @@
   <!-- Settings screen, auto exposure dialog radio button choices -->
   <string name="pref_camera_autoexposure_entry_frameaverage">Каркасно-средняя</string>
   <string name="pref_camera_autoexposure_entry_centerweighted">Центро-взвешенный</string>
+  <string name="pref_camera_autoexposure_entry_spotmetering">Измерение места</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
   <string name="pref_camera_videoencoder_title">Видео кодирование</string>
@@ -70,6 +71,7 @@
   <string name="pref_camera_selectablezoneaf_entry_auto">Авто</string>
   <string name="pref_camera_selectablezoneaf_entry_centerweighted">Центро-взвешенный</string>
   <string name="pref_camera_selectablezoneaf_entry_frameaverage">Каркасно-средняя</string>
+  <string name="pref_camera_selectablezoneaf_entry_spotmetering">Измерение места</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <string name="pref_camera_advanced_features_title">Расширенные возможности</string>
@@ -80,15 +82,22 @@
   <string name="pref_camera_advanced_feature_entry_chromaflash">Chroma-вспышка</string>
   <string name="pref_camera_advanced_feature_entry_optizoom">Оптический зум</string>
   <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
+  <string name="pref_camera_advanced_feature_entry_trueportrait">Настоящий Портрет</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-Touch фокус</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
   <string name="pref_camera_manual_exp_title">Ручная экспозиция</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Приоритет ISO</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Приоритет времени выдержки</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Настройки пользователя</string>
   <!-- Manual white balance entry values -->
   <string name="pref_camera_manual_wb_title">Ручной баланс белого</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Цветовая температура</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">Прирост RBGB</string>
   <!-- Manual Focus entry values -->
   <string name="pref_camera_manual_focus_title">Ручная фокусировка</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Режим увеличения</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Режим диоптрий</string>
   <!-- Settings screen, ZSL location dialog choices -->
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
   <string name="hdr_enable_message">HDR включен, поддерживается только автоматический режим сцены</string>

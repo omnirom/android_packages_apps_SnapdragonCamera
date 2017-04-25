@@ -25,19 +25,31 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Режим живлення</string>
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Автоекспозиція</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
+  <string name="pref_camera_autoexposure_entry_frameaverage">Каркасно-середня</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Центро-зважений</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
+  <string name="pref_camera_videoencoder_title">Кодування відео</string>
   <!-- Settings screen, Video encoder dialog radio button choices -->
+  <string name="pref_camera_videoencoder_entry_1">H263</string>
+  <string name="pref_camera_videoencoder_entry_2">H264</string>
+  <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
+  <string name="pref_camera_videoencoder_dialogtitle">Кодування відео</string>
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
+  <string name="pref_camera_audioencoder_title">Кодування аудіо</string>
   <!-- Settings screen, Audio encoder dialog radio button choices -->
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
   <!-- Settings screen, Video duration dialog radio button choices -->
+  <string name="pref_camera_video_duration_entry_30">30 хвилин</string>
+  <string name="pref_camera_video_duration_entry_nolimit">без обмежень</string>
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
@@ -48,6 +60,7 @@
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
+  <string name="pref_camera_advanced_features_title">Додаткові можливості</string>
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
