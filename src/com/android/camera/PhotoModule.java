@@ -258,8 +258,6 @@ public class PhotoModule
 
     private boolean mShutterPressing = false;
 
-    private static Context mApplicationContext;
-
     private Runnable mDoSnapRunnable = new Runnable() {
         @Override
         public void run() {
@@ -706,7 +704,7 @@ public class PhotoModule
 
     // either open a new camera or switch cameras
     private void openCameraCommon() {
-        if (mApplicationContext.getResources().getBoolean(R.bool.config_iso_auto_tweak)) {
+        if (mActivity.getResources().getBoolean(R.bool.config_iso_auto_tweak)) {
             // op3 Camera HAL erroneously halves auto exposure times until we set the ISO
             // to something other than auto, so set the ISO to ISO3200 here and then
             // back to its original value in order to make sure exposure times are
@@ -846,8 +844,6 @@ public class PhotoModule
         if (mFirstTimeInitialized || mPaused) {
             return;
         }
-
-        mApplicationContext = CameraApp.getContext();
 
         // Initialize location service.
         boolean recordLocation = RecordLocationPreference.get(
@@ -1273,9 +1269,9 @@ public class PhotoModule
                                    CameraUtil.SCENE_MODE_HDR.equals(mSceneMode));
 
             boolean backCameraRestartPreviewOnPictureTaken =
-                mApplicationContext.getResources().getBoolean(R.bool.back_camera_restart_preview_onPictureTaken);
+                mActivity.getResources().getBoolean(R.bool.back_camera_restart_preview_onPictureTaken);
             boolean frontCameraRestartPreviewOnPictureTaken =
-                mApplicationContext.getResources().getBoolean(R.bool.front_camera_restart_preview_onPictureTaken);
+                mActivity.getResources().getBoolean(R.bool.front_camera_restart_preview_onPictureTaken);
 
             CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
             if ((info.facing == CameraInfo.CAMERA_FACING_BACK && backCameraRestartPreviewOnPictureTaken)
