@@ -304,7 +304,7 @@
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">Serienaufnahme wurde automatisch deaktiviert.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
-  <string name="video_quality_4k_disable_IS">4k-Videoqualität deaktiviert IS.</string>
+  <string name="video_quality_4k_disable_IS">Aktivieren der 4k-Videoqualität deaktiviert IS.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Belichtung</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->

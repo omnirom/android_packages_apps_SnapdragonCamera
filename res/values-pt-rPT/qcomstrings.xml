@@ -25,8 +25,12 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Modo de energia</string>
   <!-- Auto exposure -->
+  <string name="pref_camera_autoexposure_title">Exposição automática</string>
   <!-- Settings screen, auto exposure dialog radio button choices -->
+  <string name="pref_camera_autoexposure_entry_frameaverage">Média de frames</string>
+  <string name="pref_camera_autoexposure_entry_centerweighted">Centrado</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
   <!-- Settings screen, Video encoder dialog radio button choices -->

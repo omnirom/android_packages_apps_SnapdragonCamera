@@ -37,6 +37,8 @@
   <string name="pref_camera_videoencoder_title">Kodowanie obrazu</string>
   <!-- Settings screen, Video encoder dialog radio button choices -->
   <string name="pref_camera_videoencoder_entry_0">MPEG4</string>
+  <string name="pref_camera_videoencoder_entry_1">H263</string>
+  <string name="pref_camera_videoencoder_entry_2">H264</string>
   <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
@@ -45,6 +47,7 @@
   <!-- Settings screen, Audio encoder title -->
   <string name="pref_camera_audioencoder_title">Kodowanie dźwięku</string>
   <!-- Settings screen, Audio encoder dialog radio button choices -->
+  <string name="pref_camera_audioencoder_entry_0">AMRNB</string>
   <string name="pref_camera_audioencoder_entry_1">AAC</string>
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
@@ -76,10 +79,17 @@
   <string name="pref_camera_advanced_feature_entry_none">Żaden</string>
   <string name="pref_camera_advanced_feature_entry_ubifocus">Ubi Focus</string>
   <string name="pref_camera_advanced_feature_entry_refocus">Dofocusowanie</string>
+  <string name="pref_camera_advanced_feature_entry_chromaflash">Chroma Flash</string>
+  <string name="pref_camera_advanced_feature_entry_optizoom">Opti Zoom</string>
+  <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
+  <string name="pref_camera_advanced_feature_entry_trueportrait">True Portrait</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Pomiar wielopunktowy</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
+  <string name="pref_camera_manual_exp_title">Manualny tryb ekspozycji</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">Czułość ISO</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Priorytet czasu ekspozycji</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Ustawienia użytkownika</string>
   <!-- Manual white balance entry values -->
   <string name="pref_camera_manual_wb_title">Ręczny balans bieli</string>
   <string name="pref_camera_manual_wb_entry_color_temperature">Temperatura kolorów</string>
@@ -102,6 +112,7 @@
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
+  <string name="pref_camera_video_hdr_title">Wideo HDR</string>
   <!-- Settings menu, setting title text for cds mode-->
   <!-- Settings menu, setting title text for video cds mode-->
   <!-- Default cds mode setting-->

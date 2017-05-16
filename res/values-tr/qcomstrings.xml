@@ -137,7 +137,7 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">HFR/HSR, DIS/Zaman Atlama/HDR için desteklenmez</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Seçilen video boyutu için yavaş çekim desteklenmiyor.</string>
+  <string name="error_app_unsupported_hfr">Seçilen video boyutu için ağır çekim desteklenmiyor.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
   <string name="error_app_unsupported_dis">Video sabitleme için desteklenmeyen video çözünürlüğü</string>
   <!-- The message is shown in dialog when the app

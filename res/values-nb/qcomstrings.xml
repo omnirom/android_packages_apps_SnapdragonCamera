@@ -144,6 +144,7 @@
   <!-- Scene mode that takes an image with as little noise as possible so details of the subject are maintained. -->
   <!-- Scene mode that takes an image of a landscape assuming all subjects are relatively far from the phone. -->
   <!-- Scene mode that takes night shots with long exposure and flash to illuminate the subject while still capturing darker detail in the background. -->
+  <string name="pref_camera_scenemode_entry_night_portrait">Nattportrett</string>
   <!-- Scene mode to be used in a stage show. -->
   <!-- Scene mode optimized for taking images on the beach. -->
   <!-- Scene mode optimized for taking images in the snow. -->

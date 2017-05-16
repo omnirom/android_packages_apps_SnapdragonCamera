@@ -25,16 +25,23 @@
   <!-- Video quality setting entry. Videos will be recorded in QVGA quality. [CHAR LIMIT=24] -->
   <!-- Video quality setting entry. Videos will be recorded in QCIF quality. [CHAR LIMIT=24] -->
   <!-- Settings screen, Power Mode title -->
+  <string name="pref_camera_powermode_title">Güc Modu</string>
   <!-- Auto exposure -->
   <!-- Settings screen, auto exposure dialog radio button choices -->
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
   <!-- Settings screen, Video encoder dialog radio button choices -->
+  <string name="pref_camera_videoencoder_entry_0">MPEG4</string>
+  <string name="pref_camera_videoencoder_entry_1">H263</string>
+  <string name="pref_camera_videoencoder_entry_2">H264</string>
+  <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
   <!-- Default audio encoder setting. A numerical value. -->
   <!-- Settings screen, Audio encoder title -->
   <!-- Settings screen, Audio encoder dialog radio button choices -->
+  <string name="pref_camera_audioencoder_entry_0">AMRNB</string>
+  <string name="pref_camera_audioencoder_entry_1">AAC</string>
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
   <!-- Settings screen, Video duration dialog radio button choices -->
@@ -104,6 +111,7 @@
   <!-- Denoise Settings screen, Record location dialog choices -->
   <!-- Default iso setting. Do not translate. -->
   <!-- Settings screen, Select Iso title -->
+  <string name="pref_camera_iso_title">ISO</string>
   <!-- Settings screen, ISO dialog radio button choices -->
   <!-- ISO entry values. Do not translate. -->
   <!-- Settings screen, Anti Banding title -->
@@ -134,6 +142,71 @@
   <!-- Default Picture format setting. Do not translate. -->
   <!-- Settings screen, Select Picture format title -->
   <!-- Settings screen, picture format dialog radio button choices -->
+  <string name="pref_camera_picture_format_entry_jpeg">Jpeg</string>
+  <string name="pref_camera_picture_format_entry_raw">Raw</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_422_sp">YUV422SP</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yuyv">YUVRaw8YUYV</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yvyu">YUVRaw8YVYU</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_uyvy">YUVRaw8UYVY</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_vyuy">YUVRaw8VYUY</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8gbrg">BayerQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8grbg">BayerQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8rggb">BayerQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_8bggr">BayerQ8BGRR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10gbrg">BayerQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10grbg">BayerQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10rggb">BayerQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_10bggr">BayerQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12gbrg">BayerQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12grbg">BayerQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12rggb">BayerQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_qcom_12bggr">BayerQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8gbrg">BayerM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8grbg">BayerM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8rggb">BayerM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_8bggr">BayerM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10gbrg">BayerM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10grbg">BayerM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10rggb">BayerM10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_10bggr">BayerM10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12gbrg">BayerM12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12grbg">BayerM12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12rggb">BayerM12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_mipi_12bggr">BayerM12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8gbrg">BayerIQ8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8grbg">BayerIQ8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8rggb">BayerIQ8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_8bggr">BayerIQ8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10gbrg">BayerIQ10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10grbg">BayerIQ10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10rggb">BayerIQ10RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_10bggr">BayerIQ10BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12gbrg">BayerIQ12GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12grbg">BayerIQ12GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12rggb">BayerIQ12RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_qcom_12bggr">BayerIQ12BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8gbrg">BayerIM8GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8grbg">BayerIM8GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8rggb">BayerIM8RGGB</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_8bggr">BayerIM8BGGR</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10gbrg">BayerIM10GBRG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10grbg">BayerIM10GRBG</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10rggb">BayerIM10rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_10bggr">BayerIM8bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12gbrg">BayerIM12gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12grbg">BayerIM12grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12rggb">BayerIM12rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_mipi_12bggr">BayerIM12bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8gbrg">BayerIP88gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8grbg">BayerIP88grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8rggb">BayerIP88rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain8_8bggr">BayerIP88bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8gbrg">BayerIP168gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8grbg">BayerIP168grbg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8rggb">BayerIP168rggb</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_8bggr">BayerIP168bggr</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10gbrg">BayerIP1610gbrg</string>
+  <string name="pref_camera_picture_format_entry_raw_bayer_ideal_plain16_10grbg">BayerIP1610grbg</string>
   <!-- Picture format entry values. Do not translate. -->
   <!-- Settings screen, Picture quality title -->
   <!-- Settings screen, Picture quality dialog radio button choices -->
@@ -154,6 +227,7 @@
   <!-- Scene mode for taking a photo with backlight. -->
   <!-- Scene mode optimized for taking images of flowers. -->
   <!-- Scene mode optimized for taking images of AR. -->
+  <string name="pref_camera_scenemode_entry_ar">AR</string>
   <!-- Default auto scene detection setting. -->
   <!-- Settings screen, Select Auto Scene Detection -->
   <!-- Settings menu, auto scene detection choices -->
@@ -174,10 +248,46 @@
   <!--Default video rotation setting-->
   <!--Settings screen, video rotation title-->
   <!-- Settings screen, Video rotation dialog radio button choices -->
+  <string name="pref_camera_video_rotation_entry_0">0</string>
+  <string name="pref_camera_video_rotation_entry_90">90</string>
+  <string name="pref_camera_video_rotation_entry_180">180</string>
+  <string name="pref_camera_video_rotation_entry_270">270</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
   <!-- Continous shot enable message -->
   <!-- Advance features enable message -->
   <!-- The alas of CameraActivity for gesture operation -->
+  <string name="pref_camera_tsmakeup_custom">Fərdi</string>
+  <string name="text_tsmakeup_alert_quit">Çıx</string>
+  <string name="all_in_focus">Hamısı Fokusda</string>
   <!-- Touch-focus duration settings -->
+  <string name="pref_camera_touchfocus_duration_default">3</string>
+  <string name="pref_video_touchfocus_duration_default">0</string>
+  <string name="pref_camera_touchfocus_duration_entry_0">0 saniyə</string>
+  <string name="pref_camera_touchfocus_duration_entry_3">3 saniyə</string>
+  <string name="pref_camera_touchfocus_duration_entry_5">5 saniyə</string>
+  <string name="pref_camera_touchfocus_duration_entry_10">10 saniyə</string>
+  <string name="pref_camera_touchfocus_duration_entry_infinity">Sonsuz</string>
+  <string name="pref_camera_touchfocus_duration_value_0">0</string>
+  <string name="pref_camera_touchfocus_duration_value_3">3</string>
+  <string name="pref_camera_touchfocus_duration_value_5">5</string>
+  <string name="pref_camera_touchfocus_duration_value_10">10</string>
+  <string name="pref_camera_touchfocus_duration_value_infinity">0x7FFFFFFF</string>
   <!-- Slow-shutter settings -->
+  <string name="pref_camera_shutter_speed_default">0</string>
+  <string name="pref_camera_shutter_speed_entry_off">Avto</string>
+  <string name="pref_camera_shutter_speed_entry_1_5000th">1/5000 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_2500th">1/2500 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_1500th">1/1500 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_1000th">1/1000 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_500th">1/500 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_250th">1/250 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_125th">1/125 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_64th">1/64 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_32nd">1/32 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_16th">1/16 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_8th">1/8 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_4th">1/4 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1_2">1/2 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_1">1 saniyə</string>
+  <string name="pref_camera_shutter_speed_entry_2">2 saniyə</string>
 </resources>

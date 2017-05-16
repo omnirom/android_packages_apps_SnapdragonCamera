@@ -82,7 +82,7 @@
   <string name="pref_camera_advanced_feature_entry_chromaflash">Chroma-Flash</string>
   <string name="pref_camera_advanced_feature_entry_optizoom">Opti-Zoom</string>
   <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
-  <string name="pref_camera_advanced_feature_entry_trueportrait">Wahres Portrait</string>
+  <string name="pref_camera_advanced_feature_entry_trueportrait">Echtes Porträt</string>
   <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-Touch-Fokus</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
@@ -96,7 +96,7 @@
   <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB Gewinne</string>
   <!-- Manual Focus entry values -->
   <string name="pref_camera_manual_focus_title">Manueller Fokus</string>
-  <string name="pref_camera_manual_focus_entry_scale_mode">Szenenmodus</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Skalierungsmodus</string>
   <string name="pref_camera_manual_focus_entry_diopter_mode">Dioptrien-Modus</string>
   <!-- Settings screen, ZSL location dialog choices -->
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
@@ -137,12 +137,12 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">HFR/HSR ist für DIS/Zeitraffer/HDR nicht unterstützt</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
-  <string name="error_app_unsupported_hfr">Slow-Motion ist für die Größe des ausgewählten Videos nicht unterstützt.</string>
+  <string name="error_app_unsupported_hfr">Slow-Motion ist für die ausgewählte Videogröße nicht unterstützt.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
   <string name="error_app_unsupported_dis">Nicht unterstützte Video-Auflösung für Video-Stabilisierung</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
-  <string name="error_app_unsupported_hsr">High-Speed-Modus ist nicht für die Größe des ausgewählten Videos unterstützt. Wählen Sie eine niedrigere Videogröße.</string>
+  <string name="error_app_unsupported_hsr">High-Speed-Modus ist nicht für die ausgewählte Videogröße unterstützt. Wählen Sie eine niedrigere Videogröße.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
   <string name="error_app_unsupported_hfr_codec">Nur H264 video-encoding wird unterstützt, wenn HFR eingeschaltet ist</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
@@ -447,7 +447,7 @@ Serienaufnahme wird nicht unterstützt, wenn erweiterte Funktionen aktiviert sin
   <string name="text_tsmakeup_alert_msg">Verschönerung muss die Gesichtserkennung aktivieren, fortsetzen oder beenden?</string>
   <string name="text_tsmakeup_alert_continue">Fortfahren</string>
   <string name="text_tsmakeup_alert_quit">Beenden</string>
-  <string name="all_in_focus">Alle im Fokus</string>
+  <string name="all_in_focus">Alles im Fokus</string>
   <!-- Touch-focus duration settings -->
   <string name="pref_camera_touchfocus_duration_title">Touch-Fokus-Dauer</string>
   <string name="pref_camera_touchfocus_duration_default">3</string>
