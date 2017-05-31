@@ -114,12 +114,15 @@
   <!-- Settings screen, setting title text for Video HDR-->
   <string name="pref_camera_video_hdr_title">Wideo HDR</string>
   <!-- Settings menu, setting title text for cds mode-->
+  <string name="pref_camera_cds_title">Tryb CDS</string>
   <!-- Settings menu, setting title text for video cds mode-->
+  <string name="pref_camera_video_cds_title">Tryb wideo CDS</string>
   <!-- Default cds mode setting-->
   <!-- Default video cds mode setting-->
   <!-- Settings menu, setting title text for tnr mode-->
   <string name="pref_camera_tnr_title">Tryb TNR</string>
   <!-- Settings menu, setting title text for video tnr mode-->
+  <string name="pref_camera_video_tnr_title">Tryb wideo TNR</string>
   <!-- Default tnr mode setting-->
   <!-- Default video tnr mode setting-->
   <!-- Default face  detection setting. -->
@@ -132,6 +135,7 @@
   <!-- Settings menu, redeye reduction choices -->
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
+  <string name="error_app_unsupported_hfr_selection">Tryb HFR/HSR nie jest obsługiwany dla DIS/TimeLapse/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
   <!-- The message is shown in dialog when the app

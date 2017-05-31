@@ -30,6 +30,10 @@
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Video encoder title -->
   <!-- Settings screen, Video encoder dialog radio button choices -->
+  <string name="pref_camera_videoencoder_entry_0">MPEG4</string>
+  <string name="pref_camera_videoencoder_entry_1">H263</string>
+  <string name="pref_camera_videoencoder_entry_2">H264</string>
+  <string name="pref_camera_videoencoder_entry_3">H265</string>
   <!-- Default video encoder setting. A numerical value. -->
   <!-- Settings screen, Video encoder dialog title -->
   <!-- Default audio encoder setting. A numerical value. -->
@@ -38,6 +42,8 @@
   <!-- Default video duration setting. A numerical value.-->
   <!-- Settings screen, Video duration title -->
   <!-- Settings screen, Video duration dialog radio button choices -->
+  <string name="pref_camera_video_duration_entry_10">10 minutter</string>
+  <string name="pref_camera_video_duration_entry_30">30 minutter</string>
   <!-- Default Skin Tone Enhancement setting. Do not translate. -->
   <!-- Settings screen, Select Skin Tone Enhancement title -->
   <!-- Settings screen, Skin Tone Enhancement radio button choices -->
@@ -49,6 +55,7 @@
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Settings screen, Selectable advanced features title -->
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
+  <string name="pref_camera_advanced_feature_entry_chromaflash">Kromablits</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
   <!-- Manual white balance entry values -->
@@ -147,6 +154,7 @@
   <string name="pref_camera_scenemode_entry_night_portrait">Nattportrett</string>
   <!-- Scene mode to be used in a stage show. -->
   <!-- Scene mode optimized for taking images on the beach. -->
+  <string name="pref_camera_scenemode_entry_beach">Strand</string>
   <!-- Scene mode optimized for taking images in the snow. -->
   <!-- Scene mode for taking a photo as sharp as possible. -->
   <!-- Scene mode optimized for taking images of fireworks. -->
@@ -162,9 +170,11 @@
   <!-- Toast showing error if invalid size selected for  time lapse  [CHAR LIMIT=65] -->
   <!-- longshot value -->
   <!-- Toast showing non-supported functionality for flash in AE bracket -->
+  <string name="flash_aebracket_message">Blits er ikke støttet i AE-brakett-modus</string>
   <!-- Settings screen, setting title text for Auto HDR-->
   <!-- Settings screen, Auto HDR location dialog choices -->
   <!-- toast message for storage location switch -->
+  <string name="on_switch_save_path_to_sdcard">Ikke nok intern lagringsplass - byttet lagringssted til SD-kort</string>
   <!-- Settings screen, Selectable HDR mode title -->
   <!-- Settings screen, Selectable HDR mode radio button choices -->
   <!-- HDR mode entry values. Do not translate. -->

@@ -537,7 +537,9 @@ CHAR LIMIT = NONE] -->
   <string name="setting_wallpaper">Angir bakgrunn …</string>
   <string name="remaining_photos_format">%d igjen</string>
   <string name="refocus_toast">For å omfokusere siste bilde, trykk her</string>
+  <string name="pref_camera_remaining_title">Vis gjenværende teller</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
+  <string name="pref_camera_remaining_label">GJENVÆRENDE</string>
   <!-- common aspect ratios -->
   <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
   <string name="pref_camera_aspectratio_wide">Bildebredde</string>
@@ -545,5 +547,6 @@ CHAR LIMIT = NONE] -->
          parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
          NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
          will be multiplied by 100 as those languages want to count by ten thousands -->
+  <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f megapiksler</string>
   <string name="pref_camera_shuttersound_title" translatable="true">Lukkerlyd</string>
 </resources>
