@@ -86,7 +86,6 @@ public class CameraSettings {
     public static final String KEY_VIDEO_ENCODER = "pref_camera_videoencoder_key";
     public static final String KEY_AUDIO_ENCODER = "pref_camera_audioencoder_key";
     public static final String KEY_VIDEO_DURATION = "pref_camera_video_duration_key";
-    public static final String KEY_PICTURE_FORMAT = "pref_camera_pictureformat_key";
     public static final String KEY_ZSL = "pref_camera_zsl_key";
     public static final String KEY_CAMERA_SAVEPATH = "pref_camera_savepath_key";
     public static final String KEY_COLOR_EFFECT = "pref_camera_coloreffect_key";
@@ -186,7 +185,6 @@ public class CameraSettings {
     public static final String FLIP_MODE_H = "flip-h";
     public static final String FLIP_MODE_VH = "flip-vh";
 
-    private static final String KEY_QC_PICTURE_FORMAT = "picture-format-values";
     public static final String KEY_VIDEO_ROTATION = "pref_camera_video_rotation_key";
     private static final String VIDEO_QUALITY_HIGH = "high";
     private static final String VIDEO_QUALITY_MMS = "mms";
@@ -644,13 +642,6 @@ public class CameraSettings {
         }
         return substrings;
     }
-    private List<String> getSupportedPictureFormatLists() {
-        String str = mParameters.get(KEY_QC_PICTURE_FORMAT);
-        if (str == null) {
-            str = "jpeg,raw"; // if not set, fall back to default behavior
-        }
-        return split(str);
-    }
 
    public static List<String> getSupportedFlipMode(Parameters params){
         String str = params.get(KEY_QC_SUPPORTED_FLIP_MODES);
@@ -714,7 +705,6 @@ public class CameraSettings {
         ListPreference jpegQuality = group.findPreference(KEY_JPEG_QUALITY);
         ListPreference videoSnapSize = group.findPreference(KEY_VIDEO_SNAPSHOT_SIZE);
         ListPreference videoHdr = group.findPreference(KEY_VIDEO_HDR);
-        ListPreference pictureFormat = group.findPreference(KEY_PICTURE_FORMAT);
         ListPreference longShot = group.findPreference(KEY_LONGSHOT);
         ListPreference auto_hdr = group.findPreference(KEY_AUTO_HDR);
         ListPreference hdr_mode = group.findPreference(KEY_HDR_MODE);
@@ -843,11 +833,6 @@ public class CameraSettings {
         if (histogram!= null) {
             filterUnsupportedOptions(group,
                     histogram, mParameters.getSupportedHistogramModes());
-        }
-
-        if (pictureFormat!= null) {
-            filterUnsupportedOptions(group,
-                    pictureFormat, getSupportedPictureFormatLists());
         }
 
         if(advancedFeatures != null) {
