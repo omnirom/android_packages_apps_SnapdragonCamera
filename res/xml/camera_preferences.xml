@@ -187,12 +187,6 @@
             camera:entries="@array/pref_camera_antibanding_entries"
             camera:entryValues="@array/pref_camera_antibanding_entryvalues" />
     <ListPreference
-            camera:key="pref_camera_pictureformat_key"
-            camera:defaultValue="@string/pref_camera_picture_format_default"
-            camera:title="@string/pref_camera_picture_format_title"
-            camera:entries="@array/pref_camera_picture_format_entries"
-            camera:entryValues="@array/pref_camera_picture_format_entryvalues" />
-    <ListPreference
             camera:key="pref_camera_sharpness_key"
             camera:defaultValue="@string/pref_camera_sharpness_default"
             camera:title="@string/pref_camera_sharpness_title"
