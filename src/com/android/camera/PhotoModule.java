@@ -224,7 +224,6 @@ public class PhotoModule
     private ProgressBar brightnessProgressBar;
     // Constant from android.hardware.Camera.Parameters
     private static final String KEY_PICTURE_FORMAT = "picture-format";
-    private static final String KEY_QC_RAW_PICUTRE_SIZE = "raw-size";
     public static final String PIXEL_FORMAT_JPEG = "jpeg";
 
     private static final int MIN_SCE_FACTOR = -10;
@@ -1330,18 +1329,6 @@ public class PhotoModule
                         width = s.height;
                         height = s.width;
                     }
-                    String pictureFormat = mParameters.get(KEY_PICTURE_FORMAT);
-                    if (pictureFormat != null && !pictureFormat.equalsIgnoreCase(PIXEL_FORMAT_JPEG)) {
-                        // overwrite width and height if raw picture
-                        String pair = mParameters.get(KEY_QC_RAW_PICUTRE_SIZE);
-                        if (pair != null) {
-                            int pos = pair.indexOf('x');
-                            if (pos != -1) {
-                                width = Integer.parseInt(pair.substring(0, pos));
-                                height = Integer.parseInt(pair.substring(pos + 1));
-                            }
-                        }
-                    }
                     NamedEntity name = mNamedImages.getNextNameEntity();
                     String title = (name == null) ? null : name.title;
                     long date = (name == null) ? -1 : name.date;
@@ -1823,23 +1810,9 @@ public class PhotoModule
             disableLongShot = true;
         }
 
-        if ((continuousShot != null) && continuousShot.equals(continuousShotOn)) {
-            String pictureFormat = mActivity.getString(R.string.
-                    pref_camera_picture_format_value_jpeg);
-            mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, pictureFormat);
-        } else {
-            mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, null);
-        }
         String reFocus =
             mParameters.get(CameraSettings.KEY_QC_RE_FOCUS);
 
-        if (mFocusManager.isZslEnabled()) {
-            String pictureFormat = mActivity.getString(R.string.
-                    pref_camera_picture_format_value_jpeg);
-            mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, pictureFormat);
-        } else {
-            mUI.overrideSettings(CameraSettings.KEY_PICTURE_FORMAT, null);
-        }
         if ((multiTouchFocus != null && multiTouchFocus.equals(multiTouchFocusOn)) ||
                 (chromaFlash != null && chromaFlash.equals(chromaFlashOn)) ||
                 (optiZoom != null && optiZoom.equals(optiZoomOn)) ||
@@ -2962,24 +2935,6 @@ public class PhotoModule
                 mTouchAfAecFlag = false;
         }
 
-        // Set Picture Format
-        // Picture Formats specified in UI should be consistent with
-        // PIXEL_FORMAT_JPEG and PIXEL_FORMAT_RAW constants
-        String pictureFormat = mPreferences.getString(
-                CameraSettings.KEY_PICTURE_FORMAT,
-                mActivity.getString(R.string.pref_camera_picture_format_default));
-
-        //Change picture format to JPEG if camera is start from other APK by intent.
-        if (mIsImageCaptureIntent && !pictureFormat.equals(PIXEL_FORMAT_JPEG)) {
-            pictureFormat = PIXEL_FORMAT_JPEG;
-            Editor editor = mPreferences.edit();
-            editor.putString(CameraSettings.KEY_PICTURE_FORMAT,
-                mActivity.getString(R.string.pref_camera_picture_format_value_jpeg));
-            editor.apply();
-        }
-        Log.v(TAG, "Picture format value =" + pictureFormat);
-        mParameters.set(KEY_PICTURE_FORMAT, pictureFormat);
-
         // Set JPEG quality.
         String jpegQuality = mPreferences.getString(
                 CameraSettings.KEY_JPEG_QUALITY,
@@ -3316,9 +3271,6 @@ public class PhotoModule
             mParameters.setCameraMode(1);
             mFocusManager.setZslEnable(true);
 
-            //Raw picture format is not supported under ZSL mode
-            mParameters.set(KEY_PICTURE_FORMAT, PIXEL_FORMAT_JPEG);
-
             //Try to set CAF for ZSL
             if(CameraUtil.isSupported(Parameters.FOCUS_MODE_CONTINUOUS_PICTURE,
                     mParameters.getSupportedFocusModes()) && !mFocusManager.isTouch()) {
@@ -3330,15 +3282,6 @@ public class PhotoModule
             } else {
                 // If not supported use the current mode
                 mFocusManager.overrideFocusMode(mFocusManager.getFocusMode(false));
-            }
-
-            if (!pictureFormat.equals(PIXEL_FORMAT_JPEG)) {
-                mActivity.runOnUiThread(new Runnable() {
-                    public void run() {
-                        RotateTextToast.makeText(mActivity, R.string.error_app_unsupported_raw,
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
             }
         } else if(zsl.equals("off")) {
             mSnapshotMode = CameraInfo.CAMERA_SUPPORT_MODE_NONZSL;
