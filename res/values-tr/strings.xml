@@ -121,9 +121,9 @@
   <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
   <string name="unit_mm">mm</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
-  <string name="manual">Manuel</string>
+  <string name="manual">Bizzat</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
-  <string name="auto">Otomatik</string>
+  <string name="auto">Kendiliğinden</string>
   <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
   <string name="flash_on">Flaş patladı</string>
   <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
@@ -173,7 +173,7 @@
     <item quantity="other">%d saniye</item>
   </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
-  <string name="pref_camera_timer_sound_title">Geri sayımda bip sesi çıkar</string>
+  <string name="pref_camera_timer_sound_title">Geri sayımda ses ile ikaz et</string>
   <!-- Entry of camera save path -->
   <string name="pref_camera_savepath_title">Depolama konumu</string>
   <string name="pref_camera_savepath_default">0</string>
@@ -209,13 +209,13 @@
   <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">Odak modu</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
-  <string name="pref_camera_focusmode_entry_auto">Otomatik</string>
+  <string name="pref_camera_focusmode_entry_auto">Kendiliğinden</string>
   <!-- A setting that lets the camera focus into infinity. [CHAR LIMIT=20] -->
   <string name="pref_camera_focusmode_entry_infinity">Sonsuz</string>
   <!-- A setting that lets the camera operate in macro focus mode for nearby objects. [CHAR LIMIT=20] -->
   <string name="pref_camera_focusmode_entry_macro">Makro</string>
   <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
-  <string name="pref_camera_focusmode_label_auto">OTOMATİK</string>
+  <string name="pref_camera_focusmode_label_auto">KENDİLİĞİNDEN</string>
   <string name="pref_camera_focusmode_label_infinity">SONSUZ</string>
   <string name="pref_camera_focusmode_label_macro">MAKRO</string>
   <!-- Default flash mode setting.-->
@@ -223,13 +223,13 @@
   <!-- Settings screen, Flash mode title -->
   <string name="pref_camera_flashmode_title">Flaş modu</string>
   <!-- Settings screen, Flash mode 'auto'. [CHAR LIMIT=12] -->
-  <string name="pref_camera_flashmode_entry_auto">Otomatik</string>
+  <string name="pref_camera_flashmode_entry_auto">Kendiliğinden</string>
   <!-- Settings screen, Flash mode 'alway on'. [CHAR LIMIT=12] -->
   <string name="pref_camera_flashmode_entry_on">Açık</string>
   <!-- Settings screen, Flash mode 'always off'. [CHAR LIMIT=12] -->
   <string name="pref_camera_flashmode_entry_off">Kapalı</string>
   <!-- Menu, flash mode labels [CHAR LIMIT=50] -->
-  <string name="pref_camera_flashmode_label_auto">OTOMATİK FLAŞ</string>
+  <string name="pref_camera_flashmode_label_auto">KENDİLİĞİNDEN FLAŞ</string>
   <string name="pref_camera_flashmode_label_on">FLAŞ AÇIK</string>
   <string name="pref_camera_flashmode_label_off">FLAŞ KAPALI</string>
   <!-- Default videocamera flash mode setting.-->
@@ -239,13 +239,13 @@
   <!-- Menu, white balance label -->
   <string name="pref_camera_whitebalance_label">BEYAZ DENGESİ</string>
   <!-- Settings screen, White balance dialog radio button choices -->
-  <string name="pref_camera_whitebalance_entry_auto">Otomatik</string>
+  <string name="pref_camera_whitebalance_entry_auto">Kendiliğinden</string>
   <string name="pref_camera_whitebalance_entry_incandescent">Ampul</string>
   <string name="pref_camera_whitebalance_entry_daylight">Gün Işığı</string>
   <string name="pref_camera_whitebalance_entry_fluorescent">Floresan</string>
   <string name="pref_camera_whitebalance_entry_cloudy">Bulutlu</string>
   <!-- Menu, White balance labels [CHAR LIMIT=50] -->
-  <string name="pref_camera_whitebalance_label_auto">OTOMATİK</string>
+  <string name="pref_camera_whitebalance_label_auto">KENDİLİĞİNDEN</string>
   <string name="pref_camera_whitebalance_label_incandescent">AMPUL</string>
   <string name="pref_camera_whitebalance_label_daylight">GÜN IŞIĞI</string>
   <string name="pref_camera_whitebalance_label_fluorescent">FLORESAN</string>
@@ -254,7 +254,7 @@
   <!-- Settings screen, Select Scene mode -->
   <string name="pref_camera_scenemode_title">Sahne modu</string>
   <!-- Settings menu, scene mode choices [CHAR LIMIT=16] -->
-  <string name="pref_camera_scenemode_entry_auto">Otomatik</string>
+  <string name="pref_camera_scenemode_entry_auto">Kendiliğinden</string>
   <!-- Scene mode that uses HDR plus (better HDR) [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_hdr_plus">HDR+</string>
   <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
@@ -300,7 +300,7 @@
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
   <string name="not_selectable_in_scene_mode">Sahne modunda seçilemez.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
-  <string name="HDR_disable_continuous_shot">HDR\'ı etkinleştirmek Sürekli Çekimi devre dışı bırakacaktır.</string>
+  <string name="HDR_disable_continuous_shot">HDR\'yi etkinleştirmek Sürekli Çekimi devre dışı bırakacaktır.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
   <string name="advanced_capture_disable_continuous_shot">Gelişmiş Çekimi etkinleştirmek Sürekli Çekimi devre dışı bırakacaktır.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
@@ -394,20 +394,20 @@
   <!-- The button to switch to Panorama mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_panorama">Panorama moduna geç</string>
   <!-- The button to switch to the Photo Sphere mode. [CHAR LIMIT = NONE] -->
-  <string name="accessibility_switch_to_photo_sphere">Photo Sphere moduna geç</string>
+  <string name="accessibility_switch_to_photo_sphere">Fotoğraf Küresi moduna geç</string>
   <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_gcam">Yüksek kaliteye geç</string>
   <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
-  <string name="accessibility_review_cancel">İnceleme modu iptal</string>
+  <string name="accessibility_review_cancel">İnceleme modunu iptal et</string>
   <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
-  <string name="accessibility_review_ok">İnceleme modu tamam</string>
+  <string name="accessibility_review_ok">İnceleme modu tamamlandı</string>
   <!-- button in review mode indicate the user want to retake another photo/video for attachment [
 CHAR LIMIT = NONE] -->
   <string name="accessibility_review_retake">İnceleme modu tekrar çek</string>
   <!-- Default text for a button that can be toggled on and off. -->
-  <string name="capital_on">AÇ</string>
+  <string name="capital_on">AÇIK</string>
   <!-- Default text for a button that can be toggled on and off. -->
-  <string name="capital_off">KAPAT</string>
+  <string name="capital_off">KAPALI</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_off">Kapalı</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->

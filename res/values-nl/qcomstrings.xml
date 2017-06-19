@@ -78,22 +78,40 @@
   <!-- Settings screen, Selectable Zone Af dialog radio button choices -->
   <string name="pref_camera_advanced_feature_entry_none">Geen</string>
   <string name="pref_camera_advanced_feature_entry_ubifocus">Ubi Focus</string>
+  <string name="pref_camera_advanced_feature_entry_refocus">Refocus</string>
+  <string name="pref_camera_advanced_feature_entry_chromaflash">Chroma Flash</string>
+  <string name="pref_camera_advanced_feature_entry_optizoom">Opti-Zoom</string>
+  <string name="pref_camera_advanced_feature_entry_FSSR">FSSR</string>
+  <string name="pref_camera_advanced_feature_entry_multi_touch_focus">Multi-touch Focus</string>
   <!-- Auto exposure entry values. Do not translate. -->
   <!-- Manual exposure control entry values -->
   <string name="pref_camera_manual_exp_title">Handmatige belichting</string>
   <string name="pref_camera_manual_exp_entry_ISO_priority">ISO prioriteit</string>
+  <string name="pref_camera_manual_exp_entry_exptime_priority">Prioriteit belichtingstijd</string>
+  <string name="pref_camera_manual_exp_entry_user_setting">Gebruikersinstelling</string>
   <!-- Manual white balance entry values -->
+  <string name="pref_camera_manual_wb_title">Handmatige witbalans</string>
+  <string name="pref_camera_manual_wb_entry_color_temperature">Kleurtemperatuur</string>
+  <string name="pref_camera_manual_wb_entry_rbgb_gains">RBGB regeling</string>
   <!-- Manual Focus entry values -->
+  <string name="pref_camera_manual_focus_title">Handmatige Focus</string>
+  <string name="pref_camera_manual_focus_entry_scale_mode">Scale Mode</string>
+  <string name="pref_camera_manual_focus_entry_diopter_mode">Diopter mode</string>
   <!-- Settings screen, ZSL location dialog choices -->
   <!-- The message is shown in toast when HDR or scene mode is enabled -->
+  <string name="hdr_enable_message">HDR is ingeschakeld, alleen automatische scène modus wordt ondersteund</string>
+  <string name="scene_enable_message">HDR wordt niet ondersteund in de scène modus, alleen Auto</string>
   <!-- Settings screen, Video HDR location dialog choices -->
   <!-- Settings screen, CDS location dialog choices -->
+  <string name="pref_camera_cds_entry_auto">Auto</string>
   <!-- Settings screen, video CDS location dialog choices -->
+  <string name="pref_camera_video_cds_entry_auto">Auto</string>
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, video TNR location dialog choices -->
   <!-- Settings screen, setting title text for Video HDR-->
+  <string name="pref_camera_video_hdr_title">Video HDR</string>
   <!-- Settings menu, setting title text for cds mode-->
   <string name="pref_camera_cds_title">CDS modus</string>
   <!-- Settings menu, setting title text for video cds mode-->
@@ -112,19 +130,30 @@
   <!-- Settings menu, Face Detection choices -->
   <!-- Default redeye reduction setting. -->
   <!-- Settings screen, Select Redeye Reduction -->
+  <string name="pref_camera_redeyereduction_title">Rode ogen reductie</string>
   <!-- Settings menu, redeye reduction choices -->
   <!-- Default mce setting. Do not translate. -->
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
+  <string name="error_app_unsupported_hfr_selection">HFR/HSR wordt niet ondersteund voor DIS/TimeLapse/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
+  <string name="error_app_unsupported_hfr">Slow-mo wordt niet ondersteund voor de geselecteerde video resolutie.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
+  <string name="error_app_unsupported_dis">Video stabilisatie wordt bij deze resolutie niet ondersteund</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
+  <string name="error_app_unsupported_hsr">Snelle modus wordt niet ondersteund voor de resolutie van de geselecteerde video. Kies een lagere resolutie.</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video codec for HFR mode -->
+  <string name="error_app_unsupported_hfr_codec">Alleen H264 video-codering wordt ondersteund wanneer HFR AAN staat</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video resolution-->
+  <string name="error_app_unsupported">Niet-ondersteunde video resolutie voor dit type encoder</string>
   <!-- The message is shown in dialog when the app encounters an unsupported video profile-->
+  <string name="error_app_unsupported_profile">Niet-ondersteunde video profiel</string>
   <!--The message is shown in dialog when the raw snapshot is selected in zsl mode-->
+  <string name="error_app_unsupported_raw">RAW beeldformaat wordt niet ondersteund in zsl modus, omzetten naar JPEG    </string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution (4k DCI) for video HDR-->
+  <string name="error_app_unsupported_video_hdr">HDv Video wordt niet ondersteund voor 4k DCI</string>
   <!-- Settings screen, AE bracketing and HDR location dialog choices -->
+  <string name="pref_camera_ae_bracket_hdr_title">Automatische belichting bracketing</string>
   <!-- The messsage shown if user selects a snapshot resolution lower than the current video size. -->
   <!-- The messsage shown if user selects a snapshot resolution in low power mode. -->
   <!-- The messsage shown if user tries to take snapshot during D1/QCIF resolution. -->
@@ -149,6 +178,10 @@
   <!-- Settings screen, Select Color effect title -->
   <!-- Settings screen, Color effect dialog radio button choices -->
   <!-- Color effect that overexposes and reverses some of the tones. -->
+  <string name="pref_camera_coloreffect_entry_mosaic">Mozaïek</string>
+  <string name="pref_camera_coloreffect_entry_redtint">Rode tint</string>
+  <string name="pref_camera_coloreffect_entry_bluetint">Blauwe tint</string>
+  <string name="pref_camera_coloreffect_entry_greentint">Groene tint</string>
   <!-- Default Touch AF/AEC setting. Do not translate. -->
   <!-- Settings screen, Select Touch AF/AEC title -->
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
@@ -158,18 +191,49 @@
   <!-- Face Recognition choices -->
   <!-- Settings screen, Multiple levels entries -->
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_contrast_entry_level2">Niveau 2</string>
+  <string name="pref_camera_contrast_entry_level3">Niveau 3</string>
+  <string name="pref_camera_contrast_entry_level4">Niveau 4</string>
+  <string name="pref_camera_contrast_entry_level5">Niveau 5 (standaard)</string>
+  <string name="pref_camera_contrast_entry_level6">Niveau 6</string>
+  <string name="pref_camera_contrast_entry_level7">Niveau 7</string>
+  <string name="pref_camera_contrast_entry_level8">Niveau 8</string>
+  <string name="pref_camera_contrast_entry_level9">Niveau 9</string>
+  <string name="pref_camera_contrast_entry_level10">Niveau 10</string>
   <!-- Settings screen, Multiple levels entries -->
+  <string name="pref_camera_saturation_entry_level0">Niveau 0</string>
+  <string name="pref_camera_saturation_entry_level1">Niveau 1</string>
+  <string name="pref_camera_saturation_entry_level2">Niveau 2</string>
+  <string name="pref_camera_saturation_entry_level3">Niveau 3</string>
+  <string name="pref_camera_saturation_entry_level4">Niveau 4</string>
+  <string name="pref_camera_saturation_entry_level5">Niveau 5 (standaard)</string>
+  <string name="pref_camera_saturation_entry_level6">Niveau 6</string>
+  <string name="pref_camera_saturation_entry_level7">Niveau 7</string>
+  <string name="pref_camera_saturation_entry_level8">Niveau 8</string>
+  <string name="pref_camera_saturation_entry_level9">Niveau 9</string>
+  <string name="pref_camera_saturation_entry_level10">Niveau 10</string>
   <!-- Default sharpness setting. Do not translate. -->
   <!-- Settings screen, Select sharpness title -->
+  <string name="pref_camera_sharpness_title">Scherpte</string>
   <!-- Default contrast setting. Do not translate. -->
   <!-- Settings screen, Select contrast title -->
+  <string name="pref_camera_contrast_title">Contrast</string>
   <!-- Default saturation setting. Do not translate. -->
   <!-- Settings screen, Select saturation title -->
+  <string name="pref_camera_saturation_title">Verzadiging</string>
   <!-- Default picture quality setting. See
          pref_camera_jpegquality_entryvalues for possible values -->
   <!-- Default Picture format setting. Do not translate. -->
   <!-- Settings screen, Select Picture format title -->
+  <string name="pref_camera_picture_format_title">Beeldformaat selecteren</string>
   <!-- Settings screen, picture format dialog radio button choices -->
+  <string name="pref_camera_picture_format_entry_jpeg">Jpeg</string>
+  <string name="pref_camera_picture_format_entry_raw">Raw</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_422_sp">YUV422SP</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yuyv">YUVRaw8YUYV</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_yvyu">YUVRaw8YVYU</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_uyvy">YUVRaw8UYVY</string>
+  <string name="pref_camera_picture_format_entry_raw_yuv_8bit_vyuy">YUVRaw8VYUY</string>
   <!-- Picture format entry values. Do not translate. -->
   <!-- Settings screen, Picture quality title -->
   <!-- Settings screen, Picture quality dialog radio button choices -->
