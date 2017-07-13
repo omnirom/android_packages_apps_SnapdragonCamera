@@ -19,7 +19,7 @@
   <string name="app_name">Câmera</string>
   <string name="snapcam_app_name">Câmera</string>
   <!-- The label for the Video Camera activity. [CHAR LIMIT=16] -->
-  <string name="video_camera_label">Filmadora</string>
+  <string name="video_camera_label">Câmara de vídeo</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
   <string name="details_ms">%1$02d:%2$02d</string>
   <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
@@ -69,7 +69,7 @@
          [CHAR_LIMIT=20]-->
   <string name="edit">Editar</string>
   <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
-  <string name="crop_action">Cortar</string>
+  <string name="crop_action">Recortar</string>
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
   <string name="trim_action">Cortar</string>
   <!-- The title of the menu item to let user set the image as background etc. [CHAR LIMIT=15] -->
@@ -78,7 +78,8 @@
   <string name="video_err">Impossível reproduzir o vídeo.</string>
   <!-- Toast message shown when the cropped image has been saved in the
          %s folder (string: folder_download) [CHAR LIMIT=50]-->
-  <string name="crop_saved">A imagem cortada foi salva em <xliff:g id="FOLDER_NAME">%s</xliff:g>.</string>
+  <string name="crop_saved">
+        A imagem cortada foi salva em <xliff:g id="Folder_NAME">%s</xliff:g>.</string>
   <!-- Text indicating the title of a media item in details window [CHAR LIMIT=14] -->
   <string name="title">Título</string>
   <!-- Text indicating the description of a media item in details window [CHAR LIMIT=14] -->
@@ -132,7 +133,8 @@
   <string name="unknown">Desconhecido</string>
   <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
-  <string name="try_to_set_local_album_available_offline">Este item está armazenado localmente e disponível para uso off-line.</string>
+  <string name="try_to_set_local_album_available_offline">
+Este item é armazenado localmente e disponível offline.</string>
   <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
   <string name="please_wait">Aguarde</string>
   <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
@@ -162,7 +164,7 @@
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Frontal</string>
   <!-- Settings screen, setting title text -->
-  <string name="pref_camera_recordlocation_title">GPS location</string>
+  <string name="pref_camera_recordlocation_title">Geolocalização</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">LOCAL</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -175,12 +177,12 @@
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
   <string name="pref_camera_timer_sound_title">Aviso sonoro na contagem</string>
   <!-- Entry of camera save path -->
-  <string name="pref_camera_savepath_title">Storage</string>
+  <string name="pref_camera_savepath_title">Local de armazenamento</string>
   <string name="pref_camera_savepath_default">0</string>
-  <string name="pref_camera_savepath_entry_0">Phone</string>
-  <string name="pref_camera_savepath_entry_1">SD Card</string>
+  <string name="pref_camera_savepath_entry_0">Armazenamento interno</string>
+  <string name="pref_camera_savepath_entry_1">Cartão SD</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
-  <string name="setting_off">Desl.</string>
+  <string name="setting_off">Desligado</string>
   <!-- Entry of a on/off setting. The setting is turned on. [CHAR LIMIT=15] -->
   <string name="setting_on">Ligado</string>
   <!-- The value of a camera preference indicating the setting is off. -->
@@ -298,13 +300,13 @@
   <!-- Settings menu countdown timer 15 seconds [CHAR LIMIT=50] -->
   <string name="pref_camera_countdown_label_fifteen">15 SEGUNDOS</string>
   <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->
-  <string name="not_selectable_in_scene_mode">Não pode ser selecionado no modo de cena.</string>
+  <string name="not_selectable_in_scene_mode">Esta definição não pode ser selecionado no modo de cena.</string>
   <!-- Toast after enable HDR function to inform Continuous Shot has disabled -->
-  <string name="HDR_disable_continuous_shot">HDR will disable continuous shot.</string>
+  <string name="HDR_disable_continuous_shot">Habilitar HDR irá desativar o disparo contínuo.</string>
   <!-- Toast after enable Advanced Capture function to inform Continuous Shot has disabled -->
-  <string name="advanced_capture_disable_continuous_shot">Advanced capture will disable continuous shot.</string>
+  <string name="advanced_capture_disable_continuous_shot">A captura avançada irá desativar o disparo contínuo.</string>
   <!-- Toast after enable 2k4k video quality to inform IS has disabled -->
-  <string name="video_quality_4k_disable_IS">4k video quality will disable image stabilization.</string>
+  <string name="video_quality_4k_disable_IS">Ativar vídeo 4K desativará a estabilização da imagem.</string>
   <!-- Exposure settings in preference -->
   <string name="pref_exposure_title">Exposição</string>
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
@@ -398,7 +400,7 @@
   <!-- The button to switch to the high quality mode. [CHAR LIMIT = NONE] -->
   <string name="accessibility_switch_to_gcam">Alternar para alta qualidade</string>
   <!-- The button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT = NONE] -->
-  <string name="accessibility_review_cancel">Cancelar</string>
+  <string name="accessibility_review_cancel">Revisão cancelada</string>
   <!-- The button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT = NONE] -->
   <string name="accessibility_review_ok">Revisão concluída</string>
   <!-- button in review mode indicate the user want to retake another photo/video for attachment [
@@ -407,7 +409,7 @@ CHAR LIMIT = NONE] -->
   <!-- Default text for a button that can be toggled on and off. -->
   <string name="capital_on">LIGADO</string>
   <!-- Default text for a button that can be toggled on and off. -->
-  <string name="capital_off">DESL.</string>
+  <string name="capital_off">DESLIGADO</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_off">Desligado</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
@@ -437,15 +439,15 @@ CHAR LIMIT = NONE] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_24000">24 segundos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <string name="pref_video_time_lapse_frame_interval_30000">0,5 minuto</string>
+  <string name="pref_video_time_lapse_frame_interval_30000">30 segundos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_60000">1 minuto</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <string name="pref_video_time_lapse_frame_interval_90000">1,5 minuto</string>
+  <string name="pref_video_time_lapse_frame_interval_90000">90 segundos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_120000">2 minutos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <string name="pref_video_time_lapse_frame_interval_150000">2,5 minutos</string>
+  <string name="pref_video_time_lapse_frame_interval_150000">150 segundos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_180000">3 minutos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
@@ -463,15 +465,15 @@ CHAR LIMIT = NONE] -->
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_1440000">24 minutos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <string name="pref_video_time_lapse_frame_interval_1800000">0,5 hora</string>
+  <string name="pref_video_time_lapse_frame_interval_1800000">30 minutos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_3600000">1 hora</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <string name="pref_video_time_lapse_frame_interval_5400000">1,5 hora</string>
+  <string name="pref_video_time_lapse_frame_interval_5400000">90 minutos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_7200000">2 horas</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
-  <string name="pref_video_time_lapse_frame_interval_9000000">2,5 horas</string>
+  <string name="pref_video_time_lapse_frame_interval_9000000">150 minutos</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
   <string name="pref_video_time_lapse_frame_interval_10800000">3 horas</string>
   <!-- Text to indicate time lapse recording frame interval [CHAR LIMIT = 30] -->
@@ -505,7 +507,7 @@ CHAR LIMIT = NONE] -->
   <!-- On-screen hint during timer countdown for taking a photo. [CHAR LIMIT = 60]-->
   <string name="count_down_title_text">Contagem regressiva para tirar foto</string>
   <!-- Title for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 50] -->
-  <string name="remember_location_title">Gravar locais de fotos?</string>
+  <string name="remember_location_title">Memorizar localizações das fotografias?</string>
   <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
   <string name="remember_location_prompt">Marque seus vídeos e fotos com os locais onde foram gerados.\n\nOutros aplicativos podem acessar essas informações juntamente com suas imagens salvas.</string>
   <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
@@ -535,8 +537,8 @@ CHAR LIMIT = NONE] -->
   <string name="switch_photo_filmstrip">Visualização de película</string>
   <!--  String shown when setting the homepage wallpaper in the background [CHAR LIMIT=NONE] -->
   <string name="setting_wallpaper">Definindo plano de fundo</string>
-  <string name="remaining_photos_format">%d left</string>
-  <string name="refocus_toast">Para re-focar a última foto, toque aqui</string>
+  <string name="remaining_photos_format">%d esquerda</string>
+  <string name="refocus_toast">Para voltar a focar a última foto, toque aqui</string>
   <string name="pref_camera_remaining_title">Mostrar contador restante</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_remaining_label">RESTANDO</string>

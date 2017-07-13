@@ -54,7 +54,7 @@
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_albums_selected">
-    <item quantity="one">%1$d vybraná</item>
+    <item quantity="one">%1$d vybraný</item>
     <item quantity="few">%1$d vybrané</item>
     <item quantity="other">%1$d vybraných</item>
   </plurals>
@@ -114,11 +114,11 @@
   <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
   <string name="aperture">Clona</string>
   <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
-  <string name="focal_length">Ohnisková vzd.</string>
+  <string name="focal_length">Ohnisko</string>
   <!-- Text indicating the white balance of a media item in details window [CHAR LIMIT=18] -->
-  <string name="white_balance">Vyváž. bielej</string>
+  <string name="white_balance">Vyváženie bielej</string>
   <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
-  <string name="exposure_time">Doba expozície</string>
+  <string name="exposure_time">Čas expozície</string>
   <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
   <string name="iso">ISO</string>
   <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
@@ -127,7 +127,7 @@
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12] -->
   <string name="manual">Ručne</string>
   <!-- String indicating how camera shooting feature is used. [CHAR LIMIT=12 -->
-  <string name="auto">Automat.</string>
+  <string name="auto">Automaticky</string>
   <!-- String indicating camera flash is fired. [CHAR LIMIT=14] -->
   <string name="flash_on">S bleskom</string>
   <!-- String indicating camera flash is not used. [CHAR LIMIT=14] -->
@@ -138,7 +138,7 @@
          [CHAR LIMIT=150] -->
   <string name="try_to_set_local_album_available_offline">Táto položka je uložená miestne a je k dispozícii v režime offline.</string>
   <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
-  <string name="please_wait">Počkajte</string>
+  <string name="please_wait">Prosím, čakajte</string>
   <!-- Text to show with progress bar while stitching a photo sphere. 'Photo sphere' is a product name. [CHAR LIMIT=35]-->
   <string name="rendering_photo_sphere">Vykresľovanie Photo Sphere</string>
   <!-- title for the dialog showing the error of camera hardware -->
@@ -148,11 +148,11 @@
   <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->
   <string name="camera_disabled">Fotoaparát je zakázaný z dôvodu bezpečnostných pravidiel.</string>
   <!-- alert to the user to wait for some operation to complete -->
-  <string name="wait">Čakajte...\u2026</string>
+  <string name="wait">Prosím, čakajte\u2026</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
   <string name="no_storage" product="default">Pred použitím fotoaparátu vložte kartu SD.</string>
   <!-- alert to the user that the SD card is being disk-checked -->
-  <string name="preparing_sd" product="default">Príprava SD karty...\u2026</string>
+  <string name="preparing_sd" product="default">Pripravuje sa SD karta\u2026</string>
   <!-- alert to the user that the camera fails to read or write the SD card. -->
   <string name="access_sd_fail" product="default">Nepodarilo sa získať prístup ku karte SD.</string>
   <!-- A label that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->
@@ -166,7 +166,7 @@
   <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->
   <string name="pref_camera_id_entry_front">Predný</string>
   <!-- Settings screen, setting title text -->
-  <string name="pref_camera_recordlocation_title">Ukladať polohu</string>
+  <string name="pref_camera_recordlocation_title">Ukladanie polohy</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_location_label">POLOHA</string>
   <!-- Title for countdown timer on camera settings screen [CHAR LIMIT=30]-->
@@ -178,7 +178,7 @@
     <item quantity="other">%d sekúnd</item>
   </plurals>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 24]-->
-  <string name="pref_camera_timer_sound_title">Zvuk odpočít.</string>
+  <string name="pref_camera_timer_sound_title">Pípanie odpočítavania</string>
   <!-- Entry of camera save path -->
   <string name="pref_camera_savepath_title">Úložisko</string>
   <string name="pref_camera_savepath_default">0</string>
@@ -240,7 +240,7 @@
   <!-- Default videocamera flash mode setting.-->
   <!-- Default white balance setting. -->
   <!-- Settings screen, white balance title -->
-  <string name="pref_camera_whitebalance_title">Vyváž. bielej</string>
+  <string name="pref_camera_whitebalance_title">Vyváženie bielej</string>
   <!-- Menu, white balance label -->
   <string name="pref_camera_whitebalance_label">VYVÁŽENIE BIELEJ</string>
   <!-- Settings screen, White balance dialog radio button choices -->
@@ -344,7 +344,7 @@
   <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
   <string name="pano_dialog_waiting_previous">Čaká sa na predchádzajúcu panorámu</string>
   <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
-  <string name="pano_review_saving_indication_str">Ukladá sa…\u2026</string>
+  <string name="pano_review_saving_indication_str">Ukladá sa\u2026</string>
   <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
   <string name="pano_review_rendering">Vykresľovanie panorámy</string>
   <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
@@ -514,12 +514,12 @@ CHAR LIMIT = NONE] -->
   <!-- Message for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = None] -->
   <string name="remember_location_prompt">Pridajte k fotkám a videám polohy, kde boli zaznamenané.\n\nOstatné aplikácie môžu pristupovať k týmto informáciám spolu s prístupom k vašim uloženým snímkam.</string>
   <!-- Negative answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
-  <string name="remember_location_no">Nie, nemám záujem</string>
+  <string name="remember_location_no">Nie, ďakujem</string>
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_yes">Áno</string>
   <!-- Camera menu labels -->
   <!-- more options label [CHAR LIMIT=50] -->
-  <string name="camera_menu_more_label">ĎALŠIE MOŽNOSTI</string>
+  <string name="camera_menu_more_label">VIAC VOLIEB</string>
   <!-- settings label [CHAR LIMIT=50] -->
   <string name="camera_menu_settings_label">NASTAVENIA</string>
   <!--  Tiny Planet -->
@@ -542,13 +542,16 @@ CHAR LIMIT = NONE] -->
   <string name="setting_wallpaper">Prebieha nastavovanie tapety</string>
   <string name="remaining_photos_format">%d zostalo</string>
   <string name="refocus_toast">Dotykom znova zaostriť poslednú fotografiu</string>
-  <string name="pref_camera_remaining_title">Zobraziť koľko zostáva</string>
+  <string name="pref_camera_remaining_title">Zobrazenie počtu zostávajúcich snímkov</string>
   <!--  Label for record location preference [CHAR LIMIT=50] -->
   <string name="pref_camera_remaining_label">ZOSTÁVA</string>
   <!-- common aspect ratios -->
   <!-- aspect ratio greater than 16:9, so "widescreen" or "cinematic" -->
+  <string name="pref_camera_aspectratio_wide">Širokouhlý</string>
   <!-- format for entries in the picture size menu. Parameter one is aspect ratio
          parameter two is size in megapixels, e.g. "(4:3) 12.1 megapixels"
          NOTE: for Chinese (zh) and Korean (ko) the pixel number (parameter two)
          will be multiplied by 100 as those languages want to count by ten thousands -->
+  <string name="pref_camera_megapixel_format">(%1$s) %2$1.1f megapixela</string>
+  <string name="pref_camera_shuttersound_title" translatable="true">Zvuk uzávierky</string>
 </resources>

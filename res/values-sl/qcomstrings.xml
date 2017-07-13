@@ -280,7 +280,7 @@
          pref_camera_jpegquality_entryvalues for possible values -->
   <!-- Default Picture format setting. Do not translate. -->
   <!-- Settings screen, Select Picture format title -->
-  <!-- Picture format entry values. Do not translate. -->
+  <!-- Settings screen, picture format dialog radio button choices -->
   <!-- Settings screen, Picture quality title -->
   <string name="pref_camera_jpegquality_title">Kakovost slike</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->

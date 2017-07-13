@@ -137,7 +137,9 @@
   <!-- The message is shown in toast when the app encounters an unsupported selection for HFR/HSR mode -->
   <string name="error_app_unsupported_hfr_selection">Vysokorýchlostné/spomalené nahrávky nie sú podporované v režime DIS/TimeLapse/HDR</string>
   <!-- The message is shown in dialog when the app encounters an unsupported resolution for HFR mode -->
+  <string name="error_app_unsupported_hfr">Spomalený záber nie je podporovaný pre vybranú veľkosť videa.</string>
   <!-- The message is shown in toast when the app encounters an unsupported resolution for DIS mode -->
+  <string name="error_app_unsupported_dis">Nepodporované rozlíšenie videa pre stabilizáciu videa</string>
   <!-- The message is shown in dialog when the app
          encounters an unsupported resolution for HSR mode -->
   <string name="error_app_unsupported_hsr">Vybrané rozlíšenie nie je podporované v režime vysokorýchlostné nahrávanie pohybu. Vyberte nižšie rozlíšenie.</string>
@@ -228,6 +230,7 @@
   <!-- Settings screen, Touch AF/AEC dialog radio button choices -->
   <!-- Select IS title -->
   <string name="pref_camera_dis_title">Stabilizácia obrazu</string>
+  <string name="pref_camera_dis_title_new">Stabilizácia videa</string>
   <!-- DIS choices -->
   <!-- Select Face Recognition title -->
   <string name="pref_camera_facerc_title">Rozpoznanie tváre</string>
@@ -278,7 +281,6 @@
   <!-- Default Picture format setting. Do not translate. -->
   <!-- Settings screen, Select Picture format title -->
   <!-- Settings screen, picture format dialog radio button choices -->
-  <!-- Picture format entry values. Do not translate. -->
   <!-- Settings screen, Picture quality title -->
   <string name="pref_camera_jpegquality_title">Kvalita obrazu</string>
   <!-- Settings screen, Picture quality dialog radio button choices -->
