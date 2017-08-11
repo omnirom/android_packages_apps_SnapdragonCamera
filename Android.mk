@@ -1,3 +1,5 @@
+ifeq ($(BOARD_USES_SNAPDRAGONCAMERA_VERSION),)
+
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -42,3 +44,5 @@ endif
 include $(BUILD_PACKAGE)
 
 include $(call all-makefiles-under, $(LOCAL_PATH))
+
+endif # BOARD_USES_SNAPDRAGONCAMERA_VERSION
